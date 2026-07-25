@@ -9,9 +9,15 @@ import { SITE } from '../data/site';
 <section class="section" aria-labelledby="cta-heading">
   <div class="container">
     <div class="cta card card-shadow">
-      <div class="cta-visual img-slot" aria-hidden="true">
-        Illustration slot — drop your image here
-      </div>
+      <img
+        class="cta-visual"
+        src="/images/resume-ready.webp"
+        alt="Illustration of a finished resume with a green checkmark"
+        width="860"
+        height="645"
+        loading="lazy"
+        decoding="async"
+      />
       <div class="cta-copy">
         <h2 id="cta-heading">Your summary is ready. Build the rest of your resume.</h2>
         <ul class="cta-list">
@@ -48,7 +54,12 @@ import { SITE } from '../data/site';
   @media (max-width: 820px) {
     .cta { grid-template-columns: 1fr; }
   }
-  .cta-visual { min-height: 180px; }
+  .cta-visual {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-md);
+    display: block;
+  }
   .cta-copy h2 { font-size: 1.45rem; }
   .cta-list {
     list-style: none;
