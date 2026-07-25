@@ -1,0 +1,100 @@
+---
+/**
+ * Profession tiles. Live professions (present in professions.json) render as
+ * links; planned ones render as muted "coming soon" tiles — no dead links.
+ */
+import professions from '../data/professions.json';
+
+const live = Object.entries(professions).map(([slug, p]) => ({
+  slug,
+  name: p.name,
+  count: Object.values(p.examples).flat().length,
+}));
+
+const planned = [
+  'Sales', 'Teacher', 'Administrative Assistant', 'Accounting',
+  'Engineering', 'Retail', 'Warehouse', 'Driver', 'IT',
+];
+
+const icon = (name: string) => {
+  const icons: Record<string, string> = {
+    'Customer Service': 'M4 14v-3a8 8 0 0 1 16 0v3M4 14a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h1v-5H4zm16 0a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1v-5h1z',
+    'Nursing': 'M12 21s-7-4.5-9.2-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.2 12C19 16.5 12 21 12 21zM12 9.5v5M9.5 12h5',
+    'Project Manager': 'M7 3.5h10a1.5 1.5 0 0 1 1.5 1.5v14A1.5 1.5 0 0 1 17 20.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5zM8.5 8.5l1 1 2-2M8.5 13.5l1 1 2-2M14 9h2.5M14 14h2.5',
+    'Sales': 'M3.5 20.5v-6M9.2 20.5v-10M14.8 20.5V7M20.5 20.5V3.5',
+    'Teacher': 'M12 4L2.5 8.5 12 13l9.5-4.5L12 4zm-6 7v4.5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5V11',
+    'Administrative Assistant': 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm-7.5 8.5a7.5 7.5 0 0 1 15 0',
+    'Accounting': 'M6 3.5h12A1.5 1.5 0 0 1 19.5 5v14a1.5 1.5 0 0 1-1.5 1.5H6A1.5 1.5 0 0 1 4.5 19V5A1.5 1.5 0 0 1 6 3.5zM8 7.5h8M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01',
+    'Engineering': 'M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm7.5-3.5l2-.5-.5-3-2 .1a7 7 0 0 0-1-1.8l1-1.7-2.2-2.2-1.7 1a7 7 0 0 0-1.8-1L13.5 1h-3l-.3 2a7 7 0 0 0-1.8 1l-1.7-1L4.5 5.2l1 1.7a7 7 0 0 0-1 1.8l-2-.1-.5 3 2 .5',
+    'Retail': 'M6 8V6.5a6 6 0 0 1 12 0V8m-14 0h16l-1 12.5H5L4 8z',
+    'Warehouse': 'M4 20.5v-9L12 5l8 6.5v9M9 20.5v-6h6v6',
+    'Driver': 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm0-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-9-3h6m6 0h6',
+    'IT': 'M4 4.5h16A1.5 1.5 0 0 1 21.5 6v9a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 15V6A1.5 1.5 0 0 1 4 4.5zM8 20.5h8',
+  };
+  return icons[name] ?? icons['IT'];
+};
+---
+
+<section class="section" aria-labelledby="prof-heading">
+  <div class="container">
+    <div class="section-head">
+      <h2 id="prof-heading">Find examples for your role</h2>
+      <p class="muted">Live pages have copy-ready examples, power words, and a preset generator. More professions ship every week.</p>
+    </div>
+    <div class="grid grid-4">
+      {live.map((p) => (
+        <a class="prof-tile card" href={`/resume-summary/${p.slug}/`}>
+          <span class="prof-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d={icon(p.name)} stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="prof-name">{p.name}</span>
+          <span class="prof-count muted">{p.count} examples</span>
+        </a>
+      ))}
+      {planned.map((name) => (
+        <div class="prof-tile prof-soon card" aria-disabled="true">
+          <span class="prof-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d={icon(name)} stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="prof-name">{name}</span>
+          <span class="prof-count muted">Coming soon</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .prof-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px;
+    color: var(--ink);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  a.prof-tile:hover {
+    text-decoration: none;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-card);
+  }
+  .prof-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--r-sm);
+    background: var(--primary-soft);
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+  .prof-name { font-weight: 700; font-size: 0.99rem; }
+  .prof-count { font-size: 0.88rem; }
+  .prof-soon { opacity: 0.62; }
+  .prof-soon .prof-icon { background: var(--bg-subtle); color: var(--ink-muted); }
+</style>

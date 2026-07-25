@@ -1,0 +1,89 @@
+{
+  "levels": {
+    "entry": {
+      "experience": ["motivated", "detail-oriented", "quick-learning"],
+      "intro": {
+        "professional": [
+          "Entry-level {role} with hands-on training in {skill1} and a strong foundation in {skill2}.",
+          "Recent graduate pursuing a {role} position, with practical exposure to {skill1} and {skill2}."
+        ],
+        "confident": [
+          "Capable and fast-learning {role} ready to contribute from day one, with working knowledge of {skill1} and {skill2}.",
+          "Driven early-career {role} who picks up new tools quickly and has already put {skill1} into practice."
+        ],
+        "friendly": [
+          "Enthusiastic {role} at the start of my career, with a genuine interest in {skill1} and {skill2}.",
+          "People-focused {role} eager to grow, bringing energy, curiosity, and a solid base in {skill1}."
+        ]
+      },
+      "skills": [
+        "Skilled in {skills}, with a focus on learning fast and supporting the team wherever needed.",
+        "Brings a working knowledge of {skills}, built through coursework, internships, and hands-on practice.",
+        "Comfortable with {skills}, and committed to developing them further on the job."
+      ],
+      "impact": [
+        "Recognized during training for reliability, clear communication, and a consistently positive attitude.",
+        "Completed an internship where feedback highlighted accuracy, initiative, and willingness to help others.",
+        "Eager to contribute to a team and grow within a customer-focused organization.",
+        "Known for meeting deadlines, asking the right questions, and improving with every task."
+      ]
+    },
+    "mid": {
+      "experience": ["4+", "5+", "6+"],
+      "intro": {
+        "professional": [
+          "{role} with {years} years of experience delivering consistent results across {skill1} and {skill2}.",
+          "Experienced {role} ({years} years) specializing in {skill1}, {skill2}, and day-to-day process improvement."
+        ],
+        "confident": [
+          "{role} professional with {years} years of experience resolving complex issues and delivering excellent results across {skill1} and {skill2}.",
+          "Proven {role} with {years} years of measurable impact in {skill1} — from daily execution to process improvements."
+        ],
+        "friendly": [
+          "Dedicated {role} with {years} years of experience and a reputation for being the person teammates turn to for {skill1}.",
+          "Approachable, dependable {role} ({years} years) who enjoys turning tricky {skill1} problems into happy outcomes."
+        ]
+      },
+      "skills": [
+        "Skilled in {skills}, consistently resolving issues on first contact and maintaining high satisfaction scores.",
+        "Deep working knowledge of {skills}, applied daily to keep quality high and turnaround times short.",
+        "Combines {skills} to handle high volume without sacrificing accuracy or customer experience."
+      ],
+      "impact": [
+        "Improved team efficiency by 20% by streamlining communication and documenting fixes for common issues.",
+        "Cut average resolution time by 25% through better triage and clearer internal documentation.",
+        "Maintained a 95%+ satisfaction rating while handling above-average workload.",
+        "Trained and mentored new hires, reducing ramp-up time for the team by several weeks."
+      ]
+    },
+    "senior": {
+      "experience": ["8+", "10+", "12+"],
+      "intro": {
+        "professional": [
+          "Senior {role} with {years} years of experience leading teams and owning outcomes across {skill1} and {skill2}.",
+          "Accomplished {role} ({years} years) with a track record in {skill1}, {skill2}, and cross-functional leadership."
+        ],
+        "confident": [
+          "Results-driven {role} leader with {years} years of experience in {skill1} and team management.",
+          "Senior {role} with {years} years of turning underperforming processes into measurable wins across {skill1}."
+        ],
+        "friendly": [
+          "Senior {role} ({years} years) who leads by example and builds teams people genuinely want to work on, grounded in {skill1}.",
+          "Seasoned {role} with {years} years of experience — happiest when coaching others and improving {skill1} together."
+        ]
+      },
+      "skills": [
+        "Expert in {skills}, process improvement, performance metrics, and cross-functional collaboration.",
+        "Combines deep expertise in {skills} with the judgment to know which metrics actually move the business.",
+        "Brings mastery of {skills} plus the leadership habits that keep quality high as teams scale."
+      ],
+      "impact": [
+        "Consistently drives loyalty and operational excellence — including a 30% reduction in escalations year over year.",
+        "Built and led a team of 12, improving key performance metrics for eight consecutive quarters.",
+        "Introduced coaching and QA programs that lifted team satisfaction scores into the top decile.",
+        "Partnered with product and operations to remove root causes, cutting repeat issues by a third."
+      ]
+    }
+  },
+  "editHint": "Tip: swap the numbers for your own results before using this summary."
+}

@@ -1,0 +1,265 @@
+{
+  "customer-service": {
+    "name": "Customer Service",
+    "roleDefault": "Customer Service Representative",
+    "h1": "Customer Service Resume Summary Examples",
+    "metaDescription": "Copy-ready customer service resume summary examples for entry, mid, and senior level — plus a free generator that writes one for you in seconds.",
+    "shortAnswer": "A strong customer service resume summary leads with your years of experience, names the channels and tools you know (phone, email, chat, CRM), and proves impact with one number — satisfaction score, resolution time, or retention. Keep it to 3 sentences and mirror the wording of the job posting.",
+    "skills": ["Communication", "CRM", "Problem solving", "Order management", "De-escalation", "Live chat"],
+    "defaultSkills": ["Communication", "CRM", "Problem solving"],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Motivated and detail-oriented individual with strong communication skills and a passion for helping others.",
+            "Quick learner with hands-on experience in customer support and problem resolution from a part-time retail role.",
+            "Eager to contribute to a team and grow within a customer-focused organization."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Friendly, dependable entry-level customer service representative comfortable with high-volume phone and chat support.",
+            "Trained in active listening and conflict resolution; praised by supervisors for staying calm under pressure.",
+            "Looking to bring energy and reliability to a team that puts customers first."
+          ]
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Customer service professional with 6+ years of experience resolving complex issues across phone, email, and chat.",
+            "Skilled in CRM systems, order management, and de-escalation, consistently resolving issues on first contact.",
+            "Improved team efficiency by 20% by streamlining communication and documenting fixes for common issues."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Dedicated support specialist with 5 years of experience in SaaS and e-commerce environments.",
+            "Maintains a 96% customer satisfaction rating while handling 60+ tickets daily in Zendesk and Salesforce.",
+            "Known for turning frustrated customers into repeat buyers through clear, empathetic communication."
+          ]
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Results-driven leader with 10+ years of experience in customer experience and team management.",
+            "Expert in process improvement, performance metrics, and cross-functional collaboration.",
+            "Consistently drives customer loyalty and operational excellence — including a 30% reduction in escalations year over year."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Senior customer service manager with 12 years of experience building and coaching teams of up to 15 agents.",
+            "Launched QA and coaching programs that lifted CSAT from 88% to 95% in under a year.",
+            "Partners with product and operations to remove root causes of contact, cutting repeat issues by a third."
+          ]
+        }
+      ]
+    },
+    "powerWords": [
+      { "word": "Resolved", "usage": "Resolved customer issues quickly and effectively." },
+      { "word": "Retained", "usage": "Retained customers through proactive follow-up." },
+      { "word": "Improved", "usage": "Improved response time by 25% through a new process." },
+      { "word": "De-escalated", "usage": "De-escalated tense calls while protecting the relationship." },
+      { "word": "Streamlined", "usage": "Streamlined the returns workflow, saving 5 hours weekly." },
+      { "word": "Supported", "usage": "Supported a high volume of customers daily across channels." }
+    ],
+    "howToAdapt": [
+      { "step": "Mirror the job's channel mix", "text": "If the posting says \"chat and email support\", your first sentence should name chat and email — not \"phone support\", even if you did both." },
+      { "step": "Swap in their tools", "text": "Replace generic \"CRM systems\" with the exact tools in the posting (Zendesk, Intercom, Salesforce). ATS filters often match on tool names." },
+      { "step": "Pick the metric they care about", "text": "A retention-focused role wants your CSAT or churn number; a high-volume role wants tickets per day and first-contact resolution." }
+    ],
+    "faq": [
+      { "q": "What should a customer service resume summary include?", "a": "Three things: your years of experience and channels (phone, email, chat), the tools you know (CRM names), and one measurable result such as a satisfaction score or resolution-time improvement." },
+      { "q": "How long should the summary be?", "a": "Two to three sentences, 40–60 words. Recruiters spend seconds on the top of your resume — a longer block gets skimmed, not read." },
+      { "q": "Summary or objective for customer service roles?", "a": "A summary, in almost every case. Objectives talk about what you want; summaries prove what you deliver. Use an objective only if you have zero related experience — and even then, a skills-focused summary usually works better." },
+      { "q": "Should I customize the summary for every application?", "a": "Yes — at minimum, mirror the job title and swap in the tools named in the posting. It takes two minutes and is the single highest-leverage edit for passing ATS screening." }
+    ],
+    "related": ["retail", "call-center", "administrative-assistant", "sales"],
+    "relatedKeywords": [
+      "customer service resume summary",
+      "professional summary for customer service",
+      "customer service resume examples",
+      "summary for customer service resume",
+      "customer service skills for resume",
+      "resume headline for customer service"
+    ]
+  },
+
+  "nursing": {
+    "name": "Nursing",
+    "roleDefault": "Registered Nurse",
+    "h1": "Nursing Resume Summary Examples",
+    "metaDescription": "Copy-ready nursing resume summary examples for new grads, experienced RNs, and nurse leaders — plus a free generator that writes one for you in seconds.",
+    "shortAnswer": "A strong nursing resume summary states your license and specialty first (RN, BSN, med-surg, ICU), your patient load and care setting, and one outcome — patient satisfaction, safety record, or a unit improvement. Match the unit named in the job posting.",
+    "skills": ["Patient care", "EHR / Epic", "Medication administration", "Triage", "Patient education", "Team coordination"],
+    "defaultSkills": ["Patient care", "EHR / Epic", "Triage"],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "New graduate RN (BSN) with 700+ clinical hours across med-surg, pediatrics, and ICU rotations.",
+            "Trained in Epic charting, medication administration, and patient education; praised for calm, thorough handoffs.",
+            "Eager to grow on a collaborative unit committed to safe, evidence-based care."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Compassionate new-grad nurse with a strong foundation in patient assessment and family communication.",
+            "Completed a capstone preceptorship on a 32-bed telemetry unit with a 5:1 patient ratio.",
+            "Licensed RN seeking a residency program with a strong mentorship culture."
+          ]
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Registered Nurse with 6 years of med-surg and telemetry experience in high-acuity hospital settings.",
+            "Skilled in triage, EHR documentation, and patient education, managing 5–6 patient assignments per shift.",
+            "Recognized for a zero medication-error record and consistently high patient satisfaction scores."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Emergency department RN with 5 years of Level II trauma center experience.",
+            "Certified in ACLS, PALS, and TNCC; known for fast, accurate triage during peak volume.",
+            "Precepted 8 new nurses, all retained on the unit past their first year."
+          ]
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Charge nurse with 12 years of progressive experience across ICU and step-down units.",
+            "Expert in staffing coordination, quality initiatives, and mentoring — led a falls-reduction program that cut incidents by 40%.",
+            "Drives a culture of safety and teamwork that shows up in both patient outcomes and staff retention."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Nurse leader (MSN, RN) with 10+ years spanning bedside care, education, and unit management.",
+            "Championed an early-mobility protocol adopted hospital-wide, reducing average length of stay by 0.8 days.",
+            "Builds high-trust teams through transparent communication and data-driven quality improvement."
+          ]
+        }
+      ]
+    },
+    "powerWords": [
+      { "word": "Administered", "usage": "Administered medications for a 6-patient assignment with zero errors." },
+      { "word": "Triaged", "usage": "Triaged 40+ ED patients per shift during peak volume." },
+      { "word": "Educated", "usage": "Educated patients and families on discharge and care plans." },
+      { "word": "Coordinated", "usage": "Coordinated care across physicians, PT, and case management." },
+      { "word": "Reduced", "usage": "Reduced patient falls by 40% through a unit safety program." },
+      { "word": "Precepted", "usage": "Precepted new-grad nurses through their first year." }
+    ],
+    "howToAdapt": [
+      { "step": "Lead with the license and unit they need", "text": "If the posting is for an ICU role, your first line should say ICU (or the closest experience you have) — not a general \"registered nurse\" claim." },
+      { "step": "Name your certifications exactly", "text": "BLS, ACLS, PALS, CCRN — recruiters and ATS filters search for the acronyms. List the ones the posting requires first." },
+      { "step": "Use a patient-outcome number", "text": "Falls reduced, satisfaction scores, ratios handled safely. One concrete outcome beats a paragraph of duties." }
+    ],
+    "faq": [
+      { "q": "What goes in a nursing resume summary?", "a": "License and degree (RN, BSN), years and care setting, key certifications, and one measurable outcome — for example a safety record, satisfaction score, or quality-initiative result." },
+      { "q": "How do I write a summary as a new-grad nurse?", "a": "Lead with your license and clinical hours, name your strongest rotations and the EHR you trained on, and close with the kind of unit you want to grow on. Clinical hours are your experience — use the number." },
+      { "q": "Should nurses list certifications in the summary?", "a": "Yes — the ones the job posting requires (ACLS, PALS, TNCC, CCRN). Put the rest in a dedicated certifications section." },
+      { "q": "How long should a nursing summary be?", "a": "Three sentences. Nurse recruiters screen fast; your license, setting, and one outcome should be readable in under ten seconds." }
+    ],
+    "related": ["customer-service", "administrative-assistant", "medical-assistant", "caregiver"],
+    "relatedKeywords": [
+      "nursing resume summary",
+      "new grad rn resume summary",
+      "registered nurse professional summary",
+      "nursing resume examples",
+      "rn resume with no experience",
+      "nurse resume objective"
+    ]
+  },
+
+  "project-manager": {
+    "name": "Project Manager",
+    "roleDefault": "Project Manager",
+    "h1": "Project Manager Resume Summary Examples",
+    "metaDescription": "Copy-ready project manager resume summary examples for entry, mid, and senior level — plus a free generator that writes one for you in seconds.",
+    "shortAnswer": "A strong project manager resume summary names your methodology (Agile, Scrum, waterfall), the size and budget of projects you've run, and one delivery outcome — on-time rate, budget savings, or team size led. Certifications like PMP or CSM belong in the first sentence.",
+    "skills": ["Agile / Scrum", "Stakeholder management", "Budgeting", "Risk management", "Jira", "Roadmapping"],
+    "defaultSkills": ["Agile / Scrum", "Stakeholder management", "Budgeting"],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Organized, certified associate project manager (CAPM) with internship experience coordinating cross-team deliverables.",
+            "Comfortable in Jira and Confluence; built sprint reports and tracked risks for a 6-person development team.",
+            "Eager to grow into full project ownership within a fast-moving delivery organization."
+          ]
+        },
+        {
+          "paragraphs": [
+            "Early-career project coordinator with a knack for keeping schedules, notes, and people aligned.",
+            "Supported three product launches by owning timelines, meeting cadences, and status reporting.",
+            "Known for asking the questions that surface risks before they become blockers."
+          ]
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Project manager with 6 years of experience delivering software projects up to $2M on Agile teams.",
+            "Skilled in Scrum facilitation, stakeholder management, and risk tracking across distributed teams.",
+            "Delivered 90% of projects on time over three years by tightening scope control and escalation paths."
+          ]
+        },
+        {
+          "paragraphs": [
+            "PMP-certified project manager with 5 years in construction and infrastructure delivery.",
+            "Managed budgets to $5M and vendor teams of 20+, holding schedule variance under 5%.",
+            "Trusted by executives for clear reporting and honest, early escalation of risks."
+          ]
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Senior program manager with 11 years leading multi-team initiatives up to $10M across product and engineering.",
+            "Expert in portfolio planning, executive stakeholder management, and scaling Agile practices.",
+            "Cut average delivery slippage from 6 weeks to under 1 by rebuilding the intake and estimation process."
+          ]
+        },
+        {
+          "paragraphs": [
+            "PMP- and SAFe-certified delivery leader with 10+ years across fintech and e-commerce.",
+            "Built and mentored a PMO of 8 project managers supporting 30+ concurrent initiatives.",
+            "Known for turning ambiguous executive goals into roadmaps teams can actually ship."
+          ]
+        }
+      ]
+    },
+    "powerWords": [
+      { "word": "Delivered", "usage": "Delivered a $2M platform migration on time and under budget." },
+      { "word": "Coordinated", "usage": "Coordinated 5 workstreams across three time zones." },
+      { "word": "Mitigated", "usage": "Mitigated schedule risk by re-sequencing the critical path." },
+      { "word": "Facilitated", "usage": "Facilitated sprint ceremonies for three Agile teams." },
+      { "word": "Reduced", "usage": "Reduced delivery slippage by 80% via a new intake process." },
+      { "word": "Aligned", "usage": "Aligned executives and engineering on a single roadmap." }
+    ],
+    "howToAdapt": [
+      { "step": "Match their methodology", "text": "If the posting says Scrum, say Scrum — not \"Agile methodologies\". If it's a waterfall shop (construction, gov), lead with schedule and budget control instead." },
+      { "step": "Scale your numbers to the role", "text": "Name project budget, team size, and duration closest to what the posting describes. A $10M program lead summary can read as overqualified for a $200K project role — tune it." },
+      { "step": "Front-load the certification they ask for", "text": "PMP, CSM, PRINCE2 — if it's in the requirements, it goes in your first sentence, because that's what the screener is scanning for." }
+    ],
+    "faq": [
+      { "q": "What should a project manager resume summary say?", "a": "Methodology, scale (budget, team size), and one delivery outcome — on-time percentage, savings, or slippage reduction. Add your certification (PMP, CSM) in the first sentence if the posting requires it." },
+      { "q": "How do I quantify project management experience?", "a": "Use budget managed, number of concurrent projects, team headcount, and delivery metrics (on-time rate, schedule variance). Pick the two numbers that best match the role's scale." },
+      { "q": "Do I need a PMP to write a strong summary?", "a": "No — outcomes beat certifications. If you don't have a PMP, lead with your strongest delivery result and the methods you actually used." },
+      { "q": "Is a summary different for Agile vs traditional roles?", "a": "Yes. Agile roles want ceremonies, velocity, and cross-functional facilitation; traditional roles want budget, schedule variance, and vendor management. Same experience, different vocabulary." }
+    ],
+    "related": ["customer-service", "sales", "engineering", "it"],
+    "relatedKeywords": [
+      "project manager resume summary",
+      "project management professional summary",
+      "pm resume examples",
+      "agile project manager resume",
+      "senior project manager summary",
+      "project coordinator resume summary"
+    ]
+  }
+}

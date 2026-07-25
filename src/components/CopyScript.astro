@@ -1,0 +1,27 @@
+---
+/** Include ONCE per page that uses <CopyBlock>. Wires up all copy buttons. */
+---
+<script>
+  document.querySelectorAll('[data-copy-example]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const source = btn.closest('.copy-block')?.querySelector('[data-copy-source]');
+      if (!source) return;
+      const text = Array.from(source.querySelectorAll('p'))
+        .map((p) => p.textContent?.trim())
+        .filter(Boolean)
+        .join('\n\n');
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        /* clipboard unavailable — ignore */
+      }
+      const label = btn.querySelector('span');
+      btn.classList.add('is-copied');
+      if (label) label.textContent = 'Copied!';
+      setTimeout(() => {
+        btn.classList.remove('is-copied');
+        if (label) label.textContent = 'Copy';
+      }, 1800);
+    });
+  });
+</script>

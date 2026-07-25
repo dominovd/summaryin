@@ -1,0 +1,158 @@
+---
+import '../styles/global.css';
+import { SITE, NAV } from '../data/site';
+
+interface Props {
+  /** Exact-match keyword goes first; year token is appended automatically. */
+  title: string;
+  description: string;
+  /** Set false to skip the "(2026)" style year token in <title>. */
+  yearInTitle?: boolean;
+}
+
+const { title, description, yearInTitle = true } = Astro.props;
+const fullTitle = yearInTitle ? `${title} (${SITE.year}) — ${SITE.name}` : `${title} — ${SITE.name}`;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo" aria-label={`${SITE.name} — home`}>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="25" height="25" rx="7" stroke="currentColor" stroke-width="2.4"/>
+            <path d="M8 10.5h12M8 14h12M8 17.5h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M17.5 19.5l2 2 3.5-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>{SITE.name}</span>
+        </a>
+        <nav aria-label="Main">
+          <ul class="nav-list">
+            {NAV.filter((item) => item.live).map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+        <a class="btn btn-secondary header-cta" href="/resume-summary/">Browse examples</a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="/" class="logo logo-footer">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+              <rect x="1.5" y="1.5" width="25" height="25" rx="7" stroke="currentColor" stroke-width="2.4"/>
+              <path d="M8 10.5h12M8 14h12M8 17.5h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M17.5 19.5l2 2 3.5-4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>{SITE.name}</span>
+          </a>
+          <p class="muted">{SITE.tagline}</p>
+        </div>
+        <nav class="footer-col" aria-label="Resume">
+          <h3>Resume</h3>
+          <ul>
+            <li><a href="/resume-summary/">Resume summaries</a></li>
+            <li><a href="/resume-summary/">Examples by profession</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Resources">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#power-words">Power words</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container footer-legal">
+        <p>© {SITE.year} {SITE.name}.com · All rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    height: 64px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .logo svg { color: var(--primary); }
+  .logo:hover { text-decoration: none; }
+  .nav-list {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-list a { color: var(--ink-soft); font-weight: 570; font-size: 0.97rem; }
+  .nav-list a:hover { color: var(--primary); text-decoration: none; }
+  .header-cta { margin-left: auto; padding: 9px 16px; font-size: 0.95rem; }
+  @media (max-width: 720px) {
+    .nav-list { display: none; }
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-subtle);
+    margin-top: 64px;
+    padding: 44px 0 0;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 720px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+  .logo-footer { font-size: 1.02rem; }
+  .footer-brand p { margin-top: 10px; font-size: 0.95rem; max-width: 30ch; }
+  .footer-col h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-muted); }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a { color: var(--ink-soft); font-size: 0.97rem; }
+  .footer-legal {
+    margin-top: 32px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .footer-legal p { margin: 0; font-size: 0.9rem; color: var(--ink-muted); }
+</style>

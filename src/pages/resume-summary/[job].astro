@@ -1,0 +1,199 @@
+---
+/**
+ * The 11-block profession page template (playbook §template):
+ *  1. H1 = exact keyword          2. Short answer
+ *  3. Tool (preset generator)     4. Variants grid (examples by level)
+ *  5. How-to adapt                6. Power-words table
+ *  7. Visual slot                 8. Related professions grid
+ *  9. FAQ (+ schema)             10. Related keywords
+ * 11. CTA + email capture
+ * Add a profession = add one entry to src/data/professions.json.
+ */
+import Base from '../../layouts/Base.astro';
+import Generator from '../../components/Generator.astro';
+import CopyBlock from '../../components/CopyBlock.astro';
+import CopyScript from '../../components/CopyScript.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import Faq from '../../components/Faq.astro';
+import RelatedKeywords from '../../components/RelatedKeywords.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import professions from '../../data/professions.json';
+
+export function getStaticPaths() {
+  return Object.keys(professions).map((job) => ({ params: { job } }));
+}
+
+const { job } = Astro.params;
+const p = professions[job as keyof typeof professions];
+
+const humanize = (slug: string) =>
+  slug.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+const related = p.related.map((slug: string) => ({
+  slug,
+  name: (professions as Record<string, { name: string }>)[slug]?.name ?? humanize(slug),
+  live: slug in professions,
+}));
+
+const levels = [
+  { key: 'entry', label: 'Entry-level', icon: 'entry' },
+  { key: 'mid', label: 'Mid-career', icon: 'mid' },
+  { key: 'senior', label: 'Senior', icon: 'senior' },
+] as const;
+---
+
+<Base title={p.h1} description={p.metaDescription}>
+  <!-- 1. H1 + 2. Short answer -->
+  <section class="prof-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <a href="/resume-summary/">Resume summaries</a> <span aria-hidden="true">/</span>
+        <span>{p.name}</span>
+      </nav>
+      <h1>{p.h1}</h1>
+      <p class="lead short-answer">{p.shortAnswer}</p>
+    </div>
+  </section>
+
+  <!-- 3. Tool, preset for this profession -->
+  <section class="tool-section">
+    <div class="container">
+      <Generator defaultRole={p.roleDefault} skills={p.skills} defaultSkills={p.defaultSkills} />
+    </div>
+  </section>
+
+  <!-- 4. Examples by level -->
+  <section class="section" aria-labelledby="ex-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="ex-heading">{p.name} summary examples by level</h2>
+        <p class="muted">Copy any block, then swap the numbers and tools for your own.</p>
+      </div>
+      {levels.map((lvl) => (
+        <div class="level-group">
+          <h3 class="level-title">{lvl.label}</h3>
+          <div class="grid grid-2">
+            {p.examples[lvl.key].map((ex: { paragraphs: string[] }, i: number) => (
+              <CopyBlock label={`${lvl.label} · Example ${i + 1}`} icon={lvl.icon} paragraphs={ex.paragraphs} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 5. How to adapt + 6. Power words -->
+  <section class="section section-subtle" aria-labelledby="adapt-heading">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h2 id="adapt-heading" class="block-title">How to adapt these to a job posting</h2>
+          <ol class="adapt-steps">
+            {p.howToAdapt.map((s: { step: string; text: string }) => (
+              <li>
+                <h3>{s.step}</h3>
+                <p class="muted">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="card">
+          <h2 class="block-title">Power words for {p.name.toLowerCase()}</h2>
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr><th scope="col">Word</th><th scope="col">How to use it</th></tr>
+              </thead>
+              <tbody>
+                {p.powerWords.map((w: { word: string; usage: string }) => (
+                  <tr><td>{w.word}</td><td>{w.usage}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Visual slot (replace with a real image/diagram) -->
+  <section class="section" aria-label="Visual example">
+    <div class="container">
+      <div class="img-slot">
+        Visual slot — annotated “anatomy of a {p.name.toLowerCase()} summary” image goes here
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Related professions -->
+  <section class="section" aria-labelledby="rel-heading">
+    <div class="container">
+      <h2 id="rel-heading" class="block-title">Related professions</h2>
+      <div class="grid grid-4">
+        {related.map((r) =>
+          r.live ? (
+            <a class="rel-tile card" href={`/resume-summary/${r.slug}/`}>{r.name}</a>
+          ) : (
+            <div class="rel-tile rel-soon card">{r.name} <span class="muted">· soon</span></div>
+          )
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <Faq items={p.faq} heading={`${p.name} summary FAQ`} />
+
+  <!-- 10. Related keywords -->
+  <RelatedKeywords keywords={p.relatedKeywords} />
+
+  <!-- 11. Email capture + CTA bridge -->
+  <EmailCapture professionLabel={p.name.toLowerCase()} />
+  <CtaBanner />
+
+  <CopyScript />
+</Base>
+
+<style>
+  .prof-hero { padding: 44px 0 0; }
+  .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 16px; }
+  .crumbs a { color: var(--ink-muted); }
+  .crumbs span[aria-hidden] { margin: 0 4px; }
+  .short-answer { max-width: 70ch; }
+  .tool-section { padding: 28px 0 12px; }
+  .level-group { margin-bottom: 28px; }
+  .level-group:last-child { margin-bottom: 0; }
+  .level-title {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .block-title { font-size: 1.25rem; margin-bottom: 16px; }
+  .adapt-steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+  .adapt-steps li { counter-increment: step; position: relative; padding-left: 46px; margin-bottom: 18px; }
+  .adapt-steps li:last-child { margin-bottom: 0; }
+  .adapt-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.6px solid var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+  .adapt-steps h3 { margin-bottom: 2px; font-size: 1rem; }
+  .adapt-steps p { margin: 0; font-size: 0.94rem; }
+  .rel-tile { padding: 16px 18px; font-weight: 650; color: var(--ink); font-size: 0.97rem; }
+  a.rel-tile:hover { text-decoration: none; border-color: var(--primary); box-shadow: var(--shadow-card); }
+  .rel-soon { opacity: 0.62; font-weight: 550; }
+</style>

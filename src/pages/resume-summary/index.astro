@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProfessionGrid from '../../components/ProfessionGrid.astro';
+
+const description =
+  'Resume summary examples by profession — copy-ready summaries for entry, mid, and senior level, with power words and a free generator on every page.';
+---
+
+<Base title="Resume Summary Examples by Profession" description={description}>
+  <section class="hub-hero">
+    <div class="container">
+      <h1>Resume Summary Examples by Profession</h1>
+      <p class="lead">
+        Every page below has copy-ready summaries for entry, mid, and senior level,
+        a power-word table, and a generator preset for that role. Don't see yours yet?
+        The <a href="/">universal generator</a> works for any profession.
+      </p>
+    </div>
+  </section>
+  <ProfessionGrid />
+</Base>
+
+<style>
+  .hub-hero { padding: 56px 0 0; }
+</style>

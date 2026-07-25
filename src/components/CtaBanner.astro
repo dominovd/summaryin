@@ -1,0 +1,87 @@
+---
+/**
+ * Bridge CTA to the resume-builder affiliate.
+ * Copy is honest by design: no "100% free" promises we don't control.
+ */
+import { SITE } from '../data/site';
+---
+
+<section class="section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta card card-shadow">
+      <div class="cta-visual img-slot" aria-hidden="true">
+        Illustration slot — drop your image here
+      </div>
+      <div class="cta-copy">
+        <h2 id="cta-heading">Your summary is ready. Build the rest of your resume.</h2>
+        <ul class="cta-list">
+          <li>ATS-friendly templates recruiters can actually parse</li>
+          <li>Your new summary drops straight into the header section</li>
+          <li>Edit and update anytime as your experience grows</li>
+        </ul>
+        <a
+          class="btn btn-primary"
+          href={SITE.resumeBuilderUrl}
+          rel="sponsored nofollow noopener"
+          target="_blank"
+        >
+          Build my full resume
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="cta-note muted">Takes a few minutes. Your summary stays on your clipboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 32px;
+    align-items: center;
+    padding: 32px;
+    background: linear-gradient(180deg, var(--primary-soft), #fff 70%);
+  }
+  @media (max-width: 820px) {
+    .cta { grid-template-columns: 1fr; }
+  }
+  .cta-visual { min-height: 180px; }
+  .cta-copy h2 { font-size: 1.45rem; }
+  .cta-list {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    color: var(--ink-soft);
+  }
+  .cta-list li {
+    padding-left: 26px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+  .cta-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary-soft);
+    border: 1.5px solid var(--primary);
+  }
+  .cta-list li::after {
+    content: "";
+    position: absolute;
+    left: 4.5px;
+    top: 8.5px;
+    width: 7px;
+    height: 4px;
+    border-left: 1.8px solid var(--primary);
+    border-bottom: 1.8px solid var(--primary);
+    transform: rotate(-45deg);
+  }
+  .cta-note { font-size: 0.88rem; margin: 12px 0 0; }
+</style>

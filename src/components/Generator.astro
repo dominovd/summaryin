@@ -1,0 +1,314 @@
+---
+/**
+ * Client-side summary generator. Zero API calls — templates ship as JSON.
+ * One instance per page.
+ */
+interface Props {
+  defaultRole: string;
+  skills: string[];
+  /** Skills pre-selected on load (subset of `skills`). */
+  defaultSkills?: string[];
+}
+
+const { defaultRole, skills, defaultSkills = skills.slice(0, 3) } = Astro.props;
+---
+
+<section class="gen card card-shadow" aria-label="Resume summary generator" data-generator>
+  <div class="gen-grid">
+    <!-- Input panel -->
+    <div class="gen-input">
+      <h2 class="gen-title">Tell us about your experience</h2>
+
+      <label class="gen-label" for="gen-role">Role</label>
+      <input id="gen-role" class="gen-field" type="text" value={defaultRole} autocomplete="off" />
+
+      <span class="gen-label" id="gen-level-label">Experience</span>
+      <div class="seg" role="group" aria-labelledby="gen-level-label" data-level>
+        <button type="button" data-value="entry" aria-pressed="false">Entry level</button>
+        <button type="button" data-value="mid" aria-pressed="true">Mid-level</button>
+        <button type="button" data-value="senior" aria-pressed="false">Senior</button>
+      </div>
+
+      <span class="gen-label" id="gen-skills-label">Skills <span class="muted gen-label-note">(select up to 4)</span></span>
+      <div class="gen-chips" role="group" aria-labelledby="gen-skills-label" data-skills>
+        {skills.map((s) => (
+          <button type="button" class="chip" aria-pressed={defaultSkills.includes(s) ? 'true' : 'false'}>
+            <svg class="chip-check" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6.5l2.5 2.5L10 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            {s}
+          </button>
+        ))}
+      </div>
+
+      <span class="gen-label" id="gen-tone-label">Tone</span>
+      <div class="seg" role="group" aria-labelledby="gen-tone-label" data-tone>
+        <button type="button" data-value="professional" aria-pressed="false">Professional</button>
+        <button type="button" data-value="confident" aria-pressed="true">Confident</button>
+        <button type="button" data-value="friendly" aria-pressed="false">Friendly</button>
+      </div>
+
+      <button type="button" class="btn btn-primary gen-generate" data-generate>
+        Generate my summaries
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <p class="gen-privacy muted">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="2.5" y="6" width="9" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        Your input stays on your device and is not stored.
+      </p>
+    </div>
+
+    <!-- Output panel -->
+    <div class="gen-output">
+      <div class="gen-output-head">
+        <h2 class="gen-title">Your summary</h2>
+        <span class="gen-counter muted" data-counter aria-live="polite">Option 1 of 4</span>
+      </div>
+
+      <div class="gen-result" data-result aria-live="polite"></div>
+
+      <div class="gen-actions">
+        <button type="button" class="btn btn-primary" data-copy>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M10.5 5.5v-2A1.5 1.5 0 0 0 9 2H4a1.5 1.5 0 0 0-1.5 1.5v5A1.5 1.5 0 0 0 4 10h1.5" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+          <span data-copy-label>Copy summary</span>
+        </button>
+        <button type="button" class="btn btn-ghost" data-next>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M13.5 6.5a6 6 0 1 0 .5 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M14 2.5v4h-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Try another
+        </button>
+      </div>
+
+      <div class="gen-dots" data-dots role="tablist" aria-label="Summary options">
+        {[0, 1, 2, 3].map((i) => (
+          <button type="button" class="gen-dot" role="tab" aria-label={`Option ${i + 1}`} aria-selected={i === 0 ? 'true' : 'false'} data-index={i}></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gen { padding: 28px; }
+  .gen-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 32px;
+  }
+  @media (max-width: 820px) {
+    .gen-grid { grid-template-columns: 1fr; }
+  }
+  .gen-title { font-size: 1.15rem; margin-bottom: 4px; }
+  .gen-label {
+    display: block;
+    font-weight: 650;
+    font-size: 0.93rem;
+    margin: 18px 0 8px;
+  }
+  .gen-label-note { font-weight: 450; }
+  .gen-field {
+    width: 100%;
+    font: inherit;
+    padding: 11px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-sm);
+    color: var(--ink);
+  }
+  .gen-field:focus { outline: 2px solid var(--primary); outline-offset: 1px; border-color: var(--primary); }
+  .gen-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip .chip-check { display: none; }
+  .chip[aria-pressed="true"] .chip-check { display: inline; }
+  .gen-generate { margin-top: 22px; width: 100%; }
+  .gen-privacy {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.87rem;
+    margin: 12px 0 0;
+    justify-content: center;
+  }
+
+  .gen-output { display: flex; flex-direction: column; }
+  .gen-output-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .gen-counter {
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+  .gen-result {
+    flex: 1;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 20px 22px;
+    margin: 14px 0 16px;
+    min-height: 220px;
+    color: var(--ink-soft);
+  }
+  .gen-result p { margin: 0 0 0.9em; }
+  .gen-result p:last-child { margin-bottom: 0; }
+  .gen-result .gen-hint { font-size: 0.85rem; color: var(--ink-muted); margin-top: 1em; }
+  .gen-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .gen-actions .btn { flex: 1; min-width: 160px; }
+  .gen-dots { display: flex; gap: 8px; justify-content: center; margin-top: 16px; }
+  .gen-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    background: var(--bg-subtle);
+    cursor: pointer;
+    padding: 0;
+  }
+  .gen-dot[aria-selected="true"] { background: var(--primary); border-color: var(--primary); }
+</style>
+
+<script>
+  import templates from '../data/generatorTemplates.json';
+
+  const root = document.querySelector('[data-generator]');
+  if (root) {
+    const roleInput = root.querySelector('#gen-role') as HTMLInputElement;
+    const levelGroup = root.querySelector('[data-level]')!;
+    const toneGroup = root.querySelector('[data-tone]')!;
+    const skillsGroup = root.querySelector('[data-skills]')!;
+    const resultEl = root.querySelector('[data-result]')!;
+    const counterEl = root.querySelector('[data-counter]')!;
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('.gen-dot'));
+    const copyBtn = root.querySelector<HTMLButtonElement>('[data-copy]')!;
+    const copyLabel = root.querySelector('[data-copy-label]')!;
+
+    let variants: string[][] = [];
+    let current = 0;
+
+    const segValue = (group: Element) =>
+      group.querySelector<HTMLElement>('button[aria-pressed="true"]')?.dataset.value ?? '';
+
+    const selectedSkills = () =>
+      Array.from(skillsGroup.querySelectorAll('.chip[aria-pressed="true"]')).map(
+        (c) => c.textContent!.trim()
+      );
+
+    function joinSkills(list: string[]): string {
+      if (list.length <= 1) return list[0] ?? 'communication';
+      return list.slice(0, -1).join(', ') + ', and ' + list[list.length - 1];
+    }
+
+    function fill(tpl: string, ctx: Record<string, string>): string {
+      return tpl.replace(/\{(\w+)\}/g, (_, k) => ctx[k] ?? '');
+    }
+
+    function buildVariants() {
+      const role = roleInput.value.trim() || 'professional';
+      const level = segValue(levelGroup) as 'entry' | 'mid' | 'senior';
+      const tone = segValue(toneGroup) as 'professional' | 'confident' | 'friendly';
+      const skills = selectedSkills();
+      const bank = templates.levels[level];
+
+      variants = [0, 1, 2, 3].map((i) => {
+        const ctx = {
+          role,
+          years: bank.experience[i % bank.experience.length],
+          skill1: skills[0] ?? 'communication',
+          skill2: skills[1] ?? skills[0] ?? 'problem solving',
+          skills: joinSkills(skills),
+        };
+        return [
+          fill(bank.intro[tone][i % bank.intro[tone].length], ctx),
+          fill(bank.skills[i % bank.skills.length], ctx),
+          fill(bank.impact[i % bank.impact.length], ctx),
+        ];
+      });
+    }
+
+    function render() {
+      const v = variants[current];
+      resultEl.innerHTML =
+        v.map((s) => `<p>${s}</p>`).join('') +
+        `<p class="gen-hint">${templates.editHint}</p>`;
+      counterEl.textContent = `Option ${current + 1} of ${variants.length}`;
+      dots.forEach((d, i) =>
+        d.setAttribute('aria-selected', i === current ? 'true' : 'false')
+      );
+    }
+
+    function regenerate() {
+      buildVariants();
+      current = 0;
+      render();
+    }
+
+    // Segmented controls
+    [levelGroup, toneGroup].forEach((group) => {
+      group.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('button');
+        if (!btn) return;
+        group.querySelectorAll('button').forEach((b) =>
+          b.setAttribute('aria-pressed', b === btn ? 'true' : 'false')
+        );
+        regenerate();
+      });
+    });
+
+    // Skill chips (max 4)
+    skillsGroup.addEventListener('click', (e) => {
+      const chip = (e.target as HTMLElement).closest('.chip');
+      if (!chip) return;
+      const pressed = chip.getAttribute('aria-pressed') === 'true';
+      if (!pressed && selectedSkills().length >= 4) return;
+      chip.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+      regenerate();
+    });
+
+    root.querySelector('[data-generate]')!.addEventListener('click', regenerate);
+    roleInput.addEventListener('change', regenerate);
+
+    root.querySelector('[data-next]')!.addEventListener('click', () => {
+      current = (current + 1) % variants.length;
+      render();
+    });
+
+    dots.forEach((d) =>
+      d.addEventListener('click', () => {
+        current = Number(d.dataset.index);
+        render();
+      })
+    );
+
+    copyBtn.addEventListener('click', async () => {
+      const text = variants[current].join('\n\n');
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      copyBtn.classList.add('is-copied');
+      copyLabel.textContent = 'Copied!';
+      setTimeout(() => {
+        copyBtn.classList.remove('is-copied');
+        copyLabel.textContent = 'Copy summary';
+      }, 1800);
+    });
+
+    // Initial render
+    regenerate();
+  }
+</script>

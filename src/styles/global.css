@@ -1,0 +1,278 @@
+/* ============================================================
+   SummaryIn design tokens & base styles
+   Single accent system: one primary blue for all main actions.
+   Green appears ONLY as transient "copied!" success feedback.
+   ============================================================ */
+
+:root {
+  /* Color tokens */
+  --ink: #0f172a;
+  --ink-soft: #334155;
+  --ink-muted: #52606f;      /* AA on white for 14px+ */
+  --primary: #2456e6;
+  --primary-hover: #1c46c2;
+  --primary-soft: #eef3fe;
+  --primary-border: #c5d4f6;
+  --success: #0e7a3d;        /* transient feedback only */
+  --success-soft: #e8f5ee;
+  --bg: #ffffff;
+  --bg-subtle: #f6f8fb;
+  --border: #dfe5ee;
+  --border-strong: #c3ccd9;
+
+  /* Type */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  /* Radii & shadow */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.05), 0 4px 16px rgba(15, 23, 42, 0.06);
+
+  /* Layout */
+  --container: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body { margin: 0; font-size: 16px; line-height: 1.55; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3 { line-height: 1.2; margin: 0 0 0.5em; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 4.5vw, 2.9rem); font-weight: 800; }
+h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); font-weight: 750; }
+h3 { font-size: 1.1rem; font-weight: 700; }
+p  { margin: 0 0 1em; }
+.lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 46ch; }
+.muted { color: var(--ink-muted); }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Buttons: one primary, everything else secondary ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font: inherit;
+  font-weight: 650;
+  border-radius: var(--r-sm);
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-secondary {
+  background: #fff;
+  color: var(--primary);
+  border-color: var(--primary-border);
+}
+.btn-secondary:hover { background: var(--primary-soft); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--border-strong);
+}
+.btn-ghost:hover { background: var(--bg-subtle); }
+
+/* Transient success state after copying */
+.btn.is-copied {
+  background: var(--success-soft);
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.btn:focus-visible,
+.chip:focus-visible,
+.seg button:focus-visible {
+  outline: 3px solid var(--primary-border);
+  outline-offset: 2px;
+}
+
+/* ---------- Chips ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 550;
+  color: var(--ink-soft);
+  background: #fff;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.chip:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+.chip[aria-pressed="true"], .chip.is-active {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 650;
+}
+
+/* ---------- Segmented control ---------- */
+.seg {
+  display: inline-flex;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 3px;
+  gap: 2px;
+}
+.seg button {
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 570;
+  color: var(--ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.seg button[aria-pressed="true"] {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 650;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 24px;
+}
+.card-shadow { box-shadow: var(--shadow-card); }
+
+/* ---------- Sections ---------- */
+.section { padding: 56px 0; }
+.section-subtle { background: var(--bg-subtle); }
+.section-head { max-width: 62ch; margin-bottom: 28px; }
+
+/* ---------- Grids ---------- */
+.grid { display: grid; gap: 16px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+/* ---------- Tables ---------- */
+.table-wrap { overflow-x: auto; }
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+table.data th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 2px solid var(--border-strong);
+  padding: 10px 12px;
+}
+table.data td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 12px;
+  vertical-align: top;
+}
+table.data tr:last-child td { border-bottom: 0; }
+table.data td:first-child { font-weight: 650; white-space: nowrap; }
+
+/* ---------- Badges ---------- */
+.badges { display: flex; flex-wrap: wrap; gap: 18px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.95rem;
+  font-weight: 570;
+  color: var(--ink-soft);
+}
+.badge svg { color: var(--success); flex: none; }
+
+/* ---------- Details / FAQ ---------- */
+details.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: #fff;
+  padding: 0;
+  margin-bottom: 10px;
+}
+details.faq-item summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding: 16px 18px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+  transition: transform 0.15s;
+}
+details.faq-item[open] summary::after { transform: rotate(45deg); }
+details.faq-item .faq-a { padding: 0 18px 16px; color: var(--ink-soft); }
+
+/* ---------- Image slot (placeholder until real images are added) ---------- */
+.img-slot {
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--bg-subtle);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ---------- Utility ---------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
