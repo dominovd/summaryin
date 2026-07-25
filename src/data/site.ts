@@ -9,6 +9,9 @@ export const SITE = {
   /** Auto year token — used in <title> and footer, never hardcode a year. */
   year: new Date().getFullYear(),
 
+  /** Contact email shown on /contact/. */
+  contactEmail: 'info@summaryin.com',
+
   /**
    * CPA / affiliate destination for "build the full resume" CTAs.
    * Replace with your tracked Zety / Resume.io / Kickresume link.

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { SITE } from '../../data/site';
 // Placeholder page. When you add real content:
 //  1) remove the `noindex` prop below
 //  2) remove '/contact/' from PLACEHOLDER_PATHS in astro.config.mjs
@@ -14,8 +15,11 @@ import Base from '../../layouts/Base.astro';
   <section class="section">
     <div class="container page-narrow">
       <h1>Contact</h1>
-      <p class="lead">Content coming soon.</p>
-      <!-- TODO: your content here (email address / contact form) -->
+      <p class="lead">
+        Questions, feedback, or partnership ideas — email us at
+        <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
+      </p>
+      <!-- TODO: your content here -->
     </div>
   </section>
 </Base>
