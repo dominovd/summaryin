@@ -25,6 +25,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="google-site-verification" content="bVZTt4hRtEYg29b201Vmc_-AfLNmym--ei3anQLHwb4" />
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -57,6 +58,13 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     <main>
       <slot />
     </main>
+
+    <script>
+      // Vercel Web Analytics (no Speed Insights). No-op in local dev;
+      // enable Analytics in the Vercel dashboard: Project → Analytics.
+      import { inject } from '@vercel/analytics';
+      inject();
+    </script>
 
     <footer class="site-footer">
       <div class="container footer-inner">
