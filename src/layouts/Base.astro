@@ -8,9 +8,11 @@ interface Props {
   description: string;
   /** Set false to skip the "(2026)" style year token in <title>. */
   yearInTitle?: boolean;
+  /** True on placeholder pages — remove once the page has real content. */
+  noindex?: boolean;
 }
 
-const { title, description, yearInTitle = true } = Astro.props;
+const { title, description, yearInTitle = true, noindex = false } = Astro.props;
 const fullTitle = yearInTitle ? `${title} (${SITE.year}) — ${SITE.name}` : `${title} — ${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 ---
@@ -22,6 +24,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
@@ -82,9 +85,19 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
             <li><a href="/#power-words">Power words</a></li>
           </ul>
         </nav>
+        <nav class="footer-col" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/about/">About us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </nav>
       </div>
       <div class="container footer-legal">
-        <p>© {SITE.year} {SITE.name}.com · All rights reserved</p>
+        <p>
+          © {SITE.year} {SITE.name}.com · All rights reserved ·
+          <a href="/privacy/">Privacy Policy</a> · <a href="/terms/">Terms of Use</a>
+        </p>
       </div>
     </footer>
   </body>
@@ -136,10 +149,13 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   }
   .footer-inner {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 32px;
   }
   @media (max-width: 720px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
     .footer-inner { grid-template-columns: 1fr; }
   }
   .logo-footer { font-size: 1.02rem; }
@@ -155,4 +171,6 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     border-top: 1px solid var(--border);
   }
   .footer-legal p { margin: 0; font-size: 0.9rem; color: var(--ink-muted); }
+  .footer-legal a { color: var(--ink-muted); text-decoration: underline; }
+  .footer-legal a:hover { color: var(--ink-soft); }
 </style>
