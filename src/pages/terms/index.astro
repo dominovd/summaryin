@@ -1,25 +1,94 @@
 ---
 import Base from '../../layouts/Base.astro';
-// Placeholder page. When you add real content:
-//  1) remove the `noindex` prop below
-//  2) remove '/terms/' from PLACEHOLDER_PATHS in astro.config.mjs
+import ContentPage from '../../components/ContentPage.astro';
+import { SITE } from '../../data/site';
 ---
 
 <Base
   title="Terms of Use"
-  description="Terms of use for SummaryIn.com."
+  description="Terms governing access to SummaryIn, use of its resume summary generator, examples, and links to third-party services."
   yearInTitle={false}
-  noindex
 >
-  <section class="section">
-    <div class="container page-narrow">
-      <h1>Terms of Use</h1>
-      <p class="lead">Content coming soon.</p>
-      <!-- TODO: your content here -->
+  <ContentPage
+    eyebrow="Legal"
+    title="Terms of Use"
+    lead="These terms apply when you access SummaryIn, use the generator, copy an example, or follow a link from the site."
+    updated="July 31, 2026"
+  >
+    <div class="notice">
+      <p>By using SummaryIn, you agree to these terms. If you do not agree, please do not use the site.</p>
     </div>
-  </section>
-</Base>
 
-<style>
-  .page-narrow { max-width: 720px; }
-</style>
+    <h2>What SummaryIn provides</h2>
+    <p>
+      SummaryIn provides general writing tools, examples, and educational information for resumes and
+      professional profiles. The service is offered for personal and lawful use. Features and content
+      may change as the site develops.
+    </p>
+
+    <h2>Your responsibility for the final text</h2>
+    <p>
+      Generated text and examples are starting points. You are responsible for reviewing, editing, and
+      verifying anything you use. Replace sample metrics, placeholders, credentials, tools, and job
+      details with information that is accurate for you. Do not present an example result as your own
+      unless it is true and you can support it.
+    </p>
+
+    <h2>No employment or professional advice</h2>
+    <p>
+      SummaryIn does not provide legal, recruiting, human resources, immigration, financial, or other
+      professional advice. We do not guarantee interviews, job offers, applicant tracking system
+      results, compensation, or any other employment outcome.
+    </p>
+
+    <h2>Acceptable use</h2>
+    <p>You may use the site for your own resume and ordinary career-related work. You may not:</p>
+    <ul>
+      <li>use the service to create fraudulent credentials, work history, or performance claims;</li>
+      <li>interfere with the site, probe for vulnerabilities, or attempt unauthorized access;</li>
+      <li>use automated methods that place an unreasonable load on the service;</li>
+      <li>copy or republish substantial parts of the site as a competing content library;</li>
+      <li>use the site in a way that violates applicable law or another person's rights.</li>
+    </ul>
+
+    <h2>Site content and permitted copying</h2>
+    <p>
+      You may copy and adapt individual generated summaries and examples for personal resume use. The
+      site design, collections, original explanatory text, and software remain protected by applicable
+      intellectual property laws. Permission to use an example does not transfer ownership of the site
+      or permit wholesale republication.
+    </p>
+
+    <h2>Third-party links</h2>
+    <p>
+      SummaryIn may link to resume builders, job services, or other third-party websites. We do not
+      control their availability, content, pricing, privacy practices, or terms. A link is not a
+      guarantee that a third-party service will meet your needs. If SummaryIn may earn a commission from
+      a link, the relationship will be disclosed near the link or in a site-wide disclosure.
+    </p>
+
+    <h2>Availability and changes</h2>
+    <p>
+      We may modify, suspend, or discontinue any part of the site. We try to keep information useful and
+      the service available, but we do not promise uninterrupted access or that every page will always
+      be current, complete, or error-free.
+    </p>
+
+    <h2>Disclaimer and limitation of liability</h2>
+    <p>
+      To the extent permitted by law, SummaryIn is provided “as is” and “as available,” without express
+      or implied warranties. SummaryIn and its operators will not be liable for indirect, incidental,
+      special, consequential, or punitive damages arising from your use of the site or reliance on its
+      content. Nothing in these terms excludes liability that cannot legally be excluded.
+    </p>
+
+    <h2>Changes to these terms</h2>
+    <p>
+      We may update these terms as the service changes. The revised terms apply from the date shown at
+      the top of this page. Continued use after an update means you accept the revised terms.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Questions about these terms can be sent to <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.</p>
+  </ContentPage>
+</Base>

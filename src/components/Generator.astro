@@ -1,6 +1,6 @@
 ---
 /**
- * Client-side summary generator. Zero API calls — templates ship as JSON.
+ * Client-side summary generator. It uses local JSON templates and makes no API calls.
  * One instance per page.
  */
 interface Props {
@@ -236,9 +236,15 @@ const { defaultRole, skills, defaultSkills = skills.slice(0, 3) } = Astro.props;
 
     function render() {
       const v = variants[current];
-      resultEl.innerHTML =
-        v.map((s) => `<p>${s}</p>`).join('') +
-        `<p class="gen-hint">${templates.editHint}</p>`;
+      const paragraphs = v.map((text) => {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = text;
+        return paragraph;
+      });
+      const hint = document.createElement('p');
+      hint.className = 'gen-hint';
+      hint.textContent = templates.editHint;
+      resultEl.replaceChildren(...paragraphs, hint);
       counterEl.textContent = `Option ${current + 1} of ${variants.length}`;
       dots.forEach((d, i) =>
         d.setAttribute('aria-selected', i === current ? 'true' : 'false')

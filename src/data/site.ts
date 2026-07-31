@@ -5,18 +5,15 @@ export const SITE = {
   name: 'SummaryIn',
   domain: 'summaryin.com',
   url: 'https://summaryin.com',
-  tagline: 'Clear, job-ready summaries for every career path.',
-  /** Auto year token — used in <title> and footer, never hardcode a year. */
+  tagline: 'Clear, practical resume summaries for every career path.',
+  /** Auto year token used in <title> and footer. Never hardcode a year. */
   year: new Date().getFullYear(),
 
   /** Contact email shown on /contact/. */
   contactEmail: 'info@summaryin.com',
 
-  /**
-   * CPA / affiliate destination for "build the full resume" CTAs.
-   * Replace with your tracked Zety / Resume.io / Kickresume link.
-   */
-  resumeBuilderUrl: 'https://example.com/replace-with-affiliate-link',
+  /** Keep this on the homepage until there is enough traffic to test a partner offer. */
+  resumeBuilderUrl: '/#generator',
 
   /**
    * Email capture endpoint (Formspree / Buttondown / ConvertKit form action).

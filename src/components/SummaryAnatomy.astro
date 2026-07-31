@@ -1,0 +1,98 @@
+---
+interface Props {
+  profession: string;
+}
+
+const { profession } = Astro.props;
+const role = profession.toLowerCase();
+---
+
+<section class="section" aria-labelledby="anatomy-heading">
+  <div class="container">
+    <div class="anatomy card card-shadow">
+      <div class="anatomy-copy">
+        <p class="anatomy-kicker">A simple structure</p>
+        <h2 id="anatomy-heading">Anatomy of a strong {role} summary</h2>
+        <p class="muted">Three useful details are enough. Replace every highlighted prompt with something true from your own work.</p>
+      </div>
+      <div class="anatomy-example" aria-label={`Example structure for a ${role} resume summary`}>
+        <p><span class="part part-role">{profession}</span> with <mark>[your experience]</mark> in <span class="part part-skill">[setting or specialty]</span>.</p>
+        <p>Skilled in <span class="part part-skill">[two relevant skills]</span> and comfortable with <span class="part part-tool">[tool, system, or equipment]</span>.</p>
+        <p><span class="part part-proof">[Action verb]</span> a measurable result by <mark>[your number]</mark>.</p>
+      </div>
+      <ol class="anatomy-legend">
+        <li><span>1</span><div><strong>Role and context</strong><small>Help the recruiter place you quickly.</small></div></li>
+        <li><span>2</span><div><strong>Relevant skills</strong><small>Match the language used in the posting.</small></div></li>
+        <li><span>3</span><div><strong>Proof</strong><small>Add one result you can explain in an interview.</small></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  .anatomy {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
+    gap: 28px 40px;
+    padding: 32px;
+    background: linear-gradient(145deg, #fff, var(--primary-soft));
+  }
+  .anatomy-copy { align-self: center; }
+  .anatomy-copy h2 { font-size: 1.45rem; }
+  .anatomy-copy p:last-child { margin-bottom: 0; }
+  .anatomy-kicker {
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 750;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .anatomy-example {
+    padding: 24px;
+    border: 1px solid var(--primary-border);
+    border-radius: var(--r-md);
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(36, 86, 230, 0.08);
+  }
+  .anatomy-example p { margin: 0 0 12px; color: var(--ink-soft); }
+  .anatomy-example p:last-child { margin-bottom: 0; }
+  .part { color: var(--ink); font-weight: 700; }
+  .part-skill { text-decoration: underline; text-decoration-color: var(--primary-border); text-decoration-thickness: 3px; }
+  .part-tool { color: var(--primary); }
+  .part-proof { color: var(--success); }
+  mark {
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: #fff3b8;
+    color: var(--ink);
+  }
+  .anatomy-legend {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .anatomy-legend li { display: flex; gap: 10px; align-items: flex-start; }
+  .anatomy-legend li > span {
+    display: grid;
+    width: 26px;
+    height: 26px;
+    flex: none;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 750;
+  }
+  .anatomy-legend strong, .anatomy-legend small { display: block; }
+  .anatomy-legend small { margin-top: 2px; color: var(--ink-muted); line-height: 1.35; }
+  @media (max-width: 760px) {
+    .anatomy { grid-template-columns: 1fr; padding: 24px; }
+    .anatomy-legend { grid-column: auto; grid-template-columns: 1fr; }
+  }
+</style>

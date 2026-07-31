@@ -1,29 +1,50 @@
 ---
 import Base from '../../layouts/Base.astro';
+import ContentPage from '../../components/ContentPage.astro';
 import { SITE } from '../../data/site';
-// Placeholder page. When you add real content:
-//  1) remove the `noindex` prop below
-//  2) remove '/contact/' from PLACEHOLDER_PATHS in astro.config.mjs
 ---
 
 <Base
   title="Contact"
-  description="Get in touch with the SummaryIn team."
+  description="Contact SummaryIn with corrections, feedback, profession requests, privacy questions, or partnership inquiries."
   yearInTitle={false}
-  noindex
 >
-  <section class="section">
-    <div class="container page-narrow">
-      <h1>Contact</h1>
-      <p class="lead">
-        Questions, feedback, or partnership ideas — email us at
-        <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
-      </p>
-      <!-- TODO: your content here -->
+  <ContentPage
+    eyebrow="Contact"
+    title="Tell us what would make SummaryIn more useful"
+    lead="Send a correction, request a profession, ask a privacy question, or share a partnership idea."
+  >
+    <div class="contact-card">
+      <strong>Email SummaryIn</strong>
+      <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
     </div>
-  </section>
-</Base>
 
-<style>
-  .page-narrow { max-width: 720px; }
-</style>
+    <h2>What to include</h2>
+    <p>A short, specific message is easiest to act on. Helpful details include:</p>
+    <ul>
+      <li>the URL of the page you are writing about;</li>
+      <li>the sentence, example, or feature that needs attention;</li>
+      <li>your suggested correction and, when relevant, a reliable source;</li>
+      <li>the profession or career situation you would like us to cover.</li>
+    </ul>
+
+    <h2>Corrections</h2>
+    <p>
+      If an example uses the wrong credential, outdated terminology, or an unrealistic metric, please
+      tell us. We review substantive corrections and update pages when a change improves accuracy.
+    </p>
+
+    <h2>Privacy requests</h2>
+    <p>
+      Use the subject line “Privacy request” and explain what you need. The generator runs in your
+      browser, so SummaryIn does not have a stored copy of the resume details you enter there. See the
+      <a href="/privacy/">Privacy Policy</a> for more information.
+    </p>
+
+    <h2>Partnerships</h2>
+    <p>
+      Partnership messages should identify the company, the proposed placement, and whether payment or
+      commission is involved. We do not accept paid links disguised as editorial recommendations.
+    </p>
+  </ContentPage>
+</Base>

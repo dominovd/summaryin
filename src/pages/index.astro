@@ -22,23 +22,23 @@ const popularChips = [
 const faq = [
   {
     q: 'What is a resume summary?',
-    a: 'A resume summary is a 2–3 sentence statement at the top of your resume that highlights your experience level, strongest skills, and one measurable achievement. It replaces the outdated "objective" and tells a recruiter in seconds why you fit the role.',
+    a: 'A resume summary is a short statement at the top of your resume, usually two or three sentences. It highlights your experience, strongest skills, and one result you are proud of. A recruiter should be able to see why you fit the role in a few seconds.',
   },
   {
     q: 'Is this generator really free?',
-    a: 'Yes — completely free, no sign-up, no word limits. Everything runs in your browser: your input is never sent to a server or stored anywhere.',
+    a: 'Yes. It is completely free, with no sign-up or word limit. The generator works in your browser, so we do not send or store what you type.',
   },
   {
-    q: 'Resume summary vs. objective — which should I use?',
-    a: 'Use a summary. It focuses on what you offer the employer, while an objective focuses on what you want. The only common exception is a dramatic career change, where a short objective can explain the pivot — but a skills-focused summary usually still wins.',
+    q: 'Resume summary or objective: which should I use?',
+    a: 'A summary works better for most people because it shows what you can offer an employer. An objective focuses on what you want. If you are making a major career change, one short sentence can explain the move, but your skills should still do most of the talking.',
   },
   {
     q: 'How long should a professional summary be?',
-    a: 'Two to three sentences, roughly 40–60 words. Lead with your title and years of experience, follow with your core skills, and close with one number that proves impact.',
+    a: 'Aim for two or three sentences, or about 40 to 60 words. Start with your role and experience, mention the skills that matter for the job, and finish with a result you can prove.',
   },
   {
     q: 'Can I use the generated summary on LinkedIn?',
-    a: 'Yes — it works as the opening lines of your LinkedIn About section. For LinkedIn, consider expanding it with a sentence about what you\'re looking for, since the format allows more space than a resume.',
+    a: 'Yes. It can become the opening of your LinkedIn About section. LinkedIn gives you more space, so you can add a sentence about the work you enjoy or the opportunity you want next.',
   },
 ];
 
@@ -56,7 +56,7 @@ const relatedKeywords = [
 
 <Base
   title="Free Resume Summary Generator"
-  description="Create a job-ready professional summary in seconds — free, no sign-up, private in your browser. Then copy it, edit it, and make it yours."
+  description="Write a clear professional summary in seconds. It is free, requires no sign-up, and works privately in your browser."
 >
   <!-- 1. Hero -->
   <section class="hero">
@@ -64,7 +64,7 @@ const relatedKeywords = [
       <p class="hero-kicker">Free · No sign-up</p>
       <h1>Free Resume Summary Generator</h1>
       <p class="lead">
-        Create a job-ready professional summary in seconds — then copy, edit, and make it yours.
+        Write a clear professional summary in seconds. Copy a version you like, adjust the details, and add it to your resume.
       </p>
       <div class="badges hero-badges">
         <span class="badge">
@@ -73,7 +73,7 @@ const relatedKeywords = [
         </span>
         <span class="badge">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Private — runs in your browser
+          Your details stay on this device
         </span>
         <span class="badge">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -84,7 +84,7 @@ const relatedKeywords = [
   </section>
 
   <!-- 2. Tool -->
-  <section class="tool-section">
+  <section class="tool-section" id="generator">
     <div class="container">
       <Generator
         defaultRole="Customer Service Representative"
@@ -104,7 +104,7 @@ const relatedKeywords = [
       <div class="section-head">
         <h2 id="examples-heading">Professional summary examples you can copy</h2>
         <p class="muted">
-          Three levels of the same career — see how the summary grows with experience.
+          See how the same summary changes as your experience grows.
           Want your profession? <a href="/resume-summary/">Browse examples by role</a>.
         </p>
       </div>
@@ -128,20 +128,20 @@ const relatedKeywords = [
           <ol class="steps">
             <li>
               <h3>Lead with your role</h3>
-              <p class="muted">Start with your job title and years of experience — it's the first thing a screener matches against the posting.</p>
+              <p class="muted">Start with your job title and years of experience. That is the first thing most recruiters compare with the posting.</p>
             </li>
             <li>
               <h3>Add proof with numbers</h3>
-              <p class="muted">One metric beats five adjectives: satisfaction score, time saved, revenue, error rate — pick the number the role cares about.</p>
+              <p class="muted">A real number says more than a list of adjectives. Use a satisfaction score, time saved, revenue, error rate, or another result the employer will understand.</p>
             </li>
             <li>
               <h3>Match the job's language</h3>
-              <p class="muted">Mirror keywords from the job description — both ATS filters and humans scan for the exact terms they wrote.</p>
+              <p class="muted">Use the same terms you see in the job description. Recruiters and ATS filters both look for that familiar language.</p>
             </li>
           </ol>
         </div>
         <div class="card">
-          <h2 class="howto-title">Power words that carry weight</h2>
+          <h2 class="howto-title">Words that make your experience specific</h2>
           <div class="table-wrap">
             <table class="data">
               <thead>

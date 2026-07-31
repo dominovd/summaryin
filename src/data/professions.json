@@ -3,263 +3,2892 @@
     "name": "Customer Service",
     "roleDefault": "Customer Service Representative",
     "h1": "Customer Service Resume Summary Examples",
-    "metaDescription": "Copy-ready customer service resume summary examples for entry, mid, and senior level — plus a free generator that writes one for you in seconds.",
-    "shortAnswer": "A strong customer service resume summary leads with your years of experience, names the channels and tools you know (phone, email, chat, CRM), and proves impact with one number — satisfaction score, resolution time, or retention. Keep it to 3 sentences and mirror the wording of the job posting.",
-    "skills": ["Communication", "CRM", "Problem solving", "Order management", "De-escalation", "Live chat"],
-    "defaultSkills": ["Communication", "CRM", "Problem solving"],
+    "metaDescription": "Browse 20 customer service resume summary examples for entry-level, experienced, team lead, and management roles. Includes a free generator.",
+    "shortAnswer": "A customer service summary should name the channels and tools you know, then show how you helped customers or improved the work. Use a satisfaction score, ticket volume, first-contact resolution, retention, or response time instead of general claims about being helpful.",
+    "skills": [
+      "Phone support",
+      "Email support",
+      "Live chat",
+      "CRM",
+      "De-escalation",
+      "Order management",
+      "First-contact resolution",
+      "Retention",
+      "Zendesk",
+      "Salesforce",
+      "Quality coaching",
+      "Team leadership"
+    ],
+    "defaultSkills": [
+      "Phone support",
+      "CRM",
+      "De-escalation"
+    ],
     "examples": {
       "entry": [
         {
+          "label": "Retail to customer service",
           "paragraphs": [
-            "Motivated and detail-oriented individual with strong communication skills and a passion for helping others.",
-            "Quick learner with hands-on experience in customer support and problem resolution from a part-time retail role.",
-            "Eager to contribute to a team and grow within a customer-focused organization."
+            "Customer service candidate with [2] years in high-volume retail, helping [80+] shoppers per shift and resolving most returns without manager support. Comfortable with POS systems, order questions, and calm conversations when a customer is frustrated."
           ]
         },
         {
+          "label": "Hospitality background",
           "paragraphs": [
-            "Friendly, dependable entry-level customer service representative comfortable with high-volume phone and chat support.",
-            "Trained in active listening and conflict resolution; praised by supervisors for staying calm under pressure.",
-            "Looking to bring energy and reliability to a team that puts customers first."
+            "Front-desk associate moving into customer support after [18] months handling guest requests, billing questions, and last-minute room changes. Maintained a [4.8/5] guest rating by explaining options clearly and following through before the end of each shift."
+          ]
+        },
+        {
+          "label": "Bilingual support",
+          "paragraphs": [
+            "Bilingual English and Spanish support candidate with volunteer experience answering [35+] weekly calls for a community program. Comfortable translating complex instructions into plain language and keeping accurate notes for the next person who helps."
+          ]
+        },
+        {
+          "label": "First office role",
+          "paragraphs": [
+            "Recent graduate with campus office experience responding to [50] student questions each week by phone and email. Built a simple FAQ that reduced repeated questions by [20%] and helped classmates find answers without waiting."
+          ]
+        },
+        {
+          "label": "Seasonal e-commerce support",
+          "paragraphs": [
+            "Seasonal e-commerce support associate who handled [45+] daily order, delivery, and return questions during the holiday rush. Learned the ticket queue quickly and maintained a [95%] quality score through the busiest six weeks of the year."
+          ]
+        },
+        {
+          "label": "Technical support trainee",
+          "paragraphs": [
+            "Entry-level technical support candidate with [120] hours of hands-on training in troubleshooting, ticket documentation, and remote support. Known for asking clear questions, testing one fix at a time, and explaining the next step without jargon."
           ]
         }
       ],
       "mid": [
         {
+          "label": "Multi-channel support specialist",
           "paragraphs": [
-            "Customer service professional with 6+ years of experience resolving complex issues across phone, email, and chat.",
-            "Skilled in CRM systems, order management, and de-escalation, consistently resolving issues on first contact.",
-            "Improved team efficiency by 20% by streamlining communication and documenting fixes for common issues."
+            "Customer support specialist with [4] years across phone, email, and live chat, handling [65] conversations per day in Zendesk. Maintained [94%] customer satisfaction while keeping response times within the team target."
           ]
         },
         {
+          "label": "SaaS customer support",
           "paragraphs": [
-            "Dedicated support specialist with 5 years of experience in SaaS and e-commerce environments.",
-            "Maintains a 96% customer satisfaction rating while handling 60+ tickets daily in Zendesk and Salesforce.",
-            "Known for turning frustrated customers into repeat buyers through clear, empathetic communication."
+            "SaaS support specialist with [5] years helping small-business customers solve billing, setup, and workflow issues. Cut repeat tickets by [23%] after rewriting help-center articles around the questions customers actually asked."
+          ]
+        },
+        {
+          "label": "Insurance call center",
+          "paragraphs": [
+            "Insurance service representative with [3] years explaining coverage, claims status, and payment options across [55+] calls per day. Held a [91%] first-contact resolution rate without rushing customers through difficult conversations."
+          ]
+        },
+        {
+          "label": "E-commerce customer care",
+          "paragraphs": [
+            "E-commerce customer care specialist with [4] years managing orders, returns, and delivery escalations for a store processing [2,000+] weekly orders. Reduced refund turnaround from [5] days to [2] by clarifying the handoff between support and fulfillment."
+          ]
+        },
+        {
+          "label": "Banking support",
+          "paragraphs": [
+            "Banking contact-center representative with [5] years handling account access, card disputes, and transaction questions under strict verification procedures. Averaged [96%] on monthly quality reviews across the past year."
+          ]
+        },
+        {
+          "label": "Healthcare scheduling support",
+          "paragraphs": [
+            "Patient access representative with [3] years scheduling for [8] providers and resolving insurance or referral questions before appointments. Reduced avoidable reschedules by [18%] through more complete confirmation calls."
+          ]
+        },
+        {
+          "label": "Retention specialist",
+          "paragraphs": [
+            "Retention specialist with [5] years in telecommunications, handling [35] cancellation requests per day and retaining [42%] of eligible accounts. Focuses on the reason behind the request before recommending a plan or service change."
           ]
         }
       ],
       "senior": [
         {
+          "label": "Customer service team lead",
           "paragraphs": [
-            "Results-driven leader with 10+ years of experience in customer experience and team management.",
-            "Expert in process improvement, performance metrics, and cross-functional collaboration.",
-            "Consistently drives customer loyalty and operational excellence — including a 30% reduction in escalations year over year."
+            "Customer service team lead with [8] years in support and [3] years coaching a [12]-person team. Introduced weekly case reviews that raised quality scores from [86%] to [94%] without increasing average handle time."
           ]
         },
         {
+          "label": "Support operations manager",
           "paragraphs": [
-            "Senior customer service manager with 12 years of experience building and coaching teams of up to 15 agents.",
-            "Launched QA and coaching programs that lifted CSAT from 88% to 95% in under a year.",
-            "Partners with product and operations to remove root causes of contact, cutting repeat issues by a third."
+            "Support manager with [10] years across e-commerce and SaaS, responsible for [28] agents and three service channels. Reworked staffing and escalation rules to cut first response time by [37%] during peak periods."
+          ]
+        },
+        {
+          "label": "Quality and training lead",
+          "paragraphs": [
+            "Customer service quality lead with [9] years turning difficult cases into practical coaching. Built onboarding and calibration sessions for [60+] hires, reducing time to independent work from [8] weeks to [6]."
+          ]
+        },
+        {
+          "label": "Escalations manager",
+          "paragraphs": [
+            "Escalations manager with [11] years handling high-risk billing, regulatory, and executive complaints. Resolved [93%] of assigned cases without further escalation while documenting root causes for product and operations teams."
+          ]
+        },
+        {
+          "label": "Customer success leader",
+          "paragraphs": [
+            "Customer success leader with [9] years supporting a [$12M] portfolio of mid-market accounts. Improved renewal rate from [88%] to [94%] by introducing risk reviews before the final renewal quarter."
+          ]
+        },
+        {
+          "label": "Workforce and service delivery",
+          "paragraphs": [
+            "Service delivery manager with [12] years in high-volume contact centers, forecasting demand and scheduling [75] agents across phone and chat. Reduced overtime spend by [16%] while keeping service levels above target."
+          ]
+        },
+        {
+          "label": "Director of customer experience",
+          "paragraphs": [
+            "Customer experience director with [14] years connecting support data with product decisions. Led a cross-functional program that removed the top three contact drivers and reduced annual ticket volume by [21%]."
           ]
         }
       ]
     },
     "powerWords": [
-      { "word": "Resolved", "usage": "Resolved customer issues quickly and effectively." },
-      { "word": "Retained", "usage": "Retained customers through proactive follow-up." },
-      { "word": "Improved", "usage": "Improved response time by 25% through a new process." },
-      { "word": "De-escalated", "usage": "De-escalated tense calls while protecting the relationship." },
-      { "word": "Streamlined", "usage": "Streamlined the returns workflow, saving 5 hours weekly." },
-      { "word": "Supported", "usage": "Supported a high volume of customers daily across channels." }
+      {
+        "word": "Resolved",
+        "usage": "Resolved customer issues quickly and effectively."
+      },
+      {
+        "word": "Retained",
+        "usage": "Retained customers through proactive follow-up."
+      },
+      {
+        "word": "Improved",
+        "usage": "Improved response time by 25% through a new process."
+      },
+      {
+        "word": "De-escalated",
+        "usage": "De-escalated tense calls while protecting the relationship."
+      },
+      {
+        "word": "Streamlined",
+        "usage": "Streamlined the returns workflow, saving 5 hours weekly."
+      },
+      {
+        "word": "Supported",
+        "usage": "Supported a high volume of customers daily across channels."
+      }
     ],
     "howToAdapt": [
-      { "step": "Mirror the job's channel mix", "text": "If the posting says \"chat and email support\", your first sentence should name chat and email — not \"phone support\", even if you did both." },
-      { "step": "Swap in their tools", "text": "Replace generic \"CRM systems\" with the exact tools in the posting (Zendesk, Intercom, Salesforce). ATS filters often match on tool names." },
-      { "step": "Pick the metric they care about", "text": "A retention-focused role wants your CSAT or churn number; a high-volume role wants tickets per day and first-contact resolution." }
+      {
+        "step": "Mirror the job's channel mix",
+        "text": "If the posting says \"chat and email support\", your first sentence should name chat and email, not \"phone support\", even if you did both."
+      },
+      {
+        "step": "Swap in their tools",
+        "text": "Replace generic \"CRM systems\" with the exact tools in the posting (Zendesk, Intercom, Salesforce). ATS filters often match on tool names."
+      },
+      {
+        "step": "Pick the metric they care about",
+        "text": "A retention-focused role wants your CSAT or churn number; a high-volume role wants tickets per day and first-contact resolution."
+      }
     ],
     "faq": [
-      { "q": "What should a customer service resume summary include?", "a": "Three things: your years of experience and channels (phone, email, chat), the tools you know (CRM names), and one measurable result such as a satisfaction score or resolution-time improvement." },
-      { "q": "How long should the summary be?", "a": "Two to three sentences, 40–60 words. Recruiters spend seconds on the top of your resume — a longer block gets skimmed, not read." },
-      { "q": "Summary or objective for customer service roles?", "a": "A summary, in almost every case. Objectives talk about what you want; summaries prove what you deliver. Use an objective only if you have zero related experience — and even then, a skills-focused summary usually works better." },
-      { "q": "Should I customize the summary for every application?", "a": "Yes — at minimum, mirror the job title and swap in the tools named in the posting. It takes two minutes and is the single highest-leverage edit for passing ATS screening." }
+      {
+        "q": "What should a customer service resume summary include?",
+        "a": "Name the channels you have worked in, the tools you know, and one result. Ticket volume, satisfaction, first-contact resolution, retention, or response time all show more than saying you have good communication skills."
+      },
+      {
+        "q": "How long should the summary be?",
+        "a": "Keep it to two or three sentences, usually 40 to 60 words. A recruiter should be able to see your setting, strongest skills, and one result without reading a full paragraph."
+      },
+      {
+        "q": "Can retail or hospitality experience count?",
+        "a": "Yes. Both involve questions, complaints, payments, and competing priorities. Translate the work into customer volume, issues resolved, ratings, upselling, or repeat business."
+      },
+      {
+        "q": "Should I name the CRM?",
+        "a": "Name Zendesk, Salesforce, Intercom, or another platform when you have used it and it appears in the posting. Specific tools are easier for recruiters and ATS software to match."
+      },
+      {
+        "q": "Do I need a different summary for every application?",
+        "a": "A small edit is worth it. Match the job title, channels, and tools, then choose the result most relevant to the employer. You do not need to rewrite every sentence."
+      }
     ],
-    "related": ["retail", "call-center", "administrative-assistant", "sales"],
+    "related": [
+      "retail",
+      "call-center",
+      "administrative-assistant",
+      "sales"
+    ],
     "relatedKeywords": [
       "customer service resume summary",
+      "customer service summary examples",
       "professional summary for customer service",
-      "customer service resume examples",
-      "summary for customer service resume",
+      "customer support resume summary",
+      "call center resume summary",
+      "entry-level customer service summary",
+      "customer service manager resume summary",
       "customer service skills for resume",
-      "resume headline for customer service"
+      "support specialist resume summary",
+      "customer service resume with no experience"
     ]
   },
-
   "nursing": {
     "name": "Nursing",
     "roleDefault": "Registered Nurse",
     "h1": "Nursing Resume Summary Examples",
-    "metaDescription": "Copy-ready nursing resume summary examples for new grads, experienced RNs, and nurse leaders — plus a free generator that writes one for you in seconds.",
-    "shortAnswer": "A strong nursing resume summary states your license and specialty first (RN, BSN, med-surg, ICU), your patient load and care setting, and one outcome — patient satisfaction, safety record, or a unit improvement. Match the unit named in the job posting.",
-    "skills": ["Patient care", "EHR / Epic", "Medication administration", "Triage", "Patient education", "Team coordination"],
-    "defaultSkills": ["Patient care", "EHR / Epic", "Triage"],
+    "metaDescription": "Browse 20 nursing resume summary examples for new graduates, experienced RNs, charge nurses, and nurse leaders. Create your own with the free generator.",
+    "shortAnswer": "A nursing resume summary should name your license, specialty, and care setting, then show one result. Use a patient load, safety record, satisfaction score, or unit improvement. Keep it to two to four lines so a recruiter can see the match quickly.",
+    "skills": [
+      "Patient assessment",
+      "Med administration",
+      "IV therapy",
+      "Wound care",
+      "EMR (Epic/Cerner)",
+      "Telemetry",
+      "Triage",
+      "Care planning",
+      "Patient education",
+      "Infection control",
+      "Charge/shift lead",
+      "Code response",
+      "Discharge planning",
+      "Family communication"
+    ],
+    "defaultSkills": [
+      "Patient assessment",
+      "Med administration",
+      "IV therapy"
+    ],
     "examples": {
       "entry": [
         {
           "paragraphs": [
-            "New graduate RN (BSN) with 700+ clinical hours across med-surg, pediatrics, and ICU rotations.",
-            "Trained in Epic charting, medication administration, and patient education; praised for calm, thorough handoffs.",
-            "Eager to grow on a collaborative unit committed to safe, evidence-based care."
-          ]
+            "New graduate RN with an active [state] license and 600+ clinical hours across med-surg, ICU and labor & delivery rotations. Comfortable with Epic charting and full-shift patient loads of [5] under preceptor supervision, and looking for a residency program with structured mentorship."
+          ],
+          "label": "New graduate RN"
         },
         {
           "paragraphs": [
-            "Compassionate new-grad nurse with a strong foundation in patient assessment and family communication.",
-            "Completed a capstone preceptorship on a 32-bed telemetry unit with a 5:1 patient ratio.",
-            "Licensed RN seeking a residency program with a strong mentorship culture."
-          ]
+            "Newly licensed RN transitioning from [4] years as a CNA on a [32]-bed med-surg floor, already fluent in the unit's rhythm, documentation standards and family communication. Brings bedside experience most new grads are still building."
+          ],
+          "label": "Newly licensed RN"
+        },
+        {
+          "paragraphs": [
+            "BSN graduate with a critical-care capstone and [180] ICU clinical hours. Holds ACLS and BLS certification and caught documentation errors during chart review before they became part of the final record."
+          ],
+          "label": "BSN graduate"
+        },
+        {
+          "paragraphs": [
+            "New grad RN with bilingual English/Spanish fluency and clinical experience in a community health setting serving [200+] patients weekly. Comfortable explaining discharge instructions to patients with low health literacy."
+          ],
+          "label": "New grad RN"
+        },
+        {
+          "paragraphs": [
+            "Entry-level LPN with clinical training in long-term care and experience supporting [20] residents per shift with med passes, wound care and daily documentation. Reliable, unflappable, and steady during codes."
+          ],
+          "label": "Entry-level LPN"
+        },
+        {
+          "paragraphs": [
+            "Recent nursing graduate with prior EMT experience covering [1,500] emergency calls, bringing triage instincts and calm under pressure into a first hospital role."
+          ],
+          "label": "Recent nursing graduate"
         }
       ],
       "mid": [
         {
           "paragraphs": [
-            "Registered Nurse with 6 years of med-surg and telemetry experience in high-acuity hospital settings.",
-            "Skilled in triage, EHR documentation, and patient education, managing 5–6 patient assignments per shift.",
-            "Recognized for a zero medication-error record and consistently high patient satisfaction scores."
-          ]
+            "Med-surg RN with [4] years on a [36]-bed unit, managing patient loads of [6] per shift while maintaining zero medication errors across [3] consecutive years. Preceptor to [8] new graduate nurses."
+          ],
+          "label": "Med-surg RN"
         },
         {
           "paragraphs": [
-            "Emergency department RN with 5 years of Level II trauma center experience.",
-            "Certified in ACLS, PALS, and TNCC; known for fast, accurate triage during peak volume.",
-            "Precepted 8 new nurses, all retained on the unit past their first year."
-          ]
+            "ICU RN with [5] years of critical care experience managing ventilated patients, titrated drips and post-op recovery, with a [98%] compliance rate on CLABSI prevention bundles."
+          ],
+          "label": "ICU RN"
+        },
+        {
+          "paragraphs": [
+            "Emergency department RN with [3] years triaging [40+] patients per shift in a Level II trauma center, holding door-to-provider times under [15] minutes during peak hours."
+          ],
+          "label": "Emergency department RN"
+        },
+        {
+          "paragraphs": [
+            "Labor & delivery RN with [4] years supporting [300+] deliveries, including high-risk cases, and consistently scoring above [95%] on patient satisfaction for communication."
+          ],
+          "label": "Labor & delivery RN"
+        },
+        {
+          "paragraphs": [
+            "Oncology RN with [5] years administering chemotherapy under ONS certification, managing a caseload of [12] infusion patients daily with a zero-incident record on hazardous drug handling."
+          ],
+          "label": "Oncology RN"
+        },
+        {
+          "paragraphs": [
+            "Telemetry RN with [3] years monitoring [24] cardiac patients per shift, recognized twice for early identification of deteriorating rhythms that prevented rapid-response escalation."
+          ],
+          "label": "Telemetry RN"
+        },
+        {
+          "paragraphs": [
+            "Home health RN with [4] years managing a caseload of [22] patients across [3] counties, cutting 30-day readmissions by [18%] through structured post-discharge follow-up."
+          ],
+          "label": "Home health RN"
         }
       ],
       "senior": [
         {
           "paragraphs": [
-            "Charge nurse with 12 years of progressive experience across ICU and step-down units.",
-            "Expert in staffing coordination, quality initiatives, and mentoring — led a falls-reduction program that cut incidents by 40%.",
-            "Drives a culture of safety and teamwork that shows up in both patient outcomes and staff retention."
-          ]
+            "Charge nurse with [9] years in med-surg and [3] years leading a [14]-nurse shift team, improving HCAHPS communication scores from [82] to [91] over two years."
+          ],
+          "label": "Charge nurse"
         },
         {
           "paragraphs": [
-            "Nurse leader (MSN, RN) with 10+ years spanning bedside care, education, and unit management.",
-            "Championed an early-mobility protocol adopted hospital-wide, reducing average length of stay by 0.8 days.",
-            "Builds high-trust teams through transparent communication and data-driven quality improvement."
-          ]
+            "ICU RN with [11] years of critical care and CCRN certification, serving as unit resource nurse and rewriting the sepsis response protocol now used across [3] units."
+          ],
+          "label": "ICU RN"
+        },
+        {
+          "paragraphs": [
+            "Nurse manager with [12] years in acute care, running a [40]-bed unit with a budget of [$4M] and reducing agency staffing spend by [22%] through a redesigned scheduling model."
+          ],
+          "label": "Nurse manager"
+        },
+        {
+          "paragraphs": [
+            "Perioperative RN with [8] years circulating and scrubbing across [2,000+] cases, with a spotless count record and lead responsibility for orthopedic service line."
+          ],
+          "label": "Perioperative RN"
+        },
+        {
+          "paragraphs": [
+            "Clinical educator RN with [10] years bedside experience and [4] years designing onboarding for [60+] new hires annually, cutting first-year turnover by [15%]."
+          ],
+          "label": "Clinical educator RN"
+        },
+        {
+          "paragraphs": [
+            "Case management RN with [9] years coordinating discharge for complex patients, reducing average length of stay by [1.2] days across a [200]-bed facility."
+          ],
+          "label": "Case management RN"
+        },
+        {
+          "paragraphs": [
+            "Nurse practitioner with [7] years in primary care managing a panel of [1,200] patients, with quality metrics consistently in the top [10%] of the practice."
+          ],
+          "label": "Nurse practitioner"
         }
       ]
     },
     "powerWords": [
-      { "word": "Administered", "usage": "Administered medications for a 6-patient assignment with zero errors." },
-      { "word": "Triaged", "usage": "Triaged 40+ ED patients per shift during peak volume." },
-      { "word": "Educated", "usage": "Educated patients and families on discharge and care plans." },
-      { "word": "Coordinated", "usage": "Coordinated care across physicians, PT, and case management." },
-      { "word": "Reduced", "usage": "Reduced patient falls by 40% through a unit safety program." },
-      { "word": "Precepted", "usage": "Precepted new-grad nurses through their first year." }
+      {
+        "word": "Assessed",
+        "usage": "Assessed a six-patient assignment and documented changes in condition in Epic."
+      },
+      {
+        "word": "Titrated",
+        "usage": "Titrated critical-care medications according to protocol and patient response."
+      },
+      {
+        "word": "Precepted",
+        "usage": "Precepted eight new graduate nurses through their first independent shifts."
+      },
+      {
+        "word": "Escalated",
+        "usage": "Escalated early signs of deterioration before a rapid response was needed."
+      },
+      {
+        "word": "Coordinated discharge",
+        "usage": "Coordinated discharge teaching, medication review, and follow-up care."
+      },
+      {
+        "word": "Reduced readmissions",
+        "usage": "Reduced 30-day readmissions through structured post-discharge calls."
+      },
+      {
+        "word": "Maintained compliance",
+        "usage": "Maintained full compliance with infection-control and medication-safety procedures."
+      }
     ],
     "howToAdapt": [
-      { "step": "Lead with the license and unit they need", "text": "If the posting is for an ICU role, your first line should say ICU (or the closest experience you have) — not a general \"registered nurse\" claim." },
-      { "step": "Name your certifications exactly", "text": "BLS, ACLS, PALS, CCRN — recruiters and ATS filters search for the acronyms. List the ones the posting requires first." },
-      { "step": "Use a patient-outcome number", "text": "Falls reduced, satisfaction scores, ratios handled safely. One concrete outcome beats a paragraph of duties." }
+      {
+        "step": "Match the unit",
+        "text": "Name the exact unit from the posting, such as med-surg, step-down, PCU, ICU, or labor and delivery."
+      },
+      {
+        "step": "Use the same clinical systems",
+        "text": "Mention Epic, Cerner, Meditech, or another EMR only if you have used it."
+      },
+      {
+        "step": "Show your patient load",
+        "text": "Include the nurse-to-patient ratio or caseload you handled safely in a comparable setting."
+      },
+      {
+        "step": "Move required certifications up",
+        "text": "Put ACLS, PALS, CCRN, TNCC, or another required certification in the summary instead of hiding it near the end."
+      }
     ],
     "faq": [
-      { "q": "What goes in a nursing resume summary?", "a": "License and degree (RN, BSN), years and care setting, key certifications, and one measurable outcome — for example a safety record, satisfaction score, or quality-initiative result." },
-      { "q": "How do I write a summary as a new-grad nurse?", "a": "Lead with your license and clinical hours, name your strongest rotations and the EHR you trained on, and close with the kind of unit you want to grow on. Clinical hours are your experience — use the number." },
-      { "q": "Should nurses list certifications in the summary?", "a": "Yes — the ones the job posting requires (ACLS, PALS, TNCC, CCRN). Put the rest in a dedicated certifications section." },
-      { "q": "How long should a nursing summary be?", "a": "Three sentences. Nurse recruiters screen fast; your license, setting, and one outcome should be readable in under ten seconds." }
+      {
+        "q": "Should I put my license number in the summary?",
+        "a": "No. State that you hold an active RN/LPN license in your state; the number belongs in the licenses section where recruiters expect to verify it."
+      },
+      {
+        "q": "I'm a new grad with no paid nursing experience. What do I lead with?",
+        "a": "Clinical hours and rotations, with the specialty that matches the posting first. \"600+ clinical hours across med-surg and ICU\" is real experience; write it as such."
+      },
+      {
+        "q": "How do I handle a gap or a career change into nursing?",
+        "a": "Name the previous field in one clause and connect it: EMT, CNA, military medic, teaching. Employers read career changers positively in nursing if the transferable part is explicit."
+      },
+      {
+        "q": "Do travel nursing assignments belong in the summary?",
+        "a": "Yes, and they read as a strength: number of assignments, settings and how fast you onboard. \"Completed [6] travel contracts across [4] states, fully productive within [3] shifts.\""
+      },
+      {
+        "q": "How long should a nursing resume summary be?",
+        "a": "2 to 4 lines, 40 to 60 words. Anything longer competes with your clinical experience section instead of introducing it."
+      }
     ],
-    "related": ["customer-service", "administrative-assistant", "medical-assistant", "caregiver"],
+    "related": [
+      "customer-service",
+      "administrative-assistant",
+      "receptionist"
+    ],
     "relatedKeywords": [
       "nursing resume summary",
-      "new grad rn resume summary",
-      "registered nurse professional summary",
-      "nursing resume examples",
-      "rn resume with no experience",
-      "nurse resume objective"
+      "rn resume summary examples",
+      "new grad nurse resume summary",
+      "resume summary for nurses with no experience",
+      "icu nurse resume summary",
+      "charge nurse resume summary",
+      "lpn resume summary examples",
+      "nursing professional summary for resume",
+      "med surg nurse resume summary",
+      "nurse practitioner resume summary"
     ]
   },
-
   "project-manager": {
     "name": "Project Manager",
     "roleDefault": "Project Manager",
     "h1": "Project Manager Resume Summary Examples",
-    "metaDescription": "Copy-ready project manager resume summary examples for entry, mid, and senior level — plus a free generator that writes one for you in seconds.",
-    "shortAnswer": "A strong project manager resume summary names your methodology (Agile, Scrum, waterfall), the size and budget of projects you've run, and one delivery outcome — on-time rate, budget savings, or team size led. Certifications like PMP or CSM belong in the first sentence.",
-    "skills": ["Agile / Scrum", "Stakeholder management", "Budgeting", "Risk management", "Jira", "Roadmapping"],
-    "defaultSkills": ["Agile / Scrum", "Stakeholder management", "Budgeting"],
+    "metaDescription": "Browse 20 project manager resume summary examples for coordinators, experienced PMs, PMP holders, program managers, and delivery leaders.",
+    "shortAnswer": "A project manager summary should name the type and scale of work you lead, how you deliver it, and one outcome. Use budget, team size, schedule, portfolio size, savings, or delivery rate so the employer can compare your experience with the role.",
+    "skills": [
+      "Project planning",
+      "Agile and Scrum",
+      "Waterfall delivery",
+      "Stakeholder management",
+      "Budget control",
+      "Risk management",
+      "Vendor management",
+      "Jira",
+      "Microsoft Project",
+      "Change management",
+      "Executive reporting",
+      "Team leadership"
+    ],
+    "defaultSkills": [
+      "Project planning",
+      "Stakeholder management",
+      "Risk management"
+    ],
     "examples": {
       "entry": [
         {
+          "label": "CAPM project coordinator",
           "paragraphs": [
-            "Organized, certified associate project manager (CAPM) with internship experience coordinating cross-team deliverables.",
-            "Comfortable in Jira and Confluence; built sprint reports and tracked risks for a 6-person development team.",
-            "Eager to grow into full project ownership within a fast-moving delivery organization."
+            "CAPM-certified project coordinator with internship experience tracking tasks, risks, and decisions for a [7]-person software team. Kept Jira and meeting notes current through a [4]-month release cycle with no missed status reports."
           ]
         },
         {
+          "label": "Product launch coordinator",
           "paragraphs": [
-            "Early-career project coordinator with a knack for keeping schedules, notes, and people aligned.",
-            "Supported three product launches by owning timelines, meeting cadences, and status reporting.",
-            "Known for asking the questions that surface risks before they become blockers."
+            "Early-career coordinator who supported [3] product launches by maintaining timelines, owner lists, and weekly updates across marketing, sales, and operations. Flagged dependencies early enough to keep all three launches on schedule."
+          ]
+        },
+        {
+          "label": "Construction project assistant",
+          "paragraphs": [
+            "Construction project assistant with [18] months supporting submittals, RFIs, vendor documents, and schedule updates on projects up to [$2M]. Comfortable following details from site meetings through final closeout."
+          ]
+        },
+        {
+          "label": "Event project coordinator",
+          "paragraphs": [
+            "Event coordinator moving into project management after delivering [12] conferences for up to [500] attendees. Managed run sheets, vendors, budgets, and last-minute changes without losing sight of the attendee experience."
+          ]
+        },
+        {
+          "label": "Nonprofit program coordinator",
+          "paragraphs": [
+            "Nonprofit program coordinator with [2] years organizing grant deliverables, partner meetings, and reporting across [6] community programs. Improved on-time reporting from [78%] to [96%] with a shared tracker and clearer ownership."
+          ]
+        },
+        {
+          "label": "Business analyst to PM",
+          "paragraphs": [
+            "Business analyst preparing for project ownership after [2] years gathering requirements and coordinating UAT for [4] system releases. Brings clear documentation, practical stakeholder communication, and a habit of surfacing decisions before they block delivery."
           ]
         }
       ],
       "mid": [
         {
+          "label": "Software project manager",
           "paragraphs": [
-            "Project manager with 6 years of experience delivering software projects up to $2M on Agile teams.",
-            "Skilled in Scrum facilitation, stakeholder management, and risk tracking across distributed teams.",
-            "Delivered 90% of projects on time over three years by tightening scope control and escalation paths."
+            "Project manager with [5] years delivering software initiatives up to [$2M] across distributed Agile teams. Delivered [91%] of projects on schedule by tightening scope decisions and making risks visible earlier."
           ]
         },
         {
+          "label": "Construction project manager",
           "paragraphs": [
-            "PMP-certified project manager with 5 years in construction and infrastructure delivery.",
-            "Managed budgets to $5M and vendor teams of 20+, holding schedule variance under 5%.",
-            "Trusted by executives for clear reporting and honest, early escalation of risks."
+            "Construction project manager with [6] years leading commercial projects from preconstruction through closeout. Managed budgets up to [$8M] while holding average schedule variance below [4%]."
+          ]
+        },
+        {
+          "label": "Marketing project manager",
+          "paragraphs": [
+            "Marketing project manager with [4] years coordinating creative, media, web, and legal teams across [25+] campaigns per year. Reduced average approval time by [30%] with clearer briefs and a single review path."
+          ]
+        },
+        {
+          "label": "Healthcare implementation PM",
+          "paragraphs": [
+            "Healthcare implementation manager with [5] years rolling out clinical and billing systems across [9] sites. Coordinated training, data migration, and go-live support while keeping disruption below agreed service levels."
+          ]
+        },
+        {
+          "label": "Operations project manager",
+          "paragraphs": [
+            "Operations project manager with [6] years improving warehouse and fulfillment workflows. Led a [$1.4M] automation project that increased daily capacity by [26%] without adding floor space."
+          ]
+        },
+        {
+          "label": "ERP project manager",
+          "paragraphs": [
+            "ERP project manager with [5] years coordinating finance, operations, vendors, and technical teams through system migrations. Completed a [14]-month NetSuite rollout within [3%] of budget."
+          ]
+        },
+        {
+          "label": "Agency project manager",
+          "paragraphs": [
+            "Agency project manager with [4] years running websites and campaigns for a portfolio of [10] clients. Improved gross margin by [8] points after introducing better estimation and change-order tracking."
           ]
         }
       ],
       "senior": [
         {
+          "label": "Senior program manager",
           "paragraphs": [
-            "Senior program manager with 11 years leading multi-team initiatives up to $10M across product and engineering.",
-            "Expert in portfolio planning, executive stakeholder management, and scaling Agile practices.",
-            "Cut average delivery slippage from 6 weeks to under 1 by rebuilding the intake and estimation process."
+            "Senior program manager with [11] years leading product and engineering initiatives across portfolios up to [$12M]. Cut average delivery slippage from [6] weeks to [1] by rebuilding intake and estimation."
           ]
         },
         {
+          "label": "PMO leader",
           "paragraphs": [
-            "PMP- and SAFe-certified delivery leader with 10+ years across fintech and e-commerce.",
-            "Built and mentored a PMO of 8 project managers supporting 30+ concurrent initiatives.",
-            "Known for turning ambiguous executive goals into roadmaps teams can actually ship."
+            "PMO leader with [13] years establishing governance for [35+] concurrent initiatives. Built a team of [8] project managers and introduced portfolio reviews that redirected funding before troubled projects missed major milestones."
+          ]
+        },
+        {
+          "label": "Director of delivery",
+          "paragraphs": [
+            "Director of delivery with [12] years in digital services, responsible for [6] client teams and [$18M] in annual work. Raised on-time delivery from [74%] to [92%] while improving project margin."
+          ]
+        },
+        {
+          "label": "Construction program director",
+          "paragraphs": [
+            "Construction program director with [15] years overseeing capital programs up to [$120M]. Coordinated owners, designers, contractors, and public agencies across [7] active sites with no lost-time safety incidents."
+          ]
+        },
+        {
+          "label": "Transformation program lead",
+          "paragraphs": [
+            "Transformation lead with [10] years managing operating-model and technology change across finance and customer operations. Delivered [$6M] in verified annual savings across a [2]-year program."
+          ]
+        },
+        {
+          "label": "Product operations leader",
+          "paragraphs": [
+            "Product operations leader with [9] years connecting roadmaps, capacity, and executive decisions across [5] product groups. Reduced planning cycle time by [40%] and gave teams a stable quarterly commitment process."
+          ]
+        },
+        {
+          "label": "Portfolio delivery executive",
+          "paragraphs": [
+            "Portfolio delivery executive with [16] years across healthcare and financial services, accountable for [45] initiatives and a [$75M] annual change budget. Improved benefits tracking so leaders could stop low-value work earlier."
           ]
         }
       ]
     },
     "powerWords": [
-      { "word": "Delivered", "usage": "Delivered a $2M platform migration on time and under budget." },
-      { "word": "Coordinated", "usage": "Coordinated 5 workstreams across three time zones." },
-      { "word": "Mitigated", "usage": "Mitigated schedule risk by re-sequencing the critical path." },
-      { "word": "Facilitated", "usage": "Facilitated sprint ceremonies for three Agile teams." },
-      { "word": "Reduced", "usage": "Reduced delivery slippage by 80% via a new intake process." },
-      { "word": "Aligned", "usage": "Aligned executives and engineering on a single roadmap." }
+      {
+        "word": "Delivered",
+        "usage": "Delivered a $2M platform migration on time and under budget."
+      },
+      {
+        "word": "Coordinated",
+        "usage": "Coordinated 5 workstreams across three time zones."
+      },
+      {
+        "word": "Mitigated",
+        "usage": "Mitigated schedule risk by re-sequencing the critical path."
+      },
+      {
+        "word": "Facilitated",
+        "usage": "Facilitated sprint ceremonies for three Agile teams."
+      },
+      {
+        "word": "Reduced",
+        "usage": "Reduced delivery slippage by 80% via a new intake process."
+      },
+      {
+        "word": "Aligned",
+        "usage": "Aligned executives and engineering on a single roadmap."
+      }
     ],
     "howToAdapt": [
-      { "step": "Match their methodology", "text": "If the posting says Scrum, say Scrum — not \"Agile methodologies\". If it's a waterfall shop (construction, gov), lead with schedule and budget control instead." },
-      { "step": "Scale your numbers to the role", "text": "Name project budget, team size, and duration closest to what the posting describes. A $10M program lead summary can read as overqualified for a $200K project role — tune it." },
-      { "step": "Front-load the certification they ask for", "text": "PMP, CSM, PRINCE2 — if it's in the requirements, it goes in your first sentence, because that's what the screener is scanning for." }
+      {
+        "step": "Match their methodology",
+        "text": "If the posting says Scrum, say Scrum, not \"Agile methodologies\". If it's a waterfall shop (construction, gov), lead with schedule and budget control instead."
+      },
+      {
+        "step": "Scale your numbers to the role",
+        "text": "Name project budget, team size, and duration closest to what the posting describes. A $10M program lead summary can read as overqualified for a $200K project role, tune it."
+      },
+      {
+        "step": "Front-load the certification they ask for",
+        "text": "PMP, CSM, PRINCE2, if it's in the requirements, it goes in your first sentence, because that's what the screener is scanning for."
+      }
     ],
     "faq": [
-      { "q": "What should a project manager resume summary say?", "a": "Methodology, scale (budget, team size), and one delivery outcome — on-time percentage, savings, or slippage reduction. Add your certification (PMP, CSM) in the first sentence if the posting requires it." },
-      { "q": "How do I quantify project management experience?", "a": "Use budget managed, number of concurrent projects, team headcount, and delivery metrics (on-time rate, schedule variance). Pick the two numbers that best match the role's scale." },
-      { "q": "Do I need a PMP to write a strong summary?", "a": "No — outcomes beat certifications. If you don't have a PMP, lead with your strongest delivery result and the methods you actually used." },
-      { "q": "Is a summary different for Agile vs traditional roles?", "a": "Yes. Agile roles want ceremonies, velocity, and cross-functional facilitation; traditional roles want budget, schedule variance, and vendor management. Same experience, different vocabulary." }
+      {
+        "q": "What belongs in a project manager resume summary?",
+        "a": "Include the type of projects, delivery method, scale, and one result. Budget, team size, project count, schedule variance, savings, or on-time delivery are useful measures."
+      },
+      {
+        "q": "Should I include PMP or another certification?",
+        "a": "Yes, when the posting asks for it or the credential is a meaningful filter. Put it in the first sentence, but still include a delivery result."
+      },
+      {
+        "q": "How do I quantify project management work?",
+        "a": "Use budget, duration, team size, vendors, sites, concurrent projects, or delivery rate. Choose numbers that match the scale of the role you want."
+      },
+      {
+        "q": "Can a coordinator use a summary without owning a full project?",
+        "a": "Yes. Show the deliverables you tracked, teams you supported, meetings or reports you owned, and a result such as fewer missed deadlines or better reporting."
+      },
+      {
+        "q": "Should Agile and waterfall summaries sound different?",
+        "a": "They should use the language of the job. Agile roles may value ceremonies, releases, and cross-functional delivery. Traditional roles often care more about budget, schedule, vendors, and change control."
+      }
     ],
-    "related": ["customer-service", "sales", "engineering", "it"],
+    "related": [
+      "customer-service",
+      "sales",
+      "engineering",
+      "it"
+    ],
     "relatedKeywords": [
       "project manager resume summary",
       "project management professional summary",
-      "pm resume examples",
-      "agile project manager resume",
+      "project coordinator resume summary",
+      "PMP resume summary",
       "senior project manager summary",
-      "project coordinator resume summary"
+      "program manager resume summary",
+      "Agile project manager resume",
+      "construction project manager summary",
+      "IT project manager resume summary",
+      "project manager resume examples"
+    ]
+  },
+  "sales": {
+    "name": "Sales",
+    "roleDefault": "Sales Representative",
+    "h1": "Sales Resume Summary Examples",
+    "metaDescription": "Browse 20 sales resume summary examples for entry-level candidates, account executives, sales managers, and senior leaders. Includes a free generator.",
+    "shortAnswer": "A sales summary needs three things: what you sell, who buys it, and the number you hit. Lead with quota attainment, revenue, pipeline, or deal size. Without a number, the summary reads like a job description.",
+    "skills": [
+      "B2B / B2C",
+      "Cold outreach",
+      "Pipeline management",
+      "CRM (Salesforce/HubSpot)",
+      "Negotiation",
+      "Territory management",
+      "Account expansion",
+      "Solution selling",
+      "Channel partners",
+      "Contract renewals",
+      "Lead qualification",
+      "Demos & presentations",
+      "Forecasting",
+      "Team leadership"
+    ],
+    "defaultSkills": [
+      "B2B / B2C",
+      "Cold outreach",
+      "Pipeline management"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Entry-level sales candidate with [2] years in retail, converting browsers to buyers at a [28%] close rate and finishing three quarters in the store's top [3] performers. Ready to move that instinct into a quota-carrying role."
+          ],
+          "label": "Entry-level sales candidate"
+        },
+        {
+          "paragraphs": [
+            "Recent business graduate whose SDR internship produced [120] qualified leads and [35] discovery calls in four months. Comfortable with Salesforce, cold email sequences, and the steady follow-up needed after an initial no."
+          ],
+          "label": "Recent business graduate whose SDR internship produced"
+        },
+        {
+          "paragraphs": [
+            "Career changer moving from hospitality into sales, bringing [5] years of upselling experience that lifted average check by [14%] and a genuine comfort starting conversations with strangers."
+          ],
+          "label": "Career changer"
+        },
+        {
+          "paragraphs": [
+            "Entry-level account executive candidate with [1] year of door-to-door fundraising that brought in [$40K] across two campaigns. Responds well to coaching, tracks the numbers, and stays composed when a prospect declines."
+          ],
+          "label": "Entry-level account executive candidate"
+        },
+        {
+          "paragraphs": [
+            "Sales development representative with [8] months of experience running outbound sequences to [200] accounts per month, achieving a [12%] reply rate against a team average of [7%]."
+          ],
+          "label": "Sales development representative"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) sales candidate with [3] years in customer service, converting [15%] of support conversations into upgrade or add-on revenue without a formal sales title."
+          ],
+          "label": "Bilingual (English/Spanish) sales candidate"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Account executive with [4] years in B2B SaaS, closing [$1.2M] in annual recurring revenue at [112%] of quota with an average deal size of [$28K] and a [4]-month sales cycle."
+          ],
+          "label": "Account executive"
+        },
+        {
+          "paragraphs": [
+            "Inside sales representative with [3] years handling [60] outbound calls daily, converting [18%] of qualified leads and consistently ranking in the top [20%] of a [45]-person team."
+          ],
+          "label": "Inside sales representative"
+        },
+        {
+          "paragraphs": [
+            "Territory sales representative with [5] years covering [3] states and [140] accounts, growing regional revenue [24%] year over year through in-person account development."
+          ],
+          "label": "Territory sales representative"
+        },
+        {
+          "paragraphs": [
+            "Retail sales manager with [4] years running a [$3M] location, exceeding store targets [7] quarters running and lifting attachment rate from [22%] to [31%]."
+          ],
+          "label": "Retail sales manager"
+        },
+        {
+          "paragraphs": [
+            "Medical device sales representative with [4] years selling into [50+] hospital accounts, achieving [118%] of quota and winning a competitive displacement worth [$400K] annually."
+          ],
+          "label": "Medical device sales representative"
+        },
+        {
+          "paragraphs": [
+            "Real estate agent with [5] years and [90] closed transactions totaling [$32M] in volume, with [60%] of business coming from referrals and repeat clients."
+          ],
+          "label": "Real estate agent"
+        },
+        {
+          "paragraphs": [
+            "Channel sales representative with [3] years managing [25] reseller partners, growing partner-sourced revenue from [15%] to [34%] of total book."
+          ],
+          "label": "Channel sales representative"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Enterprise account executive with [8] years selling six-figure contracts into Fortune 500 accounts, closing [$4.5M] annually with an average deal cycle of [9] months and a [64%] win rate on qualified opportunities."
+          ],
+          "label": "Enterprise account executive"
+        },
+        {
+          "paragraphs": [
+            "Sales manager with [10] years and [4] years leading a [9]-rep team to [107%] of team quota, cutting ramp time for new hires from [6] months to [4]."
+          ],
+          "label": "Sales manager"
+        },
+        {
+          "paragraphs": [
+            "Director of sales with [12] years scaling a regional team from [6] to [22] reps and growing annual revenue from [$8M] to [$26M] across four years."
+          ],
+          "label": "Director of sales"
+        },
+        {
+          "paragraphs": [
+            "Strategic account manager with [9] years owning [12] enterprise relationships worth [$11M] in combined ARR, holding a [96%] logo retention rate."
+          ],
+          "label": "Strategic account manager"
+        },
+        {
+          "paragraphs": [
+            "VP of sales with [15] years across SaaS and services, building the go-to-market motion that took the company from [$5M] to [$40M] ARR and hiring [30+] quota-carrying reps."
+          ],
+          "label": "VP of sales"
+        },
+        {
+          "paragraphs": [
+            "Senior solutions consultant with [11] years supporting [$20M] in annual pipeline, running technical discovery and demos with a [72%] technical-win rate."
+          ],
+          "label": "Senior solutions consultant"
+        },
+        {
+          "paragraphs": [
+            "Regional sales director with [13] years and P&L ownership of a [$45M] territory, restructuring coverage to lift rep productivity [19%] in one year."
+          ],
+          "label": "Regional sales director"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Closed",
+        "usage": "Closed $1.2M in annual recurring revenue at 112% of quota."
+      },
+      {
+        "word": "Exceeded quota",
+        "usage": "Exceeded quota for seven consecutive quarters."
+      },
+      {
+        "word": "Sourced",
+        "usage": "Sourced 40% of new pipeline through targeted outbound work."
+      },
+      {
+        "word": "Expanded",
+        "usage": "Expanded existing accounts by identifying new teams and use cases."
+      },
+      {
+        "word": "Negotiated",
+        "usage": "Negotiated multi-year contracts without giving up margin."
+      },
+      {
+        "word": "Displaced [competitor]",
+        "usage": "Displaced an incumbent competitor in a $400K hospital account."
+      },
+      {
+        "word": "Forecasted within [X%] accuracy",
+        "usage": "Forecasted monthly revenue within 5% of the final result."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the sales motion",
+        "text": "Make it clear whether you win new logos, grow existing accounts, or do both."
+      },
+      {
+        "step": "Use comparable deal numbers",
+        "text": "Choose quota, deal size, and sales-cycle numbers that match the scale of the role."
+      },
+      {
+        "step": "Name the buyer and industry",
+        "text": "Say whether you sell to healthcare, fintech, manufacturing, consumers, or another specific market."
+      },
+      {
+        "step": "Use the CRM from the posting",
+        "text": "Mention Salesforce, HubSpot, or another system when it appears in the job description and you know it."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What if I missed quota last year?",
+        "a": "Lead with a period where you hit it, or use a different number: pipeline generated, win rate, logo retention, new accounts opened. Never invent attainment, it gets verified in reference checks more than any other claim in sales."
+      },
+      {
+        "q": "I have no sales title but I sold. Does it count?",
+        "a": "Yes. Retail attachment rates, upsells from a support seat, fundraising totals, freelance client acquisition, all of it is quota-adjacent proof. Name the number and the mechanism."
+      },
+      {
+        "q": "Should I list the products I sold?",
+        "a": "Name the category, not the SKU: \"cloud security software,\" \"orthopedic implants,\" \"commercial HVAC.\" Buyers-side vocabulary matters more than product names."
+      },
+      {
+        "q": "How do I write a sales summary as a career changer?",
+        "a": "One clause for the old field, one for the transferable metric, one for the target role. Skip the apology; hiring managers care about whether you can hold a conversation and take rejection."
+      },
+      {
+        "q": "Do I include commission or W2 earnings?",
+        "a": "No. Earnings belong in a conversation, not on a resume. Quota attainment communicates the same thing without the awkwardness."
+      }
+    ],
+    "related": [
+      "retail",
+      "customer-service",
+      "receptionist",
+      "project-manager"
+    ],
+    "relatedKeywords": [
+      "sales resume summary",
+      "sales representative resume summary examples",
+      "account executive resume summary",
+      "entry level sales resume summary",
+      "sales manager resume summary examples",
+      "retail sales resume summary",
+      "professional summary for sales resume",
+      "b2b sales resume summary",
+      "inside sales resume summary",
+      "sales associate resume summary"
+    ]
+  },
+  "administrative-assistant": {
+    "name": "Administrative Assistant",
+    "roleDefault": "Administrative Assistant",
+    "h1": "Administrative Assistant Resume Summary Examples",
+    "metaDescription": "Browse 20 administrative assistant resume summary examples for entry-level, experienced, executive assistant, and office manager roles.",
+    "shortAnswer": "Show the scope of the office work you keep moving. Name who you support, the calendars or travel you manage, and one useful number such as monthly expenses, meetings, vendors, or records.",
+    "skills": [
+      "Calendar management",
+      "Travel coordination",
+      "Expense reports",
+      "Meeting minutes",
+      "Vendor management",
+      "Office supplies & budget",
+      "Data entry",
+      "Document control",
+      "Front desk / reception",
+      "Onboarding support",
+      "Event coordination",
+      "MS Office / Google Workspace",
+      "Confidential records",
+      "Payroll support"
+    ],
+    "defaultSkills": [
+      "Calendar management",
+      "Travel coordination",
+      "Expense reports"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Administrative support candidate with [2] years of part-time office work, maintaining [400+] client records and covering the front desk for a [15]-person team. Comfortable in Google Workspace and careful about naming, filing, and retrieval."
+          ],
+          "label": "Administrative support candidate"
+        },
+        {
+          "paragraphs": [
+            "Recent graduate with an internship in university administration, scheduling [30] meetings weekly and maintaining a shared calendar for a [9]-person department without a single double-booking."
+          ],
+          "label": "Recent graduate"
+        },
+        {
+          "paragraphs": [
+            "Entry-level administrative assistant with retail management experience covering scheduling, cash reconciliation and vendor deliveries for a [$1.2M] store. Comfortable owning the small things nobody else tracks."
+          ],
+          "label": "Entry-level administrative assistant"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) office support candidate with [1] year of receptionist experience handling [60] calls daily and greeting [40+] visitors, plus data entry accuracy verified at [99%]."
+          ],
+          "label": "Bilingual (English/Spanish) office support candidate"
+        },
+        {
+          "paragraphs": [
+            "Administrative candidate transitioning from hospitality, bringing [4] years of guest coordination, [200+] daily interactions and a habit of anticipating what someone needs before they ask."
+          ],
+          "label": "Administrative candidate"
+        },
+        {
+          "paragraphs": [
+            "Organized entry-level assistant with volunteer experience coordinating logistics for events of [150+] attendees, including vendor scheduling, materials and day-of run sheets."
+          ],
+          "label": "Organized entry-level assistant"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Administrative assistant with [4] years supporting a [12]-person department, managing calendars for [3] directors, processing [80] expense reports monthly and cutting supply spend [18%] through vendor renegotiation."
+          ],
+          "label": "Administrative assistant"
+        },
+        {
+          "paragraphs": [
+            "Office administrator with [5] years running day-to-day operations for a [40]-employee firm, owning facilities, vendor contracts and a [$120K] annual office budget."
+          ],
+          "label": "Office administrator"
+        },
+        {
+          "paragraphs": [
+            "Medical administrative assistant with [3] years handling scheduling for [6] providers, verifying insurance for [70] patients weekly and maintaining full HIPAA compliance."
+          ],
+          "label": "Medical administrative assistant"
+        },
+        {
+          "paragraphs": [
+            "Legal administrative assistant with [4] years supporting [4] attorneys, managing court filing deadlines with a zero-miss record across [500+] filings."
+          ],
+          "label": "Legal administrative assistant"
+        },
+        {
+          "paragraphs": [
+            "Administrative assistant with [3] years coordinating domestic and international travel for [8] executives, including visa logistics, and reducing average booking cost by [12%]."
+          ],
+          "label": "Administrative assistant"
+        },
+        {
+          "paragraphs": [
+            "Project administrative coordinator with [5] years supporting construction teams, tracking [30] active subcontractor agreements and processing [$2M] in monthly invoicing."
+          ],
+          "label": "Project administrative coordinator"
+        },
+        {
+          "paragraphs": [
+            "HR administrative assistant with [4] years supporting recruitment and onboarding for [120] hires annually, cutting paperwork turnaround from [5] days to [2]."
+          ],
+          "label": "HR administrative assistant"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Executive assistant with [9] years supporting C-suite leaders, managing complex calendars across [5] time zones and acting as gatekeeper for a CEO with [200+] weekly requests."
+          ],
+          "label": "Executive assistant"
+        },
+        {
+          "paragraphs": [
+            "Senior executive assistant with [11] years in financial services, handling board meeting preparation, confidential materials and travel for [4] executives with a [$400K] annual travel budget."
+          ],
+          "label": "Senior executive assistant"
+        },
+        {
+          "paragraphs": [
+            "Office manager with [8] years running a [60]-person office, owning facilities, IT vendor relationships and a [$300K] operating budget while cutting overhead [15%]."
+          ],
+          "label": "Office manager"
+        },
+        {
+          "paragraphs": [
+            "Chief of staff-track executive assistant with [10] years, running quarterly planning cycles and owning follow-through on [80+] leadership action items per quarter."
+          ],
+          "label": "Chief of staff-track executive assistant"
+        },
+        {
+          "paragraphs": [
+            "Executive assistant with [12] years in healthcare administration, supporting a [3]-hospital system's leadership team and coordinating board packets for [8] annual meetings."
+          ],
+          "label": "Executive assistant"
+        },
+        {
+          "paragraphs": [
+            "Senior administrative manager with [9] years leading a team of [6] assistants, standardizing processes that cut scheduling conflicts by [40%] across the organization."
+          ],
+          "label": "Senior administrative manager"
+        },
+        {
+          "paragraphs": [
+            "Executive business partner with [13] years supporting founders through two funding rounds and headcount growth from [25] to [180], owning all-hands logistics and offsite planning."
+          ],
+          "label": "Executive business partner"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Coordinated",
+        "usage": "Coordinated travel across five time zones for four executives."
+      },
+      {
+        "word": "Owned",
+        "usage": "Owned calendars, expenses, and meeting preparation for three directors."
+      },
+      {
+        "word": "Streamlined",
+        "usage": "Streamlined onboarding paperwork and cut turnaround from five days to two."
+      },
+      {
+        "word": "Reconciled",
+        "usage": "Reconciled 80 monthly expense reports with accurate supporting records."
+      },
+      {
+        "word": "Gatekept / triaged",
+        "usage": "Triaged more than 200 weekly requests for a busy executive office."
+      },
+      {
+        "word": "Negotiated",
+        "usage": "Negotiated vendor terms that reduced annual supply spending by 18%."
+      },
+      {
+        "word": "Standardized",
+        "usage": "Standardized scheduling and document workflows across six assistants."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Show who you support",
+        "text": "Name the number and seniority of the people you support, from a small department to a C-suite team."
+      },
+      {
+        "step": "Make the workload visible",
+        "text": "Use calendar volume, monthly expenses, travel bookings, records, or vendor counts to show the scope."
+      },
+      {
+        "step": "Match the setting",
+        "text": "Use the right language for a legal, medical, education, nonprofit, or corporate office."
+      },
+      {
+        "step": "Name the tools you actually use",
+        "text": "Include Microsoft 365, Google Workspace, scheduling systems, or document platforms from the posting."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What's the difference between an administrative assistant and executive assistant summary?",
+        "a": "Scope and confidentiality. An EA summary names the seniority supported (C-suite, board), the complexity (multi-time-zone travel, board packets) and discretion. An admin summary names volume and systems."
+      },
+      {
+        "q": "I've only worked in one small office. How do I not sound junior?",
+        "a": "Name breadth instead of scale: if you owned facilities, vendors, payroll support and onboarding at once, that's wider than a specialist role in a big company. Say so."
+      },
+      {
+        "q": "Should I list every software I know?",
+        "a": "No, three to five that appear in the posting. Long tool lists read as filler; Concur, Workday, Outlook and Asana named specifically read as fit."
+      },
+      {
+        "q": "How do I show reliability without clichés?",
+        "a": "Replace \"detail-oriented\" with a fact: zero missed filings across [500+], [99%] data entry accuracy, [3] years without a scheduling conflict."
+      },
+      {
+        "q": "Is \"administrative professional\" better than \"administrative assistant\"?",
+        "a": "Use the exact title from the posting. Employers filter on that string, and creative variants get missed."
+      }
+    ],
+    "related": [
+      "receptionist",
+      "customer-service",
+      "project-manager",
+      "accountant"
+    ],
+    "relatedKeywords": [
+      "administrative assistant resume summary",
+      "executive assistant resume summary examples",
+      "office manager resume summary",
+      "entry level administrative assistant resume summary",
+      "medical administrative assistant resume summary",
+      "professional summary for administrative assistant",
+      "resume summary for office administrator",
+      "administrative assistant summary with no experience",
+      "legal assistant resume summary",
+      "receptionist resume summary"
+    ]
+  },
+  "teacher": {
+    "name": "Teacher",
+    "roleDefault": "Teacher",
+    "h1": "Teacher Resume Summary Examples",
+    "metaDescription": "Browse 20 teacher resume summary examples for new teachers, elementary and secondary educators, special education, and school leaders.",
+    "shortAnswer": "Name the grade, subject, or student group you teach, then add one outcome. Student growth, proficiency, attendance, IEP progress, or course completion makes the summary more useful than a list of teaching adjectives.",
+    "skills": [
+      "Lesson planning",
+      "Differentiated instruction",
+      "Classroom management",
+      "IEP / special education",
+      "Assessment & data",
+      "Parent communication",
+      "Curriculum development",
+      "Technology integration",
+      "ESL / ELL support",
+      "Behavior intervention",
+      "Small group instruction",
+      "Co-teaching",
+      "Standardized test prep",
+      "Mentoring teachers"
+    ],
+    "defaultSkills": [
+      "Lesson planning",
+      "Differentiated instruction",
+      "Classroom management"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Certified [state] elementary teacher with student teaching across grades [2] and [4], planning and delivering [180] lessons under mentor supervision and raising small-group reading scores by [1.2] grade levels over a semester."
+          ],
+          "label": "Certified elementary teacher"
+        },
+        {
+          "paragraphs": [
+            "Newly licensed secondary math teacher with [400] hours of classroom placement in Title I schools, comfortable with a [28]-student class and a wide skill spread in a single room."
+          ],
+          "label": "Newly licensed secondary math teacher"
+        },
+        {
+          "paragraphs": [
+            "Career-change teacher entering the classroom after [8] years in engineering, bringing applied math and a STEM curriculum unit already piloted with [60] students."
+          ],
+          "label": "Career-change teacher entering the classroom after years"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) elementary candidate certified in ESL, with practicum experience supporting [15] English learners and building family communication in both languages."
+          ],
+          "label": "Bilingual (English/Spanish) elementary candidate certified in ESL"
+        },
+        {
+          "paragraphs": [
+            "Recent education graduate with a special education endorsement and practicum experience supporting [12] students with IEPs across resource and inclusion settings."
+          ],
+          "label": "Recent education graduate"
+        },
+        {
+          "paragraphs": [
+            "Substitute teacher with [2] years across [6] schools and every grade band K-8, stepping into unfamiliar rooms and holding routines from the first minute."
+          ],
+          "label": "Substitute teacher"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Third-grade teacher with [4] years in a Title I school, raising class reading proficiency from [61%] to [79%] over two years through daily small-group instruction and data-driven grouping."
+          ],
+          "label": "Third-grade teacher"
+        },
+        {
+          "paragraphs": [
+            "High school biology teacher with [5] years and [140] students per semester, lifting AP pass rates from [58%] to [74%] and launching the school's first science research elective."
+          ],
+          "label": "High school biology teacher"
+        },
+        {
+          "paragraphs": [
+            "Middle school ELA teacher with [3] years, using standards-based grading and conferencing to move [80%] of students at least one performance band in a single year."
+          ],
+          "label": "Middle school ELA teacher"
+        },
+        {
+          "paragraphs": [
+            "Special education teacher with [4] years managing caseloads of [18] IEPs, holding [100%] compliance on timelines and leading transition planning for [10] graduating students."
+          ],
+          "label": "Special education teacher"
+        },
+        {
+          "paragraphs": [
+            "Kindergarten teacher with [5] years building foundational literacy routines that brought [88%] of students to end-year benchmark, above a district average of [72%]."
+          ],
+          "label": "Kindergarten teacher"
+        },
+        {
+          "paragraphs": [
+            "ESL teacher with [3] years supporting [45] English learners across [7] home languages, moving [60%] up at least one WIDA proficiency level annually."
+          ],
+          "label": "ESL teacher"
+        },
+        {
+          "paragraphs": [
+            "Math intervention teacher with [4] years running pull-out groups for [50] students, closing an average [1.5]-year skill gap within two semesters."
+          ],
+          "label": "Math intervention teacher"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Veteran elementary teacher with [12] years and [4] years as grade-level lead, mentoring [8] new teachers and coordinating curriculum alignment across [5] classrooms."
+          ],
+          "label": "Veteran elementary teacher"
+        },
+        {
+          "paragraphs": [
+            "High school department chair with [14] years teaching social studies and [5] years leading a [9]-teacher department, raising department-wide pass rates [11] points."
+          ],
+          "label": "High school department chair"
+        },
+        {
+          "paragraphs": [
+            "Instructional coach with [10] years in the classroom and [3] years coaching [22] teachers, with observed practice gains documented across [80%] of coached staff."
+          ],
+          "label": "Instructional coach"
+        },
+        {
+          "paragraphs": [
+            "Special education coordinator with [11] years, overseeing [140] IEPs across a building and cutting due-process complaints to zero over three years."
+          ],
+          "label": "Special education coordinator"
+        },
+        {
+          "paragraphs": [
+            "Curriculum specialist with [13] years, authoring K-5 math units now used district-wide across [11] schools and [3,000] students."
+          ],
+          "label": "Curriculum specialist"
+        },
+        {
+          "paragraphs": [
+            "Assistant principal-track teacher leader with [9] years, running MTSS meetings for [400] students and building the behavior intervention system now used school-wide."
+          ],
+          "label": "Assistant principal-track teacher leader"
+        },
+        {
+          "paragraphs": [
+            "STEM magnet teacher with [10] years, growing a robotics program from [12] to [70] students with three state championship appearances."
+          ],
+          "label": "STEM magnet teacher"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Raised / moved",
+        "usage": "Raised reading proficiency from 58% to 76% in one school year."
+      },
+      {
+        "word": "Differentiated",
+        "usage": "Differentiated lessons for mixed reading levels and IEP goals."
+      },
+      {
+        "word": "Mentored",
+        "usage": "Mentored four first-year teachers through planning and classroom management."
+      },
+      {
+        "word": "Aligned to standards",
+        "usage": "Aligned units and assessments to state curriculum standards."
+      },
+      {
+        "word": "Progressed [X%] of students",
+        "usage": "Moved 82% of students at least one full level in reading."
+      },
+      {
+        "word": "Facilitated",
+        "usage": "Facilitated family conferences with clear next steps and follow-up."
+      },
+      {
+        "word": "Piloted",
+        "usage": "Piloted a math intervention later adopted across the grade level."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the grade and subject",
+        "text": "Lead with the same grade band, subject, or student population named in the posting."
+      },
+      {
+        "step": "Use student outcome numbers",
+        "text": "Choose growth, proficiency, attendance, or completion results that you can explain in an interview."
+      },
+      {
+        "step": "Name the relevant framework",
+        "text": "Mention IEPs, differentiated instruction, curriculum standards, or classroom technology when the role asks for it."
+      },
+      {
+        "step": "Bring required credentials forward",
+        "text": "Include your license, endorsement, ESL credential, or special education certification early."
+      }
+    ],
+    "faq": [
+      {
+        "q": "I'm certified in one state and applying in another. What do I write?",
+        "a": "Name your current certification and add reciprocity status in the same clause: \"certified in [state], reciprocity application in progress for [state].\" Silence on it raises more questions than the answer does."
+      },
+      {
+        "q": "What if my school doesn't share test data with teachers?",
+        "a": "Use what you own: attendance in your class, work completion rates, number of IEPs managed, clubs launched, students moved between reading groups. Growth doesn't have to be standardized to be real."
+      },
+      {
+        "q": "How do I write a summary as a career changer into teaching?",
+        "a": "One clause on the prior field with the subject link, one on your certification path, one on classroom exposure. Districts hire career changers constantly in math, science and CTE."
+      },
+      {
+        "q": "Should the summary mention how much I care about students?",
+        "a": "No. Every applicant writes it, so it distinguishes nothing. Show it through what you did: family communication in two languages, a club you built, a gap you closed."
+      },
+      {
+        "q": "Is a teaching summary different for private schools?",
+        "a": "Slightly. Private and independent schools weigh subject depth, extracurricular contribution and advising more than certification. Move those forward."
+      }
+    ],
+    "related": [
+      "administrative-assistant",
+      "customer-service",
+      "project-manager"
+    ],
+    "relatedKeywords": [
+      "teacher resume summary",
+      "teacher resume summary examples",
+      "elementary teacher resume summary",
+      "new teacher resume summary with no experience",
+      "special education teacher resume summary",
+      "professional summary for teacher resume",
+      "substitute teacher resume summary",
+      "high school teacher resume summary",
+      "esl teacher resume summary",
+      "teacher assistant resume summary"
+    ]
+  },
+  "accountant": {
+    "name": "Accountant",
+    "roleDefault": "Accountant",
+    "h1": "Accountant Resume Summary Examples",
+    "metaDescription": "Browse 20 accountant resume summary examples for entry-level, staff, senior, CPA, accounting manager, and controller roles.",
+    "shortAnswer": "Lead with your credential or accounting level, the size of the books you handle, and one process you own. Close time, invoice volume, entities, revenue, or audit results give employers a clear sense of scale.",
+    "skills": [
+      "Month-end close",
+      "AP / AR",
+      "General ledger",
+      "Reconciliations",
+      "Financial reporting",
+      "Tax preparation",
+      "Audit support",
+      "Payroll",
+      "Budgeting & forecasting",
+      "QuickBooks",
+      "NetSuite / SAP",
+      "Excel modeling",
+      "Fixed assets",
+      "Internal controls (SOX)"
+    ],
+    "defaultSkills": [
+      "Month-end close",
+      "AP / AR",
+      "General ledger"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Accounting graduate with a completed internship processing [200+] invoices monthly and assisting with three month-end closes. CPA-eligible with [150] credit hours and advanced Excel including pivot tables and lookups."
+          ],
+          "label": "Accounting graduate"
+        },
+        {
+          "paragraphs": [
+            "Entry-level accountant with [1] year in accounts payable, handling [350] invoices per month at [99.5%] coding accuracy and resolving vendor discrepancies without escalation."
+          ],
+          "label": "Entry-level accountant"
+        },
+        {
+          "paragraphs": [
+            "Recent finance graduate with bookkeeping experience for [4] small business clients, maintaining books in QuickBooks and preparing monthly statements with zero restatements."
+          ],
+          "label": "Recent finance graduate"
+        },
+        {
+          "paragraphs": [
+            "Career changer entering accounting after [6] years in banking operations, bringing reconciliation experience across [1,200] daily transactions and a completed accounting certificate."
+          ],
+          "label": "Career changer entering accounting after years in"
+        },
+        {
+          "paragraphs": [
+            "Junior accountant with [1] year supporting a [$12M] revenue company, owning bank reconciliations for [6] accounts and assisting with quarterly sales tax filings across [4] states."
+          ],
+          "label": "Junior accountant"
+        },
+        {
+          "paragraphs": [
+            "Accounting assistant with [2] years in accounts receivable, cutting past-due balances from [$180K] to [$60K] through structured collections outreach."
+          ],
+          "label": "Accounting assistant"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Staff accountant with [4] years supporting a [$60M] revenue company, owning the month-end close for [3] entities and reducing close time from [10] days to [6]."
+          ],
+          "label": "Staff accountant"
+        },
+        {
+          "paragraphs": [
+            "Senior accountant with [5] years in manufacturing, managing inventory costing across [3] plants and reconciling [$8M] in monthly COGS with variance analysis."
+          ],
+          "label": "Senior accountant"
+        },
+        {
+          "paragraphs": [
+            "Tax accountant with [4] years preparing [300+] individual and [80] business returns annually, with a review-note rate below the firm average."
+          ],
+          "label": "Tax accountant"
+        },
+        {
+          "paragraphs": [
+            "Public accounting associate with [3] years in audit, leading fieldwork on [12] engagements ranging from [$5M] to [$90M] in revenue."
+          ],
+          "label": "Public accounting associate"
+        },
+        {
+          "paragraphs": [
+            "Payroll accountant with [4] years processing multi-state payroll for [600] employees across [12] states, with zero penalty assessments in three years."
+          ],
+          "label": "Payroll accountant"
+        },
+        {
+          "paragraphs": [
+            "AP supervisor with [5] years managing a [3]-person team and [$25M] in annual disbursements, capturing [$140K] in early-pay discounts last year."
+          ],
+          "label": "AP supervisor"
+        },
+        {
+          "paragraphs": [
+            "Financial analyst-accountant with [3] years building monthly reporting packages for department heads and cutting reporting turnaround from [8] days to [3]."
+          ],
+          "label": "Financial analyst-accountant"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "CPA with [9] years across public and private accounting, currently owning full-cycle close for a [$120M] revenue company with a consistent [5]-day close."
+          ],
+          "label": "senior example 1"
+        },
+        {
+          "paragraphs": [
+            "Assistant controller with [10] years, managing a [5]-person team, consolidating [4] subsidiaries and leading the successful first-year SOX readiness effort."
+          ],
+          "label": "Assistant controller"
+        },
+        {
+          "paragraphs": [
+            "Controller with [13] years, owning financial reporting, treasury and audit for a [$200M] organization and reducing audit adjustments to zero across two consecutive years."
+          ],
+          "label": "senior example 3"
+        },
+        {
+          "paragraphs": [
+            "Senior tax manager (CPA) with [11] years, managing [$40M] in client billings and reducing effective tax rate by an average [3] points for [25] business clients."
+          ],
+          "label": "Senior tax manager (CPA)"
+        },
+        {
+          "paragraphs": [
+            "Audit manager with [12] years in public accounting, running [20] engagements annually and developing a testing approach that cut fieldwork hours [18%]."
+          ],
+          "label": "Audit manager"
+        },
+        {
+          "paragraphs": [
+            "Accounting manager with [8] years leading close, reporting and AP/AR for a [$75M] company, implementing NetSuite across [40] users with no close delay during cutover."
+          ],
+          "label": "Accounting manager"
+        },
+        {
+          "paragraphs": [
+            "Director of finance with [15] years, owning FP&A and accounting for a company that grew from [$30M] to [$140M], building the forecasting model used in two funding rounds."
+          ],
+          "label": "Director of finance"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Reconciled",
+        "usage": "Reconciled 35 balance-sheet accounts each month with no aged exceptions."
+      },
+      {
+        "word": "Closed [in X days]",
+        "usage": "Closed the monthly books in five days instead of eight."
+      },
+      {
+        "word": "Consolidated",
+        "usage": "Consolidated reporting for seven legal entities into one package."
+      },
+      {
+        "word": "Reduced audit adjustments",
+        "usage": "Reduced audit adjustments by improving supporting schedules and review."
+      },
+      {
+        "word": "Implemented [system]",
+        "usage": "Implemented NetSuite for a finance team supporting $40M in revenue."
+      },
+      {
+        "word": "Captured [discounts]",
+        "usage": "Captured $90K in early-payment discounts through a new AP schedule."
+      },
+      {
+        "word": "Variance analysis",
+        "usage": "Explained material variances to department leaders in plain language."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the accounting environment",
+        "text": "Use language that fits public accounting, industry accounting, nonprofit work, or government work."
+      },
+      {
+        "step": "Show volume and complexity",
+        "text": "Use entities, accounts, invoices, reconciliations, close timelines, or revenue size to show scope."
+      },
+      {
+        "step": "Name the systems",
+        "text": "Include QuickBooks, NetSuite, SAP, Oracle, or advanced Excel only when you have real experience with them."
+      },
+      {
+        "step": "Lead with the credential they request",
+        "text": "Place CPA, CMA, or another requested credential in the first sentence."
+      }
+    ],
+    "faq": [
+      {
+        "q": "I'm CPA-eligible but not licensed. How do I say it?",
+        "a": "\"CPA-eligible with [150] credit hours\" or \"sitting for FAR in [month].\" It's a real credential state that recruiters recognize, and hiding it costs you filter matches."
+      },
+      {
+        "q": "Public accounting or industry, should the summary differ?",
+        "a": "Yes. Public: engagement count, client revenue range, specialization. Industry: entity count, revenue size, close timeline, systems owned."
+      },
+      {
+        "q": "What number do I use if I'm entry level?",
+        "a": "Volume, not dollars: invoices processed, accounts reconciled, returns prepared, closes assisted. \"[350] invoices per month at [99.5%] accuracy\" is a strong entry-level line."
+      },
+      {
+        "q": "Should I mention Excel?",
+        "a": "Only with specificity. \"Advanced Excel including pivot tables, lookups and model building\" reads as skill; \"proficient in Excel\" reads as filler and everyone writes it."
+      },
+      {
+        "q": "How do I handle a switch from bookkeeping to accounting?",
+        "a": "Name the full-cycle work you already did: reconciliations, statements, payroll, sales tax. Small-company bookkeeping is often broader than junior corporate accounting, and that breadth is the argument."
+      }
+    ],
+    "related": [
+      "administrative-assistant",
+      "project-manager",
+      "sales"
+    ],
+    "relatedKeywords": [
+      "accountant resume summary",
+      "accounting resume summary examples",
+      "staff accountant resume summary",
+      "entry level accountant resume summary",
+      "cpa resume summary examples",
+      "professional summary for accountant resume",
+      "senior accountant resume summary",
+      "bookkeeper resume summary",
+      "accounts payable resume summary",
+      "controller resume summary"
+    ]
+  },
+  "retail": {
+    "name": "Retail",
+    "roleDefault": "Retail Sales Associate",
+    "h1": "Retail Resume Summary Examples",
+    "metaDescription": "Browse 20 retail resume summary examples for sales associates, cashiers, key holders, supervisors, and store managers. Try the free generator.",
+    "shortAnswer": "Start with your role and type of store, then add one number that shows pace or performance. Sales per hour, attachment rate, conversion, transaction volume, drawer accuracy, or shrink all work.",
+    "skills": [
+      "POS systems",
+      "Cash handling",
+      "Visual merchandising",
+      "Inventory & stock",
+      "Loss prevention",
+      "Upselling / attachment",
+      "Customer complaints",
+      "Opening & closing",
+      "Scheduling",
+      "Team training",
+      "Returns & exchanges",
+      "Planogram execution",
+      "Shrink control",
+      "Key holder responsibility"
+    ],
+    "defaultSkills": [
+      "POS systems",
+      "Cash handling",
+      "Visual merchandising"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Entry-level retail candidate with [1] year of volunteer and seasonal experience handling cash, restocking and customer questions during holiday rush periods of [300+] daily shoppers."
+          ],
+          "label": "Entry-level retail candidate"
+        },
+        {
+          "paragraphs": [
+            "High school graduate with open availability including weekends and holidays, seeking a first retail role. Comfortable on a register, on the floor, and with the part of the job where a customer is unhappy."
+          ],
+          "label": "High school graduate"
+        },
+        {
+          "paragraphs": [
+            "Retail candidate with food service experience serving [150] customers per shift, handling cash accurately across [$1,200] daily drawers with zero variances."
+          ],
+          "label": "Retail candidate"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) sales floor candidate with [6] months of seasonal retail, assisting [80+] customers daily and consistently asked to cover fitting rooms during peak hours."
+          ],
+          "label": "Bilingual (English/Spanish) sales floor candidate"
+        },
+        {
+          "paragraphs": [
+            "Entry-level associate with warehouse experience receiving and organizing [500] units weekly, bringing stockroom speed to a floor role."
+          ],
+          "label": "Entry-level associate"
+        },
+        {
+          "paragraphs": [
+            "Student seeking part-time retail work with campus job experience handling point-of-sale for a [$400/day] café and balancing school with [20] scheduled hours weekly."
+          ],
+          "label": "entry example 6"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Retail sales associate with [3] years in specialty apparel, averaging [$180] sales per hour against a store target of [$140] and holding the top attachment rate on a [12]-person team."
+          ],
+          "label": "Retail sales associate"
+        },
+        {
+          "paragraphs": [
+            "Cashier with [4] years processing [200] transactions per shift with a [99.8%] drawer accuracy rate and consistent recognition for line-speed during peak periods."
+          ],
+          "label": "mid example 2"
+        },
+        {
+          "paragraphs": [
+            "Key holder with [3] years handling opening and closing for a [$2M] location, managing cash reconciliation, alarm procedures and shift coverage for [8] associates."
+          ],
+          "label": "Key holder"
+        },
+        {
+          "paragraphs": [
+            "Visual merchandiser with [4] years executing floor sets across [6] stores, with resets completed ahead of corporate deadlines [90%] of the time."
+          ],
+          "label": "Visual merchandiser"
+        },
+        {
+          "paragraphs": [
+            "Electronics sales associate with [3] years, achieving [124%] of attachment goal on warranties and accessories and ranking first in district for two quarters."
+          ],
+          "label": "Electronics sales associate"
+        },
+        {
+          "paragraphs": [
+            "Retail associate with [5] years in high-volume grocery, handling [400+] daily customer interactions and training [10] new hires on register and floor procedures."
+          ],
+          "label": "Retail associate"
+        },
+        {
+          "paragraphs": [
+            "Customer experience lead with [4] years owning returns, complaints and escalations for a [$3M] store, resolving [95%] on the spot without manager involvement."
+          ],
+          "label": "Customer experience lead"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Assistant store manager with [6] years, supporting a [$4M] location, managing schedules for [22] associates and lifting conversion from [18%] to [24%] year over year."
+          ],
+          "label": "Assistant store manager"
+        },
+        {
+          "paragraphs": [
+            "Store manager with [9] years running a [$6M] store with [30] employees, reducing shrink from [1.8%] to [0.9%] and exceeding sales plan [6] consecutive quarters."
+          ],
+          "label": "Store manager"
+        },
+        {
+          "paragraphs": [
+            "District-track store manager with [11] years, opening [3] new locations including hiring, training and floor set for each launch."
+          ],
+          "label": "District-track store manager"
+        },
+        {
+          "paragraphs": [
+            "Retail operations manager with [8] years overseeing inventory accuracy across [5] stores, cutting stock discrepancies by [35%] through cycle-count discipline."
+          ],
+          "label": "Retail operations manager"
+        },
+        {
+          "paragraphs": [
+            "Store manager with [10] years in luxury retail, building a clienteling program that grew repeat customer revenue from [22%] to [41%] of total sales."
+          ],
+          "label": "Store manager"
+        },
+        {
+          "paragraphs": [
+            "Multi-unit supervisor with [12] years responsible for [7] locations and [$18M] in annual volume, with turnover [15] points below regional average."
+          ],
+          "label": "Multi-unit supervisor"
+        },
+        {
+          "paragraphs": [
+            "General manager with [14] years in big-box retail, running a [$25M] store with [90] employees and leading the market in customer satisfaction for three straight years."
+          ],
+          "label": "General manager"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Converted",
+        "usage": "Converted 24% of store visitors into buyers during the holiday season."
+      },
+      {
+        "word": "Upsold / attached",
+        "usage": "Raised warranty and accessory attachment from 22% to 31%."
+      },
+      {
+        "word": "Reduced shrink",
+        "usage": "Reduced shrink from 1.8% to 0.9% through tighter floor routines."
+      },
+      {
+        "word": "Merchandised",
+        "usage": "Merchandised six seasonal floor sets ahead of deadline."
+      },
+      {
+        "word": "Reconciled",
+        "usage": "Reconciled daily cash drawers with 99.8% accuracy."
+      },
+      {
+        "word": "Trained",
+        "usage": "Trained ten new associates on register and floor procedures."
+      },
+      {
+        "word": "Exceeded plan",
+        "usage": "Exceeded store sales plan for six consecutive quarters."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the retail setting",
+        "text": "Name a comparable environment such as apparel, grocery, electronics, luxury, or big-box retail."
+      },
+      {
+        "step": "Show store volume",
+        "text": "Use annual sales, daily customers, transactions per shift, or units processed to show the pace."
+      },
+      {
+        "step": "Use the right performance metric",
+        "text": "Choose sales per hour, attachment rate, conversion, shrink, or drawer accuracy based on the role."
+      },
+      {
+        "step": "Mention useful availability",
+        "text": "If you can work weekends, holidays, or open shifts, say so when availability is a major hiring filter."
+      }
+    ],
+    "faq": [
+      {
+        "q": "I only worked seasonal retail. Does it count?",
+        "a": "Yes, and holiday seasonal is the hardest volume in the year. Name the period, the traffic and what you handled: \"[300+] daily shoppers during holiday peak\" is stronger than a year of quiet weekday shifts."
+      },
+      {
+        "q": "What number do I use if my store never shared sales data?",
+        "a": "Transactions per shift, drawer accuracy, customers assisted, units processed, hires trained. Every retail job produces countable work."
+      },
+      {
+        "q": "Should I mention my availability in the summary?",
+        "a": "Yes, if it's broad. Open availability, weekends and holidays are decisive for retail hiring and belong in the first three lines, not the bottom of the resume."
+      },
+      {
+        "q": "How do I move from cashier to a management track?",
+        "a": "Lead with responsibilities beyond the register: opening/closing, training, cash office, coverage decisions. Key-holder duties are the bridge and should appear before the register duties."
+      },
+      {
+        "q": "Is retail experience useful for other industries?",
+        "a": "Very. Customer service, sales and hospitality all read retail volume as proof. See the customer service and sales pages for how to re-frame the same numbers."
+      }
+    ],
+    "related": [
+      "customer-service",
+      "sales",
+      "warehouse"
+    ],
+    "relatedKeywords": [
+      "retail resume summary",
+      "retail sales associate resume summary",
+      "cashier resume summary examples",
+      "store manager resume summary",
+      "entry level retail resume summary",
+      "professional summary for retail resume",
+      "retail resume summary no experience",
+      "sales associate resume summary examples",
+      "key holder resume summary",
+      "retail supervisor resume summary"
+    ]
+  },
+  "receptionist": {
+    "name": "Receptionist",
+    "roleDefault": "Receptionist",
+    "h1": "Receptionist Resume Summary Examples",
+    "metaDescription": "Browse 20 receptionist resume summary examples for entry-level, medical, dental, legal, front desk, and supervisor roles.",
+    "shortAnswer": "Name the setting, the number of calls, visitors, or appointments you handle, and the systems you use. Front-desk work is about staying accurate while being interrupted, so show volume instead of simply saying you are friendly.",
+    "skills": [
+      "Multi-line phone",
+      "Visitor check-in",
+      "Appointment scheduling",
+      "Insurance verification",
+      "EMR / practice software",
+      "Data entry",
+      "Mail & deliveries",
+      "Calendar management",
+      "Cash / copay handling",
+      "Recordkeeping",
+      "Multilingual reception",
+      "Office supplies",
+      "Conference room booking",
+      "Front desk security"
+    ],
+    "defaultSkills": [
+      "Multi-line phone",
+      "Visitor check-in",
+      "Appointment scheduling"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Entry-level receptionist candidate with [1] year of retail customer service, handling [80+] daily interactions and comfortable being the first face and voice a visitor encounters."
+          ],
+          "label": "Entry-level receptionist candidate"
+        },
+        {
+          "paragraphs": [
+            "Recent graduate with campus office experience answering a [4]-line phone system and scheduling [40] weekly appointments for a student services department."
+          ],
+          "label": "Recent graduate"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) front desk candidate with [2] years in hospitality, greeting [100+] guests daily and managing check-in during peak arrival windows."
+          ],
+          "label": "Bilingual (English/Spanish) front desk candidate"
+        },
+        {
+          "paragraphs": [
+            "Entry-level administrative candidate with volunteer reception experience at a community clinic, checking in [50] patients weekly and maintaining confidential records."
+          ],
+          "label": "Entry-level administrative candidate"
+        },
+        {
+          "paragraphs": [
+            "Front desk candidate with food service background managing phone orders, walk-ins and payments simultaneously during [200]-cover dinner shifts."
+          ],
+          "label": "Front desk candidate"
+        },
+        {
+          "paragraphs": [
+            "Organized entry-level receptionist with data entry certification and verified [98%] accuracy across [2,000] test records, seeking a first front office role."
+          ],
+          "label": "Organized entry-level receptionist"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Receptionist with [4] years in a [40]-person office, managing a [6]-line phone system averaging [90] calls daily, visitor check-in and conference room scheduling with no double-bookings."
+          ],
+          "label": "mid example 1"
+        },
+        {
+          "paragraphs": [
+            "Medical receptionist with [3] years in a [5]-provider practice, checking in [70] patients daily, verifying insurance and collecting copays with [99%] reconciliation accuracy."
+          ],
+          "label": "Medical receptionist"
+        },
+        {
+          "paragraphs": [
+            "Dental front desk coordinator with [5] years, managing a [1,200]-patient recall list and cutting no-show rates from [14%] to [7%] through structured reminder calls."
+          ],
+          "label": "Dental front desk coordinator"
+        },
+        {
+          "paragraphs": [
+            "Front desk receptionist with [4] years in a law firm, handling confidential client intake, court-related deliveries and scheduling for [6] attorneys."
+          ],
+          "label": "Front desk receptionist"
+        },
+        {
+          "paragraphs": [
+            "Hotel front desk agent with [3] years processing [60] check-ins per shift, resolving room issues on the spot and maintaining a [4.6/5] guest rating."
+          ],
+          "label": "Hotel front desk agent"
+        },
+        {
+          "paragraphs": [
+            "Veterinary receptionist with [4] years scheduling [80] weekly appointments, handling emergency triage calls and processing [$8K] in daily payments."
+          ],
+          "label": "Veterinary receptionist"
+        },
+        {
+          "paragraphs": [
+            "Salon and spa receptionist with [3] years managing bookings for [8] stylists, filling [90%] of last-minute cancellations through a standing waitlist."
+          ],
+          "label": "Salon and spa receptionist"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Senior receptionist with [8] years in corporate reception, training [6] front desk staff and building the visitor security protocol now used across [3] floors."
+          ],
+          "label": "Senior receptionist"
+        },
+        {
+          "paragraphs": [
+            "Front desk supervisor with [9] years in healthcare administration, leading a [5]-person team checking in [300] patients daily across two locations."
+          ],
+          "label": "Front desk supervisor"
+        },
+        {
+          "paragraphs": [
+            "Office coordinator with [7] years combining reception, facilities and vendor management for a [70]-person office with a [$90K] supply budget."
+          ],
+          "label": "Office coordinator"
+        },
+        {
+          "paragraphs": [
+            "Lead medical receptionist with [10] years, owning insurance verification workflow that cut claim rejections from [12%] to [4%]."
+          ],
+          "label": "Lead medical receptionist"
+        },
+        {
+          "paragraphs": [
+            "Guest services supervisor with [11] years in hospitality, managing front desk operations for a [200]-room property and a team of [9]."
+          ],
+          "label": "Guest services supervisor"
+        },
+        {
+          "paragraphs": [
+            "Practice coordinator with [8] years running front office operations for a [4]-location dental group, standardizing scheduling across all sites."
+          ],
+          "label": "Practice coordinator"
+        },
+        {
+          "paragraphs": [
+            "Executive receptionist with [12] years supporting a corporate headquarters, managing [150+] daily visitors including board members and VIP guests."
+          ],
+          "label": "Executive receptionist"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Managed [X]-line phone",
+        "usage": "Managed a 12-line phone system and routed 90 calls per day."
+      },
+      {
+        "word": "Checked in",
+        "usage": "Checked in 70 patients each week while keeping records current."
+      },
+      {
+        "word": "Verified",
+        "usage": "Verified insurance before appointments and reduced day-of delays."
+      },
+      {
+        "word": "Reconciled",
+        "usage": "Reconciled copays and daily front-desk totals without variances."
+      },
+      {
+        "word": "Triaged calls",
+        "usage": "Triaged calls so urgent requests reached the right clinical team quickly."
+      },
+      {
+        "word": "Coordinated",
+        "usage": "Coordinated calendars for six providers across two locations."
+      },
+      {
+        "word": "Reduced no-shows",
+        "usage": "Reduced no-shows with reminder calls and clear rescheduling options."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Name the front-desk setting",
+        "text": "Make it clear whether your experience is in a medical, dental, legal, hospitality, or corporate office."
+      },
+      {
+        "step": "Show daily volume",
+        "text": "Include calls, visitors, appointments, providers, or records handled each day or week."
+      },
+      {
+        "step": "Match the software",
+        "text": "Mention the scheduling, practice management, or record system from the posting when you know it."
+      },
+      {
+        "step": "Prove accuracy under pressure",
+        "text": "Use a scheduling, payment, data-entry, or documentation result instead of simply calling yourself organized."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Is a receptionist summary different from an administrative assistant summary?",
+        "a": "Yes. Reception emphasizes real-time volume and interruption handling, calls, visitors, check-ins. Administrative emphasizes ownership of processes: calendars, expenses, vendors. Match the one in the posting."
+      },
+      {
+        "q": "I have no office experience, only retail or food service. Is that a problem?",
+        "a": "No. Those roles produce the exact evidence front desks want: high interaction volume, payment handling and composure under pressure. Translate the numbers, don't apologize for the setting."
+      },
+      {
+        "q": "Should I list the phone system?",
+        "a": "If the posting names one, yes. Otherwise \"multi-line phone system averaging [X] calls daily\" communicates capability without listing brands nobody standardizes on."
+      },
+      {
+        "q": "How do I make a medical receptionist summary stand out?",
+        "a": "Insurance verification and copay reconciliation are the differentiators; scheduling is table stakes. Lead with the money-adjacent work and any claim-rejection or no-show number you moved."
+      },
+      {
+        "q": "Does typing speed belong in the summary?",
+        "a": "Only if the posting asks for it. Otherwise data entry accuracy is the stronger stat, since front desk errors are costlier than slow typing."
+      }
+    ],
+    "related": [
+      "administrative-assistant",
+      "customer-service",
+      "nursing"
+    ],
+    "relatedKeywords": [
+      "receptionist resume summary",
+      "receptionist resume summary examples",
+      "medical receptionist resume summary",
+      "front desk resume summary",
+      "entry level receptionist resume summary",
+      "professional summary for receptionist",
+      "dental receptionist resume summary",
+      "receptionist resume no experience",
+      "front desk agent resume summary",
+      "office receptionist resume summary"
+    ]
+  },
+  "server": {
+    "name": "Server",
+    "roleDefault": "Restaurant Server",
+    "h1": "Server Resume Summary Examples",
+    "metaDescription": "Browse 20 server resume summary examples for first jobs, casual dining, fine dining, bartending, banquets, and restaurant leadership.",
+    "shortAnswer": "Name the type of service, the volume you handle, and one result. Covers per shift, table section size, average check, upselling, or guest ratings show more than saying you work well under pressure.",
+    "skills": [
+      "POS (Toast/Square/Aloha)",
+      "Upselling",
+      "Wine & cocktail knowledge",
+      "Fine dining service",
+      "High-volume sections",
+      "Cash & card handling",
+      "Food safety / ServSafe",
+      "Allergen handling",
+      "Table turning",
+      "Host & seating",
+      "Training new servers",
+      "Catering & events",
+      "Bar service",
+      "Guest complaints"
+    ],
+    "defaultSkills": [
+      "POS (Toast/Square/Aloha)",
+      "Upselling",
+      "Wine & cocktail knowledge"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Entry-level server candidate with [1] year of hosting experience seating [200] covers per shift, learning floor flow and timing before ever carrying a tray."
+          ],
+          "label": "Entry-level server candidate"
+        },
+        {
+          "paragraphs": [
+            "First-time server applicant with retail customer service experience assisting [80] customers daily, plus ServSafe food handler certification already completed."
+          ],
+          "label": "First-time server applicant"
+        },
+        {
+          "paragraphs": [
+            "Busser with [1] year in a [150]-seat restaurant, supporting [6] servers during [250]-cover dinner services and ready to step onto a section."
+          ],
+          "label": "entry example 3"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) entry-level server with catering experience serving events of [120] guests, comfortable with plated service and tight timing."
+          ],
+          "label": "Bilingual (English/Spanish) entry-level server"
+        },
+        {
+          "paragraphs": [
+            "Student seeking part-time serving work with [2] years of café counter experience handling [$1,000] daily sales and morning rush volume."
+          ],
+          "label": "entry example 5"
+        },
+        {
+          "paragraphs": [
+            "Entry-level waitstaff candidate with volunteer banquet experience at [15] community events, trained in tray service and table setting."
+          ],
+          "label": "Entry-level waitstaff candidate"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Server with [4] years in casual dining, handling a [6]-table section through [180]-cover dinner shifts while maintaining an average check [18%] above house average."
+          ],
+          "label": "mid example 1"
+        },
+        {
+          "paragraphs": [
+            "Fine dining server with [3] years in a [$120]-per-cover restaurant, executing wine service and multi-course timing with a [4.8/5] guest satisfaction average."
+          ],
+          "label": "Fine dining server"
+        },
+        {
+          "paragraphs": [
+            "Bartender-server with [5] years, running both bar and floor during peak hours and increasing cocktail attachment by [22%] through structured suggestive selling."
+          ],
+          "label": "mid example 3"
+        },
+        {
+          "paragraphs": [
+            "Server with [4] years in high-volume breakfast service, turning [12] tables per shift and consistently ranked top [3] in upsell performance."
+          ],
+          "label": "mid example 4"
+        },
+        {
+          "paragraphs": [
+            "Banquet server with [3] years working events from [50] to [400] guests, coordinating timing with kitchen for synchronized service."
+          ],
+          "label": "Banquet server"
+        },
+        {
+          "paragraphs": [
+            "Room service and in-room dining server with [4] years in hotel food and beverage, averaging [40] deliveries per shift with a [98%] order accuracy rate."
+          ],
+          "label": "Room service and in-room dining server"
+        },
+        {
+          "paragraphs": [
+            "Server trainer with [5] years, onboarding [20] new servers on POS, menu knowledge and service standards while carrying a full section."
+          ],
+          "label": "Server trainer"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Lead server with [7] years, running floor assignments for [12] servers and covering manager-on-duty shifts including cash-out and closing reports."
+          ],
+          "label": "Lead server"
+        },
+        {
+          "paragraphs": [
+            "Head server in fine dining with [9] years, managing VIP reservations and executing tasting menu service for parties up to [20]."
+          ],
+          "label": "Head server in fine dining"
+        },
+        {
+          "paragraphs": [
+            "Assistant restaurant manager with [8] years, overseeing a [30]-person front of house team and lifting guest satisfaction scores from [4.2] to [4.7]."
+          ],
+          "label": "Assistant restaurant manager"
+        },
+        {
+          "paragraphs": [
+            "Floor manager with [10] years in high-volume dining, running [500]-cover services and cutting server turnover by [30%] through restructured training."
+          ],
+          "label": "Floor manager"
+        },
+        {
+          "paragraphs": [
+            "Sommelier-track server with [6] years and Level 2 certification, growing wine sales from [18%] to [29%] of total beverage revenue."
+          ],
+          "label": "Sommelier-track server"
+        },
+        {
+          "paragraphs": [
+            "Restaurant general manager with [12] years, running a [$3.5M] venue with [45] employees and holding food cost at [28%] through three menu revisions."
+          ],
+          "label": "Restaurant general manager"
+        },
+        {
+          "paragraphs": [
+            "Catering operations lead with [11] years executing [200+] annual events up to [600] guests, coordinating staff, timing and client requirements."
+          ],
+          "label": "Catering operations lead"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Turned [X] tables",
+        "usage": "Turned an eight-table section efficiently during weekend dinner service."
+      },
+      {
+        "word": "Averaged [$X] check",
+        "usage": "Averaged a $68 guest check through relevant menu recommendations."
+      },
+      {
+        "word": "Upsold",
+        "usage": "Upsold wine pairings and desserts without slowing table turns."
+      },
+      {
+        "word": "Executed",
+        "usage": "Executed banquet service for 250 guests with accurate course timing."
+      },
+      {
+        "word": "Trained",
+        "usage": "Trained six new servers on POS, menu, and service standards."
+      },
+      {
+        "word": "Coordinated with kitchen",
+        "usage": "Coordinated with the kitchen to handle allergies and pacing changes."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the service style",
+        "text": "Use language that fits fine dining, casual dining, banquets, hotels, bars, or high-volume restaurants."
+      },
+      {
+        "step": "Show your pace",
+        "text": "Include covers per shift, table section size, nightly sales, or average check when you know the number."
+      },
+      {
+        "step": "Name relevant systems and credentials",
+        "text": "Mention the POS platform and required food safety or alcohol service certification."
+      },
+      {
+        "step": "Use guest and sales results",
+        "text": "Choose upselling, repeat guests, review scores, or error-free service as proof."
+      }
+    ],
+    "faq": [
+      {
+        "q": "I've never served, only hosted or bussed. How do I frame it?",
+        "a": "As floor experience, which it is. Hosts learn timing and seating flow; bussers learn service rhythm. Name the covers and the section size you supported, then say you're ready for a section."
+      },
+      {
+        "q": "Should I mention tips or earnings?",
+        "a": "No. Average check and upsell performance communicate the same skill professionally; tip totals depend on the house and read as awkward."
+      },
+      {
+        "q": "How do I move from serving into an office job?",
+        "a": "Translate the numbers: guests served becomes customer interactions, check average becomes upselling, closing reports becomes cash reconciliation. Both the customer service and retail pages show the reframing."
+      },
+      {
+        "q": "Does fine dining experience matter for casual restaurants?",
+        "a": "Yes, it reads as strong: pacing, wine service and standards transfer down easily. The reverse takes more explanation, so casual-to-fine applicants should lead with volume and speed."
+      },
+      {
+        "q": "Is a server summary worth writing at all for a job with a paper application?",
+        "a": "Yes. Many restaurant groups now screen online, and the summary is what a hiring manager reads before deciding whether to call. It costs two lines."
+      }
+    ],
+    "related": [
+      "customer-service",
+      "sales",
+      "retail"
+    ],
+    "relatedKeywords": [
+      "server resume summary",
+      "waitress resume summary examples",
+      "server resume summary no experience",
+      "fine dining server resume summary",
+      "bartender resume summary",
+      "professional summary for server resume",
+      "restaurant resume summary examples",
+      "host resume summary",
+      "waiter resume summary",
+      "food service resume summary"
+    ]
+  },
+  "warehouse": {
+    "name": "Warehouse",
+    "roleDefault": "Warehouse Associate",
+    "h1": "Warehouse Resume Summary Examples",
+    "metaDescription": "Browse 20 warehouse resume summary examples for entry-level workers, picker packers, forklift operators, leads, and supervisors.",
+    "shortAnswer": "Lead with the work you do, such as picking, packing, receiving, inventory, or forklift operation. Add units per hour, accuracy, safety, or attendance so the employer can see your pace and reliability.",
+    "skills": [
+      "Picking & packing",
+      "Forklift (sit-down/reach)",
+      "Pallet jack",
+      "RF scanner",
+      "Inventory control",
+      "Cycle counting",
+      "Shipping & receiving",
+      "WMS (SAP/Manhattan)",
+      "Loading & unloading",
+      "Order fulfillment",
+      "Quality inspection",
+      "Safety compliance (OSHA)",
+      "Cross-docking",
+      "Team lead"
+    ],
+    "defaultSkills": [
+      "Picking & packing",
+      "Forklift (sit-down/reach)",
+      "Pallet jack"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Entry-level warehouse candidate with [1] year of stockroom experience in retail, receiving and organizing [500] units weekly and comfortable on your feet for full shifts."
+          ],
+          "label": "Entry-level warehouse candidate"
+        },
+        {
+          "paragraphs": [
+            "Construction laborer moving into warehouse work after [2] years of material handling, repetitive lifting, and early-shift schedules. Available for nights and weekends and comfortable working around active equipment."
+          ],
+          "label": "Construction laborer"
+        },
+        {
+          "paragraphs": [
+            "Warehouse candidate with completed OSHA 10 certification and forklift training, seeking a first full-time role in shipping and receiving."
+          ],
+          "label": "Warehouse candidate"
+        },
+        {
+          "paragraphs": [
+            "Recent graduate with seasonal fulfillment experience during peak, picking [120] units per hour against a [100]-unit standard."
+          ],
+          "label": "Recent graduate"
+        },
+        {
+          "paragraphs": [
+            "Grocery stocker moving into warehouse work after handling [40] pallets each week. Experienced with rotation, date checks, clean aisles, and finishing a delivery before the store opens."
+          ],
+          "label": "Grocery stocker"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) warehouse candidate with [2] years of moving and delivery labor, experienced with load planning and inventory paperwork."
+          ],
+          "label": "Bilingual (English/Spanish) warehouse candidate"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Warehouse associate with [4] years in e-commerce fulfillment, picking [180] units per hour with a [99.7%] accuracy rate across a [200,000] sq ft facility."
+          ],
+          "label": "Warehouse associate"
+        },
+        {
+          "paragraphs": [
+            "Forklift operator with [5] years certified on sit-down and reach trucks, moving [90] pallets per shift with zero recordable safety incidents."
+          ],
+          "label": "Forklift operator"
+        },
+        {
+          "paragraphs": [
+            "Shipping and receiving clerk with [3] years processing [120] inbound and outbound shipments daily, reconciling BOLs and resolving carrier discrepancies."
+          ],
+          "label": "Shipping and receiving clerk"
+        },
+        {
+          "paragraphs": [
+            "Inventory control specialist with [4] years running cycle counts across [12,000] SKUs, improving inventory accuracy from [94%] to [99.2%]."
+          ],
+          "label": "Inventory control specialist"
+        },
+        {
+          "paragraphs": [
+            "Packer with [3] years in cold storage fulfillment, meeting [140] orders per shift while maintaining temperature compliance documentation."
+          ],
+          "label": "mid example 5"
+        },
+        {
+          "paragraphs": [
+            "Warehouse associate with [5] years cross-trained on picking, packing, receiving and RF scanning, covering any station during peak volume."
+          ],
+          "label": "Warehouse associate"
+        },
+        {
+          "paragraphs": [
+            "Material handler with [4] years in manufacturing, staging components for [3] production lines with zero line-down events attributable to material delays."
+          ],
+          "label": "Material handler"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Warehouse lead with [7] years, directing a [12]-person shift team and holding order accuracy above [99.5%] through peak season."
+          ],
+          "label": "Warehouse lead"
+        },
+        {
+          "paragraphs": [
+            "Warehouse supervisor with [9] years managing [25] associates across two shifts, cutting overtime spend [20%] through improved labor planning."
+          ],
+          "label": "Warehouse supervisor"
+        },
+        {
+          "paragraphs": [
+            "Inventory manager with [10] years owning stock accuracy for a [$14M] inventory, reducing annual shrink from [1.4%] to [0.6%]."
+          ],
+          "label": "Inventory manager"
+        },
+        {
+          "paragraphs": [
+            "Operations supervisor with [8] years in third-party logistics, managing fulfillment for [6] client accounts and [4,000] daily orders."
+          ],
+          "label": "Operations supervisor"
+        },
+        {
+          "paragraphs": [
+            "Distribution center manager with [12] years, running a [300,000] sq ft facility with [80] employees and [99.4%] on-time shipment performance."
+          ],
+          "label": "Distribution center manager"
+        },
+        {
+          "paragraphs": [
+            "Safety-certified warehouse lead with [9] years, building the training program that cut recordable incidents from [11] to [2] annually."
+          ],
+          "label": "Safety-certified warehouse lead"
+        },
+        {
+          "paragraphs": [
+            "Logistics coordinator with [11] years managing carrier relationships and [$3M] in annual freight spend, negotiating rates that saved [$180K] last year."
+          ],
+          "label": "Logistics coordinator"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Picked / packed [X] per hour",
+        "usage": "Picked and packed 120 orders per hour at 99.7% accuracy."
+      },
+      {
+        "word": "Operated",
+        "usage": "Operated reach truck and sit-down forklifts during receiving shifts."
+      },
+      {
+        "word": "Staged",
+        "usage": "Staged outbound pallets in route order to speed dock loading."
+      },
+      {
+        "word": "Reconciled",
+        "usage": "Reconciled cycle counts and corrected location errors in the WMS."
+      },
+      {
+        "word": "Reduced shrink",
+        "usage": "Reduced inventory shrink through tighter scan and handoff controls."
+      },
+      {
+        "word": "Maintained [X%] accuracy",
+        "usage": "Maintained 99.5% inventory accuracy across 12,000 SKUs."
+      },
+      {
+        "word": "Zero recordable incidents",
+        "usage": "Completed three years with no recordable safety incidents."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the warehouse function",
+        "text": "Lead with picking, packing, shipping, receiving, inventory, or forklift work based on the posting."
+      },
+      {
+        "step": "Show volume and accuracy",
+        "text": "Use orders per hour, units per shift, inventory accuracy, or error rate to show performance."
+      },
+      {
+        "step": "Name equipment and systems",
+        "text": "Include forklifts, pallet jacks, RF scanners, or a warehouse management system you have used."
+      },
+      {
+        "step": "Bring safety forward",
+        "text": "Mention a clean safety record, certification, or improvement when the job involves equipment or heavy loads."
+      }
+    ],
+    "faq": [
+      {
+        "q": "I have no warehouse experience. What counts?",
+        "a": "Retail stocking, construction labor, moving, farm work, military logistics, restaurant receiving. Any role with lifting, counting or inventory paperwork translates directly; name the volume."
+      },
+      {
+        "q": "Should I list forklift certification if it expired?",
+        "a": "Say it plainly: \"forklift certified, recertification current as of [date]\" or \"previously certified, available to recertify.\" Employers often pay for recertification, but they need to know where you stand."
+      },
+      {
+        "q": "What's the most important number to include?",
+        "a": "Throughput with accuracy together: [180] units per hour at [99.7%]. Speed alone reads as sloppy risk; accuracy alone reads as slow. Paired, they're the whole job."
+      },
+      {
+        "q": "Does attendance really belong on a resume?",
+        "a": "In warehouse hiring, yes. Turnover and no-shows are the industry's biggest cost, so a documented attendance record is a genuine differentiator, not filler."
+      },
+      {
+        "q": "How do I move from picker to lead?",
+        "a": "Show cross-training and coverage: stations you can run, people you've trained, peak seasons you've worked. Breadth is the promotion argument."
+      }
+    ],
+    "related": [
+      "retail",
+      "driver",
+      "customer-service"
+    ],
+    "relatedKeywords": [
+      "warehouse resume summary",
+      "warehouse worker resume summary examples",
+      "forklift operator resume summary",
+      "warehouse resume summary no experience",
+      "picker packer resume summary",
+      "professional summary for warehouse resume",
+      "shipping and receiving resume summary",
+      "warehouse associate resume summary",
+      "inventory specialist resume summary",
+      "warehouse supervisor resume summary"
+    ]
+  },
+  "driver": {
+    "name": "Driver",
+    "roleDefault": "Delivery Driver",
+    "h1": "Driver Resume Summary Examples",
+    "metaDescription": "Browse 20 driver resume summary examples for delivery, CDL, local, regional, route, passenger, and fleet leadership roles.",
+    "shortAnswer": "Put your license class, route type, and safety record in the first lines. Daily stops, on-time rate, accident-free miles, inspections, or a clean MVR tell the employer what kind of route you can handle.",
+    "skills": [
+      "CDL Class A/B",
+      "Clean MVR",
+      "DOT compliance",
+      "Route planning",
+      "ELD / logbooks",
+      "Pre-trip inspection",
+      "Hazmat endorsement",
+      "Doubles / tankers",
+      "Forklift certified",
+      "Customer delivery",
+      "Freight securing",
+      "Box truck / sprinter van",
+      "Refrigerated freight",
+      "Dispatch coordination"
+    ],
+    "defaultSkills": [
+      "CDL Class A/B",
+      "Clean MVR",
+      "DOT compliance"
+    ],
+    "examples": {
+      "entry": [
+        {
+          "paragraphs": [
+            "Entry-level delivery driver candidate with a clean driving record over [6] years and [2] years of personal-vehicle courier work covering [40] deliveries per week."
+          ],
+          "label": "Entry-level delivery driver candidate"
+        },
+        {
+          "paragraphs": [
+            "Recent CDL Class A graduate with [160] hours of behind-the-wheel training including backing, coupling and pre-trip inspection, seeking a first regional position with structured mentorship."
+          ],
+          "label": "Recent CDL Class A graduate"
+        },
+        {
+          "paragraphs": [
+            "Delivery candidate with [3] years in warehouse receiving, familiar with loading, freight securing and paperwork, now moving into a driving role with a clean MVR."
+          ],
+          "label": "Delivery candidate"
+        },
+        {
+          "paragraphs": [
+            "Box truck driver candidate with [2] years driving a [16]-ft rental for a moving company, comfortable in city traffic and tight loading docks. No moving violations in [8] years."
+          ],
+          "label": "Box truck driver candidate"
+        },
+        {
+          "paragraphs": [
+            "Entry-level driver with rideshare experience covering [4,000] trips and a [4.9/5] rating, seeking a scheduled route position with consistent hours."
+          ],
+          "label": "Entry-level driver"
+        },
+        {
+          "paragraphs": [
+            "Bilingual (English/Spanish) delivery candidate with food service delivery experience covering [25] stops per shift, on-time rate above [95%]."
+          ],
+          "label": "Bilingual (English/Spanish) delivery candidate"
+        }
+      ],
+      "mid": [
+        {
+          "paragraphs": [
+            "Delivery driver with [4] years in last-mile parcel, completing [130] stops per day with a [98.6%] on-time delivery rate and zero preventable accidents."
+          ],
+          "label": "Delivery driver"
+        },
+        {
+          "paragraphs": [
+            "CDL Class A driver with [5] years OTR, logging [120,000] miles annually across [48] states with a clean MVR and no HOS violations."
+          ],
+          "label": "CDL Class A driver"
+        },
+        {
+          "paragraphs": [
+            "Local CDL Class B driver with [3] years running beverage distribution, handling [30] stops daily including hand-unloading [400] cases per shift."
+          ],
+          "label": "Local CDL Class B driver"
+        },
+        {
+          "paragraphs": [
+            "Refrigerated freight driver with [4] years hauling temperature-sensitive loads, maintaining [100%] compliance on temperature logs across [600] deliveries."
+          ],
+          "label": "Refrigerated freight driver"
+        },
+        {
+          "paragraphs": [
+            "Route driver with [5] years in commercial laundry service, managing [45] business accounts with direct customer contact and invoice collection."
+          ],
+          "label": "Route driver"
+        },
+        {
+          "paragraphs": [
+            "Box truck driver with [3] years in furniture delivery, completing [18] residential deliveries daily including assembly and customer walkthrough."
+          ],
+          "label": "Box truck driver"
+        },
+        {
+          "paragraphs": [
+            "Shuttle and passenger driver with [4] years transporting [60] passengers daily on fixed routes, with a perfect safety record and DOT medical card current."
+          ],
+          "label": "Shuttle and passenger driver"
+        }
+      ],
+      "senior": [
+        {
+          "paragraphs": [
+            "Senior CDL Class A driver with [9] years and hazmat and tanker endorsements, hauling [1M+] accident-free miles and holding a Million Mile Safe Driver award."
+          ],
+          "label": "Senior CDL Class A driver"
+        },
+        {
+          "paragraphs": [
+            "Owner-operator with [11] years under independent authority, producing [$280K] in annual revenue and maintaining direct relationships with [12] recurring shippers."
+          ],
+          "label": "senior example 2"
+        },
+        {
+          "paragraphs": [
+            "Lead driver with [8] years, training [15] new drivers on route procedure and DOT compliance while running a full route."
+          ],
+          "label": "Lead driver"
+        },
+        {
+          "paragraphs": [
+            "Regional driver with [10] years in flatbed, specializing in oversize loads and permit coordination across [6] states with zero cargo claims."
+          ],
+          "label": "Regional driver"
+        },
+        {
+          "paragraphs": [
+            "Driver supervisor with [12] years managing a [20]-driver fleet, cutting fuel spend [11%] through route optimization and idle-time monitoring."
+          ],
+          "label": "Driver supervisor"
+        },
+        {
+          "paragraphs": [
+            "Dedicated account driver with [9] years on a single customer contract, maintaining [99.3%] on-time performance across [3,000] deliveries."
+          ],
+          "label": "Dedicated account driver"
+        },
+        {
+          "paragraphs": [
+            "Fleet operations manager with [14] years overseeing [40] vehicles and DOT compliance audits, passing [4] consecutive inspections with no violations."
+          ],
+          "label": "Fleet operations manager"
+        }
+      ]
+    },
+    "powerWords": [
+      {
+        "word": "Logged [X] accident-free miles",
+        "usage": "Logged one million accident-free miles across regional routes."
+      },
+      {
+        "word": "Maintained clean MVR",
+        "usage": "Maintained a clean MVR and current DOT medical card."
+      },
+      {
+        "word": "Completed [X] stops daily",
+        "usage": "Completed 130 last-mile stops per day at 98.6% on-time performance."
+      },
+      {
+        "word": "Secured",
+        "usage": "Secured mixed freight with no cargo claims across six states."
+      },
+      {
+        "word": "Passed inspections",
+        "usage": "Passed four consecutive DOT inspections with no violations."
+      },
+      {
+        "word": "Optimized routes",
+        "usage": "Optimized routes to reduce fuel use and late deliveries."
+      }
+    ],
+    "howToAdapt": [
+      {
+        "step": "Match the driving role",
+        "text": "Use the right language for delivery, CDL, route, rideshare, courier, or passenger transportation work."
+      },
+      {
+        "step": "Show route scale",
+        "text": "Include daily stops, miles, service area, load size, or on-time delivery rate."
+      },
+      {
+        "step": "Name the required license",
+        "text": "Put CDL class, endorsements, DOT status, or a clean motor vehicle record near the beginning."
+      },
+      {
+        "step": "Use safety and service proof",
+        "text": "Choose preventable-accident history, inspection results, customer ratings, or delivery accuracy."
+      }
+    ],
+    "faq": [
+      {
+        "q": "I just got my CDL and have no miles. What do I write?",
+        "a": "School hours behind the wheel, endorsements earned, and any adjacent experience: warehouse, forklift, delivery in a personal vehicle. Then say plainly that you're seeking a mentored first year, carriers with training programs are looking for exactly that phrasing."
+      },
+      {
+        "q": "Should I mention accidents or violations?",
+        "a": "Not in the summary. Say \"clean MVR\" only if it's true; a records check will surface everything, and a false claim there ends the application. If your record has an old item, address it in the interview, not the summary."
+      },
+      {
+        "q": "Do miles or years matter more?",
+        "a": "Miles for OTR, years and route knowledge for local. Match the posting: dedicated and last-mile employers care about on-time rate and stop counts far more than lifetime mileage."
+      },
+      {
+        "q": "Is hand-unloading worth mentioning?",
+        "a": "Yes, it's a real differentiator in beverage, food service and furniture delivery. Name the volume: \"[400] cases per shift\" tells a hiring manager exactly what you can handle."
+      },
+      {
+        "q": "How do I write a driver summary for a career change out of driving?",
+        "a": "Lead with logistics and reliability: routes managed, on-time percentages, customer accounts served, safety record. Route work reads well into warehouse, dispatch and field service roles."
+      }
+    ],
+    "related": [
+      "warehouse",
+      "customer-service",
+      "sales"
+    ],
+    "relatedKeywords": [
+      "driver resume summary",
+      "delivery driver resume summary examples",
+      "cdl driver resume summary",
+      "truck driver resume summary examples",
+      "driver resume summary no experience",
+      "professional summary for driver resume",
+      "box truck driver resume summary",
+      "class a driver resume summary",
+      "local driver resume summary",
+      "delivery driver resume no experience"
     ]
   }
 }

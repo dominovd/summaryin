@@ -1,25 +1,64 @@
 ---
 import Base from '../../layouts/Base.astro';
-// Placeholder page. When you add real content:
-//  1) remove the `noindex` prop below
-//  2) remove '/about/' from PLACEHOLDER_PATHS in astro.config.mjs
+import ContentPage from '../../components/ContentPage.astro';
 ---
 
 <Base
   title="About Us"
-  description="Who's behind SummaryIn and why we built a free resume summary generator."
+  description="Learn why SummaryIn exists, how its resume summary tools work, and how examples are researched and reviewed."
   yearInTitle={false}
-  noindex
 >
-  <section class="section">
-    <div class="container page-narrow">
-      <h1>About Us</h1>
-      <p class="lead">Content coming soon.</p>
-      <!-- TODO: your content here -->
-    </div>
-  </section>
-</Base>
+  <ContentPage
+    eyebrow="About SummaryIn"
+    title="A practical starting point for a stronger resume"
+    lead="SummaryIn helps people turn real work experience into a short, specific resume summary without an account, a paywall, or a blank page."
+  >
+    <h2>Why we built SummaryIn</h2>
+    <p>
+      Writing three useful lines about yourself is surprisingly difficult. Most advice says to be
+      confident, concise, and specific, but it rarely shows what that looks like for a nurse, driver,
+      teacher, warehouse worker, or someone applying for a first job.
+    </p>
+    <p>
+      SummaryIn was built to close that gap. Each profession guide combines a simple generator with
+      examples for different experience levels, stronger verbs, and clear prompts for adding proof.
+      The goal is not to write a perfect resume for you. It is to give you a credible first draft that
+      is easy to edit and genuinely sounds like your work.
+    </p>
 
-<style>
-  .page-narrow { max-width: 720px; }
-</style>
+    <h2>How the generator works</h2>
+    <p>
+      The free generator uses templates stored in the page itself. Your role, skills, experience level,
+      and tone are combined in your browser to create several options. The text you enter is not sent
+      to an AI service or saved in a SummaryIn database.
+    </p>
+
+    <h2>How we approach examples</h2>
+    <p>We write profession pages around the details employers can evaluate:</p>
+    <ul>
+      <li>the setting, specialty, customer, or type of work;</li>
+      <li>the tools, systems, certifications, or equipment used;</li>
+      <li>the size and pace of the workload;</li>
+      <li>a result that can be explained in an interview.</li>
+    </ul>
+    <p>
+      Numbers shown in square brackets are prompts, not claims. They are there to remind you to replace
+      the sample metric with something true from your own experience. We avoid invented employers,
+      fake testimonials, and promises that a particular summary will guarantee an interview.
+    </p>
+
+    <h2>Free first, useful first</h2>
+    <p>
+      The core generator and examples are free to use. SummaryIn may later link to resume builders or
+      other career services. If a link is sponsored or earns a commission, it will be identified. A
+      commercial relationship will not determine which examples or writing advice appear on the site.
+    </p>
+
+    <h2>Corrections and feedback</h2>
+    <p>
+      Job language changes, and no example fits every workplace. If you spot an unclear claim, outdated
+      term, or missing profession, send it through the <a href="/contact/">contact page</a>. Useful
+      corrections are welcome.
+    </p>
+  </ContentPage>
+</Base>

@@ -1,27 +1,102 @@
 ---
 import Base from '../../layouts/Base.astro';
-// Placeholder page. When you add real content:
-//  1) remove the `noindex` prop below
-//  2) remove '/privacy/' from PLACEHOLDER_PATHS in astro.config.mjs
-// Worth covering when you write it: the generator runs fully client-side and
-// stores nothing; the email form sends data to your form provider only.
+import ContentPage from '../../components/ContentPage.astro';
+import { SITE } from '../../data/site';
 ---
 
 <Base
   title="Privacy Policy"
-  description="Privacy policy for SummaryIn.com."
+  description="Learn what SummaryIn collects, how the browser-based generator handles your text, and how to contact us about privacy."
   yearInTitle={false}
-  noindex
 >
-  <section class="section">
-    <div class="container page-narrow">
-      <h1>Privacy Policy</h1>
-      <p class="lead">Content coming soon.</p>
-      <!-- TODO: your content here -->
+  <ContentPage
+    eyebrow="Legal"
+    title="Privacy Policy"
+    lead="This policy explains what information SummaryIn processes when you browse the site, use the generator, email us, or use an email signup form."
+    updated="July 31, 2026"
+  >
+    <div class="notice">
+      <p><strong>The short version:</strong> the resume summary generator runs in your browser. SummaryIn does not receive or store the role, skills, or resume text you enter into it.</p>
     </div>
-  </section>
-</Base>
 
-<style>
-  .page-narrow { max-width: 720px; }
-</style>
+    <h2>Information you enter into the generator</h2>
+    <p>
+      The generator combines local templates with the choices you make on the page. This processing
+      happens on your device. The text is not submitted to SummaryIn, stored in a SummaryIn account, or
+      sent to an external AI provider. If you use your browser's copy function, the copied text is
+      handled by your device and browser.
+    </p>
+
+    <h2>Analytics and technical information</h2>
+    <p>
+      SummaryIn uses Vercel Web Analytics to understand which pages are useful and how the site is
+      accessed. Vercel describes this service as cookie-free and says it stores anonymized, aggregated
+      analytics rather than identifiers that track a person across sites.
+    </p>
+    <p>The analytics service may process information such as:</p>
+    <ul>
+      <li>the page or route viewed and the time of the visit;</li>
+      <li>the referring site;</li>
+      <li>browser, operating system, and device type;</li>
+      <li>approximate geographic information derived from the request.</li>
+    </ul>
+    <p>
+      Hosting and security providers may also process standard request information, including IP
+      addresses and server logs, to deliver the site, prevent abuse, diagnose errors, and maintain
+      security. You can read Vercel's
+      <a href="https://vercel.com/docs/analytics/privacy-policy" rel="noopener noreferrer" target="_blank">Web Analytics privacy documentation</a>
+      and <a href="https://vercel.com/legal/privacy-notice" rel="noopener noreferrer" target="_blank">Privacy Notice</a>.
+    </p>
+
+    <h2>Email and contact information</h2>
+    <p>
+      If you email us, we receive your email address and anything you include in the message. We use it
+      to respond, investigate corrections, handle privacy requests, or evaluate a proposal. We keep
+      correspondence only as long as it remains useful for those purposes or is required for legal or
+      security reasons.
+    </p>
+    <p>
+      Some pages may display an email download form. When a form is connected to a mailing provider,
+      the address you submit will be processed to deliver the requested resource and any follow-up you
+      were clearly told about. We will identify the provider or update this policy before enabling a new
+      collection method.
+    </p>
+
+    <h2>Cookies</h2>
+    <p>
+      SummaryIn does not currently set advertising cookies, and Vercel Web Analytics does not use
+      cookies. A third-party site you open from SummaryIn may use its own cookies under its own policy.
+    </p>
+
+    <h2>Sharing and selling information</h2>
+    <p>
+      We do not sell personal information. Information may be processed by service providers that host,
+      secure, analyze, or operate the site. We may also disclose information when required by law or
+      when reasonably necessary to protect the site, its users, or others from harm.
+    </p>
+
+    <h2>Data rights</h2>
+    <p>
+      Depending on where you live, you may have rights to request access, correction, deletion,
+      restriction, or a copy of personal information. You may also have the right to object to certain
+      processing. Send requests to <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
+      We may need to verify the request before acting on it.
+    </p>
+
+    <h2>Children's privacy</h2>
+    <p>
+      SummaryIn is a general career resource and is not directed to children under 13. If you believe a
+      child has sent personal information by email or through an enabled form, contact us so we can
+      review and remove it when appropriate.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this policy when the site, its providers, or legal requirements change. The date at
+      the top of the page shows the latest revision.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Privacy questions can be sent to <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.</p>
+  </ContentPage>
+</Base>

@@ -4,7 +4,7 @@
  *  1. H1 = exact keyword          2. Short answer
  *  3. Tool (preset generator)     4. Variants grid (examples by level)
  *  5. How-to adapt                6. Power-words table
- *  7. Visual slot                 8. Related professions grid
+ *  7. Visual guide                8. Related professions grid
  *  9. FAQ (+ schema)             10. Related keywords
  * 11. CTA + email capture
  * Add a profession = add one entry to src/data/professions.json.
@@ -17,6 +17,7 @@ import EmailCapture from '../../components/EmailCapture.astro';
 import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import SummaryAnatomy from '../../components/SummaryAnatomy.astro';
 import professions from '../../data/professions.json';
 
 export function getStaticPaths() {
@@ -74,8 +75,8 @@ const levels = [
         <div class="level-group">
           <h3 class="level-title">{lvl.label}</h3>
           <div class="grid grid-2">
-            {p.examples[lvl.key].map((ex: { paragraphs: string[] }, i: number) => (
-              <CopyBlock label={`${lvl.label} · Example ${i + 1}`} icon={lvl.icon} paragraphs={ex.paragraphs} />
+            {p.examples[lvl.key].map((ex: { label?: string; paragraphs: string[] }, i: number) => (
+              <CopyBlock label={ex.label ?? `${lvl.label} example ${i + 1}`} icon={lvl.icon} paragraphs={ex.paragraphs} />
             ))}
           </div>
         </div>
@@ -117,14 +118,8 @@ const levels = [
     </div>
   </section>
 
-  <!-- 7. Visual slot (replace with a real image/diagram) -->
-  <section class="section" aria-label="Visual example">
-    <div class="container">
-      <div class="img-slot">
-        Visual slot — annotated “anatomy of a {p.name.toLowerCase()} summary” image goes here
-      </div>
-    </div>
-  </section>
+  <!-- 7. Reusable visual guide -->
+  <SummaryAnatomy profession={p.name} />
 
   <!-- 8. Related professions -->
   <section class="section" aria-labelledby="rel-heading">

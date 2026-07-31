@@ -13,7 +13,7 @@
       try {
         await navigator.clipboard.writeText(text);
       } catch {
-        /* clipboard unavailable — ignore */
+        /* Clipboard is unavailable, so leave the button unchanged. */
       }
       const label = btn.querySelector('span');
       btn.classList.add('is-copied');

@@ -1,0 +1,70 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead: string;
+  updated?: string;
+}
+
+const { eyebrow, title, lead, updated } = Astro.props;
+---
+
+<section class="content-hero">
+  <div class="container content-shell">
+    {eyebrow && <p class="content-eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    <p class="lead">{lead}</p>
+    {updated && <p class="updated">Last updated: {updated}</p>}
+  </div>
+</section>
+
+<section class="content-body">
+  <div class="container content-shell prose">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .content-hero {
+    padding: 56px 0 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--primary-soft), #fff 88%);
+  }
+  .content-shell { max-width: 780px; }
+  .content-eyebrow {
+    margin: 0 0 10px;
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .updated { margin: 18px 0 0; color: var(--ink-muted); font-size: 0.9rem; }
+  .content-body { padding: 44px 0 20px; }
+  .prose :global(h2) { margin-top: 2.1em; font-size: 1.45rem; }
+  .prose :global(h2:first-child) { margin-top: 0; }
+  .prose :global(h3) { margin-top: 1.6em; font-size: 1.05rem; }
+  .prose :global(p),
+  .prose :global(li) { color: var(--ink-soft); }
+  .prose :global(ul) { padding-left: 1.3rem; }
+  .prose :global(li) { margin-bottom: 0.55rem; }
+  .prose :global(.notice) {
+    margin: 28px 0;
+    padding: 18px 20px;
+    border: 1px solid var(--primary-border);
+    border-radius: var(--r-md);
+    background: var(--primary-soft);
+  }
+  .prose :global(.notice p:last-child) { margin-bottom: 0; }
+  .prose :global(.contact-card) {
+    display: grid;
+    gap: 8px;
+    margin: 24px 0;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    background: #fff;
+    box-shadow: var(--shadow-card);
+  }
+  .prose :global(.contact-card strong) { color: var(--ink); }
+</style>

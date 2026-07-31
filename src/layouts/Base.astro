@@ -8,12 +8,12 @@ interface Props {
   description: string;
   /** Set false to skip the "(2026)" style year token in <title>. */
   yearInTitle?: boolean;
-  /** True on placeholder pages — remove once the page has real content. */
+  /** Use only for unfinished pages that should stay out of search results. */
   noindex?: boolean;
 }
 
 const { title, description, yearInTitle = true, noindex = false } = Astro.props;
-const fullTitle = yearInTitle ? `${title} (${SITE.year}) — ${SITE.name}` : `${title} — ${SITE.name}`;
+const fullTitle = yearInTitle ? `${title} (${SITE.year}) | ${SITE.name}` : `${title} | ${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 ---
 
@@ -36,7 +36,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="logo" aria-label={`${SITE.name} — home`}>
+        <a href="/" class="logo" aria-label={`${SITE.name} home`}>
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
             <rect x="1.5" y="1.5" width="25" height="25" rx="7" stroke="currentColor" stroke-width="2.4"/>
             <path d="M8 10.5h12M8 14h12M8 17.5h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
