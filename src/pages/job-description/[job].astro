@@ -1,0 +1,206 @@
+---
+/**
+ * Job-description page template. Targets "[profession] job description for resume".
+ * Same 11-block skeleton as the summary template, but the tool is a duty picker
+ * and the payload is copy-ready work-experience bullets.
+ * Add a profession = add one entry to src/data/jobDescriptions.json.
+ */
+import Base from '../../layouts/Base.astro';
+import DutyPicker from '../../components/DutyPicker.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import Faq from '../../components/Faq.astro';
+import RelatedKeywords from '../../components/RelatedKeywords.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import jobs from '../../data/jobDescriptions.json';
+import professions from '../../data/professions.json';
+
+export function getStaticPaths() {
+  return Object.keys(jobs).map((job) => ({ params: { job } }));
+}
+
+const { job } = Astro.params;
+const p = jobs[job as keyof typeof jobs];
+
+/** A summary page exists for this slug: the two pages link to each other. */
+const hasSummary = job in professions;
+
+/**
+ * Lowercase the name for mid-sentence use, but leave acronyms like CNA alone.
+ * "power verbs for cna" reads as a typo; "power verbs for CNA" does not.
+ */
+const label = /^[A-Z0-9]+$/.test(p.name) ? p.name : p.name.toLowerCase();
+
+const related = p.related.map((slug: string) => ({
+  slug,
+  name: (jobs as Record<string, { name: string }>)[slug]?.name ?? slug,
+  live: slug in jobs,
+}));
+---
+
+<Base title={p.h1} description={p.metaDescription}>
+  <!-- 1. H1 + 2. Short answer -->
+  <section class="jd-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <a href="/job-description/">Job descriptions</a> <span aria-hidden="true">/</span>
+        <span>{p.name}</span>
+      </nav>
+      <h1>{p.h1}</h1>
+      <p class="lead short-answer">{p.shortAnswer}</p>
+      {hasSummary && (
+        <p class="pair-link">
+          Writing the top of the resume instead?
+          <a href={`/resume-summary/${job}/`}>See {label} summary examples</a>.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- 3. Tool -->
+  <section class="tool-section">
+    <div class="container">
+      <DutyPicker profession={p.name} duties={p.duties} />
+    </div>
+  </section>
+
+  <!-- 4. Job titles this covers -->
+  <section class="section" aria-labelledby="titles-heading">
+    <div class="container">
+      <h2 id="titles-heading" class="block-title">Job titles this covers</h2>
+      <p class="muted titles-note">
+        Use the title that matches what the employer called the role. These duties apply across all of them.
+      </p>
+      <ul class="title-list">
+        {p.titles.map((t: string) => <li>{t}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. How to use + 6. Power verbs -->
+  <section class="section section-subtle" aria-labelledby="use-heading">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h2 id="use-heading" class="block-title">How to use these on your resume</h2>
+          <ol class="use-steps">
+            {p.howToUse.map((s: { step: string; text: string }) => (
+              <li>
+                <h3>{s.step}</h3>
+                <p class="muted">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="card">
+          <h2 class="block-title">Power verbs for {label}</h2>
+          <div class="table-wrap">
+            <table class="data">
+              <thead>
+                <tr><th scope="col">Verb</th><th scope="col">How to use it</th></tr>
+              </thead>
+              <tbody>
+                {p.powerVerbs.map((w: { word: string; usage: string }) => (
+                  <tr><td>{w.word}</td><td>{w.usage}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note muted">
+            Need format rules instead? See the <a href="/resume-bullet-points/">resume bullet point generator</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Related job descriptions -->
+  <section class="section" aria-labelledby="rel-heading">
+    <div class="container">
+      <h2 id="rel-heading" class="block-title">Related job descriptions</h2>
+      <div class="grid grid-4">
+        {related.map((r) =>
+          r.live ? (
+            <a class="rel-tile card" href={`/job-description/${r.slug}/`}>{r.name}</a>
+          ) : (
+            <div class="rel-tile rel-soon card">{r.name} <span class="muted">· soon</span></div>
+          )
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <Faq items={p.faq} heading={`${p.name} job description FAQ`} />
+
+  <!-- 9. Related keywords -->
+  <RelatedKeywords keywords={p.relatedKeywords} />
+
+  <!-- 10. Email capture + 11. CTA -->
+  <EmailCapture professionLabel={label} kind="duty lines" />
+  <CtaBanner
+    heading="Now write the top of your resume"
+    points={[
+      'A summary is the 2 to 3 lines above your experience section',
+      'It is what a recruiter reads before your duty bullets',
+      'The generator writes one from your role, level, and skills',
+    ]}
+    ctaLabel="Open the summary generator"
+    href="/"
+  />
+</Base>
+
+<style>
+  .jd-hero { padding: 44px 0 0; }
+  .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 16px; }
+  .crumbs a { color: var(--ink-muted); }
+  .crumbs span[aria-hidden] { margin: 0 4px; }
+  .short-answer { max-width: 70ch; }
+  .pair-link { font-size: 0.95rem; color: var(--ink-soft); margin-top: -4px; }
+  .pair-link a { margin-left: 4px; }
+  .tool-section { padding: 28px 0 12px; }
+  .block-title { font-size: 1.25rem; margin-bottom: 16px; }
+  .titles-note { max-width: 62ch; margin-top: -8px; }
+  .title-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  .title-list li {
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: #fff;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    padding: 8px 16px;
+  }
+  .use-steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+  .use-steps li { counter-increment: step; position: relative; padding-left: 46px; margin-bottom: 18px; }
+  .use-steps li:last-child { margin-bottom: 0; }
+  .use-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.6px solid var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+  .use-steps h3 { margin-bottom: 2px; font-size: 1rem; }
+  .use-steps p { margin: 0; font-size: 0.94rem; }
+  .table-note { font-size: 0.88rem; margin: 12px 0 0; }
+  .rel-tile { padding: 16px 18px; font-weight: 650; color: var(--ink); font-size: 0.97rem; }
+  a.rel-tile:hover { text-decoration: none; border-color: var(--primary); box-shadow: var(--shadow-card); }
+  .rel-soon { opacity: 0.62; font-weight: 550; }
+</style>

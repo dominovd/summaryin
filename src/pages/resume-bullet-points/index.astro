@@ -1,0 +1,227 @@
+---
+/**
+ * Format-and-tool page for the bullet-points cluster.
+ * Head terms: "resume bullet point generator", "resume bullet points",
+ * "bullet points for resume", "how many bullet points per job on resume",
+ * "resume bullet point format".
+ */
+import Base from '../../layouts/Base.astro';
+import BulletBuilder from '../../components/BulletBuilder.astro';
+import CopyBlock from '../../components/CopyBlock.astro';
+import CopyScript from '../../components/CopyScript.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+import Faq from '../../components/Faq.astro';
+import RelatedKeywords from '../../components/RelatedKeywords.astro';
+import CtaBanner from '../../components/CtaBanner.astro';
+import jobs from '../../data/jobDescriptions.json';
+
+const formatRules = [
+  { rule: 'How many per job', answer: 'Four to six on your current role, three to four on older ones. Ten is a wall of text nobody reads.' },
+  { rule: 'Length', answer: 'One to two lines. If a bullet wraps to a third line, it holds two ideas and should be split.' },
+  { rule: 'Tense', answer: 'Past tense for old jobs, present tense for the one you hold now. Stay consistent inside each role.' },
+  { rule: 'First word', answer: 'An action verb. Never start with "Responsible for" or "Duties included" — they waste the scanned position.' },
+  { rule: 'Punctuation', answer: 'Periods or no periods, but pick one and use it on every bullet in the document.' },
+  { rule: 'Pronouns', answer: 'No I, me, or my. The resume is understood to be about you.' },
+  { rule: 'Marker', answer: 'A round bullet or a simple dash. Skip arrows, checkmarks, and emoji, which some ATS parsers drop.' },
+  { rule: 'Numbers', answer: 'At least half your bullets should carry one: a count, a percent, a dollar figure, or a time saved.' },
+];
+
+const beforeAfter = [
+  {
+    label: 'Weak: duty only',
+    icon: 'entry' as const,
+    paragraphs: ['Responsible for answering customer emails and phone calls on a daily basis.'],
+  },
+  {
+    label: 'Better: adds volume',
+    icon: 'mid' as const,
+    paragraphs: ['Handled 60+ customer emails and calls per day across billing and shipping issues.'],
+  },
+  {
+    label: 'Strong: adds the result',
+    icon: 'senior' as const,
+    paragraphs: ['Handled 60+ customer contacts per day and resolved 82% at first contact, cutting escalations to the billing team by a quarter.'],
+  },
+];
+
+const faq = [
+  {
+    q: 'How many bullet points should I have per job on a resume?',
+    a: 'Use four to six bullets for your current or most recent job and three to four for older ones. Recruiters skim the top of each entry, so anything past the sixth line is rarely read. If a role deserves more, it usually means two roles were merged into one entry.',
+  },
+  {
+    q: 'Do you put periods after bullet points on a resume?',
+    a: 'Either is correct. What matters is consistency: if the first bullet ends with a period, every bullet in the document should. Periods read better when your bullets are full sentences, and no periods reads cleaner when they are short fragments.',
+  },
+  {
+    q: 'What is the correct format for a resume bullet point?',
+    a: 'Start with a past-tense action verb, state what you did, add how you did it, and close with the result. Keep it to one or two lines, drop pronouns, and put a number in the bullet whenever you have one. Avoid "Responsible for" as an opener.',
+  },
+  {
+    q: 'Should resume bullet points be full sentences?',
+    a: 'No. They are fragments that skip the subject: "Managed a team of six" rather than "I managed a team of six." Skip the article at the start when it reads naturally, keep the verb first, and do not chain two accomplishments into one line with "and also".',
+  },
+  {
+    q: 'How do I write bullet points if my job had no measurable results?',
+    a: 'Quantify the work instead of the outcome. Count what you handled: customers per shift, tickets per week, rooms cleaned, orders packed, students taught, files processed. Scope is a number too, and it tells a hiring manager how big your job actually was.',
+  },
+  {
+    q: 'Is this bullet point generator free?',
+    a: 'Yes, completely free with no sign-up and no limit on how many bullets you build. Everything runs in your browser, so the text you type is never sent to a server or stored anywhere.',
+  },
+];
+
+const relatedKeywords = [
+  'resume bullet points',
+  'bullet points for resume',
+  'resume bullet point generator',
+  'how many bullet points per job on resume',
+  'resume bullet point format',
+  'how to write resume bullet points',
+  'resume bullet point examples',
+  'bullet points on resume examples',
+];
+
+const jobList = Object.entries(jobs)
+  .slice(0, 8)
+  .map(([slug, p]) => ({ slug, name: p.name }));
+---
+
+<Base
+  title="Resume Bullet Point Generator"
+  description="Free resume bullet point generator: turn what you did into a formatted bullet with an action verb and a result, plus format rules and examples. No sign-up."
+>
+  <section class="hero">
+    <div class="container">
+      <p class="hero-kicker">Free · No sign-up</p>
+      <h1>Resume Bullet Point Generator</h1>
+      <p class="lead">
+        Turn a plain description of what you did into a formatted resume bullet, using the
+        formula recruiters actually respond to: action verb, task, method, result.
+      </p>
+      <div class="badges hero-badges">
+        <span class="badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Builds a list, not one line
+        </span>
+        <span class="badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Private in your browser
+        </span>
+        <span class="badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Period and marker options
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container">
+      <BulletBuilder />
+    </div>
+  </section>
+
+  <!-- Short answer to the highest-volume question in this cluster -->
+  <section class="section" aria-labelledby="how-many-heading">
+    <div class="container">
+      <div class="answer-card card">
+        <h2 id="how-many-heading">How many bullet points per job?</h2>
+        <p>
+          Four to six for your current or most recent role, three to four for anything older
+          than about five years. That range covers almost every resume: it gives a recruiter
+          enough to judge scope without pushing the page past the point where they stop reading.
+          If you cannot cut below eight, the entry is usually covering two different jobs and
+          should be split into two.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before and after -->
+  <section class="section" aria-labelledby="ba-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="ba-heading">The same bullet, three levels of strength</h2>
+        <p class="muted">Each version adds one thing the one above it was missing.</p>
+      </div>
+      <div class="grid grid-3">
+        {beforeAfter.map((b) => (
+          <CopyBlock label={b.label} icon={b.icon} paragraphs={b.paragraphs} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Format rules table -->
+  <section class="section section-subtle" aria-labelledby="format-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="format-heading">Resume bullet point format rules</h2>
+        <p class="muted">The conventions hiring managers and ATS parsers both expect.</p>
+      </div>
+      <div class="card">
+        <div class="table-wrap">
+          <table class="data">
+            <thead>
+              <tr><th scope="col">Rule</th><th scope="col">What to do</th></tr>
+            </thead>
+            <tbody>
+              {formatRules.map((r) => (
+                <tr><td>{r.rule}</td><td>{r.answer}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bridge to profession duty pages -->
+  <section class="section" aria-labelledby="byjob-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="byjob-heading">Need bullets written for your job already?</h2>
+        <p class="muted">
+          The job description pages give you ready duty lines for a specific role. Tick what
+          you did and copy the block, then use the builder above for anything they missed.
+        </p>
+      </div>
+      <div class="grid grid-4">
+        {jobList.map((j) => (
+          <a class="job-tile card" href={`/job-description/${j.slug}/`}>{j.name}</a>
+        ))}
+      </div>
+      <p class="all-note muted">
+        <a href="/job-description/">See all job descriptions</a>
+      </p>
+    </div>
+  </section>
+
+  <Faq items={faq} heading="Resume bullet point FAQ" />
+  <RelatedKeywords keywords={relatedKeywords} />
+  <EmailCapture />
+  <CtaBanner />
+
+  <CopyScript />
+</Base>
+
+<style>
+  .hero { padding: 56px 0 8px; }
+  .hero-kicker {
+    color: var(--primary);
+    font-weight: 750;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .hero-badges { margin-top: 18px; }
+  .tool-section { padding: 28px 0 12px; }
+  .answer-card { max-width: 76ch; }
+  .answer-card h2 { font-size: 1.25rem; }
+  .answer-card p { margin: 0; color: var(--ink-soft); }
+  .job-tile { padding: 15px 18px; font-weight: 650; color: var(--ink); font-size: 0.97rem; }
+  a.job-tile:hover { text-decoration: none; border-color: var(--primary); box-shadow: var(--shadow-card); }
+  .all-note { margin-top: 18px; font-size: 0.95rem; }
+</style>

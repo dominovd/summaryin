@@ -19,6 +19,7 @@ import RelatedKeywords from '../../components/RelatedKeywords.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
 import SummaryAnatomy from '../../components/SummaryAnatomy.astro';
 import professions from '../../data/professions.json';
+import jobDescriptions from '../../data/jobDescriptions.json';
 
 export function getStaticPaths() {
   return Object.keys(professions).map((job) => ({ params: { job } }));
@@ -26,6 +27,12 @@ export function getStaticPaths() {
 
 const { job } = Astro.params;
 const p = professions[job as keyof typeof professions];
+
+/** A job-description page exists for this slug: the two pages link to each other. */
+const hasJobDescription = job in jobDescriptions;
+
+/** Acronym-safe label for mid-sentence use (CNA stays uppercase). */
+const label = /^[A-Z0-9]+$/.test(p.name) ? p.name : p.name.toLowerCase();
 
 const humanize = (slug: string) =>
   slug.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' ');
@@ -54,6 +61,12 @@ const levels = [
       </nav>
       <h1>{p.h1}</h1>
       <p class="lead short-answer">{p.shortAnswer}</p>
+      {hasJobDescription && (
+        <p class="pair-link">
+          Filling in the work-experience section instead?
+          <a href={`/job-description/${job}/`}>See {label} job description duties</a>.
+        </p>
+      )}
     </div>
   </section>
 
@@ -156,6 +169,8 @@ const levels = [
   .crumbs a { color: var(--ink-muted); }
   .crumbs span[aria-hidden] { margin: 0 4px; }
   .short-answer { max-width: 70ch; }
+  .pair-link { font-size: 0.95rem; color: var(--ink-soft); margin-top: -4px; }
+  .pair-link a { margin-left: 4px; }
   .tool-section { padding: 28px 0 12px; }
   .level-group { margin-bottom: 28px; }
   .level-group:last-child { margin-bottom: 0; }

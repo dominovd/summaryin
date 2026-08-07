@@ -4,6 +4,25 @@
  * Copy is honest by design: no "100% free" promises we don't control.
  */
 import { SITE } from '../data/site';
+
+interface Props {
+  /** Override the copy on pages where the default summary wording does not fit. */
+  heading?: string;
+  points?: string[];
+  ctaLabel?: string;
+  href?: string;
+}
+
+const {
+  heading = 'Want to try another version?',
+  points = [
+    'Change the role or experience level',
+    'Choose a different mix of skills',
+    'Try a professional, confident, or friendly tone',
+  ],
+  ctaLabel = 'Open the free generator',
+  href = SITE.resumeBuilderUrl,
+} = Astro.props;
 ---
 
 <section class="section" aria-labelledby="cta-heading">
@@ -19,17 +38,15 @@ import { SITE } from '../data/site';
         decoding="async"
       />
       <div class="cta-copy">
-        <h2 id="cta-heading">Want to try another version?</h2>
+        <h2 id="cta-heading">{heading}</h2>
         <ul class="cta-list">
-          <li>Change the role or experience level</li>
-          <li>Choose a different mix of skills</li>
-          <li>Try a professional, confident, or friendly tone</li>
+          {points.map((p) => <li>{p}</li>)}
         </ul>
         <a
           class="btn btn-primary"
-          href={SITE.resumeBuilderUrl}
+          href={href}
         >
-          Open the free generator
+          {ctaLabel}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>

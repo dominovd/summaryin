@@ -28,6 +28,8 @@ export const SITE = {
 /** Hub navigation. `live: false` hubs render as plain text until built. */
 export const NAV = [
   { label: 'Resume Summaries', href: '/resume-summary/', live: true },
+  { label: 'Job Descriptions', href: '/job-description/', live: true },
+  { label: 'Bullet Points', href: '/resume-bullet-points/', live: true },
   { label: 'No Experience', href: '/no-experience/', live: false },
   { label: 'LinkedIn', href: '/linkedin/', live: false },
   { label: 'Executive Summary', href: '/executive/', live: false },

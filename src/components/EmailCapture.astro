@@ -8,10 +8,12 @@ import { SITE } from '../data/site';
 interface Props {
   /** Personalizes the promise, e.g. "customer service". */
   professionLabel?: string;
+  /** What the PDF contains. Defaults to summaries. */
+  kind?: string;
 }
-const { professionLabel } = Astro.props;
+const { professionLabel, kind = 'summaries' } = Astro.props;
 const promise = professionLabel
-  ? `50 ready-to-use ${professionLabel} summaries (PDF)`
+  ? `50 ready-to-use ${professionLabel} ${kind} (PDF)`
   : SITE.leadMagnet;
 ---
 

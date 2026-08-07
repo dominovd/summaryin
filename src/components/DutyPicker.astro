@@ -1,0 +1,290 @@
+---
+/**
+ * Interactive duty picker. This is the tool that makes a job-description page
+ * DO something instead of listing duties an AI Overview can swallow whole:
+ * tick the duties you performed, choose a bullet format, copy a finished block.
+ * Runs entirely client-side. One instance per page.
+ */
+interface Props {
+  profession: string;
+  duties: { core: string[]; entry: string[]; senior: string[] };
+}
+const { profession, duties } = Astro.props;
+
+const groups = [
+  { key: 'core', label: 'Core duties', hint: 'Almost every resume in this role should carry a few of these.' },
+  { key: 'entry', label: 'Entry level', hint: 'First job, under a year, or still in training.' },
+  { key: 'senior', label: 'Lead and senior', hint: 'Training others, running shifts, owning a process.' },
+] as const;
+
+// Pre-tick the first three core duties so the output panel is never empty.
+const preselected = new Set(duties.core.slice(0, 3));
+---
+
+<section class="picker card card-shadow" aria-label={`${profession} duty picker`} data-picker>
+  <div class="picker-grid">
+    <div class="picker-input">
+      <h2 class="picker-title">Pick the duties you actually performed</h2>
+      <p class="picker-sub muted">
+        Tick what applies, then copy the block into the work-experience section of your resume.
+        Replace every bracket with your own number before you send it.
+      </p>
+
+      {groups.map((g) => (
+        <div class="duty-group">
+          <div class="duty-group-head">
+            <h3>{g.label}</h3>
+            <button type="button" class="link-btn" data-toggle-group={g.key}>Select all</button>
+          </div>
+          <p class="duty-hint muted">{g.hint}</p>
+          <ul class="duty-list">
+            {duties[g.key].map((d) => (
+              <li>
+                <label class="duty">
+                  <input type="checkbox" value={d} checked={preselected.has(d)} data-group={g.key} />
+                  <span class="duty-box" aria-hidden="true">
+                    <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+                      <path d="M2 6.3l2.6 2.6L10 3.4" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="duty-text">{d}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="picker-output">
+      <div class="picker-output-inner">
+        <div class="picker-output-head">
+          <h2 class="picker-title">Your experience block</h2>
+          <span class="picker-count muted" data-count aria-live="polite">3 selected</span>
+        </div>
+
+        <div class="format-row" role="group" aria-label="Bullet format">
+          <span class="format-label muted">Format</span>
+          <div class="seg seg-sm" data-format>
+            <button type="button" data-value="dot" aria-pressed="true">Bullet</button>
+            <button type="button" data-value="dash" aria-pressed="false">Dash</button>
+            <button type="button" data-value="none" aria-pressed="false">Plain</button>
+          </div>
+        </div>
+
+        <pre class="picker-result" data-result aria-live="polite"></pre>
+
+        <div class="picker-actions">
+          <button type="button" class="btn btn-primary" data-copy-duties>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M10.5 5.5v-2A1.5 1.5 0 0 0 9 2H4a1.5 1.5 0 0 0-1.5 1.5v5A1.5 1.5 0 0 0 4 10h1.5" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            <span data-copy-label>Copy block</span>
+          </button>
+          <button type="button" class="btn btn-ghost" data-clear>Clear all</button>
+        </div>
+
+        <p class="picker-note muted">
+          Nothing you tick is sent anywhere. The block is built in your browser.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .picker { padding: 26px; }
+  .picker-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    gap: 30px;
+  }
+  @media (max-width: 900px) {
+    .picker-grid { grid-template-columns: 1fr; }
+  }
+  .picker-title { font-size: 1.12rem; margin-bottom: 4px; }
+  .picker-sub { font-size: 0.94rem; margin-bottom: 20px; max-width: 56ch; }
+
+  .duty-group { margin-bottom: 22px; }
+  .duty-group:last-child { margin-bottom: 0; }
+  .duty-group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .duty-group-head h3 { margin: 0; font-size: 0.98rem; }
+  .link-btn {
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  .link-btn:hover { text-decoration: underline; }
+  .duty-hint { font-size: 0.86rem; margin: 6px 0 10px; }
+  .duty-list { list-style: none; margin: 0; padding: 0; }
+  .duty-list li { margin-bottom: 6px; }
+
+  .duty {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 9px 11px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: border-color 0.12s, background 0.12s;
+  }
+  .duty:hover { border-color: var(--primary-border); background: var(--bg-subtle); }
+  .duty input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .duty-box {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    border: 1.6px solid var(--border-strong);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background: #fff;
+  }
+  .duty input:checked + .duty-box {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+  .duty input:focus-visible + .duty-box {
+    outline: 3px solid var(--primary-border);
+    outline-offset: 2px;
+  }
+  .duty-text { font-size: 0.94rem; color: var(--ink-soft); line-height: 1.45; }
+  .duty input:checked ~ .duty-text { color: var(--ink); }
+
+  .picker-output-inner { position: sticky; top: 84px; }
+  .picker-output-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .picker-count {
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    white-space: nowrap;
+  }
+  .format-row { display: flex; align-items: center; gap: 10px; margin: 14px 0 12px; }
+  .format-label { font-size: 0.88rem; }
+  .seg-sm button { padding: 6px 12px; font-size: 0.88rem; }
+
+  .picker-result {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 18px 20px;
+    margin: 0 0 16px;
+    min-height: 210px;
+    max-height: 420px;
+    overflow-y: auto;
+    font: inherit;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .picker-result:empty::before {
+    content: "Tick a duty on the left and it appears here.";
+    color: var(--ink-muted);
+  }
+  .picker-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .picker-actions .btn { flex: 1; min-width: 140px; }
+  .picker-note { font-size: 0.85rem; margin: 12px 0 0; }
+</style>
+
+<script>
+  const root = document.querySelector('[data-picker]');
+  if (root) {
+    const boxes = Array.from(root.querySelectorAll<HTMLInputElement>('.duty input'));
+    const resultEl = root.querySelector('[data-result]')!;
+    const countEl = root.querySelector('[data-count]')!;
+    const formatGroup = root.querySelector('[data-format]')!;
+    const copyBtn = root.querySelector<HTMLButtonElement>('[data-copy-duties]')!;
+    const copyLabel = root.querySelector('[data-copy-label]')!;
+
+    const markers: Record<string, string> = { dot: '• ', dash: '- ', none: '' };
+
+    const format = () =>
+      formatGroup.querySelector<HTMLElement>('button[aria-pressed="true"]')?.dataset.value ?? 'dot';
+
+    function render() {
+      const picked = boxes.filter((b) => b.checked).map((b) => b.value);
+      const marker = markers[format()];
+      resultEl.textContent = picked.map((d) => marker + d).join('\n');
+      countEl.textContent = `${picked.length} selected`;
+    }
+
+    boxes.forEach((b) => b.addEventListener('change', render));
+
+    formatGroup.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('button');
+      if (!btn) return;
+      formatGroup
+        .querySelectorAll('button')
+        .forEach((b) => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+      render();
+    });
+
+    root.querySelectorAll<HTMLButtonElement>('[data-toggle-group]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.toggleGroup;
+        const group = boxes.filter((b) => b.dataset.group === key);
+        const allOn = group.every((b) => b.checked);
+        group.forEach((b) => (b.checked = !allOn));
+        btn.textContent = allOn ? 'Select all' : 'Clear group';
+        render();
+      });
+    });
+
+    root.querySelector('[data-clear]')!.addEventListener('click', () => {
+      boxes.forEach((b) => (b.checked = false));
+      root
+        .querySelectorAll<HTMLButtonElement>('[data-toggle-group]')
+        .forEach((b) => (b.textContent = 'Select all'));
+      render();
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = resultEl.textContent ?? '';
+      if (!text.trim()) return;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      copyBtn.classList.add('is-copied');
+      copyLabel.textContent = 'Copied!';
+      setTimeout(() => {
+        copyBtn.classList.remove('is-copied');
+        copyLabel.textContent = 'Copy block';
+      }, 1800);
+    });
+
+    render();
+  }
+</script>

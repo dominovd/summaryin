@@ -1,0 +1,387 @@
+---
+/**
+ * Resume bullet point builder. Turns four plain inputs into formatted bullets
+ * using the accomplishment formula: action + task + method + result.
+ * Client-side only, no API. One instance per page.
+ */
+/**
+ * Each verb carries its own gerund so the "result first" variant reads correctly.
+ * English past-to-gerund rules have too many exceptions to derive at runtime.
+ */
+const VERB_GROUPS = [
+  {
+    label: 'Led or managed',
+    verbs: [
+      ['Led', 'leading'], ['Managed', 'managing'], ['Supervised', 'supervising'],
+      ['Directed', 'directing'], ['Coordinated', 'coordinating'], ['Oversaw', 'overseeing'],
+    ],
+  },
+  {
+    label: 'Built or created',
+    verbs: [
+      ['Built', 'building'], ['Created', 'creating'], ['Developed', 'developing'],
+      ['Designed', 'designing'], ['Launched', 'launching'], ['Wrote', 'writing'],
+    ],
+  },
+  {
+    label: 'Improved',
+    verbs: [
+      ['Improved', 'improving'], ['Reduced', 'reducing'], ['Increased', 'increasing'],
+      ['Streamlined', 'streamlining'], ['Cut', 'cutting'], ['Raised', 'raising'],
+    ],
+  },
+  {
+    label: 'Served or supported',
+    verbs: [
+      ['Served', 'serving'], ['Supported', 'supporting'], ['Assisted', 'assisting'],
+      ['Handled', 'handling'], ['Resolved', 'resolving'], ['Trained', 'training'],
+    ],
+  },
+  {
+    label: 'Analyzed',
+    verbs: [
+      ['Analyzed', 'analyzing'], ['Tracked', 'tracking'], ['Audited', 'auditing'],
+      ['Documented', 'documenting'], ['Researched', 'researching'], ['Reported', 'reporting'],
+    ],
+  },
+];
+---
+
+<section class="bb card card-shadow" aria-label="Resume bullet point generator" data-bb>
+  <div class="bb-grid">
+    <div class="bb-input">
+      <h2 class="bb-title">Build one bullet at a time</h2>
+      <p class="bb-sub muted">
+        Fill in what you can. The result and the number are what make a bullet land,
+        but the builder works without them too.
+      </p>
+
+      <label class="bb-label" for="bb-verb">Action verb</label>
+      <select id="bb-verb" class="bb-field">
+        {VERB_GROUPS.map((g) => (
+          <optgroup label={g.label}>
+            {g.verbs.map(([past, gerund]) => (
+              <option value={past} data-gerund={gerund}>{past}</option>
+            ))}
+          </optgroup>
+        ))}
+      </select>
+
+      <label class="bb-label" for="bb-task">What did you do?</label>
+      <input
+        id="bb-task"
+        class="bb-field"
+        type="text"
+        placeholder="a team of 6 support agents"
+        autocomplete="off"
+      />
+
+      <label class="bb-label" for="bb-method">
+        How did you do it? <span class="muted bb-opt">optional</span>
+      </label>
+      <input
+        id="bb-method"
+        class="bb-field"
+        type="text"
+        placeholder="by rewriting the escalation process"
+        autocomplete="off"
+      />
+
+      <label class="bb-label" for="bb-result">
+        What was the result? <span class="muted bb-opt">optional</span>
+      </label>
+      <input
+        id="bb-result"
+        class="bb-field"
+        type="text"
+        placeholder="cutting response time by 25%"
+        autocomplete="off"
+      />
+
+      <div class="bb-toggles">
+        <label class="bb-check">
+          <input type="checkbox" data-period checked />
+          <span>End with a period</span>
+        </label>
+        <label class="bb-check">
+          <input type="checkbox" data-marker checked />
+          <span>Show bullet marker</span>
+        </label>
+      </div>
+
+      <p class="bb-privacy muted">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="2.5" y="6" width="9" height="6" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        Everything stays in your browser. Nothing is uploaded or stored.
+      </p>
+    </div>
+
+    <div class="bb-output">
+      <div class="bb-output-head">
+        <h2 class="bb-title">Three ways to write it</h2>
+      </div>
+      <div class="bb-variants" data-variants aria-live="polite"></div>
+
+      <div class="bb-saved-wrap">
+        <div class="bb-saved-head">
+          <h3>Your list</h3>
+          <span class="muted bb-saved-count" data-saved-count>0 bullets</span>
+        </div>
+        <pre class="bb-saved" data-saved></pre>
+        <div class="bb-actions">
+          <button type="button" class="btn btn-primary" data-copy-all>
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M10.5 5.5v-2A1.5 1.5 0 0 0 9 2H4a1.5 1.5 0 0 0-1.5 1.5v5A1.5 1.5 0 0 0 4 10h1.5" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            <span data-copy-all-label>Copy list</span>
+          </button>
+          <button type="button" class="btn btn-ghost" data-clear-saved>Clear list</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bb { padding: 26px; }
+  .bb-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 30px;
+  }
+  @media (max-width: 900px) {
+    .bb-grid { grid-template-columns: 1fr; }
+  }
+  .bb-title { font-size: 1.12rem; margin-bottom: 4px; }
+  .bb-sub { font-size: 0.94rem; margin-bottom: 8px; max-width: 48ch; }
+  .bb-label { display: block; font-weight: 650; font-size: 0.92rem; margin: 16px 0 7px; }
+  .bb-opt { font-weight: 450; font-size: 0.85rem; }
+  .bb-field {
+    width: 100%;
+    font: inherit;
+    padding: 11px 13px;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-sm);
+    color: var(--ink);
+    background: #fff;
+  }
+  .bb-field:focus { outline: 2px solid var(--primary); outline-offset: 1px; border-color: var(--primary); }
+
+  .bb-toggles { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; }
+  .bb-check { display: inline-flex; align-items: center; gap: 8px; font-size: 0.92rem; color: var(--ink-soft); cursor: pointer; }
+  .bb-check input { width: 16px; height: 16px; accent-color: var(--primary); }
+  .bb-privacy { display: flex; align-items: center; gap: 6px; font-size: 0.86rem; margin: 16px 0 0; }
+
+  .bb-variants { display: flex; flex-direction: column; gap: 10px; margin: 14px 0 22px; }
+
+  /*
+   * The variant cards are injected with innerHTML, so they never receive Astro's
+   * scoping attribute. These rules must be :global(), kept under .bb so they
+   * cannot leak to the rest of the site.
+   */
+  .bb :global(.bb-variant) {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 14px 16px;
+  }
+  .bb :global(.bb-variant-text) { flex: 1; font-size: 0.95rem; color: var(--ink); line-height: 1.5; }
+  .bb :global(.bb-variant-kind) {
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-bottom: 5px;
+  }
+  .bb :global(.bb-add) {
+    flex: none;
+    font: inherit;
+    font-size: 0.86rem;
+    font-weight: 650;
+    color: var(--primary);
+    background: #fff;
+    border: 1px solid var(--primary-border);
+    border-radius: var(--r-sm);
+    padding: 7px 13px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .bb :global(.bb-add:hover) { background: var(--primary-soft); }
+  .bb :global(.bb-add.is-copied) { background: var(--success-soft); color: var(--success); border-color: var(--success); }
+
+  .bb-saved-wrap { border-top: 1px solid var(--border); padding-top: 18px; }
+  .bb-saved-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .bb-saved-head h3 { margin: 0; font-size: 1rem; }
+  .bb-saved-count { font-size: 0.85rem; }
+  .bb-saved {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    padding: 16px 18px;
+    margin: 12px 0 14px;
+    min-height: 96px;
+    font: inherit;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  .bb-saved:empty::before {
+    content: "Press Add on a version above to start your list.";
+    color: var(--ink-muted);
+  }
+  .bb-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .bb-actions .btn { flex: 1; min-width: 140px; }
+</style>
+
+<script>
+  const root = document.querySelector('[data-bb]');
+  if (root) {
+    const verbEl = root.querySelector<HTMLSelectElement>('#bb-verb')!;
+    const taskEl = root.querySelector<HTMLInputElement>('#bb-task')!;
+    const methodEl = root.querySelector<HTMLInputElement>('#bb-method')!;
+    const resultEl = root.querySelector<HTMLInputElement>('#bb-result')!;
+    const periodEl = root.querySelector<HTMLInputElement>('[data-period]')!;
+    const markerEl = root.querySelector<HTMLInputElement>('[data-marker]')!;
+    const variantsEl = root.querySelector('[data-variants]')!;
+    const savedEl = root.querySelector('[data-saved]')!;
+    const savedCountEl = root.querySelector('[data-saved-count]')!;
+    const copyAllBtn = root.querySelector<HTMLButtonElement>('[data-copy-all]')!;
+    const copyAllLabel = root.querySelector('[data-copy-all-label]')!;
+
+    const saved: string[] = [];
+    let lastHtml = '';
+
+    const lower = (s: string) => (s ? s.charAt(0).toLowerCase() + s.slice(1) : '');
+    const upper = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
+    const strip = (s: string) => s.trim().replace(/[.,;]+$/, '');
+    const escapeAttr = (s: string) =>
+      s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    function decorate(core: string): string {
+      let out = core.replace(/\s+/g, ' ').trim();
+      if (!out) return '';
+      if (periodEl.checked) out += '.';
+      if (markerEl.checked) out = '• ' + out;
+      return out;
+    }
+
+    function build() {
+      const verb = verbEl.value;
+      const gerund = verbEl.selectedOptions[0]?.dataset.gerund ?? verb.toLowerCase();
+      const task = strip(taskEl.value);
+      const method = strip(methodEl.value);
+      const result = strip(resultEl.value);
+
+      if (!task) {
+        variantsEl.innerHTML =
+          '<p class="muted" style="margin:0">Type what you did and three versions appear here.</p>';
+        return;
+      }
+
+      const variants: { kind: string; text: string }[] = [];
+
+      // 1. Standard: verb + task + method + result
+      variants.push({
+        kind: 'Standard',
+        text: [verb, lower(task), method ? lower(method) : '', result ? ', ' + lower(result) : '']
+          .filter(Boolean)
+          .join(' ')
+          .replace(' ,', ','),
+      });
+
+      // 2. Result first: leads with the outcome, strongest when you have a number
+      if (result) {
+        variants.push({
+          kind: 'Result first',
+          text: `${upper(lower(result))} by ${gerund} ${lower(task)}${method ? ' ' + lower(method) : ''}`,
+        });
+      }
+
+      // 3. Compact: verb + task + result, method dropped
+      variants.push({
+        kind: result ? 'Compact' : 'With method',
+        text: result
+          ? `${verb} ${lower(task)}, ${lower(result)}`
+          : `${verb} ${lower(task)}${method ? ' ' + lower(method) : ''}`,
+      });
+
+      const html = variants
+        .map((v) => {
+          const text = decorate(v.text);
+          return `<div class="bb-variant">
+            <span class="bb-variant-text"><span class="bb-variant-kind">${v.kind}</span>${text}</span>
+            <button type="button" class="bb-add" data-add data-bullet="${escapeAttr(text)}">Add</button>
+          </div>`;
+        })
+        .join('');
+
+      // Only touch the DOM when the output actually changed. A blur-triggered
+      // rebuild would otherwise destroy the Add button mid-click.
+      if (html !== lastHtml) {
+        lastHtml = html;
+        variantsEl.innerHTML = html;
+      }
+    }
+
+    function renderSaved() {
+      savedEl.textContent = saved.join('\n');
+      savedCountEl.textContent = `${saved.length} ${saved.length === 1 ? 'bullet' : 'bullets'}`;
+    }
+
+    // Delegated so the handler survives every re-render of the variants panel.
+    variantsEl.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-add]');
+      if (!btn) return;
+      saved.push(btn.dataset.bullet ?? '');
+      renderSaved();
+      btn.classList.add('is-copied');
+      btn.textContent = 'Added';
+      setTimeout(() => {
+        btn.classList.remove('is-copied');
+        btn.textContent = 'Add';
+      }, 1400);
+    });
+
+    [verbEl, taskEl, methodEl, resultEl].forEach((el) => el.addEventListener('input', build));
+    [verbEl, periodEl, markerEl].forEach((el) => el.addEventListener('change', build));
+
+    copyAllBtn.addEventListener('click', async () => {
+      const text = savedEl.textContent ?? '';
+      if (!text.trim()) return;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      copyAllBtn.classList.add('is-copied');
+      copyAllLabel.textContent = 'Copied!';
+      setTimeout(() => {
+        copyAllBtn.classList.remove('is-copied');
+        copyAllLabel.textContent = 'Copy list';
+      }, 1800);
+    });
+
+    root.querySelector('[data-clear-saved]')!.addEventListener('click', () => {
+      saved.length = 0;
+      renderSaved();
+    });
+
+    build();
+    renderSaved();
+  }
+</script>
