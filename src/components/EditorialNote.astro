@@ -1,0 +1,29 @@
+---
+import { SITE } from '../data/site';
+
+interface Props {
+  label?: string;
+}
+
+const { label = 'career writing guide' } = Astro.props;
+---
+
+<aside class="editorial-note" aria-label="Editorial information">
+  <p>
+    <strong>Reviewed {SITE.contentLastReviewed}.</strong>
+    The SummaryIn editorial team checks this {label} for clear language, realistic examples,
+    and placeholders that are easy to replace.
+    <a href="/editorial-policy/">How we review our content</a>.
+  </p>
+</aside>
+
+<style>
+  .editorial-note {
+    margin: 0;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .editorial-note p { margin: 0; color: var(--ink-muted); font-size: 0.9rem; }
+  .editorial-note strong { color: var(--ink-soft); }
+</style>

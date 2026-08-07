@@ -6,8 +6,13 @@ export const SITE = {
   domain: 'summaryin.com',
   url: 'https://summaryin.com',
   tagline: 'Clear, practical resume summaries for every career path.',
-  /** Auto year token used in <title> and footer. Never hardcode a year. */
+  /** Copyright year in the footer. */
   year: new Date().getFullYear(),
+
+  /** Title year changes only after the content library has been reviewed. */
+  contentYear: 2026,
+  contentLastReviewed: 'August 7, 2026',
+  contentLastReviewedIso: '2026-08-07',
 
   /** Contact email shown on /contact/. */
   contactEmail: 'info@summaryin.com',

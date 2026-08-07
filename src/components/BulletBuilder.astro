@@ -177,11 +177,7 @@ const VERB_GROUPS = [
 
   .bb-variants { display: flex; flex-direction: column; gap: 10px; margin: 14px 0 22px; }
 
-  /*
-   * The variant cards are injected with innerHTML, so they never receive Astro's
-   * scoping attribute. These rules must be :global(), kept under .bb so they
-   * cannot leak to the rest of the site.
-   */
+  /* Variant cards are created client-side, so their rules stay global within .bb. */
   .bb :global(.bb-variant) {
     display: flex;
     align-items: flex-start;
@@ -259,13 +255,54 @@ const VERB_GROUPS = [
     const copyAllLabel = root.querySelector('[data-copy-all-label]')!;
 
     const saved: string[] = [];
-    let lastHtml = '';
+    let lastOutputKey = '';
 
     const lower = (s: string) => (s ? s.charAt(0).toLowerCase() + s.slice(1) : '');
     const upper = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
     const strip = (s: string) => s.trim().replace(/[.,;]+$/, '');
-    const escapeAttr = (s: string) =>
-      s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    const outcomeVerbs: Record<string, string> = {
+      cutting: 'Cut',
+      reducing: 'Reduced',
+      increasing: 'Increased',
+      improving: 'Improved',
+      raising: 'Raised',
+      saving: 'Saved',
+      shortening: 'Shortened',
+      lowering: 'Lowered',
+      boosting: 'Boosted',
+      growing: 'Grew',
+    };
+
+    const outcomeFirst = (result: string) => {
+      const match = result.match(/^([a-z]+)\b/i);
+      if (!match) return upper(result);
+      const replacement = outcomeVerbs[match[1].toLowerCase()];
+      return replacement ? result.replace(match[1], replacement) : upper(result);
+    };
+
+    function makeVariant(kind: string, text: string) {
+      const card = document.createElement('div');
+      card.className = 'bb-variant';
+
+      const textWrap = document.createElement('span');
+      textWrap.className = 'bb-variant-text';
+
+      const kindEl = document.createElement('span');
+      kindEl.className = 'bb-variant-kind';
+      kindEl.textContent = kind;
+      textWrap.append(kindEl, document.createTextNode(text));
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'bb-add';
+      button.dataset.add = '';
+      button.dataset.bullet = text;
+      button.textContent = 'Add';
+
+      card.append(textWrap, button);
+      return card;
+    }
 
     function decorate(core: string): string {
       let out = core.replace(/\s+/g, ' ').trim();
@@ -283,8 +320,12 @@ const VERB_GROUPS = [
       const result = strip(resultEl.value);
 
       if (!task) {
-        variantsEl.innerHTML =
-          '<p class="muted" style="margin:0">Type what you did and three versions appear here.</p>';
+        const empty = document.createElement('p');
+        empty.className = 'muted';
+        empty.style.margin = '0';
+        empty.textContent = 'Type what you did and three versions appear here.';
+        variantsEl.replaceChildren(empty);
+        lastOutputKey = '';
         return;
       }
 
@@ -303,7 +344,7 @@ const VERB_GROUPS = [
       if (result) {
         variants.push({
           kind: 'Result first',
-          text: `${upper(lower(result))} by ${gerund} ${lower(task)}${method ? ' ' + lower(method) : ''}`,
+          text: `${outcomeFirst(result)} after ${gerund} ${lower(task)}${method ? ' ' + lower(method) : ''}`,
         });
       }
 
@@ -315,21 +356,14 @@ const VERB_GROUPS = [
           : `${verb} ${lower(task)}${method ? ' ' + lower(method) : ''}`,
       });
 
-      const html = variants
-        .map((v) => {
-          const text = decorate(v.text);
-          return `<div class="bb-variant">
-            <span class="bb-variant-text"><span class="bb-variant-kind">${v.kind}</span>${text}</span>
-            <button type="button" class="bb-add" data-add data-bullet="${escapeAttr(text)}">Add</button>
-          </div>`;
-        })
-        .join('');
+      const rendered = variants.map((v) => ({ kind: v.kind, text: decorate(v.text) }));
+      const outputKey = JSON.stringify(rendered);
 
       // Only touch the DOM when the output actually changed. A blur-triggered
       // rebuild would otherwise destroy the Add button mid-click.
-      if (html !== lastHtml) {
-        lastHtml = html;
-        variantsEl.innerHTML = html;
+      if (outputKey !== lastOutputKey) {
+        lastOutputKey = outputKey;
+        variantsEl.replaceChildren(...rendered.map((v) => makeVariant(v.kind, v.text)));
       }
     }
 

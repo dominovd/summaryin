@@ -1,0 +1,29 @@
+---
+import { SITE } from '../data/site';
+
+interface Props {
+  headline: string;
+  description: string;
+  path: string;
+}
+
+const { headline, description, path } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  description,
+  mainEntityOfPage: new URL(path, SITE.url).href,
+  dateModified: SITE.contentLastReviewedIso,
+  author: {
+    '@type': 'Organization',
+    name: `${SITE.name} editorial team`,
+    url: new URL('/editorial-policy/', SITE.url).href,
+  },
+  publisher: { '@id': `${SITE.url}/#organization` },
+  image: new URL('/images/summaryin-social.png', SITE.url).href,
+  inLanguage: 'en-US',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

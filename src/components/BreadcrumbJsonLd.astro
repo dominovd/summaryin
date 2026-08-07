@@ -1,0 +1,21 @@
+---
+interface Props {
+  items: { name: string; href: string }[];
+}
+
+import { SITE } from '../data/site';
+
+const { items } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: new URL(item.href, SITE.url).href,
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import ContentPage from '../../components/ContentPage.astro';
+import { SITE } from '../../data/site';
+---
+
+<Base
+  title="Editorial Policy"
+  description="How SummaryIn researches, writes, reviews, and updates resume examples, job-description duties, and browser-based career tools."
+  yearInTitle={false}
+>
+  <ContentPage
+    eyebrow="Editorial policy"
+    title="How we write and review SummaryIn content"
+    lead="Our examples are starting points for real people, not claims about experience they do not have. This policy explains how we keep them useful, specific, and honest."
+    updated={SITE.contentLastReviewed}
+  >
+    <h2>What we publish</h2>
+    <p>
+      SummaryIn publishes resume summaries, work-experience bullets, profession guides, and
+      browser-based writing tools. The tools combine templates and the details a visitor enters.
+      They do not make hiring decisions or guarantee interviews.
+    </p>
+
+    <h2>How examples are written</h2>
+    <p>
+      Each profession page is built around work a person in that role may actually perform:
+      common settings, tools, certifications, workload, responsibilities, and measurable results.
+      We avoid invented employers, testimonials, salaries, and claims that one phrase works for everyone.
+    </p>
+    <p>
+      Square brackets identify information that must be replaced. A marker such as <strong>[X]</strong>,
+      <strong>[X%]</strong>, or <strong>[system]</strong> is a prompt to add a true detail, not a suggested answer.
+    </p>
+
+    <h2>Our review checklist</h2>
+    <ul>
+      <li>The page answers the search question without hiding the useful part.</li>
+      <li>Examples differ in substance, not only in the profession name.</li>
+      <li>Metrics are editable prompts or clearly framed examples.</li>
+      <li>Claims about hiring practices are softened or supported where appropriate.</li>
+      <li>Tools work without an account and explain what happens to entered text.</li>
+      <li>Related pages use descriptive links and do not point to unfinished content.</li>
+    </ul>
+
+    <h2>Updates and corrections</h2>
+    <p>
+      We update a guide when its examples, terminology, links, or tool behavior change in a meaningful
+      way. The reviewed date is not advanced automatically. If a page uses an annual title, that year
+      reflects the most recent library review rather than the current calendar alone.
+    </p>
+    <p>
+      Job titles and workplace language vary by employer and location. If you find an inaccurate term,
+      an unclear claim, or a tool that produces awkward wording, email
+      <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a> or use the
+      <a href="/contact/">contact page</a>.
+    </p>
+
+    <h2>Commercial relationships</h2>
+    <p>
+      SummaryIn may eventually link to resume builders or other career services. Sponsored and affiliate
+      links will be identified. A commercial relationship will not determine which examples, professions,
+      or recommendations appear in the editorial library.
+    </p>
+  </ContentPage>
+</Base>
