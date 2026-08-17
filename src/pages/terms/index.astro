@@ -2,13 +2,19 @@
 import Base from '../../layouts/Base.astro';
 import ContentPage from '../../components/ContentPage.astro';
 import { SITE } from '../../data/site';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import WebPageJsonLd from '../../components/WebPageJsonLd.astro';
+
+const description = 'Read the terms governing SummaryIn, its browser-based resume tools, editable examples, permitted personal use, third-party links, and user responsibilities.';
 ---
 
 <Base
   title="Terms of Use"
-  description="Terms governing access to SummaryIn, use of its resume summary generator, examples, and links to third-party services."
+  description={description}
   yearInTitle={false}
 >
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Terms of Use', href: '/terms/' }]} />
+  <WebPageJsonLd name="SummaryIn Terms of Use" description={description} path="/terms/" />
   <ContentPage
     eyebrow="Legal"
     title="Terms of Use"

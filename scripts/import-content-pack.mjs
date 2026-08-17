@@ -476,7 +476,7 @@ const supplemental = {
   },
 };
 
-const output = {
+const managed = {
   'customer-service': supplemental['customer-service'],
   nursing: imported.nursing,
   'project-manager': supplemental['project-manager'],
@@ -489,6 +489,11 @@ const output = {
   server: imported.server,
   warehouse: imported.warehouse,
   driver: imported.driver,
+};
+
+const output = {
+  ...managed,
+  ...Object.fromEntries(Object.entries(existing).filter(([slug]) => !(slug in managed))),
 };
 
 await writeFile(dataPath, `${JSON.stringify(output, null, 2)}\n`);

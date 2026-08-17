@@ -8,12 +8,14 @@ interface Props {
   skills: string[];
   /** Skills pre-selected on load (subset of `skills`). */
   defaultSkills?: string[];
+  /** Selects profession-specific language without changing the three-click flow. */
+  family?: 'healthcare' | 'hospitality' | 'customer-office' | 'business' | 'operations-safety' | 'education';
 }
 
-const { defaultRole, skills, defaultSkills = skills.slice(0, 3) } = Astro.props;
+const { defaultRole, skills, defaultSkills = skills.slice(0, 3), family = 'business' } = Astro.props;
 ---
 
-<section class="gen card card-shadow" aria-label="Resume summary generator" data-generator>
+<section class="gen card card-shadow" aria-label="Resume summary generator" data-generator data-family={family}>
   <div class="gen-grid">
     <!-- Input panel -->
     <div class="gen-input">
@@ -179,7 +181,7 @@ const { defaultRole, skills, defaultSkills = skills.slice(0, 3) } = Astro.props;
 <script>
   import templates from '../data/generatorTemplates.json';
 
-  const root = document.querySelector('[data-generator]');
+  const root = document.querySelector<HTMLElement>('[data-generator]');
   if (root) {
     const roleInput = root.querySelector('#gen-role') as HTMLInputElement;
     const levelGroup = root.querySelector('[data-level]')!;
@@ -207,6 +209,18 @@ const { defaultRole, skills, defaultSkills = skills.slice(0, 3) } = Astro.props;
       return list.slice(0, -1).join(', ') + ', and ' + list[list.length - 1];
     }
 
+    function phraseCase(value: string): string {
+      const clean = value.trim();
+      const firstWord = clean.split(/\s+/)[0] ?? '';
+      // Preserve acronyms and product-style labels such as CRM, POS, B2B, P&L, and AP / AR.
+      if (/[A-Z]{2,}|[0-9&/]/.test(firstWord)) return clean;
+      return clean ? clean.charAt(0).toLowerCase() + clean.slice(1) : clean;
+    }
+
+    function sentenceCase(value: string): string {
+      return value ? value.charAt(0).toUpperCase() + value.slice(1) : value;
+    }
+
     function fill(tpl: string, ctx: Record<string, string>): string {
       return tpl.replace(/\{(\w+)\}/g, (_, k) => ctx[k] ?? '');
     }
@@ -215,21 +229,24 @@ const { defaultRole, skills, defaultSkills = skills.slice(0, 3) } = Astro.props;
       const role = roleInput.value.trim() || 'professional';
       const level = segValue(levelGroup) as 'entry' | 'mid' | 'senior';
       const tone = segValue(toneGroup) as 'professional' | 'confident' | 'friendly';
-      const skills = selectedSkills();
-      const bank = templates.levels[level];
+      const skills = selectedSkills().map(phraseCase);
+      const family = root.dataset.family as keyof typeof templates.families;
+      const familyBank = templates.families[family] ?? templates.families.business;
+      const intros = familyBank[level];
+      const toneLines = templates.toneLines[level][tone];
+      const impactLines = templates.impact[level];
 
       variants = [0, 1, 2, 3].map((i) => {
         const ctx = {
-          role,
-          years: bank.experience[i % bank.experience.length],
+          role: sentenceCase(role),
           skill1: skills[0] ?? 'communication',
           skill2: skills[1] ?? skills[0] ?? 'problem solving',
           skills: joinSkills(skills),
         };
         return [
-          fill(bank.intro[tone][i % bank.intro[tone].length], ctx),
-          fill(bank.skills[i % bank.skills.length], ctx),
-          fill(bank.impact[i % bank.impact.length], ctx),
+          fill(intros[i % intros.length], ctx),
+          fill(toneLines[i % toneLines.length], ctx),
+          fill(impactLines[i % impactLines.length], ctx),
         ];
       });
     }

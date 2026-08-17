@@ -1,13 +1,19 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ContentPage from '../../components/ContentPage.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import WebPageJsonLd from '../../components/WebPageJsonLd.astro';
+
+const description = 'Learn why SummaryIn exists, how its browser-based resume tools work, and how profession examples are researched, reviewed, corrected, and funded.';
 ---
 
 <Base
   title="About Us"
-  description="Learn why SummaryIn exists, how its resume summary tools work, and how examples are researched and reviewed."
+  description={description}
   yearInTitle={false}
 >
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'About us', href: '/about/' }]} />
+  <WebPageJsonLd name="About SummaryIn" description={description} path="/about/" type="AboutPage" />
   <ContentPage
     eyebrow="About SummaryIn"
     title="A practical starting point for a stronger resume"
@@ -45,6 +51,10 @@ import ContentPage from '../../components/ContentPage.astro';
       Numbers shown in square brackets are prompts, not claims. They are there to remind you to replace
       the sample metric with something true from your own experience. We avoid invented employers,
       fake testimonials, and promises that a particular summary will guarantee an interview.
+    </p>
+    <p>
+      Our <a href="/editorial-policy/">editorial policy</a> explains how guides are written,
+      reviewed, corrected, and kept separate from commercial links.
     </p>
 
     <h2>Free first, useful first</h2>

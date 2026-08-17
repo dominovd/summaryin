@@ -1,7 +1,7 @@
 ---
-/** Block 11 of the template: related searches, plain text chips (no links to nowhere). */
+/** Related searches. Live destinations are links; unbuilt topics remain plain text. */
 interface Props {
-  keywords: string[];
+  keywords: Array<string | { label: string; href: string }>;
   heading?: string;
 }
 const { keywords, heading = 'People also search for' } = Astro.props;
@@ -11,7 +11,13 @@ const { keywords, heading = 'People also search for' } = Astro.props;
   <div class="container">
     <h2 id="related-kw-heading" class="rk-heading">{heading}</h2>
     <ul class="rk-list">
-      {keywords.map((k) => <li>{k}</li>)}
+      {keywords.map((keyword) => (
+        <li>
+          {typeof keyword === 'string'
+            ? keyword
+            : <a href={keyword.href}>{keyword.label}</a>}
+        </li>
+      ))}
     </ul>
   </div>
 </section>
@@ -34,4 +40,5 @@ const { keywords, heading = 'People also search for' } = Astro.props;
     border-radius: 999px;
     padding: 6px 14px;
   }
+  .rk-list a { color: var(--primary); font-weight: 600; }
 </style>

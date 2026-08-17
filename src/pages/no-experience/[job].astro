@@ -1,0 +1,151 @@
+---
+import Base from '../../layouts/Base.astro';
+import CopyBlock from '../../components/CopyBlock.astro';
+import CopyScript from '../../components/CopyScript.astro';
+import Faq from '../../components/Faq.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
+import EditorialNote from '../../components/EditorialNote.astro';
+import RelatedKeywords from '../../components/RelatedKeywords.astro';
+import professions from '../../data/professions.json';
+import jobDescriptions from '../../data/jobDescriptions.json';
+import { GENERATOR_FAMILIES } from '../../data/generatorFamilies';
+import { NO_EXPERIENCE_GUIDANCE, NO_EXPERIENCE_SLUGS } from '../../data/noExperience';
+
+export function getStaticPaths() {
+  return NO_EXPERIENCE_SLUGS.map((job) => ({ params: { job } }));
+}
+
+const { job } = Astro.params;
+const p = professions[job as keyof typeof professions];
+const family = GENERATOR_FAMILIES[job as string] ?? 'business';
+const guidance = NO_EXPERIENCE_GUIDANCE[family];
+const title = `${p.name} Resume Summary With No Experience`;
+const pageTitle = `${p.name} Resume: No Experience`;
+const description = `${p.name} no-experience resume summary examples, plus honest ways to use training, transferable skills, projects, and practical evidence.`;
+const label = /^[A-Z0-9]+$/.test(p.name) ? p.name : p.name.toLowerCase();
+
+const faq = [
+  {
+    q: `What should I put in a ${label} summary with no experience?`,
+    a: `Lead with relevant training, credentials, transferable work, and one concrete example of responsibility. Use the language of the ${label} posting, but only claim tools and duties you have actually practiced.`,
+  },
+  {
+    q: 'Should I say that I have no experience?',
+    a: 'You do not need to open with what is missing. State your current qualification or target role, then explain the closest relevant practice you have. Keep the level honest without apologizing for it.',
+  },
+  {
+    q: 'Can coursework, volunteering, or placements count?',
+    a: 'Yes, when you identify the setting and the work clearly. Do not present it as paid employment. A project, placement, or volunteer role can still show tools used, workload, feedback, and results.',
+  },
+  {
+    q: 'Can I use the numbers in these examples?',
+    a: 'Only after replacing them with facts from your own experience. Square brackets are prompts. Remove a metric if you cannot verify it rather than copying a sample number.',
+  },
+];
+
+const related = [
+  { label: `${p.name} resume summary examples`, href: `/resume-summary/${job}/` },
+  ...(job in jobDescriptions ? [{ label: `${p.name} job description`, href: `/job-description/${job}/` }] : []),
+  { label: 'Resume bullet point generator', href: '/resume-bullet-points/' },
+];
+---
+
+<Base title={pageTitle} description={description}>
+  <BreadcrumbJsonLd items={[
+    { name: 'Home', href: '/' },
+    { name: 'No experience', href: '/no-experience/' },
+    { name: p.name, href: `/no-experience/${job}/` },
+  ]} />
+  <ArticleJsonLd headline={title} description={description} path={`/no-experience/${job}/`} />
+
+  <section class="noexp-hero">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <a href="/no-experience/">No experience</a> <span aria-hidden="true">/</span>
+        <span>{p.name}</span>
+      </nav>
+      <h1>{title}</h1>
+      <p class="lead">{guidance.lead}</p>
+      <p class="pair-link">
+        Already worked in the role? <a href={`/resume-summary/${job}/`}>See all {label} summary examples</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="examples-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="examples-heading">Six honest starting points</h2>
+        <p class="muted">These examples use training and transferable experience. Replace every highlighted detail before copying one.</p>
+      </div>
+      <div class="grid grid-2">
+        {p.examples.entry.map((example: { label: string; paragraphs: string[] }) => (
+          <CopyBlock label={example.label} icon="entry" paragraphs={example.paragraphs} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle" aria-labelledby="evidence-heading">
+    <div class="container">
+      <div class="grid grid-2">
+        <div class="card">
+          <h2 id="evidence-heading">Evidence you can use instead of job tenure</h2>
+          <ul class="evidence-list">
+            {guidance.evidence.map((item) => <li>{item}</li>)}
+          </ul>
+          <p class="muted evidence-note">{guidance.proof}</p>
+        </div>
+        <div class="card">
+          <h2>Build the summary in three moves</h2>
+          <ol class="steps">
+            <li><strong>Name the target.</strong> Use the exact role or qualification you are ready to perform.</li>
+            <li><strong>Add the closest proof.</strong> Choose training, a placement, related work, or a project that matches the posting.</li>
+            <li><strong>Finish with a true detail.</strong> Add a tool, credential, workload, result, or piece of feedback you can explain.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="avoid-heading">
+    <div class="container narrow-copy">
+      <h2 id="avoid-heading">What to leave out</h2>
+      <p>
+        Skip claims such as “experienced {label}” when the experience came only from a short course.
+        Do not turn a classroom exercise into paid work, copy a certification you have not earned, or
+        keep a sample number because it sounds impressive. A smaller true claim is more useful than a
+        polished sentence you cannot support in an interview.
+      </p>
+      <p>
+        If the posting requires a license or credential you do not have, the wording of the summary
+        cannot solve that gap. State “license pending” only when that status is accurate and the
+        employer accepts it.
+      </p>
+    </div>
+  </section>
+
+  <Faq items={faq} heading={`${p.name} no-experience FAQ`} />
+  <RelatedKeywords keywords={related} heading="Continue building the resume" />
+
+  <div class="container">
+    <EditorialNote label={`${label} no-experience guide`} />
+  </div>
+  <CopyScript />
+</Base>
+
+<style>
+  .noexp-hero { padding: 44px 0 0; }
+  .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 16px; }
+  .crumbs a { color: var(--ink-muted); }
+  .crumbs span[aria-hidden] { margin: 0 4px; }
+  .pair-link { color: var(--ink-soft); font-size: 0.95rem; }
+  .card h2 { font-size: 1.25rem; }
+  .evidence-list, .steps { color: var(--ink-soft); padding-left: 1.25rem; }
+  .evidence-list li, .steps li { margin-bottom: 10px; }
+  .evidence-note { margin: 18px 0 0; }
+  .narrow-copy { max-width: 760px; }
+  .narrow-copy p { color: var(--ink-soft); }
+</style>

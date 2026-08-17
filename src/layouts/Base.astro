@@ -6,15 +6,39 @@ interface Props {
   /** Exact-match keyword goes first; year token is appended automatically. */
   title: string;
   description: string;
-  /** Set false to skip the "(2026)" style year token in <title>. */
+  /** Set false to skip the reviewed-year token in <title>. Long titles skip it automatically. */
   yearInTitle?: boolean;
   /** Use only for unfinished pages that should stay out of search results. */
   noindex?: boolean;
 }
 
 const { title, description, yearInTitle = true, noindex = false } = Astro.props;
-const fullTitle = yearInTitle ? `${title} (${SITE.year}) | ${SITE.name}` : `${title} | ${SITE.name}`;
+const useTitleYear = yearInTitle && title.length <= 40;
+const fullTitle = useTitleYear ? `${title} (${SITE.contentYear}) | ${SITE.name}` : `${title} | ${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const socialImage = new URL('/images/summaryin-social.png', SITE.url).href;
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE.url}/#organization`,
+      name: SITE.name,
+      url: SITE.url,
+      logo: new URL('/favicon.svg', SITE.url).href,
+      email: SITE.contactEmail,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE.url}/#website`,
+      url: SITE.url,
+      name: SITE.name,
+      description: SITE.tagline,
+      publisher: { '@id': `${SITE.url}/#organization` },
+      inLanguage: 'en-US',
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,6 +55,16 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SummaryIn resume writing tools and examples" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
@@ -51,6 +85,16 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
             ))}
           </ul>
         </nav>
+        <details class="mobile-nav">
+          <summary>Menu</summary>
+          <nav aria-label="Mobile">
+            <ul>
+              {NAV.filter((item) => item.live).map((item) => (
+                <li><a href={item.href}>{item.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        </details>
         <a class="btn btn-secondary header-cta" href="/resume-summary/">Browse examples</a>
       </div>
     </header>
@@ -83,6 +127,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
           <h3>Resume</h3>
           <ul>
             <li><a href="/resume-summary/">Resume summaries</a></li>
+            <li><a href="/no-experience/">No-experience summaries</a></li>
             <li><a href="/job-description/">Job descriptions</a></li>
             <li><a href="/resume-bullet-points/">Bullet point generator</a></li>
           </ul>
@@ -98,6 +143,7 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
           <h3>Company</h3>
           <ul>
             <li><a href="/about/">About us</a></li>
+            <li><a href="/editorial-policy/">Editorial policy</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
         </nav>
@@ -146,8 +192,34 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   .nav-list a { color: var(--ink-soft); font-weight: 570; font-size: 0.97rem; }
   .nav-list a:hover { color: var(--primary); text-decoration: none; }
   .header-cta { margin-left: auto; padding: 9px 16px; font-size: 0.95rem; }
-  @media (max-width: 720px) {
+  .mobile-nav { display: none; margin-left: auto; position: relative; }
+  .mobile-nav summary {
+    list-style: none;
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: 650;
+    border: 1px solid var(--primary-border);
+    border-radius: var(--r-sm);
+    padding: 8px 13px;
+  }
+  .mobile-nav summary::-webkit-details-marker { display: none; }
+  .mobile-nav nav {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 9px);
+    min-width: 210px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-card);
+  }
+  .mobile-nav ul { list-style: none; margin: 0; padding: 0; }
+  .mobile-nav a { display: block; padding: 9px 10px; color: var(--ink-soft); font-weight: 600; }
+  @media (max-width: 900px) {
     .nav-list { display: none; }
+    .mobile-nav { display: block; }
+    .header-cta { display: none; }
   }
 
   .site-footer {

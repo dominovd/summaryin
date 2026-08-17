@@ -2,13 +2,19 @@
 import Base from '../../layouts/Base.astro';
 import ContentPage from '../../components/ContentPage.astro';
 import { SITE } from '../../data/site';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import WebPageJsonLd from '../../components/WebPageJsonLd.astro';
+
+const description = 'Contact SummaryIn with corrections, feedback, profession requests, privacy questions, accessibility issues, or clearly disclosed partnership inquiries.';
 ---
 
 <Base
   title="Contact"
-  description="Contact SummaryIn with corrections, feedback, profession requests, privacy questions, or partnership inquiries."
+  description={description}
   yearInTitle={false}
 >
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Contact', href: '/contact/' }]} />
+  <WebPageJsonLd name="Contact SummaryIn" description={description} path="/contact/" type="ContactPage" />
   <ContentPage
     eyebrow="Contact"
     title="Tell us what would make SummaryIn more useful"

@@ -6,8 +6,13 @@ export const SITE = {
   domain: 'summaryin.com',
   url: 'https://summaryin.com',
   tagline: 'Clear, practical resume summaries for every career path.',
-  /** Auto year token used in <title> and footer. Never hardcode a year. */
+  /** Copyright year in the footer. */
   year: new Date().getFullYear(),
+
+  /** Title year changes only after the content library has been reviewed. */
+  contentYear: 2026,
+  contentLastReviewed: 'August 17, 2026',
+  contentLastReviewedIso: '2026-08-17',
 
   /** Contact email shown on /contact/. */
   contactEmail: 'info@summaryin.com',
@@ -30,7 +35,7 @@ export const NAV = [
   { label: 'Resume Summaries', href: '/resume-summary/', live: true },
   { label: 'Job Descriptions', href: '/job-description/', live: true },
   { label: 'Bullet Points', href: '/resume-bullet-points/', live: true },
-  { label: 'No Experience', href: '/no-experience/', live: false },
+  { label: 'No Experience', href: '/no-experience/', live: true },
   { label: 'LinkedIn', href: '/linkedin/', live: false },
   { label: 'Executive Summary', href: '/executive/', live: false },
 ];

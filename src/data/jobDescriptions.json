@@ -1743,7 +1743,7 @@
     "name": "Bartender",
     "h1": "Bartender Job Description for Resume",
     "metaDescription": "Bartender job description for resume: copy ready duty bullets for core, entry level, and lead bar roles, plus skills, power verbs, and FAQs.",
-    "shortAnswer": "Lead with volume and money: drinks per shift, bar sales per night, and your check average. Hiring managers scan for POS experience such as Toast, Square, or Aloha, responsible service certification like TIPS or ServSafe, and whether you can run inventory and pour cost. Add one line on opening and closing the bar.",
+    "shortAnswer": "Lead with the pace and money you handled: drinks per shift, nightly bar sales, or average check. Name the POS and responsible-service certification you actually use, then include inventory, pour cost, opening, or closing work when it was part of the job.",
     "titles": [
       "Bartender",
       "Head Bartender",
@@ -1804,16 +1804,16 @@
     ],
     "howToUse": [
       {
-        "step": "Pick your volume lines first",
-        "text": "Choose the two or three bullets that show drinks per shift, nightly bar sales, or check average. Those are the lines a hiring manager reads before anything else."
+        "step": "Start with bar volume",
+        "text": "Choose two or three lines that show drinks per shift, nightly sales, average check, or the size of the venue."
       },
       {
-        "step": "Fill in the brackets",
-        "text": "Replace each placeholder with a real figure from your own shifts. If you never tracked totals, estimate from a typical Friday and keep the number defensible in an interview."
+        "step": "Use figures you can explain",
+        "text": "Replace each placeholder with a register total, inventory figure, or conservative average from a typical shift."
       },
       {
-        "step": "Match the posting",
-        "text": "Reread the job ad and move the duties it names to the top of your list. Cut anything the venue does not do, such as craft batching for a beer-only bar."
+        "step": "Match the venue",
+        "text": "Move the duties named in the posting to the top and remove work the venue does not perform, such as craft batching for a beer-only bar."
       }
     ],
     "faq": [
@@ -1859,7 +1859,7 @@
     "name": "Waitress",
     "h1": "Waitress Job Description for Resume",
     "metaDescription": "Waitress job description for resume: copy ready duty bullets for core, entry level, and lead server roles, plus skills, numbers to quantify, and FAQs.",
-    "shortAnswer": "Put section size and covers first: tables per shift, guests served, and average check. Managers look for POS order entry, allergen knowledge, and clean cash handling, so quantify nightly sales and any upselling results. If you trained new servers or worked banquets, give that its own bullet near the top of the job.",
+    "shortAnswer": "Put the pace of the section first: tables, covers per shift, and average check. Add the POS, allergen knowledge, cash handling, or upselling result that best matches the restaurant. Training and banquet work deserve separate lines when they were a meaningful part of the role.",
     "titles": [
       "Waitress",
       "Server",
@@ -1920,16 +1920,16 @@
     ],
     "howToUse": [
       {
-        "step": "Start with section and sales",
-        "text": "Open the job with your section size, covers per shift, and nightly sales. Those three numbers tell a manager how much volume you can carry before they read anything else."
+        "step": "Set the pace",
+        "text": "Open with section size, covers per shift, nightly sales, or another number that explains a normal service."
       },
       {
-        "step": "Swap in your POS and menu",
-        "text": "Replace the POS placeholder with Toast, Aloha, Micros, or whatever you actually used, and put your real menu size in. Named systems match the keywords in most restaurant postings."
+        "step": "Name real systems",
+        "text": "Replace the POS placeholder with Toast, Aloha, Micros, or the product you used, and add a menu size only when you know it."
       },
       {
-        "step": "Trim to five bullets",
-        "text": "Keep four to six lines for your current job and two or three for older ones. Delete duties every server does and keep the ones with numbers attached."
+        "step": "Remove repetition",
+        "text": "Keep four to six useful lines for the current job and fewer for older roles. Favor details that distinguish your section, service style, or results."
       }
     ],
     "faq": [
@@ -1975,7 +1975,7 @@
     "name": "Security Guard",
     "h1": "Security Guard Job Description for Resume",
     "metaDescription": "Security guard job description for resume: copy ready duty bullets for patrol, CCTV, and access control, plus licenses to list and resume FAQs.",
-    "shortAnswer": "Start with the site and the scale: property type, size, patrol rounds per shift, and cameras monitored. Quantify incident reports written per month and typical alarm response time. List your state guard card, CPR certification, and any tour system you used, such as Detex or GuardTek, and describe observe-and-report work accurately.",
+    "shortAnswer": "Start with the site and its scale: property type, patrol rounds, cameras, visitors, or access points. Add reporting volume, alarm response, tour systems, and current credentials where relevant. Keep the language factual, distinguish armed from unarmed work, and describe observe-and-report duties without overstating your authority.",
     "titles": [
       "Security Guard",
       "Security Officer",
@@ -2036,16 +2036,16 @@
     ],
     "howToUse": [
       {
-        "step": "Name the site first",
-        "text": "Say what you guarded: retail store, hospital, corporate lobby, construction site, or event venue. Post duties vary widely by site type, and employers hire for the one that matches theirs."
+        "step": "Identify the post",
+        "text": "Say whether you protected a retail store, hospital, corporate lobby, construction site, residential property, or event venue."
       },
       {
-        "step": "Add your numbers",
-        "text": "Fill the brackets with cameras monitored, rounds per shift, badges issued, and reports written per month. Pull them from your post orders or daily activity logs if you still have access."
+        "step": "Show the workload",
+        "text": "Use cameras monitored, rounds per shift, badges issued, or reports written, based on records or a defensible normal shift."
       },
       {
-        "step": "Put licenses on top",
-        "text": "List your state guard card, CPR, and first aid above the duty bullets. Many employers filter for the license before they read a single line of experience."
+        "step": "Add current credentials",
+        "text": "List the required guard card, CPR, first aid, firearms permit, or other active certification clearly and accurately."
       }
     ],
     "faq": [
@@ -2091,7 +2091,7 @@
     "name": "Correctional Officer",
     "h1": "Correctional Officer Job Description for Resume",
     "metaDescription": "Correctional officer job description for resume: ready to paste duty bullets for housing unit supervision, counts, searches, escorts, and reports.",
-    "shortAnswer": "Lead with facility type, security level, and the size of the population you supervised. Hiring managers scan for counts, searches, contraband recovery, escorts, and report writing, so quantify inmates per housing unit, movements per week, and reports filed per month. Add academy hours and current certifications near the bottom.",
+    "shortAnswer": "Lead with facility type, security level, assignment, and the population or housing unit you supervised. Use counts, searches, escorts, reports, and inmate movements to explain the workload. Add academy hours, control-room or transport experience, and current certifications while keeping incident details confidential.",
     "titles": [
       "Correctional Officer",
       "Detention Officer",
@@ -2152,16 +2152,16 @@
     ],
     "howToUse": [
       {
-        "step": "Set the scene first",
-        "text": "Open your experience section with facility type, security level, and average population. Naming a medium-security county jail with a specific inmate count gives every bullet that follows immediate context."
+        "step": "Give the setting",
+        "text": "Open with facility type, security level, assignment, and average population so the rest of the duties have context."
       },
       {
-        "step": "Pick six to eight duty lines",
-        "text": "Choose core duties that match the posting, then add one or two senior lines if you trained officers or led a shift. Drop bullets the job description never mentions."
+        "step": "Match the posting",
+        "text": "Choose the core duties named by the employer, then add leadership lines only if you trained officers or led a shift."
       },
       {
-        "step": "Fill every bracket",
-        "text": "Replace each placeholder with your real counts before you submit. Estimates are fine if they are honest and you can defend them in the interview."
+        "step": "Protect accuracy and privacy",
+        "text": "Replace placeholders with figures you can support, and leave out names, open cases, and restricted incident details."
       }
     ],
     "faq": [
@@ -2207,7 +2207,7 @@
     "name": "Driver",
     "h1": "Driver Job Description for Resume",
     "metaDescription": "Driver job description for resume: copy ready bullet points for delivery stops, CDL routes, DOT inspections, hours of service logs, and safety.",
-    "shortAnswer": "Put your CDL class, endorsements, and vehicle type in the first line, then quantify miles per week, stops per day, and years of accident-free driving. Employers screen for DOT compliance, so name your ELD, pre-trip inspection routine, and load securement work. Close with proof of delivery accuracy at the dock.",
+    "shortAnswer": "Put the license class, endorsements, vehicle type, and route type near the top, then add miles, stops, on-time delivery, or years of safe driving. Include ELD, inspections, hours-of-service records, load securement, dock work, and proof-of-delivery duties that match the opening.",
     "titles": [
       "Delivery Driver",
       "CDL Truck Driver",
@@ -2268,16 +2268,16 @@
     ],
     "howToUse": [
       {
-        "step": "Lead with the equipment",
-        "text": "Name the vehicle class and endorsements in your first bullet so applicant tracking systems match you to CDL keywords. Follow it with weekly mileage and stops per day."
+        "step": "Name the license and vehicle",
+        "text": "Use the exact CDL class, endorsements, and equipment from your record so the qualifications are easy to verify."
       },
       {
-        "step": "Show DOT compliance",
-        "text": "Pick at least two lines covering hours of service logs, pre-trip inspections, or load securement. Safety and compliance language is what fleet managers scan for first."
+        "step": "Cover safety and compliance",
+        "text": "Choose lines about hours-of-service logs, pre-trip inspections, load securement, or another routine that fits the job."
       },
       {
-        "step": "Swap placeholders for route data",
-        "text": "Use real dispatch numbers from your last route sheet. Miles per week, stops per day, and accident-free miles carry more weight than any adjective."
+        "step": "Use dispatch records",
+        "text": "Replace placeholders with honest route figures such as weekly miles, stops per day, on-time deliveries, or safe-driving years."
       }
     ],
     "faq": [
@@ -2323,7 +2323,7 @@
     "name": "Receptionist",
     "h1": "Receptionist Job Description for Resume",
     "metaDescription": "Receptionist job description for resume: ready to use duty bullets for call volume, visitor check-in, scheduling, and front desk admin work.",
-    "shortAnswer": "Quantify the front desk: calls handled per day, visitors checked in, and appointments scheduled per week. Name the phone system, calendar or booking software, and CRM you used, since recruiters search those terms. If the office is medical, state HIPAA compliance, insurance verification, and copay collection instead of generic administrative support.",
+    "shortAnswer": "Quantify the front desk with calls, visitors, appointments, meeting rooms, or mail handled. Name the phone, calendar, booking, CRM, and badge systems you used. For medical offices, include HIPAA, insurance verification, patient scheduling, and copay work instead of broad administrative language.",
     "titles": [
       "Receptionist",
       "Front Desk Receptionist",
@@ -2384,16 +2384,16 @@
     ],
     "howToUse": [
       {
-        "step": "Start with call and visitor volume",
-        "text": "Your first bullet should carry a number. Calls per day and visitors checked in tell a hiring manager how busy your front desk actually was."
+        "step": "Show front-desk volume",
+        "text": "Use calls per day, visitors checked in, appointments booked, or another figure that reflects the pace of the office."
       },
       {
-        "step": "Name your systems",
-        "text": "Replace software placeholders with the exact products you used, such as Cisco, RingCentral, Outlook, Epic, or Salesforce. Recruiters and applicant tracking systems search for those product names."
+        "step": "Name the software",
+        "text": "Replace placeholders with the products you actually used, such as Cisco, RingCentral, Outlook, Epic, or Salesforce."
       },
       {
-        "step": "Match the office type",
-        "text": "Use the medical lines only if you worked in a clinic or hospital. For corporate front desks, keep visitor badging, meeting rooms, and executive support instead."
+        "step": "Match the workplace",
+        "text": "Keep medical duties for clinics and hospitals. For corporate offices, emphasize visitor badging, meeting rooms, mail, and executive support."
       }
     ],
     "faq": [

@@ -25,6 +25,9 @@ for (const [slug, profession] of Object.entries(data)) {
       if (seenExamples.has(key)) errors.push(`${location}: duplicates ${seenExamples.get(key)}`);
       seenExamples.set(key, location);
       if (!example.label) errors.push(`${location}: missing human-readable label`);
+      if (/^(entry|mid|senior)(?:-level)? example \d+$/i.test(example.label)) {
+        errors.push(`${location}: generic label "${example.label}"`);
+      }
       if (/[А-Яа-яЁё]|—|–/.test(text)) errors.push(`${location}: contains Cyrillic or a long dash`);
       if (vaguePhrases.test(text)) warnings.push(`${location}: review vague phrase in "${text.slice(0, 90)}..."`);
       const wordCount = text.split(/\s+/).length;

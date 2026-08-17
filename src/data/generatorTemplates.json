@@ -1,89 +1,171 @@
 {
-  "levels": {
-    "entry": {
-      "experience": ["early-career", "entry-level", "new"],
-      "intro": {
-        "professional": [
-          "Entry-level {role} with practical exposure to {skill1} and {skill2} through training, coursework, volunteer work, or internships.",
-          "Early-career {role} bringing a working foundation in {skill1} and {skill2}."
-        ],
-        "confident": [
-          "{role} candidate who learns new tools quickly and is ready to contribute in {skill1} and {skill2}.",
-          "Early-career {role} who has already put {skill1} into practice and is building confidence in {skill2}."
-        ],
-        "friendly": [
-          "Curious {role} at the start of a career, with a genuine interest in {skill1} and {skill2}.",
-          "People-focused {role} ready to grow, bringing a solid base in {skill1} and an interest in learning the work well."
-        ]
-      },
-      "skills": [
-        "Comfortable with {skills} and willing to ask questions when the next step is not clear.",
-        "Built a working knowledge of {skills} through coursework, training, internships, or hands-on practice.",
-        "Ready to apply {skills} while learning the team's tools and standards."
+  "families": {
+    "healthcare": {
+      "entry": [
+        "Entry-level {role} with supervised practice in {skill1} and {skill2} through clinical training or placements.",
+        "Newly qualified {role} prepared to support safe patient care with a foundation in {skill1} and {skill2}.",
+        "Early-career {role} who has practiced {skill1} and {skill2} in structured clinical settings."
       ],
-      "impact": [
-        "Supported [project, team, or customers] and earned positive feedback for [a strength you can prove].",
-        "Completed [course, internship, or project] and achieved [your result].",
-        "Handled [your volume or responsibility] while keeping [quality, accuracy, or service result] on track.",
-        "Known for [a specific strength], supported by [feedback, a result, or an example]."
+      "mid": [
+        "Practicing {role} experienced in {skill1} and {skill2} across day-to-day patient care.",
+        "{role} who combines {skill1} with {skill2} to keep care safe, timely, and well documented.",
+        "{role} trusted for steady clinical judgment in {skill1}, {skill2}, and busy care settings."
+      ],
+      "senior": [
+        "Senior {role} who leads patient care, supports clinical decisions, and coaches colleagues in {skill1} and {skill2}.",
+        "Experienced {role} combining hands-on work in {skill1} and {skill2} with unit leadership and staff development.",
+        "{role} leader known for strengthening care standards, clinical handoffs, and team practice in {skill1}."
+      ]
+    },
+    "hospitality": {
+      "entry": [
+        "Entry-level {role} bringing hands-on practice in {skill1} and {skill2} from training or customer-facing work.",
+        "Early-career {role} ready for a busy service environment, with a foundation in {skill1} and {skill2}.",
+        "{role} candidate who understands the pace of service and has practiced {skill1} and {skill2}."
+      ],
+      "mid": [
+        "{role} experienced in fast-paced service, with practical strengths in {skill1} and {skill2}.",
+        "Service-focused {role} who uses {skill1} and {skill2} to keep guests looked after and shifts running smoothly.",
+        "{role} comfortable balancing guest needs, service volume, {skill1}, and {skill2}."
+      ],
+      "senior": [
+        "Senior {role} who combines high-volume service with team guidance, {skill1}, and {skill2}.",
+        "Experienced {role} trusted to steady busy shifts, coach new staff, and maintain standards in {skill1}.",
+        "{role} leader with hands-on knowledge of {skill1}, {skill2}, and day-to-day service operations."
+      ]
+    },
+    "customer-office": {
+      "entry": [
+        "Entry-level {role} with practical exposure to {skill1} and {skill2} through coursework, training, or customer-facing work.",
+        "Early-career {role} bringing an organized approach to {skill1}, {skill2}, and routine follow-up.",
+        "{role} candidate prepared to support customers and colleagues with a foundation in {skill1} and {skill2}."
+      ],
+      "mid": [
+        "{role} experienced in managing a steady workload across {skill1}, {skill2}, and day-to-day requests.",
+        "Organized {role} who uses {skill1} and {skill2} to keep information accurate and people informed.",
+        "{role} trusted to handle competing requests while maintaining clear records in {skill1} and {skill2}."
+      ],
+      "senior": [
+        "Senior {role} who improves service routines, supports colleagues, and takes ownership of {skill1} and {skill2}.",
+        "Experienced {role} combining hands-on knowledge of {skill1} with process improvement and team support.",
+        "{role} leader known for dependable follow-through, clear communication, and stronger workflows around {skill1}."
+      ]
+    },
+    "business": {
+      "entry": [
+        "Entry-level {role} with a working foundation in {skill1} and {skill2} built through coursework, projects, or internships.",
+        "Early-career {role} prepared to support business goals with practical knowledge of {skill1} and {skill2}.",
+        "{role} candidate who has applied {skill1} and {skill2} in projects, training, or part-time work."
+      ],
+      "mid": [
+        "{role} experienced in using {skill1} and {skill2} to keep work organized and move priorities forward.",
+        "{role} who combines practical knowledge of {skill1} with consistent follow-through in {skill2}.",
+        "{role} trusted to manage competing priorities across {skill1}, {skill2}, and routine reporting."
+      ],
+      "senior": [
+        "Senior {role} who connects {skill1} and {skill2} with team leadership and measurable business priorities.",
+        "Experienced {role} leading complex work across {skill1}, {skill2}, and partner teams.",
+        "{role} leader known for improving decisions, developing people, and strengthening the process around {skill1}."
+      ]
+    },
+    "operations-safety": {
+      "entry": [
+        "Entry-level {role} with training in {skill1}, {skill2}, and the safety routines required for the work.",
+        "Early-career {role} prepared for a hands-on environment, with a foundation in {skill1} and {skill2}.",
+        "{role} candidate who has practiced {skill1} and {skill2} through training, service, or related work."
+      ],
+      "mid": [
+        "{role} experienced in daily operations, with practical strengths in {skill1}, {skill2}, and accurate reporting.",
+        "Safety-focused {role} who uses {skill1} and {skill2} to keep work controlled, documented, and on schedule.",
+        "{role} trusted to handle a steady workload while following procedures for {skill1} and {skill2}."
+      ],
+      "senior": [
+        "Senior {role} who combines hands-on knowledge of {skill1} and {skill2} with shift leadership and training.",
+        "Experienced {role} trusted to coordinate people, maintain safety standards, and improve routines around {skill1}.",
+        "{role} leader with practical command of {skill1}, {skill2}, incident follow-up, and team readiness."
+      ]
+    },
+    "education": {
+      "entry": [
+        "Entry-level {role} with classroom practice in {skill1} and {skill2} through student teaching, tutoring, or placements.",
+        "Early-career {role} prepared to support learners with a foundation in {skill1} and {skill2}.",
+        "{role} candidate who has applied {skill1} and {skill2} in supervised learning environments."
+      ],
+      "mid": [
+        "{role} experienced in planning instruction, supporting different learners, and applying {skill1} and {skill2}.",
+        "Student-focused {role} who uses {skill1} and {skill2} to keep learning purposeful and classrooms well managed.",
+        "{role} trusted to adjust instruction while maintaining clear expectations through {skill1} and {skill2}."
+      ],
+      "senior": [
+        "Senior {role} who combines classroom expertise in {skill1} and {skill2} with mentoring and curriculum leadership.",
+        "Experienced {role} trusted to coach colleagues, improve instruction, and lead work around {skill1}.",
+        "{role} leader known for strengthening teaching practice, student support, and shared planning in {skill1}."
+      ]
+    }
+  },
+  "toneLines": {
+    "entry": {
+      "professional": [
+        "Brings a careful, structured approach to {skills} and knows when to ask for guidance.",
+        "Ready to apply {skills} while learning the team's standards and tools."
+      ],
+      "confident": [
+        "Ready to contribute with {skills}, taking ownership of clearly defined work.",
+        "Brings a solid base in {skills} and the discipline to learn unfamiliar tasks quickly."
+      ],
+      "friendly": [
+        "Known for being approachable, prepared, and willing to learn, with a practical base in {skills}.",
+        "Brings clear communication, curiosity, and hands-on familiarity with {skills}."
       ]
     },
     "mid": {
-      "experience": ["4", "5", "6"],
-      "intro": {
-        "professional": [
-          "{role} with {years} years of experience using {skill1} and {skill2} in day-to-day work.",
-          "Over {years} years as a {role}, built practical experience in {skill1}, {skill2}, and improving routine processes."
-        ],
-        "confident": [
-          "{role} with {years} years of experience solving difficult problems involving {skill1} and {skill2}.",
-          "For {years} years, used {skill1} to keep work moving and turn recurring problems into clearer processes."
-        ],
-        "friendly": [
-          "{role} with {years} years of experience and a reputation for being the person teammates turn to for {skill1}.",
-          "Approachable {role} with {years} years of experience turning difficult {skill1} problems into practical next steps."
-        ]
-      },
-      "skills": [
-        "Uses {skills} to keep work accurate, organized, and moving on schedule.",
-        "Applies {skills} every day to maintain quality and shorten turnaround time.",
-        "Combines {skills} to handle a busy workload without losing accuracy."
+      "professional": [
+        "Uses {skills} to maintain quality, organize the workload, and follow through on details.",
+        "Applies {skills} consistently across routine work and changing priorities."
       ],
-      "impact": [
-        "Improved [process or result] by [your number] after changing [what you did].",
-        "Reduced [time, cost, or errors] by [your number] through a clearer process.",
-        "Handled [your workload] while maintaining [quality, accuracy, or service result].",
-        "Helped [team, customers, or users] achieve [your measurable result]."
+      "confident": [
+        "Takes ownership of work involving {skills}, following issues through to a practical resolution.",
+        "Uses {skills} to keep demanding work accurate, timely, and under control."
+      ],
+      "friendly": [
+        "Known as a dependable colleague who communicates clearly and brings practical experience in {skills}.",
+        "Combines an approachable working style with reliable follow-through in {skills}."
       ]
     },
     "senior": {
-      "experience": ["8", "10", "12"],
-      "intro": {
-        "professional": [
-          "Senior {role} with {years} years of experience leading teams and owning outcomes across {skill1} and {skill2}.",
-          "Over {years} years as a {role}, led work involving {skill1}, {skill2}, and several partner teams."
-        ],
-        "confident": [
-          "{role} leader with {years} years of experience in {skill1} and team management.",
-          "Senior {role} with {years} years of turning weak processes into measurable improvements in {skill1}."
-        ],
-        "friendly": [
-          "Senior {role} with {years} years of experience who leads by example and builds teams people want to join.",
-          "{role} with {years} years of experience who enjoys coaching others and improving {skill1} as a team."
-        ]
-      },
-      "skills": [
-        "Brings deep experience in {skills}, process improvement, performance measures, and cross-team work.",
-        "Combines {skills} with the judgment to focus the team on the measures that matter.",
-        "Pairs hands-on knowledge of {skills} with leadership that keeps quality steady as the team grows."
+      "professional": [
+        "Combines {skills} with sound judgment, process ownership, and clear coordination across the team.",
+        "Brings depth in {skills} and a consistent approach to standards, decisions, and follow-through."
       ],
-      "impact": [
-        "Improved [business or team result] by [your number] after changing [process or approach].",
-        "Built and led a team of [team size], improving [the measure that changed].",
-        "Introduced [program or process] that moved [quality, cost, speed, or service result] by [your number].",
-        "Worked across teams to remove [root cause], reducing [repeat work, delays, or cost] by [your number]."
+      "confident": [
+        "Takes ownership of complex work involving {skills}, turning recurring issues into clearer routines.",
+        "Uses {skills} to set direction, improve consistency, and keep the team focused on meaningful results."
+      ],
+      "friendly": [
+        "Leads with clear expectations and practical support, drawing on hands-on experience in {skills}.",
+        "Known for coaching others well while maintaining strong standards in {skills}."
       ]
     }
+  },
+  "impact": {
+    "entry": [
+      "Supported [project, team, patients, or customers] and earned positive feedback for [a strength you can prove].",
+      "Completed [course, placement, internship, or project] and achieved [your result].",
+      "Handled [your volume or responsibility] while maintaining [quality, accuracy, safety, or service result].",
+      "Demonstrated [a specific strength] through [feedback, a result, or a concrete example]."
+    ],
+    "mid": [
+      "Improved [process or result] by [your number] after changing [what you did].",
+      "Reduced [time, cost, errors, or delays] by [your number] through [your approach].",
+      "Handled [your workload] while maintaining [quality, accuracy, safety, or service result].",
+      "Helped [team, patients, customers, or users] achieve [your measurable result]."
+    ],
+    "senior": [
+      "Improved [business, service, care, or team result] by [your number] after changing [process or approach].",
+      "Built or coached a team of [team size], improving [the measure that changed].",
+      "Introduced [program or process] that moved [quality, cost, speed, safety, or service result] by [your number].",
+      "Worked across teams to remove [root cause], reducing [repeat work, delays, incidents, or cost] by [your number]."
+    ]
   },
   "editHint": "Replace every bracketed prompt with a true detail from your own work before using this summary."
 }

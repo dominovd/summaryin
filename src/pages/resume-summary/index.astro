@@ -1,25 +1,183 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ProfessionGrid from '../../components/ProfessionGrid.astro';
+import CopyBlock from '../../components/CopyBlock.astro';
+import CopyScript from '../../components/CopyScript.astro';
+import Faq from '../../components/Faq.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
+import EditorialNote from '../../components/EditorialNote.astro';
 
 const description =
-  'Browse resume summary examples by profession. Every guide includes examples for entry, mid, and senior level, plus a free generator.';
+  'Browse resume summary examples by profession and experience level, with practical writing guidance, editable examples, and a free browser-based generator.';
+
+const faq = [
+  {
+    q: 'What is a resume summary?',
+    a: 'A resume summary is a short introduction near the top of a resume. It identifies your role or direction, brings forward the experience and skills most relevant to the opening, and gives one concrete reason to keep reading.',
+  },
+  {
+    q: 'How long should a resume summary be?',
+    a: 'Two or three short sentences are usually enough. Aim for roughly 40 to 70 words and remove anything that repeats information without adding context, scale, or evidence.',
+  },
+  {
+    q: 'Should every resume have a summary?',
+    a: 'No. A summary is useful when it helps connect your background to the target role, especially during a career change or when your strongest qualifications are spread across several jobs. Skip it if it only repeats the job title and generic strengths.',
+  },
+  {
+    q: 'Can I copy one of these examples?',
+    a: 'Use an example as an editable starting point. Replace every bracket, remove tools or credentials you do not have, and change the wording until every claim accurately describes your own work.',
+  },
+  {
+    q: 'How do I write a summary with no direct experience?',
+    a: 'Use relevant training, placements, projects, volunteering, and transferable work. Name the role you are prepared for and add a credential, tool, workload, result, or piece of feedback that you can support.',
+  },
+];
 ---
 
 <Base title="Resume Summary Examples by Profession" description={description}>
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Resume summaries', href: '/resume-summary/' }]} />
+  <ArticleJsonLd headline="Resume Summary Examples by Profession" description={description} path="/resume-summary/" />
   <section class="hub-hero">
     <div class="container">
       <h1>Resume Summary Examples by Profession</h1>
       <p class="lead">
-        Every page below has copy-ready summaries for entry, mid, and senior level,
-        a power-word table, and a generator preset for that role. Don't see yours yet?
-        The <a href="/">universal generator</a> works for any profession.
+        Choose a profession to see examples for entry, mid, and senior level. Each guide includes
+        editable summaries, role-specific wording, a power-word table, and a generator that works
+        in your browser. Start with an example that resembles your real background, then replace
+        every highlighted prompt with a detail you can support.
       </p>
     </div>
   </section>
+
   <ProfessionGrid />
+
+  <section class="section section-subtle" aria-labelledby="include-heading">
+    <div class="container">
+      <div class="grid grid-2 guide-grid">
+        <div class="card">
+          <h2 id="include-heading">What a useful summary includes</h2>
+          <p class="muted">
+            The opening should help a reader place you quickly. It does not need every skill or
+            responsibility from the resume. Choose a few details that explain the kind of work you
+            perform, the setting or workload, and the evidence behind the claim.
+          </p>
+          <ol class="check-list">
+            <li><strong>Role and context:</strong> the job title, specialty, industry, or setting.</li>
+            <li><strong>Relevant strengths:</strong> two or three skills, tools, or credentials from the posting.</li>
+            <li><strong>Proof:</strong> a workload, result, team size, accuracy figure, or other true detail.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h2>What the summary should not do</h2>
+          <p class="muted">
+            Avoid turning the opening into a list of adjectives. Phrases such as “results-driven,”
+            “hard-working,” and “team player” say little unless the next sentence gives a specific
+            example. The summary should also avoid sample numbers, credentials, and years of experience
+            that do not belong to you.
+          </p>
+          <p class="muted">
+            If you use the generator, its bracketed text is an editing prompt. The tool does not invent
+            tenure or claim that you performed a result you did not enter.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="comparison-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="comparison-heading">From generic to specific</h2>
+        <p class="muted">The second version gives context and leaves a clear place for a true result.</p>
+      </div>
+      <div class="grid grid-2">
+        <CopyBlock
+          label="Too broad"
+          icon="entry"
+          paragraphs={['Hard-working customer service professional with excellent communication skills and a proven track record of success.']}
+        />
+        <CopyBlock
+          label="Useful starting point"
+          icon="mid"
+          paragraphs={['Customer service representative experienced in phone and email support for a high-volume retail account. Handled [X]+ contacts per day in [CRM], maintaining [quality or resolution result].']}
+        />
+      </div>
+      <p class="placeholder-note muted">
+        The brackets are deliberate. Replace them with your real workload, system, or outcome, or
+        remove the clause when you do not have a reliable figure.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-subtle" aria-labelledby="level-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="level-heading">Choose details that match your experience level</h2>
+      </div>
+      <div class="grid grid-3 level-grid">
+        <div class="card">
+          <h3>Entry level</h3>
+          <p class="muted">Use training, placements, projects, volunteering, and transferable work. Be clear about the setting and do not present supervised practice as paid employment.</p>
+          <a href="/no-experience/">See no-experience examples</a>
+        </div>
+        <div class="card">
+          <h3>Mid-career</h3>
+          <p class="muted">Show the normal scale of the job: customers, patients, accounts, projects, routes, sales, shifts, or systems. Add one result that represents your own contribution.</p>
+        </div>
+        <div class="card">
+          <h3>Senior</h3>
+          <p class="muted">Connect hands-on expertise with ownership. Useful details include team size, budget, standards improved, people trained, locations supported, or a process you changed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="workflow-heading">
+    <div class="container">
+      <div class="grid grid-2 guide-grid">
+        <div>
+          <h2 id="workflow-heading">Write the experience section first</h2>
+          <p>
+            A summary is easier to write after the work-experience bullets are clear. Review your
+            recent jobs, choose the duties and results most relevant to the target, then bring the
+            strongest two details into the opening. This keeps the summary connected to evidence the
+            reader can find lower on the page.
+          </p>
+          <p>
+            Use the <a href="/job-description/">job description examples</a> to identify relevant
+            duties and the <a href="/resume-bullet-points/">resume bullet point generator</a> to shape
+            one responsibility into a concise line.
+          </p>
+        </div>
+        <div>
+          <h2>Then check the posting</h2>
+          <p>
+            Match the employer's language where it accurately describes your experience. A nurse may
+            bring forward the unit and patient load, while a store manager may lead with annual sales,
+            shrink, and team size. The facts should remain the same even when their order changes.
+          </p>
+          <p>
+            Read the final version aloud. If it sounds like it could belong to anyone in the profession,
+            replace one broad phrase with a setting, tool, workload, or result from your own work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Faq items={faq} heading="Resume summary FAQ" />
+  <div class="container"><EditorialNote label="resume summary library" /></div>
+  <CopyScript />
 </Base>
 
 <style>
   .hub-hero { padding: 56px 0 0; }
+  .guide-grid h2 { font-size: 1.3rem; }
+  .guide-grid p { color: var(--ink-soft); }
+  .check-list { padding-left: 1.25rem; color: var(--ink-soft); }
+  .check-list li { margin-bottom: 10px; }
+  .placeholder-note { max-width: 70ch; margin-top: 18px; }
+  .level-grid h3 { font-size: 1.08rem; }
+  .level-grid p { min-height: 7.5em; }
 </style>

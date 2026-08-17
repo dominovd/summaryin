@@ -2,13 +2,19 @@
 import Base from '../../layouts/Base.astro';
 import ContentPage from '../../components/ContentPage.astro';
 import { SITE } from '../../data/site';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import WebPageJsonLd from '../../components/WebPageJsonLd.astro';
+
+const description = 'Learn what SummaryIn collects, how its browser-based resume generator handles entered text, which analytics are used, and how to make a privacy request.';
 ---
 
 <Base
   title="Privacy Policy"
-  description="Learn what SummaryIn collects, how the browser-based generator handles your text, and how to contact us about privacy."
+  description={description}
   yearInTitle={false}
 >
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Privacy Policy', href: '/privacy/' }]} />
+  <WebPageJsonLd name="SummaryIn Privacy Policy" description={description} path="/privacy/" />
   <ContentPage
     eyebrow="Legal"
     title="Privacy Policy"

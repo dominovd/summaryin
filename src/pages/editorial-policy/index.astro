@@ -2,13 +2,19 @@
 import Base from '../../layouts/Base.astro';
 import ContentPage from '../../components/ContentPage.astro';
 import { SITE } from '../../data/site';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import WebPageJsonLd from '../../components/WebPageJsonLd.astro';
+
+const description = 'How SummaryIn researches, writes, reviews, corrects, and updates resume examples, job-description duties, and browser-based career tools.';
 ---
 
 <Base
   title="Editorial Policy"
-  description="How SummaryIn researches, writes, reviews, and updates resume examples, job-description duties, and browser-based career tools."
+  description={description}
   yearInTitle={false}
 >
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Editorial policy', href: '/editorial-policy/' }]} />
+  <WebPageJsonLd name="SummaryIn Editorial Policy" description={description} path="/editorial-policy/" />
   <ContentPage
     eyebrow="Editorial policy"
     title="How we write and review SummaryIn content"

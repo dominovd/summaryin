@@ -1,0 +1,113 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
+import EditorialNote from '../../components/EditorialNote.astro';
+import professions from '../../data/professions.json';
+import { NO_EXPERIENCE_SLUGS } from '../../data/noExperience';
+
+const title = 'Resume Summary With No Experience';
+const description = 'Write a resume summary with no experience using training, projects, volunteering, and transferable skills, with examples for 14 professions.';
+const pages = NO_EXPERIENCE_SLUGS.map((slug) => ({ slug, name: professions[slug].name }));
+const faq = [
+  { q: 'Can a resume summary work when I have no experience?', a: 'Yes, if it explains what qualifies you now. Use a target role, relevant training or transferable work, and one specific detail such as a tool, credential, project, workload, or result.' },
+  { q: 'Is a resume objective better for a first job?', a: 'An objective focuses on what you want. A summary focuses on what you can already bring. For most applications, two or three lines of relevant evidence are more useful than a sentence saying you want an opportunity.' },
+  { q: 'What counts as experience besides a paid job?', a: 'Coursework, placements, internships, volunteering, caregiving, military service, student organizations, freelance work, and personal projects can count when they demonstrate work relevant to the role. Label the setting honestly.' },
+  { q: 'How long should an entry-level summary be?', a: 'Two or three short sentences are usually enough. Name the target, show the closest relevant preparation, and add one detail that makes the claim concrete.' },
+];
+---
+
+<Base title={title} description={description}>
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'No experience', href: '/no-experience/' }]} />
+  <ArticleJsonLd headline={title} description={description} path="/no-experience/" />
+
+  <section class="hub-hero">
+    <div class="container">
+      <h1>How to Write a Resume Summary With No Experience</h1>
+      <p class="lead">
+        You do not need to invent years of work to write a useful opening. Start with the role you
+        are prepared for, show where you practiced the relevant skills, and finish with one detail
+        that can be checked or explained.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="roles-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="roles-heading">Examples by profession</h2>
+        <p class="muted">Each guide uses entry-level examples already written for that kind of work.</p>
+      </div>
+      <div class="grid grid-3">
+        {pages.map((page) => (
+          <a class="role-card card" href={`/no-experience/${page.slug}/`}>
+            <strong>{page.name}</strong>
+            <span class="muted">6 examples and a writing guide</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle" aria-labelledby="formula-heading">
+    <div class="container">
+      <div class="grid grid-2 guide-grid">
+        <div class="card">
+          <h2 id="formula-heading">A three-part structure that stays honest</h2>
+          <ol>
+            <li><strong>Target:</strong> the role, qualification, or career direction.</li>
+            <li><strong>Preparation:</strong> training, transferable work, a placement, or a relevant project.</li>
+            <li><strong>Proof:</strong> a credential, tool, workload, result, or piece of feedback.</li>
+          </ol>
+          <p class="example-line">
+            Entry-level receptionist with hands-on scheduling and customer support experience from a
+            university office placement. Used Outlook and a multi-line phone system to route [X]+ calls
+            a day while keeping appointment records accurate.
+          </p>
+        </div>
+        <div class="card">
+          <h2>Where useful evidence comes from</h2>
+          <ul>
+            <li>clinical rotations, student teaching, internships, and apprenticeships;</li>
+            <li>volunteering, community work, caregiving, and military service;</li>
+            <li>part-time jobs with transferable customers, cash, records, safety, or scheduling work;</li>
+            <li>course projects that used the same tools or produced a clear result;</li>
+            <li>current licenses, certificates, endorsements, and required training.</li>
+          </ul>
+          <p class="muted">Name the setting honestly. A placement is useful evidence, but it should not be presented as a paid job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="mistakes-heading">
+    <div class="container prose-width">
+      <h2 id="mistakes-heading">Four mistakes that weaken a first summary</h2>
+      <h3>Opening with an apology</h3>
+      <p>“I have no experience, but…” makes the reader work to find your value. Lead with your current preparation instead.</p>
+      <h3>Copying a sample metric</h3>
+      <p>Numbers in square brackets are prompts. Replace them, explain how you calculated an average, or remove the number.</p>
+      <h3>Listing personality words without evidence</h3>
+      <p>Reliable, motivated, and hard-working are difficult to evaluate alone. A completed placement, clean safety record, or accurate workload gives the word a reason to be believed.</p>
+      <h3>Using one generic summary for every application</h3>
+      <p>Keep the facts the same, but move the most relevant training, tool, or transferable duty forward when the posting changes.</p>
+    </div>
+  </section>
+
+  <Faq items={faq} heading="No-experience resume summary FAQ" />
+  <div class="container"><EditorialNote label="no-experience resume summary library" /></div>
+</Base>
+
+<style>
+  .hub-hero { padding: 56px 0 0; }
+  .role-card { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; color: var(--ink); }
+  .role-card:hover { text-decoration: none; border-color: var(--primary); box-shadow: var(--shadow-card); }
+  .role-card span { font-size: 0.88rem; }
+  .guide-grid h2, .prose-width h2 { font-size: 1.3rem; }
+  .guide-grid li { color: var(--ink-soft); margin-bottom: 9px; }
+  .example-line { margin: 20px 0 0; padding: 16px; border-left: 3px solid var(--primary); background: var(--primary-soft); color: var(--ink-soft); }
+  .prose-width { max-width: 760px; }
+  .prose-width h3 { font-size: 1.05rem; margin-top: 24px; }
+  .prose-width p { color: var(--ink-soft); }
+</style>

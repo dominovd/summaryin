@@ -11,6 +11,9 @@ import EmailCapture from '../../components/EmailCapture.astro';
 import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
+import EditorialNote from '../../components/EditorialNote.astro';
 import jobs from '../../data/jobDescriptions.json';
 import professions from '../../data/professions.json';
 
@@ -38,6 +41,12 @@ const related = p.related.map((slug: string) => ({
 ---
 
 <Base title={p.h1} description={p.metaDescription}>
+  <BreadcrumbJsonLd items={[
+    { name: 'Home', href: '/' },
+    { name: 'Job descriptions', href: '/job-description/' },
+    { name: p.name, href: `/job-description/${job}/` },
+  ]} />
+  <ArticleJsonLd headline={p.h1} description={p.metaDescription} path={`/job-description/${job}/`} />
   <!-- 1. H1 + 2. Short answer -->
   <section class="jd-hero">
     <div class="container">
@@ -136,13 +145,17 @@ const related = p.related.map((slug: string) => ({
   <!-- 9. Related keywords -->
   <RelatedKeywords keywords={p.relatedKeywords} />
 
+  <div class="container">
+    <EditorialNote label={`${label} job description guide`} />
+  </div>
+
   <!-- 10. Email capture + 11. CTA -->
   <EmailCapture professionLabel={label} kind="duty lines" />
   <CtaBanner
     heading="Now write the top of your resume"
     points={[
       'A summary is the 2 to 3 lines above your experience section',
-      'It is what a recruiter reads before your duty bullets',
+      'It gives context before the reader reaches your duty bullets',
       'The generator writes one from your role, level, and skills',
     ]}
     ctaLabel="Open the summary generator"
