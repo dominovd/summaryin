@@ -2,10 +2,6 @@
 import Base from '../../layouts/Base.astro';
 import jobs from '../../data/jobDescriptions.json';
 import professions from '../../data/professions.json';
-import CopyBlock from '../../components/CopyBlock.astro';
-import CopyScript from '../../components/CopyScript.astro';
-import Faq from '../../components/Faq.astro';
-import EditorialNote from '../../components/EditorialNote.astro';
 
 const list = Object.entries(jobs).map(([slug, p]) => ({
   slug,
@@ -16,25 +12,6 @@ const list = Object.entries(jobs).map(([slug, p]) => ({
 
 const description =
   'Job description examples for a resume, by profession. Tick the duties you performed and copy a finished work-experience block, with power verbs and format tips.';
-
-const faq = [
-  {
-    q: 'What is a job description on a resume?',
-    a: 'It is the group of bullet points under a job title in your work-experience section. The strongest version does more than list routine duties. It shows the type of work, the tools used, the size of the workload, and a result when one is available.',
-  },
-  {
-    q: 'How many duties should I list for each job?',
-    a: 'Start with four to six bullets for your most recent role and three to four for older positions. Keep the duties that match the job you want, and remove repeated or less relevant tasks.',
-  },
-  {
-    q: 'Can I copy these job descriptions exactly?',
-    a: 'Use them as editable starting points. Select only duties you actually performed, replace every bracket with a true detail, and adjust the tools and terminology to match your workplace.',
-  },
-  {
-    q: 'What is the difference between a resume summary and a job description?',
-    a: 'A resume summary is a short introduction at the top of the document. A job description sits under one employer and explains what you did in that specific role. The summary gives the overview, while the experience bullets provide the evidence.',
-  },
-];
 ---
 
 <Base title="Job Description Examples for a Resume" description={description}>
@@ -67,71 +44,6 @@ const faq = [
       </p>
     </div>
   </section>
-
-  <section class="section section-subtle" aria-labelledby="include-heading">
-    <div class="container">
-      <div class="grid grid-2 guide-grid">
-        <div class="card">
-          <h2 id="include-heading">What to include under each job</h2>
-          <p class="muted">
-            Start with the work most relevant to the position you want. Name the task, add the
-            tool or method when it matters, and show the scale with a truthful number. Routine
-            duties can stay, but they should not crowd out examples of judgment, ownership, or results.
-          </p>
-          <ul class="check-list">
-            <li>A clear action at the start of each line</li>
-            <li>The customers, patients, products, or process you supported</li>
-            <li>Relevant systems, equipment, or certifications</li>
-            <li>A count, percentage, dollar amount, or time saved when known</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Job description or resume summary?</h2>
-          <p class="muted">
-            A resume summary introduces your overall fit in two or three sentences. Job-description
-            bullets belong under a specific employer and show the work behind that claim. Write the
-            experience section first, then use its strongest details to shape the summary.
-          </p>
-          <p class="cluster-links">
-            <a href="/resume-summary/">Build a resume summary</a><br />
-            <a href="/resume-bullet-points/">Check bullet point format</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="example-heading">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="example-heading">Turn a duty into useful evidence</h2>
-        <p class="muted">The second version gives the reader enough detail to understand the workload and result.</p>
-      </div>
-      <div class="grid grid-2">
-        <CopyBlock
-          label="Too general"
-          icon="entry"
-          paragraphs={['Responsible for helping customers and handling returns.']}
-        />
-        <CopyBlock
-          label="More specific"
-          icon="mid"
-          paragraphs={['Handled [X]+ customer questions and returns per shift in [POS system], resolving routine issues without manager escalation.']}
-        />
-      </div>
-      <p class="placeholder-note muted">
-        Square brackets mark details to replace. Use your real volume, system, team size, or result before adding the line to a resume.
-      </p>
-    </div>
-  </section>
-
-  <Faq items={faq} heading="Job description FAQ" />
-
-  <div class="container">
-    <EditorialNote label="job description library" />
-  </div>
-
-  <CopyScript />
 </Base>
 
 <style>
@@ -158,10 +70,4 @@ const faq = [
     padding: 3px 10px;
   }
   .hub-note { margin-top: 28px; font-size: 0.95rem; max-width: 70ch; }
-  .guide-grid h2 { font-size: 1.25rem; }
-  .guide-grid p:last-child { margin-bottom: 0; }
-  .check-list { margin: 18px 0 0; padding-left: 1.2rem; color: var(--ink-soft); }
-  .check-list li { margin-bottom: 7px; }
-  .cluster-links { line-height: 1.9; }
-  .placeholder-note { max-width: 68ch; margin-top: 18px; font-size: 0.93rem; }
 </style>

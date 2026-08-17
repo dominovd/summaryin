@@ -18,9 +18,6 @@ import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
 import SummaryAnatomy from '../../components/SummaryAnatomy.astro';
-import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
-import EditorialNote from '../../components/EditorialNote.astro';
-import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
 import professions from '../../data/professions.json';
 import jobDescriptions from '../../data/jobDescriptions.json';
 
@@ -54,12 +51,6 @@ const levels = [
 ---
 
 <Base title={p.h1} description={p.metaDescription}>
-  <BreadcrumbJsonLd items={[
-    { name: 'Home', href: '/' },
-    { name: 'Resume summaries', href: '/resume-summary/' },
-    { name: p.name, href: `/resume-summary/${job}/` },
-  ]} />
-  <ArticleJsonLd headline={p.h1} description={p.metaDescription} path={`/resume-summary/${job}/`} />
   <!-- 1. H1 + 2. Short answer -->
   <section class="prof-hero">
     <div class="container">
@@ -164,10 +155,6 @@ const levels = [
 
   <!-- 10. Related keywords -->
   <RelatedKeywords keywords={p.relatedKeywords} />
-
-  <div class="container">
-    <EditorialNote label={`${label} resume summary guide`} />
-  </div>
 
   <!-- 11. Email capture + CTA bridge -->
   <EmailCapture professionLabel={p.name.toLowerCase()} />

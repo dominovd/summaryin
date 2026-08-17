@@ -3,7 +3,7 @@
     "name": "CNA",
     "h1": "CNA Job Description for Resume",
     "metaDescription": "CNA job description for a resume: copy ready duty bullets covering ADLs, vital signs, transfers, and EHR charting, plus skills, verbs, and FAQs.",
-    "shortAnswer": "List the ADLs you handled, how many residents you covered per shift, and the EHR you charted in. Useful workload details include patient ratio, unit bed count, call light response time, and fall results on your assignment. Name the setting, long term care, hospital, or home health, because duties differ.",
+    "shortAnswer": "List the ADLs you handled, how many residents you covered per shift, and the EHR you charted in. The numbers hiring managers scan for are patient ratio, unit bed count, call light response time, and fall results on your assignment. Name the setting, long term care, hospital, or home health, because duties differ.",
     "titles": [
       "Certified Nursing Assistant (CNA)",
       "Nursing Assistant",
@@ -69,7 +69,7 @@
       },
       {
         "step": "Fill every bracket",
-        "text": "Replace each bracket with your real number, unit size, or EHR name such as PointClickCare or Epic. A patient ratio helps explain the size and pace of your assignment."
+        "text": "Replace each bracket with your real number, unit size, or EHR name such as PointClickCare or Epic. A bullet with a patient ratio in it outperforms the same bullet without one."
       },
       {
         "step": "Order by patient contact",
@@ -95,7 +95,7 @@
       },
       {
         "q": "Should a CNA resume mention patient ratios?",
-        "a": "Yes. Patient ratio is a clear way to show workload. Write the number of residents assigned to you per shift and the bed size of your unit. Covering a full hall on nights reads very differently from covering a small hospital assignment on days."
+        "a": "Yes. Patient ratio is the fastest way to show workload. Write the number of residents assigned to you per shift and the bed size of your unit. Covering a full hall on nights reads very differently from covering a small hospital assignment on days."
       }
     ],
     "related": [
@@ -185,7 +185,7 @@
       },
       {
         "step": "Prove cash accuracy",
-        "text": "Add one bullet on drawer balancing with your average shortage or the number of months you balanced clean. Cash accuracy is an important part of most cashier roles."
+        "text": "Add one bullet on drawer balancing with your average shortage or the number of months you balanced clean. Cash accuracy is the single trait every hiring manager screens cashiers for."
       },
       {
         "step": "Mix in the non register work",
@@ -211,7 +211,7 @@
       },
       {
         "q": "Should I mention drawer shortages on my resume?",
-        "a": "Mention them only when the number fairly represents your work. You can write that shortages stayed under a set dollar amount or that your drawer balanced for a number of consecutive months. Otherwise, describe your counting and verification process instead."
+        "a": "Mention them only as a strength. Write that shortages stayed under a set dollar amount, or that your drawer balanced for a number of consecutive months. Never list an error count. If your record was not clean, skip the metric and describe your counting and verification process instead."
       }
     ],
     "related": [
@@ -297,7 +297,7 @@
     "howToUse": [
       {
         "step": "Name your channels and volume",
-        "text": "Open with how many contacts you handled per day and on which channels. Phone, chat, and email queues require different routines, so name the mix that matches your experience."
+        "text": "Open with how many contacts you handled per day and on which channels. Phone only, chat heavy, and email queues are different jobs, and hiring managers screen for the match."
       },
       {
         "step": "Add two hard metrics",
@@ -315,7 +315,7 @@
       },
       {
         "q": "What metrics should I include on a customer service resume?",
-        "a": "Include tickets or calls per day, first contact resolution rate, CSAT or NPS, average handle time, and SLA compliance. If you do not have an exact figure, calculate a reasonable average from schedules or reports and use only a number you can explain in an interview."
+        "a": "Include tickets or calls per day, first contact resolution rate, CSAT or NPS, average handle time, and SLA compliance. If you do not have exact figures, use a defensible estimate based on your schedule, such as calls per hour multiplied by shift length. Never invent precise numbers."
       },
       {
         "q": "How do I describe call center experience on a resume?",
@@ -417,7 +417,7 @@
       },
       {
         "step": "Fill every bracket with your own number",
-        "text": "Replace each placeholder with rooms per shift, minutes per room, or your inspection score. If needed, calculate an average from a normal schedule and use a figure you can explain."
+        "text": "Replace each placeholder with rooms per shift, minutes per room, or your inspection score. If you never counted, estimate from a normal day and label it as an average."
       },
       {
         "step": "Mirror the words in the posting",
@@ -529,7 +529,7 @@
     "howToUse": [
       {
         "step": "Lead with selling, not standing",
-        "text": "Use one of your first two bullets for a truthful sales result: dollars per week, units per transaction, attach rate, or credit signups. A relevant number helps explain your contribution to the store."
+        "text": "Your first two bullets should show sales results: dollars per week, units per transaction, attach rate, or credit signups. Store managers hire on numbers, and most retail resumes never show one."
       },
       {
         "step": "Show the back of house too",
@@ -765,7 +765,7 @@
       },
       {
         "step": "Put a number in every bracket",
-        "text": "Tables per shift, average check, and nightly sales help explain the pace of the restaurant. Use reports or a typical shift to calculate a conservative average you can explain."
+        "text": "Tables per shift, average check, and nightly sales are the figures a manager compares. If you never counted, estimate from a normal Friday and stay conservative."
       },
       {
         "step": "Show the money, not the motion",
@@ -993,7 +993,7 @@
     "howToUse": [
       {
         "step": "Lead with quota and attainment",
-        "text": "Put your quota amount and percent to plan near the top of each sales job. Those figures quickly explain the size of the target and how consistently you met it."
+        "text": "Put your quota amount and percent to plan in the first bullet of each sales job. Hiring managers look for that number before they read anything else on the page."
       },
       {
         "step": "Fill brackets with your real metrics",
@@ -1461,7 +1461,7 @@
       },
       {
         "step": "Add your numbers",
-        "text": "Fill each bracket with drinks per hour, tickets per shift, drive thru seconds, or waste percentage. Use store reports or a typical shift to calculate a conservative average you can explain."
+        "text": "Fill each bracket with drinks per hour, tickets per shift, drive thru seconds, or waste percentage. If you never counted, estimate from a typical shift and stay conservative."
       },
       {
         "step": "Name your equipment",
@@ -1737,6 +1737,702 @@
       "high school teacher job description resume",
       "teacher responsibilities list for resume",
       "teacher resume skills and duties"
+    ]
+  },
+  "bartender": {
+    "name": "Bartender",
+    "h1": "Bartender Job Description for Resume",
+    "metaDescription": "Bartender job description for resume: copy ready duty bullets for core, entry level, and lead bar roles, plus skills, power verbs, and FAQs.",
+    "shortAnswer": "Lead with volume and money: drinks per shift, bar sales per night, and your check average. Hiring managers scan for POS experience such as Toast, Square, or Aloha, responsible service certification like TIPS or ServSafe, and whether you can run inventory and pour cost. Add one line on opening and closing the bar.",
+    "titles": [
+      "Bartender",
+      "Head Bartender",
+      "Cocktail Bartender",
+      "Bar Supervisor"
+    ],
+    "duties": {
+      "core": [
+        "Mixed [X] cocktails per shift during peak service while holding standard recipe specs and pour counts.",
+        "Rang up bar tabs averaging $[X] per shift on [POS system] with balanced closing drawer counts.",
+        "Checked identification at point of order and refused service under state alcohol and liquor board rules.",
+        "Changed kegs and cleaned draft lines every [X] weeks, cutting foam waste and off-flavor complaints.",
+        "Stocked wells, garnish trays, and back bar before service, prepping batched cocktails and fresh citrus juices.",
+        "Counted liquor, beer, and wine inventory weekly, holding pour cost near [X]% of bar sales.",
+        "Reconciled the bar drawer nightly against $[X] in sales with variances held under $[X].",
+        "Monitored guest intoxication levels and cut off [X] patrons per month, arranging rides when needed."
+      ],
+      "entry": [
+        "Rotated bottled beer and mixer stock, loading [X] cases into coolers before each shift.",
+        "Washed glassware, sanitized bar mats, and broke down stations following ServSafe sanitation steps at close.",
+        "Learned [X] house cocktail specs and the full draft list within the first [X] weeks.",
+        "Assisted bartenders during rushes by running drinks, cutting garnishes, and clearing empty glassware from the rail.",
+        "Entered drink and food orders into [POS system], splitting tabs for parties of up to [X] guests."
+      ],
+      "senior": [
+        "Trained [X] new bartenders and barbacks on specs, speed rail setup, and responsible service standards.",
+        "Built a seasonal cocktail menu of [X] drinks that lifted average bar check by [X]%.",
+        "Negotiated weekly orders with [X] liquor distributors, trimming beverage cost by [X]% year over year.",
+        "Scheduled bar staff across [X] shifts per week and covered call-outs to keep service levels steady.",
+        "Led incident response for over-service and altercation situations, documenting each case in the manager log."
+      ]
+    },
+    "powerVerbs": [
+      {
+        "word": "Poured",
+        "usage": "Poured [X] drinks per shift during peak Friday and Saturday service."
+      },
+      {
+        "word": "Batched",
+        "usage": "Batched [X] gallons of house cocktails weekly to cut ticket times."
+      },
+      {
+        "word": "Upsold",
+        "usage": "Upsold top-shelf and craft pours, raising average bar check by [X]%."
+      },
+      {
+        "word": "Carded",
+        "usage": "Carded every guest under [X] and logged each refusal in the bar book."
+      },
+      {
+        "word": "Tapped",
+        "usage": "Tapped and cleaned [X] draft lines weekly to keep beer quality consistent."
+      },
+      {
+        "word": "Closed",
+        "usage": "Closed the bar nightly with counts, deep cleaning, and a $[X] drawer report."
+      }
+    ],
+    "howToUse": [
+      {
+        "step": "Pick your volume lines first",
+        "text": "Choose the two or three bullets that show drinks per shift, nightly bar sales, or check average. Those are the lines a hiring manager reads before anything else."
+      },
+      {
+        "step": "Fill in the brackets",
+        "text": "Replace each placeholder with a real figure from your own shifts. If you never tracked totals, estimate from a typical Friday and keep the number defensible in an interview."
+      },
+      {
+        "step": "Match the posting",
+        "text": "Reread the job ad and move the duties it names to the top of your list. Cut anything the venue does not do, such as craft batching for a beer-only bar."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are the main duties of a bartender for a resume?",
+        "a": "Mixing drinks to spec, serving guests, checking IDs, taking payments, and keeping the bar stocked and clean. On a resume, show volume and money: drinks per shift, nightly bar sales, and pour cost percentage. Add closing duties such as drawer counts and inventory, since those signal that owners trusted you with cash."
+      },
+      {
+        "q": "How do I describe bartending on a resume with no experience?",
+        "a": "Lead with transferable service work: cash handling, POS use, high-volume guest contact, and any barback or busser shifts. List your TIPS or state alcohol server certification first, since many employers screen for it. Then add specific bar knowledge, such as house cocktail specs you learned or draft systems you helped clean."
+      },
+      {
+        "q": "Should I put drink and sales numbers on a bartender resume?",
+        "a": "Yes. Numbers separate you from every other applicant with the same job title. Use average drinks per shift, bar sales per night, check average, or pour cost percentage. If you never tracked the figure, estimate conservatively from the shifts you worked and be ready to explain the math."
+      },
+      {
+        "q": "What skills should a bartender list on a resume?",
+        "a": "Cocktail preparation and recipe specs, draft line maintenance, POS systems such as Toast, Square, or Aloha, inventory and ordering, cash reconciliation, and responsible alcohol service. Add certifications like TIPS, ServSafe, and your state alcohol permit. Keep soft skills to one short line rather than a list of adjectives."
+      },
+      {
+        "q": "How many bullet points should I write for a bartender job?",
+        "a": "Use four to six bullets for your most recent bar job and three or fewer for older ones. Put the highest-volume and highest-dollar bullets at the top. If you have held several bar roles, avoid repeating the same duty and vary the lines by venue type, volume, or added responsibility."
+      }
+    ],
+    "related": [
+      "waitress",
+      "server",
+      "barista",
+      "cashier"
+    ],
+    "relatedKeywords": [
+      "bartender job description for resume",
+      "bartender duties for resume",
+      "bartender resume examples",
+      "bartender responsibilities list",
+      "head bartender resume job description",
+      "bar duties and responsibilities resume",
+      "bartender skills for resume",
+      "craft cocktail bartender resume bullet points"
+    ]
+  },
+  "waitress": {
+    "name": "Waitress",
+    "h1": "Waitress Job Description for Resume",
+    "metaDescription": "Waitress job description for resume: copy ready duty bullets for core, entry level, and lead server roles, plus skills, numbers to quantify, and FAQs.",
+    "shortAnswer": "Put section size and covers first: tables per shift, guests served, and average check. Managers look for POS order entry, allergen knowledge, and clean cash handling, so quantify nightly sales and any upselling results. If you trained new servers or worked banquets, give that its own bullet near the top of the job.",
+    "titles": [
+      "Waitress",
+      "Server",
+      "Head Waitress",
+      "Banquet Server"
+    ],
+    "duties": {
+      "core": [
+        "Waited on a [X]-table section through lunch, dinner, and weekend rush without dropping ticket times.",
+        "Keyed orders into [POS system] with allergy and temperature modifiers, coursing tickets to match kitchen pacing.",
+        "Upsold appetizers, wine, and desserts to raise average check from $[X] to $[X] per guest.",
+        "Answered allergen and ingredient questions on a [X]-item menu, flagging gluten and shellfish tickets for the kitchen.",
+        "Handled cash, card, and mobile payments for $[X] in nightly sales with accurate tip-out reporting.",
+        "Ran food and drinks for [X] covers per shift, checking every plate against the ticket before delivery.",
+        "Maintained station cleanliness and sanitation per ServSafe standards, passing every scheduled health inspection.",
+        "Coordinated with bar and expo to keep tickets moving and table turn times on target during rushes."
+      ],
+      "entry": [
+        "Set dining room tables with polished glassware, rolled silverware, folded napkins, and clean linens before service.",
+        "Memorized a [X]-item menu including nightly specials, preparation methods, and common substitutions within [X] weeks.",
+        "Greeted and seated arriving guests, delivering water and bread within [X] minutes of every seating.",
+        "Bussed and sanitized tables between seatings, resetting [X] covers per hour during weekend brunch service.",
+        "Supported senior servers on large parties by running drinks, refilling beverages, and clearing finished courses."
+      ],
+      "senior": [
+        "Onboarded [X] new servers through menu tests, shadow shifts, and POS certification within [X] weeks.",
+        "Defused table complaints and re-fired [X] orders per week, keeping comps under $[X] per shift.",
+        "Managed banquet and private event service for parties up to [X] guests, assigning [X] server stations.",
+        "Opened and closed the dining room, counting the drawer and submitting nightly sales reports to management.",
+        "Ranked in the top [X]% of servers for check average and guest survey scores."
+      ]
+    },
+    "powerVerbs": [
+      {
+        "word": "Served",
+        "usage": "Served [X] tables per shift in a [X]-seat dining room."
+      },
+      {
+        "word": "Turned",
+        "usage": "Turned [X] covers on Friday and Saturday nights at [X]-minute table times."
+      },
+      {
+        "word": "Suggested",
+        "usage": "Suggested wine pairings that lifted beverage attachment by [X]%."
+      },
+      {
+        "word": "Expedited",
+        "usage": "Expedited [X] tickets per hour between the kitchen line and the floor."
+      },
+      {
+        "word": "Balanced",
+        "usage": "Balanced nightly tip-out and drawer counts on $[X] in sales."
+      },
+      {
+        "word": "Trained",
+        "usage": "Trained [X] new hires on menu knowledge, POS entry, and table maintenance."
+      }
+    ],
+    "howToUse": [
+      {
+        "step": "Start with section and sales",
+        "text": "Open the job with your section size, covers per shift, and nightly sales. Those three numbers tell a manager how much volume you can carry before they read anything else."
+      },
+      {
+        "step": "Swap in your POS and menu",
+        "text": "Replace the POS placeholder with Toast, Aloha, Micros, or whatever you actually used, and put your real menu size in. Named systems match the keywords in most restaurant postings."
+      },
+      {
+        "step": "Trim to five bullets",
+        "text": "Keep four to six lines for your current job and two or three for older ones. Delete duties every server does and keep the ones with numbers attached."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What does a waitress do for a resume job description?",
+        "a": "A waitress greets guests, takes and enters orders, delivers food and drinks, handles payments, and resets tables. On a resume, translate that into numbers: section size, covers per shift, check average, and nightly sales. Name the POS system and mention allergen handling, since both come up in restaurant interviews."
+      },
+      {
+        "q": "How do I make waitress experience sound professional on a resume?",
+        "a": "Keep the job title honest and let the bullets do the work. Start each line with a past-tense verb, add a number, and name the system or menu size. A line about keying orders into Toast with allergy modifiers for a 14-table section reads far stronger than responsible for customer service."
+      },
+      {
+        "q": "Should I say waitress or server on my resume?",
+        "a": "Use the title your employer actually used, then match the job posting when you can. Many restaurants title the role server, so writing Server (Waitress) keeps you searchable in applicant tracking systems without misstating anything. Keep the same title consistent across your resume, applications, and references."
+      },
+      {
+        "q": "What numbers should a waitress put on a resume?",
+        "a": "Tables per section, covers per shift, average check, nightly sales handled, and upsell or attachment rates. Add table turn times if you tracked them, plus the number of servers you trained. Two or three numbers per job is plenty; a wall of unverifiable figures reads as padding."
+      },
+      {
+        "q": "What skills belong on a waitress resume?",
+        "a": "POS order entry, menu and allergen knowledge, upselling, cash and card handling, table maintenance, and guest complaint recovery. Add ServSafe or a state food handler card if you hold one. If you speak a second language used by your guests or kitchen staff, list it near the top."
+      }
+    ],
+    "related": [
+      "server",
+      "bartender",
+      "cashier",
+      "customer-service"
+    ],
+    "relatedKeywords": [
+      "waitress job description for resume",
+      "waitress duties for resume",
+      "waitress resume examples",
+      "server job description resume",
+      "waitress responsibilities and duties",
+      "restaurant server resume bullet points",
+      "waitress skills for resume",
+      "fine dining waitress resume description"
+    ]
+  },
+  "security-guard": {
+    "name": "Security Guard",
+    "h1": "Security Guard Job Description for Resume",
+    "metaDescription": "Security guard job description for resume: copy ready duty bullets for patrol, CCTV, and access control, plus licenses to list and resume FAQs.",
+    "shortAnswer": "Start with the site and the scale: property type, size, patrol rounds per shift, and cameras monitored. Quantify incident reports written per month and typical alarm response time. List your state guard card, CPR certification, and any tour system you used, such as Detex or GuardTek, and describe observe-and-report work accurately.",
+    "titles": [
+      "Security Guard",
+      "Security Officer",
+      "Unarmed Security Officer",
+      "Loss Prevention Officer"
+    ],
+    "duties": {
+      "core": [
+        "Patrolled a [X] square foot [site type] property on foot and by vehicle across [X] rounds per shift.",
+        "Monitored [X] CCTV cameras from the control room and flagged suspicious activity to the shift supervisor.",
+        "Screened visitors and contractors at the main lobby, issuing roughly [X] temporary badges per day.",
+        "Logged tour checkpoints on [Detex] wands, completing [X] scans per round with no missed stations.",
+        "Wrote [X] incident reports per month covering theft, trespass, injuries, and property damage.",
+        "Responded to fire, intrusion, and panic alarms, clearing zones and notifying dispatch before standing down.",
+        "De-escalated [X] confrontations per month with calm verbal direction and no use of force.",
+        "Maintained daily activity logs and shift pass-down notes for a [X]-officer post covering [X] entrances."
+      ],
+      "entry": [
+        "Checked employee and vendor credentials at [X] access points and denied entry to unauthorized visitors.",
+        "Completed site orientation covering post orders, radio codes, emergency procedures, and building evacuation routes.",
+        "Escorted employees to the parking structure after late shifts and watched the lot until departure.",
+        "Operated two-way radios and [access control system] terminals to log entries and exits each shift.",
+        "Reported safety hazards including blocked fire exits, burned-out lighting, and broken locks to facilities management."
+      ],
+      "senior": [
+        "Supervised [X] officers across [X] posts, building schedules and auditing daily activity reports each week.",
+        "Coordinated emergency evacuation drills with building management, local fire officials, and assigned floor wardens.",
+        "Controlled key and badge inventory for [X] keys, running quarterly audits with zero unaccounted sets.",
+        "Instructed new officers on post orders, report writing, and [CCTV system] operation across [X] client sites.",
+        "Cut after-hours theft incidents [X]% after rerouting patrol timing and adding [X] camera positions."
+      ]
+    },
+    "powerVerbs": [
+      {
+        "word": "Secured",
+        "usage": "Secured [X] entrances and exits at open and close every shift."
+      },
+      {
+        "word": "Observed",
+        "usage": "Observed [X] CCTV feeds overnight on a [X]-monitor video wall."
+      },
+      {
+        "word": "Documented",
+        "usage": "Documented [X] incidents per month in written daily activity logs."
+      },
+      {
+        "word": "Deterred",
+        "usage": "Deterred theft and loitering through [X] visible patrol rounds per shift."
+      },
+      {
+        "word": "Enforced",
+        "usage": "Enforced site access policy for roughly [X] daily visitors and contractors."
+      },
+      {
+        "word": "Assisted",
+        "usage": "Assisted [X] employees and guests per shift with directions, lockouts, and escorts."
+      }
+    ],
+    "howToUse": [
+      {
+        "step": "Name the site first",
+        "text": "Say what you guarded: retail store, hospital, corporate lobby, construction site, or event venue. Post duties vary widely by site type, and employers hire for the one that matches theirs."
+      },
+      {
+        "step": "Add your numbers",
+        "text": "Fill the brackets with cameras monitored, rounds per shift, badges issued, and reports written per month. Pull them from your post orders or daily activity logs if you still have access."
+      },
+      {
+        "step": "Put licenses on top",
+        "text": "List your state guard card, CPR, and first aid above the duty bullets. Many employers filter for the license before they read a single line of experience."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are the duties of a security guard for a resume?",
+        "a": "Patrolling the property, monitoring CCTV, screening visitors, controlling access, responding to alarms, and writing incident and daily activity reports. On a resume, name the site type and the scale: cameras monitored, rounds per shift, and reports filed per month. Describe the role as observe and report rather than claiming law enforcement authority."
+      },
+      {
+        "q": "How do I write a security officer resume with no experience?",
+        "a": "Lead with your state guard card, CPR and first aid certification, and any military or loss prevention background. Then show reliability: attendance record, overnight availability, and a clean driving record for vehicle posts. Add customer-facing experience, since lobby and retail posts spend most of the shift helping people."
+      },
+      {
+        "q": "What should a security guard put in the skills section?",
+        "a": "CCTV and access control systems, tour systems such as Detex or GuardTek, report writing, radio communication, de-escalation, emergency evacuation procedures, and key control. Name the specific software and hardware you used. Keep certifications in their own section: state guard card, CPR, AED, first aid, and fire safety credentials."
+      },
+      {
+        "q": "How do I quantify security guard work on a resume?",
+        "a": "Count what your post already tracks. Patrol rounds per shift, cameras monitored, badges issued, incident reports filed per month, alarm response time, and the size of the site all work. Percentage improvements, such as fewer theft incidents after a patrol change, are the strongest lines you can write."
+      },
+      {
+        "q": "Do security guards need a license to list on a resume?",
+        "a": "Most states require a guard card or registration, and many employers screen for it before reading anything else. Put the license type, issuing state, and expiration date in a certifications section near the top. Armed posts require a separate firearms permit, so list that only if you actually hold it."
+      }
+    ],
+    "related": [
+      "correctional-officer",
+      "driver",
+      "receptionist",
+      "retail"
+    ],
+    "relatedKeywords": [
+      "security guard job description for resume",
+      "security officer duties for resume",
+      "security guard resume examples",
+      "unarmed security guard job description",
+      "security guard responsibilities list",
+      "loss prevention officer resume duties",
+      "security guard skills for resume",
+      "corporate lobby security officer resume"
+    ]
+  },
+  "correctional-officer": {
+    "name": "Correctional Officer",
+    "h1": "Correctional Officer Job Description for Resume",
+    "metaDescription": "Correctional officer job description for resume: ready to paste duty bullets for housing unit supervision, counts, searches, escorts, and reports.",
+    "shortAnswer": "Lead with facility type, security level, and the size of the population you supervised. Hiring managers scan for counts, searches, contraband recovery, escorts, and report writing, so quantify inmates per housing unit, movements per week, and reports filed per month. Add academy hours and current certifications near the bottom.",
+    "titles": [
+      "Correctional Officer",
+      "Detention Officer",
+      "Corrections Deputy",
+      "Jail Officer"
+    ],
+    "duties": {
+      "core": [
+        "Supervised housing units of up to [X] inmates at a [security level] facility across rotating shifts.",
+        "Conducted formal counts [X] times per shift and reconciled discrepancies with the control room before clearing.",
+        "Performed cell, common area, and pat searches, recovering contraband including weapons and unauthorized electronics.",
+        "Escorted inmates to medical, court, and visitation appointments, completing roughly [X] secure movements each week.",
+        "Documented incidents, use of force, and rule violations in [incident reporting system] within required reporting deadlines.",
+        "Operated radio communications and control room panels, managing door movements and emergency alerts for [X] housing units.",
+        "Applied PREA standards and facility policy during searches, supervision, and interviews with no substantiated complaints filed.",
+        "Screened visitors, staff, and deliveries through metal detection and property checks, processing [X] visitors per visitation day."
+      ],
+      "entry": [
+        "Completed [X] hours of state corrections academy training covering defensive tactics, firearms, CPR, and emergency response.",
+        "Distributed meals, linens, and commissary orders across the housing unit while following secure movement procedures.",
+        "Logged inmate movement, shift activity, and unit observations in daily logbooks and [electronic records system] entries.",
+        "Assisted senior officers during intake processing, including property inventory, classification paperwork, and orientation for new arrivals.",
+        "Maintained CPR, first aid, and OC spray certifications, passing annual qualification and [X] hours of in-service training."
+      ],
+      "senior": [
+        "Trained [X] new officers through field training, covering post orders, count procedures, and report writing standards.",
+        "Led shift briefings for [X] officers, assigning posts and communicating security alerts and housing unit concerns.",
+        "De-escalated inmate disputes and crisis situations, resolving [X]% without physical intervention or emergency team activation.",
+        "Reviewed disciplinary reports and use of force packets for accuracy before submission to the shift commander.",
+        "Coordinated emergency drills, lockdowns, and facility-wide searches with [X] staff across [X] housing units."
+      ]
+    },
+    "powerVerbs": [
+      {
+        "word": "Monitored",
+        "usage": "Monitored [X] inmates in a [security level] housing unit across 12-hour shifts."
+      },
+      {
+        "word": "Searched",
+        "usage": "Searched cells and common areas daily, recovering [X] contraband items over [X] months."
+      },
+      {
+        "word": "Enforced",
+        "usage": "Enforced facility rules and post orders for a population of [X] inmates."
+      },
+      {
+        "word": "Responded",
+        "usage": "Responded to [X] emergency codes per month including medical calls and altercations."
+      },
+      {
+        "word": "Transported",
+        "usage": "Transported inmates to county court and offsite medical appointments using approved restraints."
+      },
+      {
+        "word": "Processed",
+        "usage": "Processed [X] intakes per shift including property inventory, screening, and classification paperwork."
+      }
+    ],
+    "howToUse": [
+      {
+        "step": "Set the scene first",
+        "text": "Open your experience section with facility type, security level, and average population. Naming a medium-security county jail with a specific inmate count gives every bullet that follows immediate context."
+      },
+      {
+        "step": "Pick six to eight duty lines",
+        "text": "Choose core duties that match the posting, then add one or two senior lines if you trained officers or led a shift. Drop bullets the job description never mentions."
+      },
+      {
+        "step": "Fill every bracket",
+        "text": "Replace each placeholder with your real counts before you submit. Estimates are fine if they are honest and you can defend them in the interview."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What does a correctional officer do for a resume job description?",
+        "a": "List the security duties you performed daily: supervising a housing unit, conducting formal counts, searching cells and common areas, escorting inmates to court and medical, and writing incident reports. Add the facility type and inmate population so the reader can size the job immediately."
+      },
+      {
+        "q": "What skills should a correctional officer put on a resume?",
+        "a": "Put verifiable skills first: defensive tactics, CPR and first aid, report writing, radio and control room operation, PREA compliance, and crisis de-escalation. Add any certifications with dates, such as academy graduation, firearms qualification, and OC spray. Soft skills belong inside duty bullets, not in a standalone list."
+      },
+      {
+        "q": "How do I put correctional officer experience on a resume for a security guard job?",
+        "a": "Translate the duties into terms the new employer uses. Housing unit supervision becomes post coverage, formal counts become access control and headcount accuracy, and incident reports become written documentation. Keep the escort, search, and radio communication bullets, since those transfer directly to security roles."
+      },
+      {
+        "q": "Should I include use of force or incident reports on my resume?",
+        "a": "Yes, but keep it factual and administrative. Write that you documented use of force and disciplinary incidents according to policy and deadlines rather than describing specific events. Employers care that your reports were accurate, timely, and survived supervisor review, not that you were involved in confrontations."
+      },
+      {
+        "q": "How many bullet points should a correctional officer resume have per job?",
+        "a": "Use six to eight bullets for your most recent post and three to four for older ones. Lead with supervision volume, counts, and searches, then close with report writing and training. Anything past eight lines gets skimmed, so cut duties the posting does not ask for."
+      }
+    ],
+    "related": [
+      "security-guard",
+      "driver",
+      "cna",
+      "customer-service"
+    ],
+    "relatedKeywords": [
+      "correctional officer duties for resume",
+      "detention officer job description resume",
+      "correctional officer resume bullet points",
+      "jail officer resume examples",
+      "corrections officer skills for resume",
+      "correctional officer resume summary",
+      "what to put on a correctional officer resume",
+      "correctional officer job duties list"
+    ]
+  },
+  "driver": {
+    "name": "Driver",
+    "h1": "Driver Job Description for Resume",
+    "metaDescription": "Driver job description for resume: copy ready bullet points for delivery stops, CDL routes, DOT inspections, hours of service logs, and safety.",
+    "shortAnswer": "Put your CDL class, endorsements, and vehicle type in the first line, then quantify miles per week, stops per day, and years of accident-free driving. Employers screen for DOT compliance, so name your ELD, pre-trip inspection routine, and load securement work. Close with proof of delivery accuracy at the dock.",
+    "titles": [
+      "Delivery Driver",
+      "CDL Truck Driver",
+      "Route Driver",
+      "Shuttle Driver"
+    ],
+    "duties": {
+      "core": [
+        "Drove [X] miles per week on regional routes, delivering [X] stops per day on schedule.",
+        "Completed DOT pre-trip and post-trip inspections daily, logging defects in [inspection app] before dispatch release.",
+        "Maintained hours of service compliance in [ELD system] with no logbook violations over [X] months.",
+        "Secured loads with straps, chains, and load bars, verifying weight distribution met federal axle limits.",
+        "Planned daily routes using [routing app] and rerouted around traffic and closures to protect delivery windows.",
+        "Scanned proof of delivery and collected customer signatures on [handheld scanner] for [X] packages daily.",
+        "Operated a [vehicle class] vehicle with [endorsement] endorsements across [X] states without a preventable accident.",
+        "Loaded and unloaded freight using pallet jacks, liftgates, and hand trucks at customer docks daily."
+      ],
+      "entry": [
+        "Delivered [X] residential and commercial stops per day in a [vehicle type] on assigned routes.",
+        "Recorded fuel purchases, mileage, and maintenance requests in daily vehicle logs submitted to the fleet supervisor.",
+        "Handled customer unloading, placement, and return pickups while confirming order accuracy against the manifest.",
+        "Passed CDL [vehicle class] road testing and [X] hours of entry-level driver training.",
+        "Cleaned and inspected cargo areas, refrigeration units, and safety equipment before each shift departure."
+      ],
+      "senior": [
+        "Mentored [X] new drivers on route procedures, load securement, and DOT inspection standards during ride-alongs.",
+        "Achieved [X] consecutive accident-free miles and maintained a clean driving record with zero moving violations.",
+        "Optimized route sequencing for [X] drivers, cutting average fuel cost per stop by [X]%.",
+        "Resolved delivery exceptions, damage claims, and customer escalations, closing [X]% same day without dispatch involvement.",
+        "Covered [X] open routes during peak season and driver absences, coordinating directly with dispatch and warehouse staff."
+      ]
+    },
+    "powerVerbs": [
+      {
+        "word": "Transported",
+        "usage": "Transported [X] tons of freight weekly across [X] states on regional routes."
+      },
+      {
+        "word": "Inspected",
+        "usage": "Inspected brakes, tires, lights, and fluid levels before every [X]-mile run."
+      },
+      {
+        "word": "Navigated",
+        "usage": "Navigated [X] stops per day using [routing app] and live dispatch updates."
+      },
+      {
+        "word": "Logged",
+        "usage": "Logged hours of service in [ELD system] with zero violations across [X] months."
+      },
+      {
+        "word": "Averaged",
+        "usage": "Averaged [X] deliveries per day at a [X]% on-time completion rate."
+      },
+      {
+        "word": "Verified",
+        "usage": "Verified load weight, seals, and paperwork against the bill of lading at every pickup."
+      }
+    ],
+    "howToUse": [
+      {
+        "step": "Lead with the equipment",
+        "text": "Name the vehicle class and endorsements in your first bullet so applicant tracking systems match you to CDL keywords. Follow it with weekly mileage and stops per day."
+      },
+      {
+        "step": "Show DOT compliance",
+        "text": "Pick at least two lines covering hours of service logs, pre-trip inspections, or load securement. Safety and compliance language is what fleet managers scan for first."
+      },
+      {
+        "step": "Swap placeholders for route data",
+        "text": "Use real dispatch numbers from your last route sheet. Miles per week, stops per day, and accident-free miles carry more weight than any adjective."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What should a driver put on a resume job description?",
+        "a": "Cover the route, the vehicle, and the compliance work. Include stops or deliveries per day, weekly mileage, vehicle class, pre-trip and post-trip inspections, hours of service logging, load securement, and proof of delivery scanning. Finish with your safety record, since that is the first thing a fleet manager checks."
+      },
+      {
+        "q": "How do I list CDL class and endorsements on a resume?",
+        "a": "Put them in a certifications line near the top and repeat them inside one duty bullet. Write the class, endorsements, state of issue, and expiration date, for example CDL Class A with hazmat and tanker endorsements. Recruiters filter resumes on those exact terms."
+      },
+      {
+        "q": "What numbers should a delivery driver quantify on a resume?",
+        "a": "Quantify stops or deliveries per day, packages handled per shift, miles driven per week, on-time delivery rate, and total accident-free miles. If you handled cash or COD payments, add the daily dollar amount. Four solid numbers beat a page of untracked duties."
+      },
+      {
+        "q": "Do I need to list my driving record on a resume?",
+        "a": "You do not have to attach a motor vehicle record, but stating a clean record helps. A line noting years accident-free with no moving violations answers the question every hiring manager has. Be accurate, because employers pull your record before hiring."
+      },
+      {
+        "q": "How do I write a driver resume with no professional driving experience?",
+        "a": "Use the entry level bullets and lean on training and reliability. List your CDL school hours, road test, clean personal record, and any work that involved routes, loading, or customer delivery. Warehouse, courier, and rideshare experience all count toward stops, scanning, and time management."
+      }
+    ],
+    "related": [
+      "warehouse",
+      "security-guard",
+      "correctional-officer",
+      "customer-service"
+    ],
+    "relatedKeywords": [
+      "delivery driver duties for resume",
+      "truck driver job description resume",
+      "cdl driver resume bullet points",
+      "driver resume skills list",
+      "delivery driver resume examples",
+      "route driver job duties for resume",
+      "what to put on a driver resume",
+      "box truck driver resume description"
+    ]
+  },
+  "receptionist": {
+    "name": "Receptionist",
+    "h1": "Receptionist Job Description for Resume",
+    "metaDescription": "Receptionist job description for resume: ready to use duty bullets for call volume, visitor check-in, scheduling, and front desk admin work.",
+    "shortAnswer": "Quantify the front desk: calls handled per day, visitors checked in, and appointments scheduled per week. Name the phone system, calendar or booking software, and CRM you used, since recruiters search those terms. If the office is medical, state HIPAA compliance, insurance verification, and copay collection instead of generic administrative support.",
+    "titles": [
+      "Receptionist",
+      "Front Desk Receptionist",
+      "Medical Receptionist",
+      "Administrative Receptionist"
+    ],
+    "duties": {
+      "core": [
+        "Answered [X] inbound calls per day on a [multi-line phone system], routing each to the correct department.",
+        "Greeted and checked in [X] visitors daily, issuing badges and notifying host staff within minutes.",
+        "Scheduled and confirmed appointments in [calendar system], reducing no-shows through reminder calls and text confirmations.",
+        "Managed incoming mail, courier packages, and outgoing shipments through [carrier] accounts for the entire office.",
+        "Booked conference rooms and coordinated setup for [X] meetings per week using [room booking system].",
+        "Entered client and patient information into [CRM system], keeping contact and insurance details current.",
+        "Ordered office and breakroom supplies, tracked vendor invoices, and kept the copy room stocked weekly.",
+        "Maintained the front desk and lobby as the first point of contact for clients, vendors, and drivers."
+      ],
+      "entry": [
+        "Filed, scanned, and organized patient and client documents into digital and physical record systems weekly.",
+        "Prepared meeting rooms, refreshments, and sign-in sheets before daily client visits and interview appointments.",
+        "Transferred calls and took detailed messages for [X] staff members, following up on urgent requests same day.",
+        "Updated visitor logs, phone lists, and staff directories weekly in [shared drive] for accuracy.",
+        "Learned [phone system] and front desk procedures within [X] weeks and covered breaks for other reception staff."
+      ],
+      "senior": [
+        "Onboarded [X] new front desk staff on phone etiquette, check-in workflow, and [scheduling software].",
+        "Verified insurance eligibility and collected copays averaging $[X] daily while following HIPAA privacy requirements.",
+        "Redesigned the check-in workflow, cutting average visitor wait time from [X] to [X] minutes.",
+        "Supported [X] executives with travel booking, expense reports, and calendar management alongside front desk coverage.",
+        "Handled escalated complaints and double-booked appointments at the desk, correcting conflicts before the visitor left."
+      ]
+    },
+    "powerVerbs": [
+      {
+        "word": "Fielded",
+        "usage": "Fielded [X] calls and [X] walk-in visitors per day at a single front desk."
+      },
+      {
+        "word": "Coordinated",
+        "usage": "Coordinated [X] appointments per week across [X] providers in [scheduling software]."
+      },
+      {
+        "word": "Processed",
+        "usage": "Processed [X] patient check-ins per day including forms, ID scans, and copay collection."
+      },
+      {
+        "word": "Screened",
+        "usage": "Screened and routed calls for [X] departments using a [multi-line phone system]."
+      },
+      {
+        "word": "Tracked",
+        "usage": "Tracked office supply spending against a $[X] monthly budget across [X] vendors."
+      },
+      {
+        "word": "Collected",
+        "usage": "Collected $[X] in copays and front desk payments daily with balanced end-of-day totals."
+      }
+    ],
+    "howToUse": [
+      {
+        "step": "Start with call and visitor volume",
+        "text": "Your first bullet should carry a number. Calls per day and visitors checked in tell a hiring manager how busy your front desk actually was."
+      },
+      {
+        "step": "Name your systems",
+        "text": "Replace software placeholders with the exact products you used, such as Cisco, RingCentral, Outlook, Epic, or Salesforce. Recruiters and applicant tracking systems search for those product names."
+      },
+      {
+        "step": "Match the office type",
+        "text": "Use the medical lines only if you worked in a clinic or hospital. For corporate front desks, keep visitor badging, meeting rooms, and executive support instead."
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are the main duties of a receptionist for a resume?",
+        "a": "Answering and routing calls, greeting and checking in visitors, scheduling appointments, handling mail and deliveries, booking meeting rooms, entering data, and ordering supplies. Write each one with a number or a system name attached. A bullet that says answered phones tells a hiring manager nothing about your volume."
+      },
+      {
+        "q": "How many calls per day should I list as a receptionist?",
+        "a": "List the real figure, not a round guess. Small offices often run 30 to 60 calls a day, while busy clinics and corporate desks can exceed 150. Count an average day from memory or your phone report, then state it plainly and be ready to explain it."
+      },
+      {
+        "q": "What is the difference between a medical receptionist and a front desk receptionist resume?",
+        "a": "A medical receptionist resume adds patient check-in, insurance verification, copay collection, HIPAA compliance, and scheduling in software such as Epic or eClinicalWorks. A corporate front desk resume emphasizes visitor badging, conference room booking, executive calendars, and vendor coordination. The call handling and greeting bullets stay the same."
+      },
+      {
+        "q": "What software should a receptionist list on a resume?",
+        "a": "Name the phone system, the calendar or booking platform, and any records database. Common entries include Cisco or RingCentral phones, Outlook and Google Calendar, Epic or Athenahealth for clinics, Salesforce or HubSpot for offices, and Envoy for visitor management. Exact product names get matched by applicant tracking systems."
+      },
+      {
+        "q": "How do I write receptionist duties if I also did admin work?",
+        "a": "Split the bullets. Keep three or four front desk lines covering calls, visitors, and scheduling, then add two administrative lines for expense reports, travel booking, invoices, or supply budgets. That mix positions you for administrative assistant and office coordinator roles as well as reception."
+      }
+    ],
+    "related": [
+      "customer-service",
+      "cashier",
+      "retail",
+      "sales"
+    ],
+    "relatedKeywords": [
+      "receptionist duties for resume",
+      "front desk receptionist job description resume",
+      "medical receptionist resume bullet points",
+      "receptionist skills for resume",
+      "receptionist resume examples",
+      "front desk job duties for resume",
+      "what to put on a receptionist resume",
+      "office receptionist responsibilities list"
     ]
   }
 }

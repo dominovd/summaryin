@@ -13,19 +13,17 @@ import EmailCapture from '../../components/EmailCapture.astro';
 import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
-import EditorialNote from '../../components/EditorialNote.astro';
-import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
 import jobs from '../../data/jobDescriptions.json';
 
 const formatRules = [
-  { rule: 'How many per job', answer: 'Four to six on your current role and three to four on older ones is a useful starting point. Keep only the lines that help explain your fit for the next job.' },
+  { rule: 'How many per job', answer: 'Four to six on your current role, three to four on older ones. Ten is a wall of text nobody reads.' },
   { rule: 'Length', answer: 'One to two lines. If a bullet wraps to a third line, it holds two ideas and should be split.' },
   { rule: 'Tense', answer: 'Past tense for old jobs, present tense for the one you hold now. Stay consistent inside each role.' },
-  { rule: 'First word', answer: 'An action verb usually makes the line easier to scan. Openers such as "Responsible for" and "Duties included" add little detail.' },
+  { rule: 'First word', answer: 'An action verb. Never start with "Responsible for" or "Duties included" — they waste the scanned position.' },
   { rule: 'Punctuation', answer: 'Periods or no periods, but pick one and use it on every bullet in the document.' },
   { rule: 'Pronouns', answer: 'No I, me, or my. The resume is understood to be about you.' },
-  { rule: 'Marker', answer: 'Use a round bullet or a simple dash. Plain markers are easier to keep consistent across resume formats.' },
-  { rule: 'Numbers', answer: 'Add a count, percent, dollar figure, or time saved when it is true and helps explain the scale of your work.' },
+  { rule: 'Marker', answer: 'A round bullet or a simple dash. Skip arrows, checkmarks, and emoji, which some ATS parsers drop.' },
+  { rule: 'Numbers', answer: 'At least half your bullets should carry one: a count, a percent, a dollar figure, or a time saved.' },
 ];
 
 const beforeAfter = [
@@ -49,7 +47,7 @@ const beforeAfter = [
 const faq = [
   {
     q: 'How many bullet points should I have per job on a resume?',
-    a: 'Four to six bullets for your current or most recent job and three to four for older ones is a practical starting point. Keep the details most relevant to the role you want. If an entry needs eight or more lines, check whether it combines two positions or repeats similar work.',
+    a: 'Use four to six bullets for your current or most recent job and three to four for older ones. Recruiters skim the top of each entry, so anything past the sixth line is rarely read. If a role deserves more, it usually means two roles were merged into one entry.',
   },
   {
     q: 'Do you put periods after bullet points on a resume?',
@@ -93,18 +91,13 @@ const jobList = Object.entries(jobs)
   title="Resume Bullet Point Generator"
   description="Free resume bullet point generator: turn what you did into a formatted bullet with an action verb and a result, plus format rules and examples. No sign-up."
 >
-  <ArticleJsonLd
-    headline="Resume Bullet Point Generator"
-    description="Free resume bullet point generator with editable formats, examples, and practical writing rules."
-    path="/resume-bullet-points/"
-  />
   <section class="hero">
     <div class="container">
       <p class="hero-kicker">Free · No sign-up</p>
       <h1>Resume Bullet Point Generator</h1>
       <p class="lead">
         Turn a plain description of what you did into a formatted resume bullet, using the
-        simple structure: action verb, task, method, result.
+        formula recruiters actually respond to: action verb, task, method, result.
       </p>
       <div class="badges hero-badges">
         <span class="badge">
@@ -135,10 +128,11 @@ const jobList = Object.entries(jobs)
       <div class="answer-card card">
         <h2 id="how-many-heading">How many bullet points per job?</h2>
         <p>
-          Start with four to six for your current or most recent role and three to four for older
-          positions. Keep the lines that show relevant skills, workload, and results. If you cannot
-          cut below eight, check whether the entry repeats similar duties or combines two different
-          positions that would be clearer as separate entries.
+          Four to six for your current or most recent role, three to four for anything older
+          than about five years. That range covers almost every resume: it gives a recruiter
+          enough to judge scope without pushing the page past the point where they stop reading.
+          If you cannot cut below eight, the entry is usually covering two different jobs and
+          should be split into two.
         </p>
       </div>
     </div>
@@ -164,7 +158,7 @@ const jobList = Object.entries(jobs)
     <div class="container">
       <div class="section-head">
         <h2 id="format-heading">Resume bullet point format rules</h2>
-        <p class="muted">A practical set of conventions for keeping the section clear and consistent.</p>
+        <p class="muted">The conventions hiring managers and ATS parsers both expect.</p>
       </div>
       <div class="card">
         <div class="table-wrap">
@@ -206,9 +200,6 @@ const jobList = Object.entries(jobs)
 
   <Faq items={faq} heading="Resume bullet point FAQ" />
   <RelatedKeywords keywords={relatedKeywords} />
-  <div class="container">
-    <EditorialNote label="resume bullet point guide" />
-  </div>
   <EmailCapture />
   <CtaBanner />
 
