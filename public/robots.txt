@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Vercel analytics and internal endpoints: no content to index, and every
+# crawl of them wastes budget that belongs on profession pages.
+Disallow: /_vercel/
+
 Sitemap: https://summaryin.com/sitemap-index.xml
