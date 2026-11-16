@@ -40,3 +40,31 @@ export const NAV = [
   { label: 'LinkedIn', href: '/linkedin/', live: false },
   { label: 'Executive Summary', href: '/executive/', live: false },
 ];
+
+/** Header menu. Each group opens as a dropdown on desktop and a section in the mobile menu. */
+export const NAV_GROUPS: { label: string; items: { label: string; href: string; note: string }[] }[] = [
+  {
+    label: 'Examples',
+    items: [
+      { label: 'Resume summaries', href: '/resume-summary/', note: 'Entry, mid, and senior examples by profession' },
+      { label: 'Job descriptions', href: '/job-description/', note: 'Duty bullets for the experience section' },
+      { label: 'No experience', href: '/no-experience/', note: 'First-job summaries from school or side work' },
+    ],
+  },
+  {
+    label: 'Tools',
+    items: [
+      { label: 'Summary generator', href: '/#generator', note: 'Summary, objective, or LinkedIn headline' },
+      { label: 'Tailor to a job', href: '/tailor-resume-summary/', note: 'Match your summary to a job posting' },
+      { label: 'Bullet point builder', href: '/resume-bullet-points/', note: 'Write and format experience bullets' },
+    ],
+  },
+  {
+    label: 'About',
+    items: [
+      { label: 'About us', href: '/about/', note: 'Who writes and reviews the examples' },
+      { label: 'Editorial policy', href: '/editorial-policy/', note: 'How content is checked and updated' },
+      { label: 'Contact', href: '/contact/', note: 'Questions, corrections, and feedback' },
+    ],
+  },
+];
