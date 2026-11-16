@@ -62,5 +62,389 @@
       "label": "Student with a campus bookstore job",
       "text": "Student working [X] hours a week at the campus bookstore, helping customers find course materials, processing returns, and answering phone questions. Looking for a part-time customer service position."
     }
+  ],
+  "administrative-assistant": [
+    {
+      "path": "school",
+      "label": "Business administration graduate",
+      "text": "Business administration graduate seeking an entry-level administrative assistant role. Built schedules, meeting notes, and budget sheets for [X] group projects in Excel and Google Workspace, and typed at [X] words per minute on a timed test."
+    },
+    {
+      "path": "school",
+      "label": "Student worker in a department office",
+      "text": "College student worker in the [department] office applying for a full-time administrative assistant position. Answered phones, sorted mail, and kept [X] student files current in a shared drive while working [X] hours a week around classes."
+    },
+    {
+      "path": "job",
+      "label": "Retail cashier moving into office work",
+      "text": "Retail cashier with [X] months of front counter experience, moving into office administration. Counted and reconciled a cash drawer every shift, handled [X]+ customer questions a day, and trained new hires on the register."
+    },
+    {
+      "path": "job",
+      "label": "Warehouse associate moving to the front office",
+      "text": "Warehouse associate applying for an administrative assistant role after helping the shift lead with paperwork. Entered [X] receiving records a day into [inventory system], filed delivery slips, and caught count mismatches before month-end."
+    },
+    {
+      "path": "side",
+      "label": "Church office volunteer",
+      "text": "Volunteer in a church office applying for a first paid administrative role. Updated the member contact list of [X] families, prepared the weekly bulletin in Word, and booked rooms for [X] groups using a shared calendar."
+    },
+    {
+      "path": "side",
+      "label": "Freelance virtual assistant for a small business",
+      "text": "Part-time virtual assistant for [X] small business clients, seeking an in-office administrative assistant role. Managed inboxes and calendars, sent invoices in [accounting tool], and turned voice notes into clean meeting summaries."
+    }
+  ],
+  "bartender": [
+    {
+      "path": "school",
+      "label": "Hospitality student with a mixology course",
+      "text": "Hospitality management student who completed a [X]-hour mixology course, seeking a first bartending shift. Practiced classic cocktails, pour counts, and responsible service, and holds a current [alcohol server certification]."
+    },
+    {
+      "path": "school",
+      "label": "Bartending certificate graduate",
+      "text": "Bartending school graduate looking for an entry-level bartender or barback role. Trained on [X] classic recipes, speed pouring, and cash and card closeouts, and is comfortable checking IDs under [state] law."
+    },
+    {
+      "path": "job",
+      "label": "Barista moving behind the bar",
+      "text": "Barista with [X] months of high-volume counter work moving behind the bar. Used to building [X]+ drinks an hour from memory, keeping a station clean during a rush, and chatting with regulars while working fast."
+    },
+    {
+      "path": "job",
+      "label": "Line cook moving to the bar",
+      "text": "Line cook applying for a barback or bartender role in the same kind of busy kitchen setting. Prepped garnishes and sauces to spec, followed tickets under pressure, and kept the station stocked for [X]-cover nights."
+    },
+    {
+      "path": "side",
+      "label": "Event volunteer pouring at festivals",
+      "text": "Volunteer pourer at [X] local festivals and charity events, checking IDs, serving beer and wine to long lines, and tracking tokens with the event lead at close. Ready for a first paid bartending job."
+    },
+    {
+      "path": "side",
+      "label": "Catering helper at private parties",
+      "text": "Part-time catering helper for private parties, setting up portable bars, cutting garnishes, and serving drinks to [X]+ guests per event. Comfortable taking direction from the lead bartender and breaking down the bar after service."
+    }
+  ],
+  "correctional-officer": [
+    {
+      "path": "school",
+      "label": "Criminal justice graduate",
+      "text": "Criminal justice graduate applying for an entry-level correctional officer position. Completed coursework in corrections, report writing, and constitutional law, and is physically prepared for the [state] academy fitness test."
+    },
+    {
+      "path": "school",
+      "label": "Correctional academy cadet",
+      "text": "Correctional officer candidate who completed [X] weeks at the [state] corrections academy, including defensive tactics, CPR and first aid, count procedures, and incident report writing. Ready to start on any shift."
+    },
+    {
+      "path": "job",
+      "label": "Security officer moving into corrections",
+      "text": "Licensed security officer with [X] months of patrol and access control experience, moving into corrections. Wrote daily activity reports, kept calm during disputes, and followed post orders at a site with [X]+ visitors a day."
+    },
+    {
+      "path": "job",
+      "label": "Youth program aide moving into corrections",
+      "text": "Youth program aide applying for a juvenile correctional officer role. Supervised groups of [X] teens during structured activities, enforced program rules consistently, and documented behavior incidents for case managers."
+    },
+    {
+      "path": "side",
+      "label": "Volunteer firefighter",
+      "text": "Volunteer firefighter seeking a correctional officer position. Trained in emergency response, CPR, and radio communication, and works rotating shifts with a crew that depends on clear orders and accurate logs."
+    },
+    {
+      "path": "side",
+      "label": "Community center volunteer with teens",
+      "text": "Community center volunteer who mentored at-risk teens for [X] months, now applying for a correctional officer role. Set clear expectations, stepped in early when arguments started, and kept written notes for program staff."
+    }
+  ],
+  "driver": [
+    {
+      "path": "school",
+      "label": "New CDL graduate",
+      "text": "Recently licensed CDL Class A driver who completed [X] hours of behind-the-wheel training at [school]. Practiced pre-trip inspections, backing, and logbook entries with ELD, with a clean driving record and a current DOT medical card."
+    },
+    {
+      "path": "school",
+      "label": "Student with a clean license seeking delivery work",
+      "text": "College student with a clean driving record seeking a part-time delivery driver role. Comfortable with GPS routing apps, available on evenings and weekends, and able to lift up to [X] pounds."
+    },
+    {
+      "path": "job",
+      "label": "Warehouse loader moving into driving",
+      "text": "Warehouse loader moving into a local delivery driver role. Loaded [X]+ trucks a shift in stop order, checked paperwork against manifests, and learned the regular routes by riding along with drivers."
+    },
+    {
+      "path": "job",
+      "label": "Food delivery app courier",
+      "text": "App-based delivery courier with [X] months and [X]+ completed deliveries, applying for a company delivery driver role. Keeps a [X]-star customer rating, plans efficient routes, and handles address problems by calling customers directly."
+    },
+    {
+      "path": "side",
+      "label": "Volunteer driver for seniors",
+      "text": "Volunteer driver for a senior meal program, delivering [X] meals per route each week and checking in with homebound clients. Seeking a paid driving role with the same punctual, careful habits."
+    },
+    {
+      "path": "side",
+      "label": "Family business delivery helper",
+      "text": "First-time job seeker who drove the van for a family [business type] on weekends, making [X] local drop-offs a day, collecting signatures, and keeping the vehicle clean and fueled. Clean driving record."
+    }
+  ],
+  "hr-assistant": [
+    {
+      "path": "school",
+      "label": "Human resources graduate",
+      "text": "Human resources graduate seeking an entry-level HR assistant role. Completed coursework in employment law, compensation, and recruiting, and built a mock onboarding plan for a [X]-person team in a capstone project."
+    },
+    {
+      "path": "school",
+      "label": "Student intern in a recruiting office",
+      "text": "Psychology student who completed a [X]-month recruiting internship, now applying for an HR assistant position. Screened [X]+ resumes against job requirements, scheduled interviews in [ATS], and updated candidate records."
+    },
+    {
+      "path": "job",
+      "label": "Shift supervisor moving into HR",
+      "text": "Restaurant shift supervisor moving into HR. Built weekly schedules for [X] employees, onboarded new hires, tracked time-off requests, and documented attendance issues in a consistent, confidential way."
+    },
+    {
+      "path": "job",
+      "label": "Receptionist moving into HR support",
+      "text": "Office receptionist applying for an HR assistant role. Greeted interview candidates, kept the visitor log and confidential files organized, and helped HR prepare [X] new-hire packets each month."
+    },
+    {
+      "path": "side",
+      "label": "Volunteer coordinator for a nonprofit",
+      "text": "Volunteer coordinator for a nonprofit, recruiting and scheduling [X] volunteers a month, tracking hours in a spreadsheet, and running short orientation sessions. Seeking a first paid HR assistant position."
+    },
+    {
+      "path": "side",
+      "label": "Student club recruitment lead",
+      "text": "Student organization recruitment lead seeking an entry-level HR role. Ran sign-up drives, interviewed [X] applicants per semester, and kept a member database with dues and attendance records up to date."
+    }
+  ],
+  "nursing": [
+    {
+      "path": "school",
+      "label": "Clinical rotation in med-surg",
+      "text": "New graduate nurse with [X] clinical hours, including a med-surg rotation on a [X]-bed unit. Assessed and documented care for up to [X] patients under a preceptor, passed medications, and gave discharge teaching."
+    },
+    {
+      "path": "school",
+      "label": "Senior practicum in the emergency department",
+      "text": "BSN graduate who completed a [X]-hour senior practicum in a Level [X] emergency department, triaging walk-in patients, starting IVs, and charting in Epic. NCLEX-RN [passed or scheduled for date], BLS and ACLS certified."
+    },
+    {
+      "path": "job",
+      "label": "CNA becoming an RN",
+      "text": "Certified nursing assistant of [X] months, newly licensed as an RN. Cared for [X] residents per shift on a long-term care unit, recorded vitals and intake, and reported changes in condition to the charge nurse."
+    },
+    {
+      "path": "job",
+      "label": "Medical assistant becoming an RN",
+      "text": "Medical assistant at a [specialty] clinic, now a new graduate RN. Roomed [X]+ patients a day, took vitals and histories, gave injections under protocol, and used [EHR system] for every visit."
+    },
+    {
+      "path": "side",
+      "label": "Hospital volunteer and nursing graduate",
+      "text": "New graduate nurse who volunteered [X] hours at [hospital], transporting patients, restocking supply rooms, and supporting families in the waiting area. Seeking a new graduate residency on a [unit type] unit."
+    },
+    {
+      "path": "side",
+      "label": "Family caregiver turned nursing graduate",
+      "text": "New graduate RN who spent [X] months as a family caregiver for a relative with a chronic illness, managing medications, appointments, and home safety. Brings patience and practical care skills to a first nursing role."
+    }
+  ],
+  "receptionist": [
+    {
+      "path": "school",
+      "label": "Office administration certificate graduate",
+      "text": "Office administration certificate graduate seeking a first receptionist role. Trained in multi-line phones, appointment scheduling, and Microsoft Office, and types at [X] words per minute."
+    },
+    {
+      "path": "school",
+      "label": "Student worker at a campus front desk",
+      "text": "College student who staffed the [building] front desk for [X] hours a week, greeting visitors, answering phones, and booking study rooms in [booking system]. Seeking a part-time or full-time receptionist position."
+    },
+    {
+      "path": "job",
+      "label": "Cashier moving to the front desk",
+      "text": "Grocery cashier with [X] months of steady customer contact, moving into a receptionist role. Handled [X]+ customers a shift, answered questions politely during rushes, and balanced the drawer with no shortages."
+    },
+    {
+      "path": "job",
+      "label": "Hotel housekeeper moving to the front desk",
+      "text": "Hotel housekeeper applying for a front desk role in the same property. Knows room types and guest requests, communicated room status to the front desk on [X]+ rooms per shift, and handled guest questions on the floor."
+    },
+    {
+      "path": "side",
+      "label": "Bilingual community volunteer",
+      "text": "Bilingual [language] and English volunteer at a community clinic, greeting [X] visitors per shift, helping them complete intake forms, and directing calls to the right staff member. Seeking a first paid receptionist role."
+    },
+    {
+      "path": "side",
+      "label": "Front desk helper at a family practice",
+      "text": "First-time job seeker who covered the front desk at a family [business type] during summers, answering calls, confirming appointments, and keeping the waiting area tidy. Ready for a full-time receptionist position."
+    }
+  ],
+  "security-guard": [
+    {
+      "path": "school",
+      "label": "Newly licensed guard",
+      "text": "Newly licensed security officer who completed [X] hours of [state] guard card training, including patrol, report writing, and emergency response. CPR and first aid certified, available for nights and weekends."
+    },
+    {
+      "path": "school",
+      "label": "Criminal justice student",
+      "text": "Criminal justice student seeking a part-time security officer role while finishing school. Studied report writing and de-escalation, holds a [state] guard license, and can work evening and overnight shifts."
+    },
+    {
+      "path": "job",
+      "label": "Military veteran moving into private security",
+      "text": "Military veteran moving into private security after [X] years of service in [branch]. Experienced with guard duty, access control, radio procedures, and calm decision-making under pressure. Holds a [state] guard license."
+    },
+    {
+      "path": "job",
+      "label": "Retail associate moving into loss prevention",
+      "text": "Retail associate with [X] months on the sales floor applying for a loss prevention or security role. Watched for suspicious behavior, followed store theft procedures, and reported incidents clearly to management."
+    },
+    {
+      "path": "side",
+      "label": "Event staff at concerts and games",
+      "text": "Event staff member at [X]+ concerts and games, checking tickets and bags, guiding crowd flow, and radioing supervisors about problems. Seeking a licensed security officer position."
+    },
+    {
+      "path": "side",
+      "label": "Neighborhood watch volunteer",
+      "text": "Neighborhood watch volunteer who organized patrol schedules for [X] residents and reported concerns to local police. Now applying for a first security officer role with a current [state] license."
+    }
+  ],
+  "server": [
+    {
+      "path": "school",
+      "label": "Culinary student seeking floor experience",
+      "text": "Culinary arts student seeking a first server role to learn front-of-house service. Knows menu terms, allergens, and food safety basics, holds a [food handler card], and is available on weekends and holidays."
+    },
+    {
+      "path": "school",
+      "label": "High school graduate starting in restaurants",
+      "text": "Recent high school graduate seeking an entry-level server position. Ran the concession stand at school games, took orders from [X]+ fans per game, and handled cash accurately. Friendly, quick to learn, and available for evening shifts."
+    },
+    {
+      "path": "job",
+      "label": "Fast food crew member moving to table service",
+      "text": "Quick service crew member with [X] months on the front counter moving into table service. Took [X]+ orders per shift accurately, kept the dining area clean, and stayed calm during lunch rushes."
+    },
+    {
+      "path": "job",
+      "label": "Retail cashier moving into serving",
+      "text": "Retail cashier applying for a server position. Used to handling [X]+ transactions per shift on a POS, answering product questions, and keeping a positive attitude with every customer, even during holiday rushes."
+    },
+    {
+      "path": "side",
+      "label": "Banquet helper at events",
+      "text": "Part-time banquet helper at weddings and corporate events, setting tables, serving plated meals to [X]+ guests, and clearing quickly between courses. Seeking a first restaurant server role."
+    },
+    {
+      "path": "side",
+      "label": "Volunteer at a community meal program",
+      "text": "Volunteer server at a community meal program, plating and serving [X] meals per shift and keeping the line moving with a friendly word for every guest. Ready for a paid server position."
+    }
+  ],
+  "teacher": [
+    {
+      "path": "school",
+      "label": "Student teacher in a fourth grade class",
+      "text": "Certified elementary teacher who completed [X] weeks of student teaching in a fourth grade class of [X] students. Planned and taught daily math and reading lessons, used small groups for intervention, and communicated with families weekly."
+    },
+    {
+      "path": "school",
+      "label": "New graduate with a reading endorsement",
+      "text": "New graduate teacher with a [state] license and a reading endorsement, seeking a first K-3 position. Ran phonics groups during practicum, tracked progress with [assessment tool], and adjusted lessons for English learners."
+    },
+    {
+      "path": "job",
+      "label": "Paraprofessional becoming a teacher",
+      "text": "Paraprofessional of [X] years now certified to teach [grade or subject]. Supported students with IEPs in small groups, helped manage a class of [X] students, and learned classroom routines from experienced teachers."
+    },
+    {
+      "path": "job",
+      "label": "Career changer from the corporate world",
+      "text": "Career changer from [industry] entering teaching through an alternative certification program in [subject]. Brings presentation and training experience, real-world examples for students, and a plan to complete certification by [date]."
+    },
+    {
+      "path": "side",
+      "label": "After-school tutor",
+      "text": "After-school tutor for [X] students in [subject], now applying for a first teaching role. Diagnosed skill gaps, planned weekly sessions, and helped students raise quiz scores, sharing progress notes with parents."
+    },
+    {
+      "path": "side",
+      "label": "Summer camp counselor",
+      "text": "Summer camp counselor for [X] seasons, leading daily activities for groups of [X] children aged [X] to [X]. Now a newly certified teacher bringing practical classroom management and a calm, structured routine."
+    }
+  ],
+  "waitress": [
+    {
+      "path": "school",
+      "label": "Hospitality student seeking a first serving job",
+      "text": "Hospitality student seeking a first waitress position. Learned table service, allergy handling, and POS basics in coursework, holds a [food handler card], and can work nights and weekends."
+    },
+    {
+      "path": "school",
+      "label": "Student with weekend availability",
+      "text": "College student looking for a weekend waitress role. Worked the school cafe counter, served [X]+ students per shift, and kept the area clean and stocked. Friendly, reliable, and quick to learn the floor."
+    },
+    {
+      "path": "job",
+      "label": "Cafe counter worker moving to table service",
+      "text": "Cafe counter worker with [X] months of fast service moving into table service. Took orders and payments for [X]+ customers per shift, remembered regulars' orders, and helped close the cafe."
+    },
+    {
+      "path": "job",
+      "label": "Grocery bagger moving into restaurant service",
+      "text": "Grocery bagger applying for a waitress position. Greeted [X]+ customers a shift, helped with carry-outs, and stayed upbeat on busy weekends. Ready to learn the menu and serve guests with the same care."
+    },
+    {
+      "path": "side",
+      "label": "Catering server for weddings",
+      "text": "Part-time catering server for [X] weddings and parties, carrying trays, serving buffet lines, and clearing tables for groups of [X]+ guests. Seeking a steady waitress role in a busy restaurant."
+    },
+    {
+      "path": "side",
+      "label": "Family diner helper",
+      "text": "First-time job seeker who helped at a family diner on weekends, taking orders, refilling drinks, and bussing tables during breakfast rushes. Ready to bring that experience to a waitress position."
+    }
+  ],
+  "warehouse": [
+    {
+      "path": "school",
+      "label": "Forklift certified graduate",
+      "text": "Recent graduate with a forklift operator certification from [training provider], seeking an entry-level warehouse associate role. Trained on safe loading, pallet stacking, and OSHA basics, and can lift up to [X] pounds."
+    },
+    {
+      "path": "school",
+      "label": "Student seeking seasonal warehouse work",
+      "text": "College student seeking a seasonal warehouse associate role during [season]. Comfortable standing for full shifts, able to lift [X] pounds, and quick to learn handheld scanners and picking systems."
+    },
+    {
+      "path": "job",
+      "label": "Retail stocker moving into warehouse",
+      "text": "Retail stock associate with [X] months unloading trucks and stocking shelves, moving into warehouse work. Unloaded [X]+ cases per shift, rotated stock by date, and kept the backroom organized for quick restocking."
+    },
+    {
+      "path": "job",
+      "label": "Fast food crew member moving into logistics",
+      "text": "Quick service crew member applying for a warehouse associate position. Received and put away weekly supply deliveries, followed food safety and cleaning checklists, and kept up with a fast pace for full shifts."
+    },
+    {
+      "path": "side",
+      "label": "Food bank sorting volunteer",
+      "text": "Food bank volunteer who sorted and packed [X]+ pounds of donations per shift, checked dates, and built pallets for distribution. Seeking a first paid warehouse associate role."
+    },
+    {
+      "path": "side",
+      "label": "Moving helper for local jobs",
+      "text": "Part-time moving helper for local jobs, loading trucks, wrapping furniture, and carrying heavy items safely with a team of [X]. Ready for a full-time warehouse associate position."
+    }
   ]
 }
