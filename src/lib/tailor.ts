@@ -63,9 +63,9 @@ Return JSON: {"summary":"..."}
 Hard rules:
 - Use ONLY facts from the candidate data. Never add an employer, school, certification, license, degree, tool, number, or achievement that is not in the data.
 - Every number must come from the data. If a result would need a number the data does not give, write [X] in its place.
-- Years of experience: use a number only if the data states it, otherwise write [X] years.
+- Years of experience: use a number only if the data states it. For Entry-level, do not mention years at all; describe training, coursework, or hands-on practice instead. For other levels without a stated number, write [X] years.
 - Write 2 or 3 sentences, 40 to 70 words, in implied first person (no "I", no name).
-- Start with the job title from the data and the level.
+- Start with the level and the job title, for example "Entry-level Certified Nursing Assistant". Write active phrases, not "Has" or "Is" sentences.
 - Work in the confirmed keywords naturally where they are true for the candidate. Do not list keywords the candidate did not confirm.
 - Plain US English. No em dashes or en dashes. No buzzwords such as results-driven, dynamic, passionate, synergy, go-getter.`;
 
@@ -143,6 +143,8 @@ export function validateSummary(raw: unknown, i: WriteInput): { text: string; pr
     }
   }
 
+  if (i.level === 'entry' && /\byears?\b/i.test(text) && !/\byears?\b/i.test(i.facts)) problems.push('entry level: do not mention years of experience');
+  if (/^(Has|Is)\b|\.\s+(Has|Is)\b/.test(text)) problems.push('start sentences with an action, not "Has" or "Is"');
   for (const b of BUZZ) if (text.toLowerCase().includes(b)) problems.push(`remove the buzzword "${b}"`);
   if (/\bI\b|\bmy\b/.test(withoutPlaceholders)) problems.push('use implied first person, no "I" or "my"');
 

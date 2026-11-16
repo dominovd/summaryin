@@ -151,7 +151,15 @@ const description = 'Paste a job posting, tick the keywords you really have, and
       };
       mount();
     }
-    const token = () => (widget && typeof turnstile !== 'undefined' ? turnstile.getResponse(widget) : '');
+    async function token() {
+      if (!widget || typeof turnstile === 'undefined') return '';
+      for (let i = 0; i < 40; i++) {
+        const t = turnstile.getResponse(widget);
+        if (t) return t;
+        await new Promise((r) => setTimeout(r, 250));
+      }
+      return '';
+    }
     const resetToken = () => { if (widget && typeof turnstile !== 'undefined') turnstile.reset(widget); };
 
     fetch('/api/tailor/').then((r) => r.json()).then((s) => {
@@ -186,7 +194,7 @@ const description = 'Paste a job posting, tick the keywords you really have, and
     });
 
     async function call(body: object) {
-      const res = await fetch('/api/tailor/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, token: token() }) });
+      const res = await fetch('/api/tailor/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, token: await token() }) });
       const data = await res.json().catch(() => ({ error: 'Something went wrong.' }));
       resetToken();
       if (!res.ok) throw new Error(data.error || 'Something went wrong.');
@@ -195,9 +203,11 @@ const description = 'Paste a job posting, tick the keywords you really have, and
     const say = (el: HTMLElement, t: string, err = false) => { el.textContent = t; el.classList.toggle('err', err); };
 
     const kw = $('[data-kw]'); const kwList = $('[data-kw-list]');
+    posting.addEventListener('input', () => { if (kwList.innerHTML) { kw.hidden = true; kwList.innerHTML = ''; say(msg1, ''); } });
     $('[data-extract]').addEventListener('click', async (e) => {
       const b = e.currentTarget as HTMLButtonElement;
       b.disabled = true; say(msg1, 'Reading the posting...');
+      kw.hidden = true; kwList.innerHTML = '';
       try {
         const { keywords } = await call({ step: 'extract', posting: posting.value, title: title.value });
         kw.hidden = !keywords.length;
