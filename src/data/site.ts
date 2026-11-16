@@ -57,6 +57,7 @@ export const NAV_GROUPS: { label: string; items: { label: string; href: string; 
       { label: 'Summary generator', href: '/#generator', note: 'Summary, objective, or LinkedIn headline' },
       { label: 'Tailor to a job', href: '/tailor-resume-summary/', note: 'Match your summary to a job posting' },
       { label: 'Bullet point builder', href: '/resume-bullet-points/', note: 'Write and format experience bullets' },
+      { label: 'LinkedIn headline', href: '/linkedin-headline-generator/', note: 'Headline and About section examples' },
     ],
   },
   {

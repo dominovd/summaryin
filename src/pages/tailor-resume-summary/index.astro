@@ -90,6 +90,11 @@ const faq = [
         <div class="tl-out" data-out hidden>
           <div class="tl-text" data-text contenteditable="true" spellcheck="true" aria-label="Tailored summary, editable"></div>
           <p class="muted tl-note" data-note></p>
+          <div class="tl-gap" data-gap hidden>
+            <p class="tl-gap-h" data-gap-h></p>
+            <div class="tl-gap-list" data-gap-list></div>
+            <p class="muted tl-gap-note">Tick a keyword above only if you have really done it, then write again.</p>
+          </div>
           <div class="tl-acts">
             <button type="button" class="btn btn-primary btn-sm" data-copy>Copy summary</button>
             <a class="btn btn-ghost btn-sm" href="/resume-bullet-points/">Next: bullet points →</a>
@@ -151,6 +156,11 @@ const faq = [
   .tl-text { border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; line-height: 1.65; background: var(--bg-subtle); }
   .tl-text :global(mark) { background: #fff3b8; border-radius: 3px; padding: 0 2px; color: inherit; }
   .tl-note { font-size: 0.86rem; margin: 0; }
+  .tl-gap { border: 1px solid #f1d58a; background: #fffbea; border-radius: var(--r-md); padding: 12px 14px; display: grid; gap: 8px; }
+  .tl-gap-h { margin: 0; font-weight: 650; font-size: 0.92rem; }
+  .tl-gap-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tl-gap-list :global(span) { border: 1px dashed #c9a227; border-radius: 999px; padding: 3px 10px; font-size: 0.86rem; background: #fff; }
+  .tl-gap-note { margin: 0; font-size: 0.84rem; }
   .tl-privacy { font-size: 0.86rem; margin-top: 6px; }
   .tl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
   @media (max-width: 700px) { .tl-grid { grid-template-columns: 1fr; } }
@@ -257,7 +267,7 @@ const faq = [
     $('[data-extract]').addEventListener('click', async (e) => {
       const b = e.currentTarget as HTMLButtonElement;
       b.disabled = true; say(msg1, 'Reading the posting...');
-      kw.hidden = true; kwList.innerHTML = '';
+      kw.hidden = true; kwList.innerHTML = ''; $('[data-gap]').hidden = true;
       try {
         const { keywords } = await call({ step: 'extract', posting: posting.value, title: title.value });
         kw.hidden = !keywords.length;
@@ -280,10 +290,34 @@ const faq = [
           ? 'We could not write a version that only uses your facts, so here is a safe template. Add a fact or two and try again.'
           : 'Replace each [X] with a real detail before you send it. You can edit the text right here.';
         say(msg2, `${r.left} of ${$('[data-limit]').textContent} left today`);
+        showGaps(r.summary);
         track('tailor', { step: 'write', source: r.source, keywords: confirmed.length });
       } catch (err) { say(msg2, (err as Error).message, true); }
       b.disabled = false;
     });
+
+    // Keywords from the posting that the summary does not mention yet.
+    function showGaps(summary: string) {
+      const all = Array.from(kwList.querySelectorAll<HTMLInputElement>('input')).map((x) => x.value);
+      const box = $('[data-gap]');
+      if (!all.length) { box.hidden = true; return; }
+      const text = summary.toLowerCase();
+      const covered = (k: string) => {
+        const t = k.toLowerCase();
+        if (text.includes(t)) return true;
+        const words = t.split(/\s+/).filter((w) => w.length > 3);
+        const hit = words.filter((w) => text.includes(w.replace(/(es|s)$/, ''))).length;
+        return words.length > 0 && hit * 2 >= words.length;
+      };
+      const missing = all.filter((k) => !covered(k));
+      box.hidden = false;
+      $('[data-gap-h]').textContent = missing.length
+        ? `${all.length - missing.length} of ${all.length} posting keywords are in your summary. Not yet:`
+        : `All ${all.length} posting keywords are in your summary.`;
+      $('[data-gap-list]').innerHTML = missing.map((k) => `<span>${esc(k)}</span>`).join('');
+      $('[data-gap-list]').hidden = !missing.length;
+      root!.querySelector<HTMLElement>('.tl-gap-note')!.hidden = !missing.length;
+    }
 
     $('[data-copy]').addEventListener('click', async (e) => {
       const b = e.currentTarget as HTMLButtonElement;
