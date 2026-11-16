@@ -10,11 +10,12 @@
     "content:import": "node scripts/import-content-pack.mjs && node scripts/enrich-profession-copy.mjs",
     "content:enrich": "node scripts/enrich-profession-copy.mjs",
     "content:audit": "node scripts/audit-content.mjs",
-    "audit": "node scripts/audit-content.mjs && node scripts/audit-job-descriptions.mjs && node scripts/audit-generator.mjs && node scripts/audit-no-experience.mjs",
+    "audit": "node scripts/audit-content.mjs && node scripts/audit-job-descriptions.mjs && node scripts/audit-generator.mjs && node scripts/audit-no-experience.mjs && node scripts/test-tailor.mjs",
     "audit:jd": "node scripts/audit-job-descriptions.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^8.2.11",
     "@vercel/analytics": "^2.0.1",
     "astro": "^5.12.0"
   }

@@ -1,0 +1,235 @@
+---
+import Base from '../../layouts/Base.astro';
+import { ROLES } from '../../data/roles';
+
+const roles = ROLES.map((r) => ({ slug: r.slug, name: r.name, synonyms: r.synonyms, skills: r.skills }));
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+const description = 'Paste a job posting, tick the keywords you really have, and get a resume summary tailored to that job. Numbers you did not give stay as [X].';
+---
+
+<Base title="Tailor Your Resume Summary to a Job Posting" description={description} noindex>
+  {siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>}
+
+  <section class="section tl-hero">
+    <div class="container narrow">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Tailor to a job</span></nav>
+      <h1>Tailor Your Resume Summary to a Job Posting</h1>
+      <p class="lead">Paste the posting, tick only the keywords you have really used, and get a summary written for that job. Anything you did not tell us stays as a [X] placeholder.</p>
+    </div>
+  </section>
+
+  <section class="section tl" data-tailor data-sitekey={siteKey}>
+    <script type="application/json" data-roles set:html={JSON.stringify(roles)} />
+    <div class="container narrow">
+      <p class="tl-off" data-off hidden>The tailoring tool is not switched on yet. The <a href="/#generator">free generator</a> works right now.</p>
+
+      <div class="tl-step">
+        <h2><span>1</span> About you</h2>
+        <div class="tl-row">
+          <label>Job title you are applying for
+            <input type="text" name="title" maxlength="60" placeholder="e.g. Retail Sales Associate" autocomplete="off" required />
+          </label>
+          <div class="tl-lvl" role="group" aria-label="Experience level">
+            <span>Level</span>
+            {[['entry', 'Entry'], ['mid', 'Mid'], ['senior', 'Senior']].map(([k, l]) => <button type="button" data-lvl={k} aria-pressed={k === 'mid' ? 'true' : 'false'}>{l}</button>)}
+          </div>
+        </div>
+        <label>Your skills, comma separated
+          <input type="text" name="skills" maxlength="400" placeholder="e.g. POS systems, cash handling, visual merchandising" autocomplete="off" />
+        </label>
+        <div class="tl-sugg" data-sugg hidden></div>
+        <label>Facts you can back up <small>(optional, but this is what makes it yours)</small>
+          <textarea name="facts" rows="3" maxlength="600" placeholder="e.g. 2 years at a sporting goods store, trained 4 new hires, top seller in March"></textarea>
+        </label>
+      </div>
+
+      <div class="tl-step">
+        <h2><span>2</span> The job posting</h2>
+        <label class="visually-hidden" for="tl-posting">Job posting</label>
+        <textarea id="tl-posting" name="posting" rows="8" maxlength="6000" placeholder="Paste the full job posting here"></textarea>
+        <div class="tl-acts">
+          <button type="button" class="btn btn-ghost" data-extract>Find keywords</button>
+          <span class="muted tl-msg" data-msg1 aria-live="polite"></span>
+        </div>
+        <fieldset class="tl-kw" data-kw hidden>
+          <legend>Tick only what you have really done or used</legend>
+          <div data-kw-list></div>
+        </fieldset>
+      </div>
+
+      <div class="tl-step">
+        <h2><span>3</span> Your tailored summary</h2>
+        <div class="tl-ts" data-ts></div>
+        <div class="tl-acts">
+          <button type="button" class="btn btn-primary" data-write>Write my summary</button>
+          <span class="muted tl-msg" data-msg2 aria-live="polite"></span>
+        </div>
+        <div class="tl-out" data-out hidden>
+          <div class="tl-text" data-text contenteditable="true" spellcheck="true" aria-label="Tailored summary, editable"></div>
+          <p class="muted tl-note" data-note></p>
+          <div class="tl-acts">
+            <button type="button" class="btn btn-primary btn-sm" data-copy>Copy summary</button>
+            <a class="btn btn-ghost btn-sm" href="/resume-bullet-points/">Next: bullet points →</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="tl-privacy muted">To write the text, this tool sends the posting and what you type to an AI provider. SummaryIn does not store it. Up to <b data-limit>5</b> tailored summaries per day. The <a href="/#generator">free generator</a> runs fully in your browser.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow { max-width: 760px; }
+  .tl-hero { padding-bottom: 8px; }
+  .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--ink-muted); }
+  .tl { padding-top: 8px; }
+  .tl-off { background: #fff7e0; border: 1px solid #f1d58a; border-radius: var(--r-md); padding: 12px 14px; }
+  .tl-step { border: 1px solid var(--border); border-radius: var(--r-lg); padding: 18px; margin-bottom: 14px; background: #fff; display: grid; gap: 12px; }
+  .tl-step h2 { font-size: 1.1rem; margin: 0; display: flex; align-items: center; gap: 10px; }
+  .tl-step h2 span { width: 26px; height: 26px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); font-size: 0.85rem; display: inline-grid; place-items: center; }
+  .tl label { display: grid; gap: 6px; font-weight: 650; font-size: 0.92rem; }
+  .tl label small { font-weight: 400; color: var(--ink-muted); }
+  .tl input[type="text"], .tl textarea { font: inherit; font-weight: 400; width: 100%; padding: 10px 12px; border: 1px solid var(--border-strong); border-radius: var(--r-sm); background: #fff; }
+  .tl textarea { resize: vertical; }
+  .tl-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; }
+  @media (max-width: 600px) { .tl-row { grid-template-columns: 1fr; } }
+  .tl-lvl { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 650; }
+  .tl-lvl button, .tl-sugg :global(button) { font: inherit; font-size: 0.86rem; border: 1px solid var(--border); background: #fff; color: var(--ink-soft); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  .tl-lvl button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .tl-sugg { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 0.86rem; color: var(--ink-muted); }
+  .tl-sugg :global(button)::before { content: '+ '; }
+  .tl-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .tl-msg { font-size: 0.9rem; }
+  .tl-msg.err { color: #b42318; }
+  .tl-kw { border: 1px dashed var(--border-strong); border-radius: var(--r-md); padding: 10px 14px; margin: 0; }
+  .tl-kw legend { font-weight: 650; font-size: 0.9rem; padding: 0 6px; }
+  .tl-kw [data-kw-list] { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tl-kw :global(label) { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; border: 1px solid var(--border); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  .tl-kw :global(label:has(input:checked)) { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); }
+  .tl-kw :global(small) { color: var(--ink-muted); font-size: 0.75rem; }
+  .tl-out { display: grid; gap: 10px; }
+  .tl-text { border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; line-height: 1.65; background: var(--bg-subtle); }
+  .tl-text :global(mark) { background: #fff3b8; border-radius: 3px; padding: 0 2px; color: inherit; }
+  .tl-note { font-size: 0.86rem; margin: 0; }
+  .tl-privacy { font-size: 0.86rem; margin-top: 6px; }
+</style>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  declare const turnstile: { render: (el: HTMLElement, o: object) => string; getResponse: (id: string) => string; reset: (id: string) => void } | undefined;
+
+  const root = document.querySelector<HTMLElement>('[data-tailor]');
+  if (root) {
+    const roles: { slug: string; name: string; synonyms: string[]; skills: string[] }[] = JSON.parse(root.querySelector('[data-roles]')!.textContent || '[]');
+    const $ = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
+    const title = $<HTMLInputElement>('[name=title]');
+    const skills = $<HTMLInputElement>('[name=skills]');
+    const facts = $<HTMLTextAreaElement>('[name=facts]');
+    const posting = $<HTMLTextAreaElement>('[name=posting]');
+    const msg1 = $('[data-msg1]'); const msg2 = $('[data-msg2]');
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+    let level = 'mid';
+    let widget = '';
+
+    function matchRole(input: string, list: typeof roles) {
+      const q = input.toLowerCase().trim(); let best: string | null = null; let score = 0;
+      for (const r of list) for (const c of [r.name.toLowerCase(), ...r.synonyms]) {
+        const s = q === c ? 100 + c.length : c.length >= 3 && q.includes(c) ? c.length : 0;
+        if (s > score) { score = s; best = r.slug; }
+      }
+      return best;
+    }
+
+    const siteKey = root.dataset.sitekey;
+    if (siteKey) {
+      const mount = () => {
+        if (typeof turnstile === 'undefined') return setTimeout(mount, 300);
+        widget = turnstile.render($('[data-ts]'), { sitekey: siteKey, size: 'flexible', appearance: 'interaction-only' });
+      };
+      mount();
+    }
+    const token = () => (widget && typeof turnstile !== 'undefined' ? turnstile.getResponse(widget) : '');
+    const resetToken = () => { if (widget && typeof turnstile !== 'undefined') turnstile.reset(widget); };
+
+    fetch('/api/tailor/').then((r) => r.json()).then((s) => {
+      $('[data-limit]').textContent = String(s.limit ?? 5);
+      if (!s.ready) off();
+      else if (s.left < s.limit) msg2.textContent = `${s.left} of ${s.limit} left today`;
+    }).catch(off);
+    function off() {
+      $('[data-off]').hidden = false;
+      root!.querySelectorAll<HTMLButtonElement>('[data-extract],[data-write]').forEach((b) => (b.disabled = true));
+    }
+
+    root.querySelector('.tl-lvl')!.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (!b) return;
+      level = b.dataset.lvl!;
+      root.querySelectorAll('.tl-lvl button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    });
+
+    const sugg = $('[data-sugg]');
+    function suggest() {
+      const slug = matchRole(title.value, roles);
+      const have = skills.value.toLowerCase();
+      const list = slug ? roles.find((r) => r.slug === slug)!.skills.filter((s) => !have.includes(s.toLowerCase())).slice(0, 6) : [];
+      sugg.hidden = !list.length;
+      sugg.innerHTML = list.length ? `<span>Common for this role:</span>${list.map((s) => `<button type="button" data-s="${esc(s)}">${esc(s)}</button>`).join('')}` : '';
+    }
+    title.addEventListener('input', suggest);
+    sugg.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (!b) return;
+      skills.value = [skills.value.trim().replace(/,$/, ''), b.dataset.s].filter(Boolean).join(', ');
+      suggest();
+    });
+
+    async function call(body: object) {
+      const res = await fetch('/api/tailor/', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...body, token: token() }) });
+      const data = await res.json().catch(() => ({ error: 'Something went wrong.' }));
+      resetToken();
+      if (!res.ok) throw new Error(data.error || 'Something went wrong.');
+      return data;
+    }
+    const say = (el: HTMLElement, t: string, err = false) => { el.textContent = t; el.classList.toggle('err', err); };
+
+    const kw = $('[data-kw]'); const kwList = $('[data-kw-list]');
+    $('[data-extract]').addEventListener('click', async (e) => {
+      const b = e.currentTarget as HTMLButtonElement;
+      b.disabled = true; say(msg1, 'Reading the posting...');
+      try {
+        const { keywords } = await call({ step: 'extract', posting: posting.value, title: title.value });
+        kw.hidden = !keywords.length;
+        kwList.innerHTML = keywords.map((k: { term: string; type: string }) => `<label><input type="checkbox" value="${esc(k.term)}" /> ${esc(k.term)} <small>${esc(k.type)}</small></label>`).join('');
+        say(msg1, keywords.length ? `${keywords.length} keywords found.` : 'No clear keywords found. You can still write a summary.');
+        track('tailor', { step: 'extract', found: keywords.length });
+      } catch (err) { say(msg1, (err as Error).message, true); }
+      b.disabled = false;
+    });
+
+    $('[data-write]').addEventListener('click', async (e) => {
+      const b = e.currentTarget as HTMLButtonElement;
+      const confirmed = Array.from(kwList.querySelectorAll<HTMLInputElement>('input:checked')).map((x) => x.value);
+      b.disabled = true; say(msg2, 'Writing...');
+      try {
+        const r = await call({ step: 'write', title: title.value, level, skills: skills.value, facts: facts.value, confirmed });
+        $('[data-out]').hidden = false;
+        $('[data-text]').innerHTML = esc(r.summary).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
+        $('[data-note]').textContent = r.source === 'template'
+          ? 'We could not write a version that only uses your facts, so here is a safe template. Add a fact or two and try again.'
+          : 'Replace each [X] with a real detail before you send it. You can edit the text right here.';
+        say(msg2, `${r.left} of ${$('[data-limit]').textContent} left today`);
+        track('tailor', { step: 'write', source: r.source, keywords: confirmed.length });
+      } catch (err) { say(msg2, (err as Error).message, true); }
+      b.disabled = false;
+    });
+
+    $('[data-copy]').addEventListener('click', async (e) => {
+      const b = e.currentTarget as HTMLButtonElement;
+      try { await navigator.clipboard.writeText($('[data-text]').innerText.trim()); } catch { /* clipboard unavailable */ }
+      b.textContent = 'Copied!'; setTimeout(() => (b.textContent = 'Copy summary'), 1400);
+      track('copy', { tool: 'tailor' });
+    });
+  }
+</script>

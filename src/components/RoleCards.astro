@@ -55,7 +55,7 @@ const searchData = ROLES.map((r) => ({ slug: r.slug, name: r.name, synonyms: r.s
               <article class="rc-card rc-card-duty" data-slug={r.slug}>
                 <a class="rc-main" href={`/job-description/${r.slug}/`}>
                   <span class="rc-top"><b>{r.name} job description for resume</b><small>Duties</small></span>
-                  <span class="rc-eg">Summary examples coming next</span>
+                  <span class="rc-eg">Duty lines to copy</span>
                   <span class="rc-text">{parts(J[r.slug].duties.core[0]).map((x) => /^\[[^\]]+\]$/.test(x) ? <mark>{x}</mark> : x)}</span>
                 </a>
                 <span class="rc-levels"><a href={`/job-description/${r.slug}/`}>Duty bullets →</a></span>

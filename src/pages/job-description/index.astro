@@ -99,7 +99,7 @@ const faq = [
                 </a>
                 <span class="jd-links">
                   <a href={`/job-description/${r.slug}/`}>Pick duties →</a>
-                  {r.summary ? <a class="jd-sum" href={`/resume-summary/${r.slug}/`}>Summary examples</a> : <span class="muted">Summary examples coming next</span>}
+                  {r.summary && <a class="jd-sum" href={`/resume-summary/${r.slug}/`}>Summary examples</a>}
                 </span>
               </article>
             ))}
