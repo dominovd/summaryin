@@ -8,6 +8,7 @@
 import Base from '../../layouts/Base.astro';
 import DutyPicker from '../../components/DutyPicker.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
+import { SITE } from '../../data/site';
 import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
 import CtaBanner from '../../components/CtaBanner.astro';
@@ -150,7 +151,7 @@ const related = p.related.map((slug: string) => ({
   </div>
 
   <!-- 10. Email capture + 11. CTA -->
-  <EmailCapture professionLabel={label} kind="duty lines" />
+  {SITE.emailFormAction && <EmailCapture professionLabel={label} kind="duty lines" />}
   <CtaBanner
     heading="Now write the top of your resume"
     points={[

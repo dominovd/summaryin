@@ -11,8 +11,8 @@ export const SITE = {
 
   /** Title year changes only after the content library has been reviewed. */
   contentYear: 2026,
-  contentLastReviewed: 'August 17, 2026',
-  contentLastReviewedIso: '2026-08-17',
+  contentLastReviewed: 'November 16, 2026',
+  contentLastReviewedIso: '2026-11-16',
 
   /** Contact email shown on /contact/. */
   contactEmail: 'info@summaryin.com',
@@ -37,8 +37,6 @@ export const NAV = [
   { label: 'Bullet Points', href: '/resume-bullet-points/', live: true },
   { label: 'No Experience', href: '/no-experience/', live: true },
   { label: 'Tailor to a Job', href: '/tailor-resume-summary/', live: true },
-  { label: 'LinkedIn', href: '/linkedin/', live: false },
-  { label: 'Executive Summary', href: '/executive/', live: false },
 ];
 
 /** Header menu. Each group opens as a dropdown on desktop and a section in the mobile menu. */
