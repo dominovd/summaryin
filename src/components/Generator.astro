@@ -184,6 +184,8 @@ const data = {
   .gen-after { margin-top: 14px; border: 1px solid #bfe3cc; background: var(--success-soft); border-radius: var(--r-md); padding: 14px 16px; font-size: 0.95rem; }
   .gen-after :global(b) { color: var(--ink); }
   .gen-after :global(p) { margin: 4px 0 10px; color: var(--ink-soft); }
+  .gen-after :global(.gen-tailor) { margin: 12px 0 0; font-size: 0.9rem; }
+  .gen-after :global(.gen-tailor a) { font-weight: 650; }
 </style>
 
 <script>
@@ -367,7 +369,8 @@ const data = {
       const r = role();
       const nextHref = r?.pages.d ? `/job-description/${r.slug}/` : '/resume-bullet-points/';
       const nextText = r?.pages.d ? `${esc(r.name)} job description duties` : 'Bullet point generator';
-      after.innerHTML = `<b>Next: the experience section.</b><p>Duty bullets for the jobs under your summary, ready to paste.</p><a class="btn btn-primary btn-sm" href="${nextHref}" data-next-step>${nextText} →</a>`;
+      const tailorHref = `/tailor-resume-summary/?title=${encodeURIComponent(typed() || r?.name || "")}&level=${seg("[data-level]")}`;
+      after.innerHTML = `<b>Next: the experience section.</b><p>Duty bullets for the jobs under your summary, ready to paste.</p><a class="btn btn-primary btn-sm" href="${nextHref}" data-next-step>${nextText} →</a><p class="gen-tailor">Applying for one specific job? <a href="${tailorHref}" data-tailor-step>Tailor this summary to the posting →</a></p>`;
       after.hidden = false;
       track(withPlaceholders ? 'copy_with_placeholders' : 'copy', { tool: 'summary', mode, role: r?.slug ?? 'other' });
     }
@@ -386,7 +389,11 @@ const data = {
       const m = Array.from(result.querySelectorAll('mark')).find((x) => /\[/.test(x.textContent || ''));
       if (m) { result.focus(); const r = document.createRange(); r.selectNodeContents(m); const s = getSelection()!; s.removeAllRanges(); s.addRange(r); }
     });
-    after.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('[data-next-step]')) track('next_step_click', { tool: 'summary' }); });
+    after.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.closest('[data-next-step]')) track('next_step_click', { tool: 'summary' });
+      if (t.closest('[data-tailor-step]')) track('next_step_click', { tool: 'summary', to: 'tailor' });
+    });
 
     full();
   });

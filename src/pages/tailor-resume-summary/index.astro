@@ -1,13 +1,36 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import AppJsonLd from '../../components/AppJsonLd.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
 import { ROLES } from '../../data/roles';
 
 const roles = ROLES.map((r) => ({ slug: r.slug, name: r.name, synonyms: r.synonyms, skills: r.skills }));
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 const description = 'Paste a job posting, tick the keywords you really have, and get a resume summary tailored to that job. Numbers you did not give stay as [X].';
+const faq = [
+  {
+    q: 'How do I tailor a resume summary to a job description?',
+    a: 'Find the skills, tools, and duties the posting repeats, keep only the ones you have actually used, and work them into a two or three sentence summary that starts with the job title. This tool pulls the keywords for you and writes the draft from your own facts.',
+  },
+  {
+    q: 'Will it add skills or experience I do not have?',
+    a: 'No. Only keywords you tick are used, and every draft is checked against what you entered. Any number, employer, or certification you did not give is rejected, and missing numbers are left as [X] for you to fill in.',
+  },
+  {
+    q: 'Is the tailoring tool free?',
+    a: 'Yes. You can create up to five tailored summaries per day without an account. The regular summary generator has no limit and runs fully in your browser.',
+  },
+  {
+    q: 'What happens to the job posting and details I paste?',
+    a: 'They are sent to an AI provider to write the text and returned to your browser. SummaryIn does not store them. See the privacy policy for details.',
+  },
+];
 ---
 
-<Base title="Tailor Your Resume Summary to a Job Posting" description={description} noindex>
+<Base title="Tailor Your Resume Summary to a Job Posting" description={description}>
+  <AppJsonLd name="Resume Summary Tailoring Tool" description={description} path="/tailor-resume-summary/" />
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Tailor to a job', href: '/tailor-resume-summary/' }]} />
   {siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>}
 
   <section class="section tl-hero">
@@ -74,9 +97,24 @@ const description = 'Paste a job posting, tick the keywords you really have, and
         </div>
       </div>
 
-      <p class="tl-privacy muted">To write the text, this tool sends the posting and what you type to an AI provider. SummaryIn does not store it. Up to <b data-limit>5</b> tailored summaries per day. The <a href="/#generator">free generator</a> runs fully in your browser.</p>
+      <p class="tl-privacy muted" data-privacy>To write the text, this tool sends the posting and what you type to an AI provider. SummaryIn does not store it. Up to <b data-limit>5</b> tailored summaries per day. The <a href="/#generator">free generator</a> runs fully in your browser.</p>
     </div>
   </section>
+
+  <section class="section section-subtle" aria-labelledby="how-heading">
+    <div class="container narrow">
+      <h2 id="how-heading">Why tailoring works, and where it goes wrong</h2>
+      <p>Recruiters and applicant tracking systems look for the words the posting uses. A summary that names the same tools and duties reads as a match in the first few seconds. The risk is copying keywords you cannot back up in an interview.</p>
+      <div class="tl-grid">
+        <div class="card"><h3>Keep</h3><p>Tools, duties, and certifications from the posting that you have really used. Name them the way the posting does.</p></div>
+        <div class="card"><h3>Skip</h3><p>Soft words like team player or self-starter, perks, schedule details, and any requirement you do not meet yet.</p></div>
+        <div class="card"><h3>Prove</h3><p>Add one result with a number. If you do not know it exactly, leave [X] and check before you apply.</p></div>
+      </div>
+      <p class="muted">Need more than one sentence per job? Use the <a href="/resume-bullet-points/">bullet point builder</a> or the <a href="/job-description/">job description examples</a> for the experience section.</p>
+    </div>
+  </section>
+
+  <Faq items={faq} heading="Tailoring FAQ" />
 </Base>
 
 <style>
@@ -114,6 +152,10 @@ const description = 'Paste a job posting, tick the keywords you really have, and
   .tl-text :global(mark) { background: #fff3b8; border-radius: 3px; padding: 0 2px; color: inherit; }
   .tl-note { font-size: 0.86rem; margin: 0; }
   .tl-privacy { font-size: 0.86rem; margin-top: 6px; }
+  .tl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+  @media (max-width: 700px) { .tl-grid { grid-template-columns: 1fr; } }
+  .tl-grid h3 { font-size: 1rem; margin: 0 0 4px; }
+  .tl-grid p { margin: 0; font-size: 0.93rem; color: var(--ink-soft); }
 </style>
 
 <script>
@@ -132,6 +174,13 @@ const description = 'Paste a job posting, tick the keywords you really have, and
     const msg1 = $('[data-msg1]'); const msg2 = $('[data-msg2]');
     const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
     let level = 'mid';
+    const qs = new URLSearchParams(location.search);
+    if (qs.get('title')) title.value = qs.get('title')!.slice(0, 60);
+    const qLevel = qs.get('level');
+    if (qLevel && ['entry', 'mid', 'senior'].includes(qLevel)) {
+      level = qLevel;
+      root.querySelectorAll('.tl-lvl button').forEach((x) => x.setAttribute('aria-pressed', String((x as HTMLElement).dataset.lvl === qLevel)));
+    }
     let widget = '';
 
     function matchRole(input: string, list: typeof roles) {
@@ -187,6 +236,7 @@ const description = 'Paste a job posting, tick the keywords you really have, and
       sugg.innerHTML = list.length ? `<span>Common for this role:</span>${list.map((s) => `<button type="button" data-s="${esc(s)}">${esc(s)}</button>`).join('')}` : '';
     }
     title.addEventListener('input', suggest);
+    if (title.value) suggest();
     sugg.addEventListener('click', (e) => {
       const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (!b) return;
       skills.value = [skills.value.trim().replace(/,$/, ''), b.dataset.s].filter(Boolean).join(', ');

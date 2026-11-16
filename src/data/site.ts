@@ -36,6 +36,7 @@ export const NAV = [
   { label: 'Job Descriptions', href: '/job-description/', live: true },
   { label: 'Bullet Points', href: '/resume-bullet-points/', live: true },
   { label: 'No Experience', href: '/no-experience/', live: true },
+  { label: 'Tailor to a Job', href: '/tailor-resume-summary/', live: true },
   { label: 'LinkedIn', href: '/linkedin/', live: false },
   { label: 'Executive Summary', href: '/executive/', live: false },
 ];

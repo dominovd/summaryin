@@ -14,6 +14,6 @@ export default defineConfig({
     inlineStylesheets: 'auto',
   },
   integrations: [
-    sitemap({ filter: (page) => !page.includes('/tailor-resume-summary/') }),
+    sitemap(),
   ],
 });
