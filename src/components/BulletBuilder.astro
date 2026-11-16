@@ -115,6 +115,7 @@ const EXAMPLES = [
   .bb-privacy { font-size: 0.85rem; margin: 12px 0 0; }
   .bb-output { background: var(--bg-subtle); border-radius: var(--r-md); padding: 16px; min-width: 0; }
   .bb-output :global(.bb-ver) { background: #fff; border: 1px solid var(--border); border-radius: var(--r-md); padding: 12px 14px; margin-bottom: 8px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: start; }
+  .bb-output :global(.bb-ver .is-added) { color: var(--success); border-color: var(--success); background: var(--success-soft); opacity: 1; cursor: default; }
   .bb-output :global(.bb-ver small) { grid-column: 1 / -1; font-size: 0.72rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); }
   .bb-output :global(.bb-ver p) { margin: 0; color: var(--ink); line-height: 1.55; }
   .bb-output :global(mark) { background: #fff3b8; border-bottom: 1px dashed #b58b00; border-radius: 3px; padding: 0 2px; color: inherit; }
@@ -134,13 +135,18 @@ const EXAMPLES = [
   .bb-list-head h3 { margin: 0; font-size: 1rem; }
   .bb-list-head span { font-size: 0.85rem; }
   .bb-list ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; }
-  .bb-list :global(li) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; font-size: 0.95rem; color: var(--ink); line-height: 1.45; }
+  .bb-list :global(li) { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; align-items: start; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 7px 8px 7px 10px; font-size: 0.92rem; color: var(--ink); line-height: 1.45; }
+  .bb-list :global(li.is-new) { animation: bb-flash 1.4s ease-out; }
+  @keyframes bb-flash { 0% { background: var(--success-soft); border-color: var(--success); } 100% { background: #fff; border-color: var(--border); } }
+  .bb-list :global(.li-n) { width: 20px; height: 20px; border-radius: 50%; background: var(--bg-subtle); color: var(--ink-muted); font-size: 0.75rem; font-weight: 700; display: grid; place-items: center; margin-top: 1px; }
   .bb-list :global(li.empty) { display: block; color: var(--ink-muted); }
   .bb-list :global(.li-t) { outline: none; border-radius: 6px; }
   .bb-list :global(.li-t:focus) { background: var(--primary-soft); }
   .bb-list :global(.li-t mark) { background: #fff3b8; border-bottom: 1px dashed #b58b00; border-radius: 3px; padding: 0 2px; color: inherit; }
   .bb-list :global(.li-b) { display: flex; gap: 2px; }
-  .bb-list :global(.li-b button) { border: 0; background: none; color: var(--ink-muted); font-size: 1rem; padding: 0 5px; cursor: pointer; }
+  .bb-list :global(.li-b button) { border: 0; background: none; color: var(--ink-muted); font-size: 0.9rem; padding: 0 4px; cursor: pointer; opacity: 0.55; }
+  .bb-list :global(li:hover .li-b button), .bb-list :global(.li-b button:focus-visible) { opacity: 1; }
+  @media (hover: none) { .bb-list :global(.li-b button) { opacity: 1; } }
   .bb-list :global(.li-b button:disabled) { opacity: 0.3; cursor: default; }
   .bb-warn { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--r-sm); padding: 8px 10px; font-size: 0.9rem; color: #8a5a00; font-weight: 650; }
   .bb-actions { display: flex; gap: 8px; margin-top: 10px; }
@@ -176,7 +182,16 @@ const EXAMPLES = [
     let versions: string[] = [];
     let fixText = '';
     let list: string[] = [];
-    try { const v = JSON.parse(localStorage.getItem(KEY) || 'null'); if (Array.isArray(v)) list = v.filter((x) => typeof x === 'string'); } catch { /* storage unavailable */ }
+    const strip = (t: string) => t.replace(/^\s*[•\-]\s*/, '').trim();
+    const norm = (t: string) => strip(t).toLowerCase().replace(/[.\s]+$/, '').replace(/\s+/g, ' ');
+    try {
+      const v = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (Array.isArray(v)) {
+        const seen = new Set<string>();
+        list = v.filter((x) => typeof x === 'string').map(strip).filter((x) => x && !seen.has(norm(x)) && seen.add(norm(x)));
+      }
+    } catch { /* storage unavailable */ }
+    const inList = (t: string) => list.some((x) => norm(x) === norm(t));
 
     const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
     const M = (t: string) => `<mark>${esc(t)}</mark>`;
@@ -239,6 +254,7 @@ const EXAMPLES = [
       out.innerHTML = (uniq.length === 1 ? '<p class="bb-note">Add a result to get a result-first version.</p>' : '') +
         uniq.map(([label, h], i) => { const t = fin(h); return `<div class="bb-ver"><small>${label}</small><p>${t}</p><button type="button" class="btn btn-ghost btn-sm" data-add="${i}">+ Add</button>${chk(checks(t))}</div>`; }).join('');
       versions = uniq.map(([, h]) => plain(fin(h)));
+      markAdded();
     }
 
     function fix() {
@@ -269,22 +285,37 @@ const EXAMPLES = [
       if (freq) notes.push(`<li><span class="v">✓</span>"${freq}" instead of a vague time phrase</li>`);
       out.innerHTML = `<p class="bb-bad">${esc(src)}</p><ul class="bb-fixlist">${notes.join('')}</ul><div class="bb-ver"><small>Stronger version${/<mark>/.test(t) ? ' · fill the yellow parts' : ''}</small><p>${t}</p><button type="button" class="btn btn-ghost btn-sm" data-add-fix>+ Add</button>${chk(checks(t))}</div>`;
       fixText = plain(t);
+      markAdded();
     }
 
-    function renderList() {
+    function markAdded() {
+      root.querySelectorAll<HTMLButtonElement>('[data-add], [data-add-fix]').forEach((b) => {
+        const t = b.hasAttribute('data-add-fix') ? fixText : versions[Number(b.dataset.add)];
+        const added = !!t && inList(t);
+        b.disabled = added; b.classList.toggle('is-added', added);
+        b.textContent = added ? '✓ In your list' : '+ Add';
+      });
+    }
+    function addBullet(t: string, source: string) {
+      if (!t || inList(t)) return;
+      list.push(strip(t)); renderList(true); markAdded();
+      track('bullet_add', { source });
+    }
+    function renderList(flashLast = false) {
       const ul = $('[data-list]');
       ul.innerHTML = list.length
-        ? list.map((b, i) => `<li><span class="li-t" contenteditable="true" spellcheck="false" data-i="${i}">${esc(b).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>')}</span><span class="li-b"><button type="button" data-up="${i}" aria-label="Move up"${i === 0 ? ' disabled' : ''}>↑</button><button type="button" data-dn="${i}" aria-label="Move down"${i === list.length - 1 ? ' disabled' : ''}>↓</button><button type="button" data-del="${i}" aria-label="Remove">×</button></span></li>`).join('')
+        ? list.map((b, i) => `<li${flashLast && i === list.length - 1 ? ' class="is-new"' : ''}><span class="li-n">${i + 1}</span><span class="li-t" contenteditable="true" spellcheck="false" data-i="${i}">${esc(b).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>')}</span><span class="li-b"><button type="button" data-up="${i}" aria-label="Move up"${i === 0 ? ' disabled' : ''}>↑</button><button type="button" data-dn="${i}" aria-label="Move down"${i === list.length - 1 ? ' disabled' : ''}>↓</button><button type="button" data-del="${i}" aria-label="Remove">×</button></span></li>`).join('')
         : '<li class="empty">Press Add on a version to start your list.</li>';
       const n = list.length;
       $('[data-count]').textContent = `${n} bullet${n === 1 ? '' : 's'} · ${n < 4 ? 'aim for 4 to 6 on your current role' : n <= 6 ? '✓ good length for your current role' : 'more than 6: keep the strongest'}`;
       $('[data-warn]').hidden = true; $('[data-next]').hidden = true;
       try { localStorage.setItem(KEY, JSON.stringify(list)); } catch { /* storage unavailable */ }
+      if (flashLast) { const last = ul.lastElementChild as HTMLElement | null; last?.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
     }
     const save = () => { try { localStorage.setItem(KEY, JSON.stringify(list)); } catch { /* storage unavailable */ } };
 
     async function copyList(withPlaceholders: boolean) {
-      const t = list.join('\n');
+      const t = list.map((b) => (opt('mk') ? '• ' : '') + strip(b)).join('\n');
       try { await navigator.clipboard.writeText(t); } catch { /* clipboard unavailable */ }
       $('[data-warn]').hidden = true; $('[data-next]').hidden = false;
       const l = $('[data-copy-label]'); l.textContent = 'Copied!'; setTimeout(() => { l.textContent = 'Copy list'; }, 1600);
@@ -294,7 +325,7 @@ const EXAMPLES = [
     root.addEventListener('input', (e) => {
       const t = e.target as HTMLElement;
       const li = t.closest<HTMLElement>('.li-t');
-      if (li) { list[Number(li.dataset.i)] = li.textContent || ''; save(); return; }
+      if (li) { list[Number(li.dataset.i)] = strip(li.textContent || ''); save(); markAdded(); return; }
       if (t.closest('[data-pane="fix"]')) fix(); else if (t.closest('[data-pane="build"]')) build();
     });
     root.addEventListener('change', (e) => { if ((e.target as HTMLElement).dataset.o) { build(); fix(); } });
@@ -320,12 +351,12 @@ const EXAMPLES = [
       const ex = t.closest<HTMLElement>('[data-ex]');
       if (ex) { ($('#bb-src') as HTMLTextAreaElement).value = ex.dataset.text!; fixVerbManual = null; fix(); return; }
       const add = t.closest<HTMLElement>('[data-add]');
-      if (add) { list.push(versions[Number(add.dataset.add)]); renderList(); track('bullet_add', { source: 'build' }); return; }
-      if (t.closest('[data-add-fix]')) { list.push(fixText); renderList(); track('bullet_add', { source: 'fix' }); return; }
+      if (add) { addBullet(versions[Number(add.dataset.add)], 'build'); return; }
+      if (t.closest('[data-add-fix]')) { addBullet(fixText, 'fix'); return; }
       const up = t.closest<HTMLElement>('[data-up]'); if (up) { const i = Number(up.dataset.up); [list[i - 1], list[i]] = [list[i], list[i - 1]]; renderList(); return; }
       const dn = t.closest<HTMLElement>('[data-dn]'); if (dn) { const i = Number(dn.dataset.dn); [list[i + 1], list[i]] = [list[i], list[i + 1]]; renderList(); return; }
-      const del = t.closest<HTMLElement>('[data-del]'); if (del) { list.splice(Number(del.dataset.del), 1); renderList(); return; }
-      if (t.closest('[data-clear]')) { list = []; renderList(); return; }
+      const del = t.closest<HTMLElement>('[data-del]'); if (del) { list.splice(Number(del.dataset.del), 1); renderList(); markAdded(); return; }
+      if (t.closest('[data-clear]')) { list = []; renderList(); markAdded(); return; }
       if (t.closest('[data-copy-list]')) {
         const n = list.filter((b) => /\[[^\]]*\]/.test(b)).length;
         if (!list.length) return;
