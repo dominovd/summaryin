@@ -1,0 +1,83 @@
+---
+/**
+ * Role catalog with a section switcher. All three lists are in the HTML,
+ * so every summary, job-description and no-experience page gets a link from
+ * the page that renders this block. Only role names are shown.
+ */
+import { ROLE_GROUPS, ROLE_BY_SLUG, pageHref } from '../data/roles';
+
+interface Props {
+  heading?: string;
+  /** Sections to show, in order. */
+  sections?: ('s' | 'd' | 'n')[];
+  id?: string;
+}
+const { heading = 'Resume examples by profession', sections = ['s', 'd', 'n'], id = 'roles' } = Astro.props;
+
+const LABEL = { s: 'Resume summaries', d: 'Job descriptions', n: 'No experience' } as const;
+const LEAD = {
+  s: '20 summary examples for each role, entry level to senior.',
+  d: 'Duty bullets for the experience section, ready to paste.',
+  n: 'Summaries for a first job, students and career changers.',
+} as const;
+const ANCHOR = { s: 'resume summary examples', d: 'job description for resume', n: 'resume summary with no experience' } as const;
+---
+
+<section class="section" id={id} aria-labelledby={`${id}-heading`}>
+  <div class="container">
+    <h2 id={`${id}-heading`}>{heading}</h2>
+    {sections.length > 1 && (
+      <div class="rc-tabs" role="tablist" aria-label="Page type" data-rc-tabs>
+        {sections.map((k, i) => (
+          <button type="button" role="tab" data-sec={k} data-lead={LEAD[k]} aria-selected={i === 0 ? 'true' : 'false'}>{LABEL[k]}</button>
+        ))}
+      </div>
+    )}
+    <p class="rc-lead muted" data-rc-lead>{LEAD[sections[0]]}</p>
+    {sections.map((k, i) => (
+      <div class="rc-dir" data-rc-dir={k} hidden={i !== 0}>
+        {ROLE_GROUPS.map((g) => {
+          const rows = g.slugs.map((s) => ROLE_BY_SLUG[s]).filter((r) => r && r.pages[k]);
+          return rows.length > 0 && (
+            <div class="rc-grp">
+              <h3>{g.name}</h3>
+              <ul>
+                {rows.map((r) => (
+                  <li><a href={pageHref(r.slug, k)} title={`${r.name} ${ANCHOR[k]}`}>{r.name}</a></li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    ))}
+    <p class="rc-foot muted">Not on the list? The <a href="/#generator">generator</a> works for any job title.</p>
+  </div>
+</section>
+
+<style>
+  .rc-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .rc-tabs button { font: inherit; font-size: 0.93rem; border: 1px solid var(--border); background: #fff; color: var(--ink-soft); border-radius: 999px; padding: 7px 15px; cursor: pointer; }
+  .rc-tabs button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .rc-lead { margin: 14px 0 0; font-size: 0.95rem; }
+  .rc-dir { margin-top: 20px; columns: 4 200px; column-gap: 32px; }
+  .rc-dir[hidden] { display: none; }
+  .rc-grp { break-inside: avoid; margin-bottom: 22px; }
+  .rc-grp h3 { font-size: 0.78rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin: 0 0 4px; }
+  .rc-grp ul { list-style: none; margin: 0; padding: 0; }
+  .rc-grp a { display: block; padding: 5px 0; color: var(--ink); font-size: 0.98rem; }
+  .rc-grp a:hover { color: var(--primary); }
+  .rc-foot { font-size: 0.92rem; margin: 4px 0 0; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-rc-tabs]').forEach((tabs) => {
+    const sec = tabs.closest('section')!;
+    tabs.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLElement>('[data-sec]'); if (!b) return;
+      tabs.querySelectorAll('button').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+      sec.querySelectorAll<HTMLElement>('[data-rc-dir]').forEach((d) => { d.hidden = d.dataset.rcDir !== b.dataset.sec; });
+      sec.querySelector('[data-rc-lead]')!.textContent = b.dataset.lead || '';
+    });
+  });
+</script>

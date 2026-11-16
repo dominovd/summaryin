@@ -1,23 +1,27 @@
 ---
 import Base from '../layouts/Base.astro';
 import Generator from '../components/Generator.astro';
-import CopyBlock from '../components/CopyBlock.astro';
-import CopyScript from '../components/CopyScript.astro';
-import ProfessionGrid from '../components/ProfessionGrid.astro';
+import RoleCatalog from '../components/RoleCatalog.astro';
 import EmailCapture from '../components/EmailCapture.astro';
 import Faq from '../components/Faq.astro';
-import RelatedKeywords from '../components/RelatedKeywords.astro';
-import CtaBanner from '../components/CtaBanner.astro';
+import AppJsonLd from '../components/AppJsonLd.astro';
 import professions from '../data/professions.json';
+import { SITE } from '../data/site';
 
-const cs = professions['customer-service'];
+type Ex = { label: string; paragraphs: string[] };
+type Prof = { name: string; examples: { entry: Ex[]; mid: Ex[]; senior: Ex[] } };
+const P = professions as Record<string, Prof>;
 
-const popularChips = [
-  { label: 'Customer Service', href: '/resume-summary/customer-service/' },
-  { label: 'Project Manager', href: '/resume-summary/project-manager/' },
-  { label: 'Nursing', href: '/resume-summary/nursing/' },
-  { label: 'All professions', href: '/resume-summary/' },
-];
+/** First example per level for every profession: the examples block follows the generator's role. */
+const examplesByRole = Object.fromEntries(
+  Object.entries(P).map(([slug, p]) => [slug, {
+    name: p.name,
+    items: (['entry', 'mid', 'senior'] as const).map((lvl) => p.examples[lvl][0].paragraphs.join(' ')),
+  }])
+);
+const cs = examplesByRole['customer-service'];
+const LEVELS = ['Entry-level', 'Mid-career', 'Senior'];
+const mark = (t: string) => t.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]!)).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
 
 const faq = [
   {
@@ -25,12 +29,12 @@ const faq = [
     a: 'A resume summary is a short statement at the top of your resume, usually two or three sentences. It highlights your experience, strongest skills, and one result you are proud of. A recruiter should be able to see why you fit the role in a few seconds.',
   },
   {
-    q: 'Is this generator really free?',
+    q: 'Is this resume summary generator really free?',
     a: 'Yes. It is completely free, with no sign-up or word limit. The generator works in your browser, so we do not send or store what you type.',
   },
   {
     q: 'Resume summary or objective: which should I use?',
-    a: 'A summary works better for most people because it shows what you can offer an employer. An objective focuses on what you want. If you are making a major career change, one short sentence can explain the move, but your skills should still do most of the talking.',
+    a: 'A summary works better for most people because it shows what you can offer an employer. An objective focuses on what you want, so it fits entry-level applicants and career changers best. Switch the generator above to the Objective tab to write one.',
   },
   {
     q: 'How long should a professional summary be?',
@@ -38,198 +42,149 @@ const faq = [
   },
   {
     q: 'Can I use the generated summary on LinkedIn?',
-    a: 'Yes. It can become the opening of your LinkedIn About section. LinkedIn gives you more space, so you can add a sentence about the work you enjoy or the opportunity you want next.',
+    a: 'Yes. It can become the opening of your LinkedIn About section, and the LinkedIn headline tab gives you a short version for the headline field.',
   },
-];
-
-const relatedKeywords = [
-  'professional summary for resume',
-  'resume summary examples',
-  'what is a resume summary',
-  'summary for resume',
-  'good summary for resume',
-  'professional summary for cv',
-  'resume summary generator',
-  'brief cv summary',
 ];
 ---
 
 <Base
   title="Free Resume Summary Generator"
-  description="Write a clear professional summary in seconds. It is free, requires no sign-up, and works privately in your browser."
+  description="Write a clear professional summary in seconds. Pick your role, add one real result, and copy a summary, objective, or LinkedIn headline. Free and private."
 >
-  <!-- 1. Hero -->
+  <AppJsonLd
+    name="Free Resume Summary Generator"
+    description="Free browser-based tool that writes a resume summary, objective, or LinkedIn headline from your role, skills, and one real result."
+    path="/"
+  />
+
   <section class="hero">
-    <div class="container">
-      <p class="hero-kicker">Free · No sign-up</p>
-      <h1>Free Resume Summary Generator</h1>
-      <p class="lead">
-        Write a clear professional summary in seconds. Copy a version you like, adjust the details, and add it to your resume.
-      </p>
-      <div class="badges hero-badges">
-        <span class="badge">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          100% free
-        </span>
-        <span class="badge">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Your details stay on this device
-        </span>
-        <span class="badge">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          4 tailored options
-        </span>
+    <div class="container hero-inner">
+      <div>
+        <h1>Free Resume Summary Generator</h1>
+        <p class="lead">Pick your role, add one real result, and copy a 2 to 3 sentence summary, objective, or LinkedIn headline.</p>
       </div>
+      <ul class="facts">
+        <li>Free, no sign-up</li>
+        <li>Runs in your browser</li>
+        <li>Examples for {Object.keys(P).length} professions</li>
+      </ul>
     </div>
   </section>
 
-  <!-- 2. Tool -->
   <section class="tool-section" id="generator">
     <div class="container">
-      <Generator
-        defaultRole="Customer Service Representative"
-        skills={['Communication', 'CRM', 'Problem solving', 'Order management', 'Teamwork', 'Time management']}
-        defaultSkills={['Communication', 'CRM', 'Problem solving']}
-        family="customer-office"
-      />
-      <div class="popular-row">
-        <span class="muted popular-label">Popular:</span>
-        {popularChips.map((c) => <a class="chip" href={c.href}>{c.label}</a>)}
-      </div>
+      <Generator defaultRole="" exampleRole="Customer Service Representative" heading="Your details" />
     </div>
   </section>
 
-  <!-- 3. Copyable examples -->
-  <section class="section" aria-labelledby="examples-heading">
+  <section class="section" aria-labelledby="examples-heading" data-role-examples>
+    <script type="application/json" data-examples-json set:html={JSON.stringify(examplesByRole)} />
     <div class="container">
       <div class="section-head">
-        <h2 id="examples-heading">Professional summary examples you can copy</h2>
-        <p class="muted">
-          See how the same summary changes as your experience grows.
-          Want your profession? <a href="/resume-summary/">Browse examples by role</a>.
-        </p>
+        <h2 id="examples-heading">Resume summary examples you can copy</h2>
+        <p class="muted">How the same summary changes as experience grows. The examples follow the role you type above.</p>
       </div>
-      <div class="grid grid-3">
-        <CopyBlock label="Entry-level" icon="entry" paragraphs={cs.examples.entry[0].paragraphs} />
-        <CopyBlock label="Mid-career" icon="mid" paragraphs={cs.examples.mid[0].paragraphs} />
-        <CopyBlock label="Senior" icon="senior" paragraphs={cs.examples.senior[0].paragraphs} />
+      <div class="grid grid-3 ex-grid" data-ex-grid>
+        {cs.items.map((t, i) => (
+          <article class="card ex-card">
+            <span class="ex-level">{LEVELS[i]}</span>
+            <p set:html={mark(t)} />
+            <button type="button" class="btn btn-ghost btn-sm" data-ex-copy>Copy</button>
+          </article>
+        ))}
       </div>
+      <p class="ex-bar">
+        <span>Showing <b data-ex-name>Customer Service</b>.<span data-ex-note></span></span>
+        <a href="/resume-summary/customer-service/" data-ex-link>All 20 Customer Service summary examples →</a>
+      </p>
     </div>
   </section>
 
-  <!-- 4. Profession grid -->
-  <ProfessionGrid />
-
-  <!-- 5. How-to + power words -->
-  <section class="section section-subtle" id="power-words" aria-labelledby="howto-heading">
+  <section class="section section-subtle" aria-labelledby="anatomy-heading">
     <div class="container">
-      <div class="grid grid-2 howto-grid">
-        <div class="card">
-          <h2 id="howto-heading" class="howto-title">Build a stronger summary</h2>
-          <ol class="steps">
-            <li>
-              <h3>Lead with your role</h3>
-              <p class="muted">Start with your job title and years of experience. That is the first thing most recruiters compare with the posting.</p>
-            </li>
-            <li>
-              <h3>Add proof with numbers</h3>
-              <p class="muted">A real number says more than a list of adjectives. Use a satisfaction score, time saved, revenue, error rate, or another result the employer will understand.</p>
-            </li>
-            <li>
-              <h3>Match the job's language</h3>
-              <p class="muted">Use the same terms you see in the job description. Recruiters and ATS filters both look for that familiar language.</p>
-            </li>
-          </ol>
-        </div>
-        <div class="card">
-          <h2 class="howto-title">Words that make your experience specific</h2>
-          <div class="table-wrap">
-            <table class="data">
-              <thead>
-                <tr><th scope="col">Word</th><th scope="col">How to use it</th></tr>
-              </thead>
-              <tbody>
-                {cs.powerWords.map((w) => (
-                  <tr><td>{w.word}</td><td>{w.usage}</td></tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p class="table-note muted">More power words on every <a href="/resume-summary/">profession page</a>.</p>
-        </div>
+      <div class="section-head">
+        <h2 id="anatomy-heading">What a strong resume summary has</h2>
+        <p class="muted">Three parts, in this order. Recruiters compare the first one with the job posting.</p>
+      </div>
+      <div class="anat">
+        <p class="anat-ex card">
+          <span class="a1">Customer support specialist with 4 years</span> across phone, email, and live chat,
+          <span class="a2">handling 65 conversations per day in Zendesk</span>.
+          <span class="a3">Maintained 94% customer satisfaction</span> while keeping response times within the team target.
+        </p>
+        <ol class="anat-list">
+          <li><i class="a1"></i><div><b>Lead with your role</b>Job title and years of experience, the first thing most recruiters check.</div></li>
+          <li><i class="a2"></i><div><b>Name the tools and skills</b>Use the same words as the job description. Recruiters and ATS filters look for them.</div></li>
+          <li><i class="a3"></i><div><b>Add proof with a number</b>A satisfaction score, time saved, revenue, or error rate says more than adjectives.</div></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- 6. Email capture -->
-  <EmailCapture />
+  <RoleCatalog heading="Resume examples by profession" />
 
-  <!-- 7. FAQ (+ FAQPage schema) -->
+  {SITE.emailFormAction && <EmailCapture />}
+
   <Faq items={faq} />
-
-  <!-- 8. Related searches -->
-  <RelatedKeywords keywords={relatedKeywords} />
-
-  <!-- 9. Bridge CTA to resume builder -->
-  <CtaBanner />
-
-  <CopyScript />
 </Base>
 
 <style>
-  .hero { padding: 56px 0 8px; }
-  .hero-kicker {
-    color: var(--primary);
-    font-weight: 750;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-  }
-  .hero-badges { margin-top: 18px; }
-
-  .tool-section { padding: 28px 0 12px; }
-  .popular-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-  }
-  .popular-label { font-size: 0.92rem; margin-right: 4px; }
-
-  .howto-grid { align-items: stretch; }
-  .howto-title { font-size: 1.25rem; margin-bottom: 16px; }
-  .steps {
-    list-style: none;
-    counter-reset: step;
-    margin: 0;
-    padding: 0;
-  }
-  .steps li {
-    counter-increment: step;
-    position: relative;
-    padding-left: 46px;
-    margin-bottom: 18px;
-  }
-  .steps li:last-child { margin-bottom: 0; }
-  .steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1.6px solid var(--primary);
-    color: var(--primary);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.95rem;
-  }
-  .steps h3 { margin-bottom: 2px; font-size: 1rem; }
-  .steps p { margin: 0; font-size: 0.94rem; }
-  .table-note { font-size: 0.88rem; margin: 12px 0 0; }
+  .hero { padding: 44px 0 4px; }
+  .hero-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; }
+  .hero h1 { margin-bottom: 10px; }
+  .hero .lead { margin: 0; max-width: 40rem; }
+  .facts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 0.93rem; font-weight: 570; color: var(--ink-soft); }
+  .facts li::before { content: "✓ "; color: var(--success); font-weight: 700; }
+  .tool-section { padding: 20px 0 8px; }
+  .ex-card { display: flex; flex-direction: column; gap: 10px; }
+  .ex-card p { margin: 0; color: var(--ink-soft); font-size: 0.97rem; flex: 1; }
+  .ex-card :global(mark) { background: #fff3b8; border-bottom: 1px dashed #b58b00; border-radius: 3px; padding: 0 2px; color: var(--ink); }
+  .ex-card .btn { align-self: flex-start; }
+  .ex-level { font-size: 0.78rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary); }
+  .btn-sm { padding: 7px 14px; font-size: 0.9rem; }
+  .ex-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin: 16px 0 0; font-size: 0.95rem; }
+  .ex-bar a { font-weight: 650; }
+  .anat { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  @media (max-width: 820px) { .anat { grid-template-columns: 1fr; } }
+  .anat-ex { margin: 0; font-size: 1.05rem; line-height: 1.75; }
+  .anat-ex span { border-radius: 4px; padding: 1px 3px; }
+  .a1 { background: #dbeafe; } .a2 { background: #dcfce7; } .a3 { background: #fef3c7; }
+  .anat-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .anat-list li { display: grid; grid-template-columns: 14px 1fr; gap: 12px; font-size: 0.97rem; color: var(--ink-soft); }
+  .anat-list i { width: 14px; height: 14px; border-radius: 4px; margin-top: 5px; }
+  .anat-list b { display: block; color: var(--ink); }
 </style>
+
+<script>
+  const sec = document.querySelector<HTMLElement>('[data-role-examples]');
+  if (sec) {
+    const data: Record<string, { name: string; items: string[] }> = JSON.parse(sec.querySelector('[data-examples-json]')!.textContent || '{}');
+    const esc = (s: string) => s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]!));
+    const mark = (t: string) => esc(t).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
+    let shown = 'customer-service';
+    const note = sec.querySelector<HTMLElement>('[data-ex-note]')!;
+    document.addEventListener('summaryin:role', (e) => {
+      const det = (e as CustomEvent).detail || {};
+      const slug = det.slug as string | null;
+      const key = slug && data[slug] ? slug : 'customer-service';
+      note.innerHTML = slug && !data[slug] && det.pages?.d
+        ? ` No summary examples for ${det.name} yet. <a href="/job-description/${slug}/">${det.name} duties for your resume →</a>`
+        : '';
+      if (key === shown) return;
+      shown = key;
+      const d = data[key];
+      sec.querySelectorAll<HTMLElement>('.ex-card p').forEach((p, i) => { p.innerHTML = mark(d.items[i]); });
+      sec.querySelector('[data-ex-name]')!.textContent = d.name;
+      const a = sec.querySelector<HTMLAnchorElement>('[data-ex-link]')!;
+      a.href = `/resume-summary/${key}/`;
+      a.textContent = `All 20 ${d.name} summary examples →`;
+    });
+    sec.addEventListener('click', async (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-ex-copy]'); if (!b) return;
+      const text = b.closest('.ex-card')!.querySelector('p')!.textContent || '';
+      try { await navigator.clipboard.writeText(text); } catch { /* clipboard unavailable */ }
+      b.textContent = 'Copied!'; b.classList.add('is-copied');
+      setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('is-copied'); }, 1600);
+    });
+  }
+</script>

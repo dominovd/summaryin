@@ -1,0 +1,28 @@
+---
+/** WebApplication schema for pages whose main content is a free browser tool. */
+import { SITE } from '../data/site';
+
+interface Props {
+  name: string;
+  description: string;
+  path: string;
+}
+
+const { name, description, path } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name,
+  description,
+  url: new URL(path, SITE.url).href,
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Any',
+  browserRequirements: 'Requires JavaScript',
+  isAccessibleForFree: true,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  publisher: { '@id': `${SITE.url}/#organization` },
+  inLanguage: 'en-US',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

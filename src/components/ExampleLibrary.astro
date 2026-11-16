@@ -1,0 +1,240 @@
+---
+/**
+ * Profession examples with a level filter and an editor.
+ * Clicking a card opens it in the editor: the text is editable, bracketed
+ * placeholders are highlighted, and Copy warns while any bracket is left.
+ * Desktop: sticky editor on the right. Mobile: bottom sheet over the list.
+ * All examples stay in the HTML; the filter only hides cards.
+ */
+interface Ex { label: string; paragraphs: string[] }
+interface Props {
+  name: string;
+  slug: string;
+  examples: { entry: Ex[]; mid: Ex[]; senior: Ex[] };
+  /** Where "Next" points after a copy. */
+  nextHref: string;
+  nextLabel: string;
+}
+const { name, slug, examples, nextHref, nextLabel } = Astro.props;
+
+const LEVEL = { entry: 'Entry-level', mid: 'Mid-career', senior: 'Senior' } as const;
+const all = (['entry', 'mid', 'senior'] as const).flatMap((lvl) =>
+  examples[lvl].map((e) => ({ lvl, label: e.label, text: e.paragraphs.join(' ') }))
+);
+const seen: Record<string, number> = {};
+all.forEach((e) => { seen[e.label] = (seen[e.label] ?? 0) + 1; });
+const items = all.map((e, i) => ({ ...e, i, title: seen[e.label] > 1 ? `${e.label} (${LEVEL[e.lvl].toLowerCase()})` : e.label }));
+const count = { all: items.length, entry: examples.entry.length, mid: examples.mid.length, senior: examples.senior.length };
+const parts = (t: string) => t.split(/(\[[^\]]+\])/g).filter(Boolean);
+const first = items.find((e) => e.lvl === 'mid') ?? items[0];
+const nameLc = /^[A-Z0-9]+$/.test(name) ? name : name.toLowerCase();
+---
+
+<section class="section lib-section" id="examples" aria-labelledby="lib-heading" data-lib data-slug={slug}>
+  <div class="container lib">
+    <div class="lib-main">
+      <h2 id="lib-heading">{name} summary for resume: {count.all} examples</h2>
+      <div class="lib-filter" role="group" aria-label="Filter by level" data-lib-filter>
+        {(['all', 'entry', 'mid', 'senior'] as const).map((k) => (
+          <button type="button" data-v={k} aria-pressed={k === 'all' ? 'true' : 'false'}>
+            {k === 'all' ? 'All' : LEVEL[k]}<span>{count[k]}</span>
+          </button>
+        ))}
+      </div>
+      <p class="lib-count muted">Showing <b data-lib-shown>{count.all}</b> examples. Pick one to edit it.</p>
+      <div class="lib-list">
+        {items.map((e) => (
+          <article class={`lib-card${e.i === first.i ? ' is-on' : ''}`} data-lvl={e.lvl} data-i={e.i} tabindex="0" aria-label={`Use the ${e.title} example`}>
+            <div class="lib-card-head">
+              <h3>{e.title}</h3>
+              <span class="lib-tag">{LEVEL[e.lvl]}</span>
+            </div>
+            <p data-text>{parts(e.text).map((p) => /^\[[^\]]+\]$/.test(p) ? <mark>{p}</mark> : p)}</p>
+            <button type="button" class="btn btn-ghost lib-use" tabindex="-1">Use this</button>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <aside class="lib-ed is-min" aria-label="Your summary editor" data-lib-ed>
+      <button type="button" class="lib-ed-head" data-lib-toggle>
+        <span><small>Your summary</small><b data-lib-title>{first.title}</b></span>
+        <span class="lib-ed-state"><span data-lib-state></span> <span class="lib-ed-arrow" data-lib-arrow>Open</span></span>
+      </button>
+      <div class="lib-ed-body">
+        <div class="lib-ed-text" contenteditable="true" spellcheck="false" aria-label="Summary text, editable" data-lib-text></div>
+        <div class="lib-ed-meta"><span data-lib-filled></span><span data-lib-words></span></div>
+        <div class="lib-warn" data-lib-warn hidden>
+          <span data-lib-warn-text></span>
+          <span><button type="button" class="btn btn-ghost btn-sm" data-lib-fill>Fill now</button> <button type="button" class="btn btn-ghost btn-sm" data-lib-anyway>Copy anyway</button></span>
+        </div>
+        <div class="lib-ed-actions">
+          <button type="button" class="btn btn-primary" data-lib-copy><span data-lib-copy-label>Copy summary</span></button>
+          <button type="button" class="btn btn-ghost" data-lib-reset>Reset</button>
+        </div>
+        <p class="lib-ed-hint muted">Click a highlighted part to replace it. The rest of the text is editable too.</p>
+        <div class="lib-next" data-lib-next hidden>
+          <b>✓ Copied.</b> <span>Next: the experience section.</span>
+          <a class="btn btn-primary btn-sm" href={nextHref} data-lib-next-link>{nextLabel} →</a>
+        </div>
+      </div>
+      <a class="lib-ed-scratch" href="#generator">None of these fit? Build a {nameLc} summary from scratch ↓</a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .lib-section { padding-top: 32px; }
+  .lib { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 28px; align-items: start; }
+  .lib-main { min-width: 0; }
+  .lib-main h2 { font-size: clamp(1.3rem, 2.4vw, 1.6rem); }
+  .lib-filter { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .lib-filter button { font: inherit; font-size: 0.92rem; border: 1px solid var(--border); background: #fff; color: var(--ink-soft); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .lib-filter button span { margin-left: 5px; color: var(--ink-muted); font-size: 0.82rem; }
+  .lib-filter button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .lib-filter button[aria-pressed="true"] span { color: #cbd5e1; }
+  .lib-count { font-size: 0.9rem; margin: 12px 0 0; }
+  .lib-list { display: grid; gap: 10px; margin-top: 12px; }
+  .lib-card { border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 14px; cursor: pointer; background: #fff; transition: border-color 0.15s; }
+  .lib-card[hidden] { display: none; }
+  .lib-card:hover { border-color: var(--primary-border); }
+  .lib-card.is-on { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+  .lib-card-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .lib-card h3 { font-size: 1rem; margin: 0; }
+  .lib-tag { font-size: 0.75rem; font-weight: 650; border-radius: 6px; padding: 1px 7px; background: var(--bg-subtle); color: var(--ink-muted); }
+  .lib-card p { grid-column: 1 / -1; grid-row: 2; margin: 0; font-size: 0.96rem; color: var(--ink-soft); }
+  .lib-card mark, .lib-ed-text :global(mark) { background: #fff3b8; border-bottom: 1px dashed #b58b00; border-radius: 3px; padding: 0 2px; color: var(--ink); }
+  .lib-use { padding: 6px 12px; font-size: 0.88rem; grid-column: 2; grid-row: 1; align-self: start; }
+  .lib-ed { position: sticky; top: 16px; border: 1px solid var(--border); border-radius: var(--r-lg); background: #fff; box-shadow: var(--shadow-card); overflow: hidden; }
+  .lib-ed-head { all: unset; box-sizing: border-box; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 16px; background: var(--bg-subtle); border-bottom: 1px solid var(--border); cursor: default; }
+  .lib-ed-head small { display: block; font-size: 0.74rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary); }
+  .lib-ed-head b { color: var(--ink); font-size: 1rem; }
+  .lib-ed-state { display: none; font-size: 0.85rem; color: var(--ink-muted); white-space: nowrap; }
+  .lib-ed-body { padding: 16px; }
+  .lib-ed-text { border: 1px solid var(--border); border-radius: var(--r-md); padding: 12px 14px; min-height: 120px; line-height: 1.8; color: var(--ink); outline: none; font-size: 0.98rem; }
+  .lib-ed-text:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+  .lib-ed-text :global(mark.is-done) { background: var(--success-soft); border-bottom-color: var(--success); }
+  .lib-ed-meta { display: flex; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 0.85rem; color: var(--ink-muted); }
+  .lib-ed-meta :global(.ok) { color: var(--success); font-weight: 650; }
+  .lib-ed-meta :global(.warn) { color: #8a5a00; font-weight: 650; }
+  .lib-warn { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--r-sm); padding: 8px 10px; font-size: 0.88rem; color: #8a5a00; font-weight: 650; }
+  .btn-sm { padding: 6px 12px; font-size: 0.86rem; }
+  .lib-ed-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .lib-ed-actions .btn-primary { flex: 1; }
+  .lib-ed-hint { font-size: 0.82rem; margin: 10px 0 0; }
+  .lib-next { margin-top: 12px; border: 1px solid #bfe3cc; background: var(--success-soft); border-radius: var(--r-md); padding: 12px 14px; font-size: 0.93rem; display: grid; gap: 8px; }
+  .lib-next b { color: var(--success); }
+  .lib-next .btn { justify-self: start; }
+  .lib-ed-scratch { display: block; border-top: 1px solid var(--border); padding: 12px 16px; font-size: 0.9rem; font-weight: 650; background: var(--bg-subtle); }
+  @media (min-width: 901px) {
+    .lib-ed.is-min .lib-ed-body { display: block; }
+  }
+  @media (max-width: 900px) {
+    .lib { grid-template-columns: 1fr; }
+    .lib-ed { position: sticky; top: auto; bottom: 0; z-index: 20; margin: 0 -20px; border-radius: 18px 18px 0 0; box-shadow: 0 -10px 30px rgba(15, 23, 42, 0.18); max-height: 78vh; overflow: auto; }
+    .lib-ed-head { cursor: pointer; }
+    .lib-ed-state { display: inline; }
+    .lib-ed.is-min .lib-ed-body, .lib-ed.is-min .lib-ed-scratch { display: none; }
+    .lib-card { grid-template-columns: 1fr; }
+    .lib-use { display: none; }
+    .lib-card p { grid-row: auto; }
+  }
+</style>
+
+<script>
+  import { track } from '@vercel/analytics';
+
+  document.querySelectorAll<HTMLElement>('[data-lib]').forEach((root) => {
+    const $ = <T extends Element = HTMLElement>(s: string) => root.querySelector(s) as T;
+    const ed = $('[data-lib-ed]');
+    const txt = $('[data-lib-text]');
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('.lib-card'));
+    const mobile = () => window.matchMedia('(max-width: 900px)').matches;
+    const slug = root.dataset.slug || '';
+    let current = Number(root.querySelector<HTMLElement>('.lib-card.is-on')?.dataset.i ?? 0);
+    let total = 0;
+
+    const esc = (s: string) => s.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]!));
+    const source = (i: number) => cards.find((c) => Number(c.dataset.i) === i)!.querySelector('[data-text]')!.textContent || '';
+    const open = () => (txt.textContent!.match(/\[[^\]]*\]/g) || []).length;
+
+    function setArrow() { $('[data-lib-arrow]').textContent = ed.classList.contains('is-min') ? 'Open ↑' : 'Close ↓'; }
+    function update() {
+      const left = open();
+      txt.querySelectorAll('mark').forEach((m) => m.classList.toggle('is-done', !/\[/.test(m.textContent || '')));
+      const words = txt.textContent!.split(/\s+/).filter(Boolean).length;
+      $('[data-lib-filled]').innerHTML = left ? `<span class="warn">${Math.max(0, total - left)} of ${total} details filled</span>` : '<span class="ok">✓ All details filled</span>';
+      $('[data-lib-words]').textContent = `${words} words`;
+      $('[data-lib-state]').textContent = left ? `${Math.max(0, total - left)} of ${total} filled` : '✓ Ready';
+      if (!left) $('[data-lib-warn]').hidden = true;
+    }
+    function load(i: number) {
+      current = i;
+      cards.forEach((c) => c.classList.toggle('is-on', Number(c.dataset.i) === i));
+      const card = cards.find((c) => Number(c.dataset.i) === i)!;
+      $('[data-lib-title]').textContent = card.querySelector('h3')!.textContent;
+      const t = source(i);
+      total = (t.match(/\[[^\]]*\]/g) || []).length;
+      txt.innerHTML = esc(t).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
+      $('[data-lib-warn]').hidden = true;
+      $('[data-lib-next]').hidden = true;
+      update();
+    }
+    function selectFirst() {
+      const m = Array.from(txt.querySelectorAll('mark')).find((x) => /\[/.test(x.textContent || ''));
+      if (!m) return;
+      txt.focus({ preventScroll: true });
+      const r = document.createRange(); r.selectNodeContents(m); const s = getSelection()!; s.removeAllRanges(); s.addRange(r);
+    }
+    function filter(v: string) {
+      let n = 0;
+      root.querySelectorAll('[data-lib-filter] button').forEach((b) => b.setAttribute('aria-pressed', String((b as HTMLElement).dataset.v === v)));
+      cards.forEach((c) => { const ok = v === 'all' || c.dataset.lvl === v; c.hidden = !ok; if (ok) n++; });
+      $('[data-lib-shown]').textContent = String(n);
+    }
+
+    $('[data-lib-filter]').addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (!b) return;
+      filter(b.dataset.v!); track('example_filter', { slug, level: b.dataset.v! });
+    });
+    root.querySelector('.lib-list')!.addEventListener('click', (e) => {
+      const c = (e.target as HTMLElement).closest<HTMLElement>('.lib-card'); if (!c) return;
+      load(Number(c.dataset.i)); ed.classList.remove('is-min'); setArrow();
+      if (!mobile()) selectFirst();
+      track('example_open', { slug, index: Number(c.dataset.i) });
+    });
+    root.querySelector('.lib-list')!.addEventListener('keydown', (e) => {
+      const k = e as KeyboardEvent; const c = (k.target as HTMLElement).closest<HTMLElement>('.lib-card');
+      if (c && (k.key === 'Enter' || k.key === ' ')) { k.preventDefault(); c.click(); }
+    });
+    $('[data-lib-toggle]').addEventListener('click', () => { if (mobile()) { ed.classList.toggle('is-min'); setArrow(); } });
+    txt.addEventListener('input', update);
+    txt.addEventListener('click', (e) => {
+      const m = (e.target as HTMLElement).closest('mark');
+      if (m && /^\[/.test(m.textContent || '')) { const r = document.createRange(); r.selectNodeContents(m); const s = getSelection()!; s.removeAllRanges(); s.addRange(r); }
+    });
+    $('[data-lib-reset]').addEventListener('click', () => load(current));
+    async function copy(withPlaceholders: boolean) {
+      const t = txt.textContent!.replace(/\s+/g, ' ').trim();
+      try { await navigator.clipboard.writeText(t); } catch { /* clipboard unavailable */ }
+      $('[data-lib-warn]').hidden = true; $('[data-lib-next]').hidden = false;
+      const lbl = $('[data-lib-copy-label]'); lbl.textContent = 'Copied!';
+      setTimeout(() => { lbl.textContent = 'Copy summary'; }, 1600);
+      track(withPlaceholders ? 'copy_with_placeholders' : 'copy', { tool: 'example', slug });
+    }
+    $('[data-lib-copy]').addEventListener('click', () => {
+      const left = open();
+      if (left) { $('[data-lib-warn-text]').textContent = `${left} detail${left > 1 ? 's' : ''} still in brackets.`; $('[data-lib-warn]').hidden = false; $('[data-lib-next]').hidden = true; return; }
+      copy(false);
+    });
+    $('[data-lib-anyway]').addEventListener('click', () => copy(true));
+    $('[data-lib-fill]').addEventListener('click', () => { $('[data-lib-warn]').hidden = true; selectFirst(); });
+    $('[data-lib-next-link]').addEventListener('click', () => track('next_step_click', { tool: 'example', slug }));
+
+    const h = location.hash.replace('#', '');
+    if (['entry', 'mid', 'senior'].includes(h)) { filter(h); root.scrollIntoView(); }
+    if (!mobile()) ed.classList.remove('is-min');
+    setArrow();
+    load(current);
+  });
+</script>

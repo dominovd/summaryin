@@ -1,6 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
-import ProfessionGrid from '../../components/ProfessionGrid.astro';
+import RoleCards from '../../components/RoleCards.astro';
+import { SITE } from '../../data/site';
+import professions from '../../data/professions.json';
+const profCount = Object.keys(professions).length;
+const exCount = Object.values(professions as Record<string, { examples: Record<string, unknown[]> }>).reduce((n, p) => n + Object.values(p.examples).flat().length, 0);
 import CopyBlock from '../../components/CopyBlock.astro';
 import CopyScript from '../../components/CopyScript.astro';
 import Faq from '../../components/Faq.astro';
@@ -18,7 +22,7 @@ const faq = [
   },
   {
     q: 'How long should a resume summary be?',
-    a: 'Two or three short sentences are usually enough. Aim for roughly 40 to 70 words and remove anything that repeats information without adding context, scale, or evidence.',
+    a: 'Two or three short sentences are usually enough. Aim for about 40 to 60 words and remove anything that repeats information without adding context, scale, or evidence.',
   },
   {
     q: 'Should every resume have a summary?',
@@ -39,18 +43,20 @@ const faq = [
   <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Resume summaries', href: '/resume-summary/' }]} />
   <ArticleJsonLd headline="Resume Summary Examples by Profession" description={description} path="/resume-summary/" />
   <section class="hub-hero">
-    <div class="container">
-      <h1>Resume Summary Examples by Profession</h1>
-      <p class="lead">
-        Choose a profession to see examples for entry, mid, and senior level. Each guide includes
-        editable summaries, role-specific wording, a power-word table, and a generator that works
-        in your browser. Start with an example that resembles your real background, then replace
-        every highlighted prompt with a detail you can support.
-      </p>
+    <div class="container hub-head">
+      <div>
+        <h1>Resume Summary Examples by Profession</h1>
+        <p class="lead">Pick your profession and copy an example for your level: entry, mid-career, or senior.</p>
+      </div>
+      <dl class="hub-stats">
+        <div><dt>Professions</dt><dd>{profCount}</dd></div>
+        <div><dt>Examples</dt><dd>{exCount}</dd></div>
+        <div><dt>Last reviewed</dt><dd>{SITE.contentLastReviewed.replace(/^(\w{3})\w* \d+,/, '$1')}</dd></div>
+      </dl>
     </div>
   </section>
 
-  <ProfessionGrid />
+  <RoleCards />
 
   <section class="section section-subtle" aria-labelledby="include-heading">
     <div class="container">
@@ -172,7 +178,13 @@ const faq = [
 </Base>
 
 <style>
-  .hub-hero { padding: 56px 0 0; }
+  .hub-hero { padding: 44px 0 18px; }
+  .hub-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; }
+  .hub-head .lead { margin: 0; }
+  .hub-stats { display: flex; gap: 22px; margin: 0; }
+  .hub-stats div { display: flex; flex-direction: column-reverse; }
+  .hub-stats dt { font-size: 0.82rem; color: var(--ink-muted); }
+  .hub-stats dd { margin: 0; font-size: 1.6rem; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
   .guide-grid h2 { font-size: 1.3rem; }
   .guide-grid p { color: var(--ink-soft); }
   .check-list { padding-left: 1.25rem; color: var(--ink-soft); }

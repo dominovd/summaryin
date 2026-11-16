@@ -12,10 +12,12 @@ import CopyScript from '../../components/CopyScript.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
-import CtaBanner from '../../components/CtaBanner.astro';
+import RoleCatalog from '../../components/RoleCatalog.astro';
+import AppJsonLd from '../../components/AppJsonLd.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import { SITE } from '../../data/site';
 import EditorialNote from '../../components/EditorialNote.astro';
 import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
-import jobs from '../../data/jobDescriptions.json';
 
 const formatRules = [
   { rule: 'How many per job', answer: 'Four to six on your current role and three to four on older ones is a useful starting point. Keep only the lines that help explain your fit for the next job.' },
@@ -84,9 +86,6 @@ const relatedKeywords = [
   'bullet points on resume examples',
 ];
 
-const jobList = Object.entries(jobs)
-  .slice(0, 8)
-  .map(([slug, p]) => ({ slug, name: p.name }));
 ---
 
 <Base
@@ -98,28 +97,21 @@ const jobList = Object.entries(jobs)
     description="Free resume bullet point generator with editable formats, examples, and practical writing rules."
     path="/resume-bullet-points/"
   />
+  <AppJsonLd
+    name="Resume Bullet Point Generator"
+    description="Free browser tool that builds resume bullet points or improves a bullet you already have."
+    path="/resume-bullet-points/"
+  />
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Bullet points', href: '/resume-bullet-points/' }]} />
   <section class="hero">
     <div class="container">
-      <p class="hero-kicker">Free · No sign-up</p>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Bullet points</span></nav>
       <h1>Resume Bullet Point Generator</h1>
-      <p class="lead">
-        Turn a plain description of what you did into a formatted resume bullet, using the
-        simple structure: action verb, task, method, result.
+      <p class="lead">Build a bullet from what you did, or paste one you already have and make it stronger. Free, no sign-up, runs in your browser.</p>
+      <p class="hero-links">
+        <span class="muted">Reviewed {SITE.contentLastReviewed.replace(/^(\w{3})\w*/, '$1')} by the SummaryIn editorial team · <a href="/editorial-policy/">How we review</a></span>
+        <a href="#roles" class="hero-jump">Know your job? Start from ready bullets for 21 roles →</a>
       </p>
-      <div class="badges hero-badges">
-        <span class="badge">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Builds a list, not one line
-        </span>
-        <span class="badge">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Private in your browser
-        </span>
-        <span class="badge">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M5 8.2l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Period and marker options
-        </span>
-      </div>
     </div>
   </section>
 
@@ -128,6 +120,8 @@ const jobList = Object.entries(jobs)
       <BulletBuilder />
     </div>
   </section>
+
+  <RoleCatalog heading="Ready-made bullets for your job" sections={['d']} id="roles" />
 
   <!-- Short answer to the highest-volume question in this cluster -->
   <section class="section" aria-labelledby="how-many-heading">
@@ -183,40 +177,23 @@ const jobList = Object.entries(jobs)
     </div>
   </section>
 
-  <!-- Bridge to profession duty pages -->
-  <section class="section" aria-labelledby="byjob-heading">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="byjob-heading">Need bullets written for your job already?</h2>
-        <p class="muted">
-          The job description pages give you ready duty lines for a specific role. Tick what
-          you did and copy the block, then use the builder above for anything they missed.
-        </p>
-      </div>
-      <div class="grid grid-4">
-        {jobList.map((j) => (
-          <a class="job-tile card" href={`/job-description/${j.slug}/`}>{j.name}</a>
-        ))}
-      </div>
-      <p class="all-note muted">
-        <a href="/job-description/">See all job descriptions</a>
-      </p>
-    </div>
-  </section>
-
   <Faq items={faq} heading="Resume bullet point FAQ" />
   <RelatedKeywords keywords={relatedKeywords} />
   <div class="container">
     <EditorialNote label="resume bullet point guide" />
   </div>
-  <EmailCapture />
-  <CtaBanner />
+  {SITE.emailFormAction && <EmailCapture />}
 
   <CopyScript />
 </Base>
 
 <style>
-  .hero { padding: 56px 0 8px; }
+  .hero { padding: 40px 0 4px; }
+  .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--ink-muted); }
+  .hero .lead { max-width: 40rem; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 0.9rem; margin: 0; }
+  .hero-jump { font-weight: 650; }
   .hero-kicker {
     color: var(--primary);
     font-weight: 750;

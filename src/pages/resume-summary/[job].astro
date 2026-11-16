@@ -11,19 +11,18 @@
  */
 import Base from '../../layouts/Base.astro';
 import Generator from '../../components/Generator.astro';
-import CopyBlock from '../../components/CopyBlock.astro';
-import CopyScript from '../../components/CopyScript.astro';
+import ExampleLibrary from '../../components/ExampleLibrary.astro';
+import AppJsonLd from '../../components/AppJsonLd.astro';
 import EmailCapture from '../../components/EmailCapture.astro';
 import Faq from '../../components/Faq.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
-import CtaBanner from '../../components/CtaBanner.astro';
+import { SITE } from '../../data/site';
 import SummaryAnatomy from '../../components/SummaryAnatomy.astro';
 import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
 import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
 import EditorialNote from '../../components/EditorialNote.astro';
 import professions from '../../data/professions.json';
 import jobDescriptions from '../../data/jobDescriptions.json';
-import { GENERATOR_FAMILIES } from '../../data/generatorFamilies';
 import { NO_EXPERIENCE_SLUGS } from '../../data/noExperience';
 
 export function getStaticPaths() {
@@ -73,11 +72,8 @@ const relatedKeywords = p.relatedKeywords.map((keyword: string) => {
   return keyword;
 });
 
-const levels = [
-  { key: 'entry', label: 'Entry-level', icon: 'entry' },
-  { key: 'mid', label: 'Mid-career', icon: 'mid' },
-  { key: 'senior', label: 'Senior', icon: 'senior' },
-] as const;
+const nextHref = hasJobDescription ? `/job-description/${job}/` : '/resume-bullet-points/';
+const nextLabel = hasJobDescription ? `${p.name} job description duties` : 'Bullet point generator';
 ---
 
 <Base title={p.h1} description={p.metaDescription}>
@@ -87,6 +83,7 @@ const levels = [
     { name: p.name, href: `/resume-summary/${job}/` },
   ]} />
   <ArticleJsonLd headline={p.h1} description={p.metaDescription} path={`/resume-summary/${job}/`} />
+  <AppJsonLd name={`${p.name} resume summary generator`} description={`Free browser tool that writes a ${label} resume summary, objective, or LinkedIn headline.`} path={`/resume-summary/${job}/`} />
   <!-- 1. H1 + 2. Short answer -->
   <section class="prof-hero">
     <div class="container">
@@ -97,54 +94,33 @@ const levels = [
       </nav>
       <h1>{p.h1}</h1>
       <p class="lead short-answer">{p.shortAnswer}</p>
-      {hasJobDescription && (
-        <p class="pair-link">
-          Filling in the work-experience section instead?
-          <a href={`/job-description/${job}/`}>See {label} job description duties</a>.
-        </p>
-      )}
-      {hasNoExperienceGuide && (
-        <p class="pair-link">
-          Starting this career? <a href={`/no-experience/${job}/`}>See {label} summaries with no direct experience</a>.
+      <p class="review-line">
+        <span><b>20 examples</b> for entry level, mid-career and senior</span>
+        <span>Reviewed {SITE.contentLastReviewed.replace(/^(\w{3})\w*/, '$1')} by the SummaryIn editorial team · <a href="/editorial-policy/">How we review</a></span>
+      </p>
+      {(hasJobDescription || hasNoExperienceGuide) && (
+        <p class="pair-links">
+          <span class="muted">Not what you need?</span>
+          {hasJobDescription && <a href={`/job-description/${job}/`}>Duties for the experience section →</a>}
+          {hasNoExperienceGuide && <a href={`/no-experience/${job}/`}>No {label} experience yet →</a>}
         </p>
       )}
     </div>
   </section>
 
-  <!-- 3. Tool, preset for this profession -->
-  <section class="tool-section">
-    <div class="container">
-      <Generator
-        defaultRole={p.roleDefault}
-        skills={p.skills}
-        defaultSkills={p.defaultSkills}
-        family={GENERATOR_FAMILIES[job as string] ?? 'business'}
-      />
-    </div>
-  </section>
+  <!-- 3. Examples with filter and editor -->
+  <ExampleLibrary name={p.name} slug={job as string} examples={p.examples} nextHref={nextHref} nextLabel={nextLabel} />
 
-  <!-- 4. Examples by level -->
-  <section class="section" aria-labelledby="ex-heading">
+  <!-- 4. Generator, preset for this profession -->
+  <section class="tool-section" id="generator">
     <div class="container">
-      <div class="section-head">
-        <h2 id="ex-heading">{p.name} summary examples by level</h2>
-        <p class="muted">Copy any block, then replace every highlighted placeholder with a true detail from your own work.</p>
-      </div>
-      {levels.map((lvl) => (
-        <div class="level-group">
-          <h3 class="level-title">{lvl.label}</h3>
-          <div class="grid grid-2">
-            {p.examples[lvl.key].map((ex: { label: string; paragraphs: string[] }) => (
-              <CopyBlock label={ex.label} icon={lvl.icon} paragraphs={ex.paragraphs} />
-            ))}
-          </div>
-        </div>
-      ))}
+      <h2 class="block-title">Build a {label} summary from scratch</h2>
+      <Generator defaultRole={p.roleDefault} heading="Your details" />
     </div>
   </section>
 
   <!-- 5. How to adapt + 6. Power words -->
-  <section class="section section-subtle" aria-labelledby="adapt-heading">
+  <section class="section section-subtle" id="power-words" aria-labelledby="adapt-heading">
     <div class="container">
       <div class="grid grid-2">
         <div class="card">
@@ -206,11 +182,7 @@ const levels = [
     <EditorialNote label={`${label} resume summary guide`} />
   </div>
 
-  <!-- 11. Email capture + CTA bridge -->
-  <EmailCapture professionLabel={p.name.toLowerCase()} />
-  <CtaBanner />
-
-  <CopyScript />
+  {SITE.emailFormAction && <EmailCapture professionLabel={p.name.toLowerCase()} />}
 </Base>
 
 <style>
@@ -219,9 +191,11 @@ const levels = [
   .crumbs a { color: var(--ink-muted); }
   .crumbs span[aria-hidden] { margin: 0 4px; }
   .short-answer { max-width: 70ch; }
-  .pair-link { font-size: 0.95rem; color: var(--ink-soft); margin-top: -4px; }
-  .pair-link a { margin-left: 4px; }
-  .tool-section { padding: 28px 0 12px; }
+  .review-line { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 0.9rem; color: var(--ink-muted); margin: 0 0 10px; }
+  .review-line b { color: var(--ink); }
+  .pair-links { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 0.95rem; margin: 0; }
+  .pair-links a { font-weight: 650; }
+  .tool-section { padding: 24px 0 40px; }
   .level-group { margin-bottom: 28px; }
   .level-group:last-child { margin-bottom: 0; }
   .level-title {
