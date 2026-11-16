@@ -16,9 +16,21 @@ interface Props {
   exampleRole?: string;
   /** Heading level text above the form. */
   heading?: string;
+  /** Preselected experience level. */
+  defaultLevel?: 'entry' | 'mid' | 'senior';
+  /** Preselected output tab. */
+  defaultMode?: 'summary' | 'objective' | 'linkedin';
 }
 
-const { defaultRole = '', exampleRole = 'Customer Service Representative', heading = 'Tell us about your experience' } = Astro.props;
+const {
+  defaultRole = '',
+  exampleRole = 'Customer Service Representative',
+  heading = 'Tell us about your experience',
+  defaultLevel = 'mid',
+  defaultMode = 'summary',
+} = Astro.props;
+const LEVELS = [['entry', 'Entry level'], ['mid', 'Mid-level'], ['senior', 'Senior']] as const;
+const MODES = [['summary', 'Summary'], ['objective', 'Objective'], ['linkedin', 'LinkedIn headline']] as const;
 
 const data = {
   roles: ROLES.map((r) => ({
@@ -57,9 +69,7 @@ const data = {
 
       <span class="gen-label" id="gen-level-label">Experience</span>
       <div class="seg gen-seg" role="group" aria-labelledby="gen-level-label" data-level>
-        <button type="button" data-value="entry" aria-pressed="false">Entry level</button>
-        <button type="button" data-value="mid" aria-pressed="true">Mid-level</button>
-        <button type="button" data-value="senior" aria-pressed="false">Senior</button>
+        {LEVELS.map(([v, l]) => <button type="button" data-value={v} aria-pressed={v === defaultLevel ? 'true' : 'false'}>{l}</button>)}
       </div>
 
       <span class="gen-label" id="gen-skills-label">Skills <span class="gen-note">pick up to 3</span></span>
@@ -96,9 +106,7 @@ const data = {
 
     <div class="gen-output">
       <div class="gen-tabs" role="tablist" aria-label="Format" data-tabs>
-        <button type="button" role="tab" data-mode="summary" aria-selected="true">Summary</button>
-        <button type="button" role="tab" data-mode="objective" aria-selected="false">Objective</button>
-        <button type="button" role="tab" data-mode="linkedin" aria-selected="false">LinkedIn headline</button>
+        {MODES.map(([v, l]) => <button type="button" role="tab" data-mode={v} aria-selected={v === defaultMode ? 'true' : 'false'}>{l}</button>)}
       </div>
       <p class="gen-example" data-example-label hidden></p>
       <div class="gen-result" data-result contenteditable="true" spellcheck="false" aria-live="polite" aria-label="Your summary, editable"></div>
@@ -202,7 +210,7 @@ const data = {
 
     if (window.matchMedia('(min-width: 821px)').matches) more.open = true;
 
-    let mode: 'summary' | 'objective' | 'linkedin' = 'summary';
+    let mode = (root.querySelector<HTMLElement>('[data-tabs] [aria-selected="true"]')?.dataset.mode ?? 'summary') as 'summary' | 'objective' | 'linkedin';
     let version = 0;
     let selected: string[] = [];
     let selectedFor = '';

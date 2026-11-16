@@ -17,6 +17,13 @@ export const NO_EXPERIENCE_SLUGS = [
   'hr-assistant',
 ] as const;
 
+/** Where first-job experience comes from. Keys match `path` in noExperienceExamples.json. */
+export const NO_EXPERIENCE_PATHS = [
+  { key: 'school', label: 'School and training' },
+  { key: 'job', label: 'Another job' },
+  { key: 'side', label: 'Part-time, volunteer or family work' },
+];
+
 export const NO_EXPERIENCE_GUIDANCE: Record<GeneratorFamily, {
   lead: string;
   evidence: string[];

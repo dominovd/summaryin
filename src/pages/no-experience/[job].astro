@@ -1,16 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
-import CopyBlock from '../../components/CopyBlock.astro';
-import CopyScript from '../../components/CopyScript.astro';
 import Faq from '../../components/Faq.astro';
 import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
 import ArticleJsonLd from '../../components/ArticleJsonLd.astro';
 import EditorialNote from '../../components/EditorialNote.astro';
 import RelatedKeywords from '../../components/RelatedKeywords.astro';
+import ExampleLibrary from '../../components/ExampleLibrary.astro';
+import Generator from '../../components/Generator.astro';
 import professions from '../../data/professions.json';
 import jobDescriptions from '../../data/jobDescriptions.json';
+import noExperienceExamples from '../../data/noExperienceExamples.json';
 import { GENERATOR_FAMILIES } from '../../data/generatorFamilies';
-import { NO_EXPERIENCE_GUIDANCE, NO_EXPERIENCE_SLUGS } from '../../data/noExperience';
+import { NO_EXPERIENCE_GUIDANCE, NO_EXPERIENCE_SLUGS, NO_EXPERIENCE_PATHS } from '../../data/noExperience';
+import { SITE } from '../../data/site';
 
 export function getStaticPaths() {
   return NO_EXPERIENCE_SLUGS.map((job) => ({ params: { job } }));
@@ -24,6 +26,18 @@ const title = `${p.name} Resume Summary With No Experience`;
 const pageTitle = `${p.name} Resume: No Experience`;
 const description = `${p.name} no-experience resume summary examples, plus honest ways to use training, transferable skills, projects, and practical evidence.`;
 const label = /^[A-Z0-9]+$/.test(p.name) ? p.name : p.name.toLowerCase();
+const hasJobDescription = job in jobDescriptions;
+
+/**
+ * Pages with their own first-job examples group them by where the experience comes from.
+ * Others still show the entry-level examples from the profession page until their
+ * own set is written (see noExperienceExamples.json).
+ */
+const own = (noExperienceExamples as Record<string, { path: string; label: string; text: string }[]>)[job as string];
+const items = own
+  ? own.map((e) => ({ group: e.path, label: e.label, text: e.text }))
+  : p.examples.entry.map((e: { label: string; paragraphs: string[] }) => ({ group: 'entry', label: e.label, text: e.paragraphs.join(' ') }));
+const groups = own ? NO_EXPERIENCE_PATHS : [{ key: 'entry', label: 'Entry-level' }];
 
 const faq = [
   {
@@ -46,7 +60,7 @@ const faq = [
 
 const related = [
   { label: `${p.name} resume summary examples`, href: `/resume-summary/${job}/` },
-  ...(job in jobDescriptions ? [{ label: `${p.name} job description`, href: `/job-description/${job}/` }] : []),
+  ...(hasJobDescription ? [{ label: `${p.name} job description`, href: `/job-description/${job}/` }] : []),
   { label: 'Resume bullet point generator', href: '/resume-bullet-points/' },
 ];
 ---
@@ -68,23 +82,31 @@ const related = [
       </nav>
       <h1>{title}</h1>
       <p class="lead">{guidance.lead}</p>
-      <p class="pair-link">
-        Already worked in the role? <a href={`/resume-summary/${job}/`}>See all {label} summary examples</a>.
+      <p class="review-line">Reviewed {SITE.contentLastReviewed.replace(/^(\w{3})\w*/, '$1')} by the SummaryIn editorial team · <a href="/editorial-policy/">How we review</a></p>
+      <p class="pair-links">
+        <span class="muted">Already worked in the role?</span>
+        <a href={`/resume-summary/${job}/`}>All 20 {label} summary examples →</a>
+        {hasJobDescription && <a href={`/job-description/${job}/`}>Duties for the experience section →</a>}
       </p>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="examples-heading">
+  <ExampleLibrary
+    name={p.name}
+    slug={`no-experience-${job}`}
+    heading={own ? `${p.name} summary for a first job: ${items.length} examples` : `Six honest starting points`}
+    items={items}
+    groups={groups}
+    start={own ? 'school' : 'entry'}
+    nextHref={hasJobDescription ? `/job-description/${job}/` : '/resume-bullet-points/'}
+    nextLabel={hasJobDescription ? `${p.name} job description duties` : 'Bullet point generator'}
+    scratchLabel={`None of these fit? Write your own ${label} summary ↓`}
+  />
+
+  <section class="tool-section" id="generator">
     <div class="container">
-      <div class="section-head">
-        <h2 id="examples-heading">Six honest starting points</h2>
-        <p class="muted">These examples use training and transferable experience. Replace every highlighted detail before copying one.</p>
-      </div>
-      <div class="grid grid-2">
-        {p.examples.entry.map((example: { label: string; paragraphs: string[] }) => (
-          <CopyBlock label={example.label} icon="entry" paragraphs={example.paragraphs} />
-        ))}
-      </div>
+      <h2 class="block-title">Write your own {label} summary</h2>
+      <Generator defaultRole={p.roleDefault} defaultLevel="entry" heading="Your details" />
     </div>
   </section>
 
@@ -133,7 +155,6 @@ const related = [
   <div class="container">
     <EditorialNote label={`${label} no-experience guide`} />
   </div>
-  <CopyScript />
 </Base>
 
 <style>
@@ -141,7 +162,11 @@ const related = [
   .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 16px; }
   .crumbs a { color: var(--ink-muted); }
   .crumbs span[aria-hidden] { margin: 0 4px; }
-  .pair-link { color: var(--ink-soft); font-size: 0.95rem; }
+  .review-line { font-size: 0.9rem; color: var(--ink-muted); margin: 0 0 10px; }
+  .pair-links { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 0.95rem; margin: 0; }
+  .pair-links a { font-weight: 650; }
+  .tool-section { padding: 24px 0 40px; }
+  .block-title { font-size: 1.25rem; margin-bottom: 16px; }
   .card h2 { font-size: 1.25rem; }
   .evidence-list, .steps { color: var(--ink-soft); padding-left: 1.25rem; }
   .evidence-list li, .steps li { margin-bottom: 10px; }

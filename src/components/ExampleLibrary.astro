@@ -6,48 +6,52 @@
  * Desktop: sticky editor on the right. Mobile: bottom sheet over the list.
  * All examples stay in the HTML; the filter only hides cards.
  */
-interface Ex { label: string; paragraphs: string[] }
+interface Item { group: string; label: string; text: string }
 interface Props {
   name: string;
   slug: string;
-  examples: { entry: Ex[]; mid: Ex[]; senior: Ex[] };
+  items: Item[];
+  /** Filter chips, in order. The first item of `start` is opened on load. */
+  groups: { key: string; label: string }[];
+  heading: string;
+  start?: string;
   /** Where "Next" points after a copy. */
   nextHref: string;
   nextLabel: string;
+  scratchLabel?: string;
 }
-const { name, slug, examples, nextHref, nextLabel } = Astro.props;
+const { name, slug, items: raw, groups, heading, start, nextHref, nextLabel, scratchLabel } = Astro.props;
 
-const LEVEL = { entry: 'Entry-level', mid: 'Mid-career', senior: 'Senior' } as const;
-const all = (['entry', 'mid', 'senior'] as const).flatMap((lvl) =>
-  examples[lvl].map((e) => ({ lvl, label: e.label, text: e.paragraphs.join(' ') }))
-);
+const LABEL: Record<string, string> = Object.fromEntries(groups.map((g) => [g.key, g.label]));
 const seen: Record<string, number> = {};
-all.forEach((e) => { seen[e.label] = (seen[e.label] ?? 0) + 1; });
-const items = all.map((e, i) => ({ ...e, i, title: seen[e.label] > 1 ? `${e.label} (${LEVEL[e.lvl].toLowerCase()})` : e.label }));
-const count = { all: items.length, entry: examples.entry.length, mid: examples.mid.length, senior: examples.senior.length };
+raw.forEach((e) => { seen[e.label] = (seen[e.label] ?? 0) + 1; });
+const items = raw.map((e, i) => ({ ...e, i, title: seen[e.label] > 1 ? `${e.label} (${LABEL[e.group].toLowerCase()})` : e.label }));
+const count: Record<string, number> = { all: items.length };
+items.forEach((e) => { count[e.group] = (count[e.group] ?? 0) + 1; });
 const parts = (t: string) => t.split(/(\[[^\]]+\])/g).filter(Boolean);
-const first = items.find((e) => e.lvl === 'mid') ?? items[0];
+const first = items.find((e) => e.group === start) ?? items[0];
 const nameLc = /^[A-Z0-9]+$/.test(name) ? name : name.toLowerCase();
+const keys = groups.map((g) => g.key).join(',');
+const scratch = scratchLabel ?? `None of these fit? Build a ${nameLc} summary from scratch ↓`;
 ---
 
-<section class="section lib-section" id="examples" aria-labelledby="lib-heading" data-lib data-slug={slug}>
+<section class="section lib-section" id="examples" aria-labelledby="lib-heading" data-lib data-slug={slug} data-keys={keys}>
   <div class="container lib">
     <div class="lib-main">
-      <h2 id="lib-heading">{name} summary for resume: {count.all} examples</h2>
-      <div class="lib-filter" role="group" aria-label="Filter by level" data-lib-filter>
-        {(['all', 'entry', 'mid', 'senior'] as const).map((k) => (
-          <button type="button" data-v={k} aria-pressed={k === 'all' ? 'true' : 'false'}>
-            {k === 'all' ? 'All' : LEVEL[k]}<span>{count[k]}</span>
-          </button>
+      <h2 id="lib-heading">{heading}</h2>
+      <div class="lib-filter" role="group" aria-label="Filter examples" data-lib-filter>
+        <button type="button" data-v="all" aria-pressed="true">All<span>{count.all}</span></button>
+        {groups.filter((g) => count[g.key]).map((g) => (
+          <button type="button" data-v={g.key} aria-pressed="false">{g.label}<span>{count[g.key]}</span></button>
         ))}
       </div>
       <p class="lib-count muted">Showing <b data-lib-shown>{count.all}</b> examples. Pick one to edit it.</p>
       <div class="lib-list">
         {items.map((e) => (
-          <article class={`lib-card${e.i === first.i ? ' is-on' : ''}`} data-lvl={e.lvl} data-i={e.i} tabindex="0" aria-label={`Use the ${e.title} example`}>
+          <article class={`lib-card${e.i === first.i ? ' is-on' : ''}`} data-lvl={e.group} data-i={e.i} tabindex="0" aria-label={`Use the ${e.title} example`}>
             <div class="lib-card-head">
               <h3>{e.title}</h3>
-              <span class="lib-tag">{LEVEL[e.lvl]}</span>
+              <span class="lib-tag">{LABEL[e.group]}</span>
             </div>
             <p data-text>{parts(e.text).map((p) => /^\[[^\]]+\]$/.test(p) ? <mark>{p}</mark> : p)}</p>
             <button type="button" class="btn btn-ghost lib-use" tabindex="-1">Use this</button>
@@ -78,7 +82,7 @@ const nameLc = /^[A-Z0-9]+$/.test(name) ? name : name.toLowerCase();
           <a class="btn btn-primary btn-sm" href={nextHref} data-lib-next-link>{nextLabel} →</a>
         </div>
       </div>
-      <a class="lib-ed-scratch" href="#generator">None of these fit? Build a {nameLc} summary from scratch ↓</a>
+      <a class="lib-ed-scratch" href="#generator">{scratch}</a>
     </aside>
   </div>
 </section>
@@ -232,7 +236,7 @@ const nameLc = /^[A-Z0-9]+$/.test(name) ? name : name.toLowerCase();
     $('[data-lib-next-link]').addEventListener('click', () => track('next_step_click', { tool: 'example', slug }));
 
     const h = location.hash.replace('#', '');
-    if (['entry', 'mid', 'senior'].includes(h)) { filter(h); root.scrollIntoView(); }
+    if ((root.dataset.keys || '').split(',').includes(h)) { filter(h); root.scrollIntoView(); }
     if (!mobile()) ed.classList.remove('is-min');
     setArrow();
     load(current);

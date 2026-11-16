@@ -1,0 +1,66 @@
+{
+  "retail": [
+    {
+      "path": "school",
+      "label": "High school graduate, first sales floor job",
+      "text": "Recent high school graduate seeking a first sales floor role, with weekend and holiday availability. Helped run the school store, handling [X] transactions a week and keeping display shelves stocked and organized."
+    },
+    {
+      "path": "school",
+      "label": "Business student running a club merch table",
+      "text": "Business student looking for a part-time retail associate role. Ran the merchandise table for a campus club, tracking sales of [X] items in a spreadsheet and restocking before each event. Comfortable with card readers and explaining products to new customers."
+    },
+    {
+      "path": "job",
+      "label": "Fast food crew member moving into retail",
+      "text": "Quick service crew member with [X] months on the register and drive-thru, moving into retail. Used to handling [X]+ orders per shift, counting a cash drawer at close, and staying friendly when the line is long."
+    },
+    {
+      "path": "job",
+      "label": "Stadium concession worker",
+      "text": "Stadium concession worker applying for a retail associate role. Took orders and payments for [X]+ fans per event, restocked the stand between rushes, and balanced the cash box with the shift lead at close."
+    },
+    {
+      "path": "side",
+      "label": "Thrift store volunteer",
+      "text": "Thrift store volunteer applying for a paid sales associate role. Sorted and priced donations, set up weekly floor displays, and helped [X] shoppers per shift find sizes and check out on the store POS."
+    },
+    {
+      "path": "side",
+      "label": "Helper in a family shop",
+      "text": "First-time job seeker who helped at a family [shop type] for [X] summers, greeting customers, tagging new stock, and covering the counter on busy Saturdays. Ready to bring the same reliability to a sales floor team."
+    }
+  ],
+  "customer-service": [
+    {
+      "path": "school",
+      "label": "Communications graduate from a campus help desk",
+      "text": "Communications graduate seeking an entry-level customer service role. Answered student questions at the campus help desk for [X] hours a week, logging each request in [ticketing tool] and following up until it was closed."
+    },
+    {
+      "path": "school",
+      "label": "Contact center training graduate",
+      "text": "Customer service candidate who completed a [X]-week contact center training program, including mock calls, de-escalation practice, and data entry in [CRM]. Scored [X]% on the final call assessment."
+    },
+    {
+      "path": "job",
+      "label": "Restaurant host moving into support",
+      "text": "Restaurant host moving into customer service, used to managing a waitlist of [X]+ guests on busy nights, taking phone reservations, and calming guests when wait times ran long."
+    },
+    {
+      "path": "job",
+      "label": "Barista moving to phone and chat support",
+      "text": "Barista with [X] months of fast counter service, moving into a phone and chat support role. Handled [X]+ orders per shift, fixed order mistakes on the spot, and kept regulars coming back by remembering their usual."
+    },
+    {
+      "path": "side",
+      "label": "Volunteer at a community information line",
+      "text": "Volunteer at a community information line, answering [X] calls per shift about local services, keeping notes in a shared log, and passing complex cases to staff with clear summaries."
+    },
+    {
+      "path": "side",
+      "label": "Student with a campus bookstore job",
+      "text": "Student working [X] hours a week at the campus bookstore, helping customers find course materials, processing returns, and answering phone questions. Looking for a part-time customer service position."
+    }
+  ]
+}

@@ -72,6 +72,9 @@ const relatedKeywords = p.relatedKeywords.map((keyword: string) => {
   return keyword;
 });
 
+const libItems = (['entry', 'mid', 'senior'] as const).flatMap((group) =>
+  p.examples[group].map((e: { label: string; paragraphs: string[] }) => ({ group, label: e.label, text: e.paragraphs.join(' ') }))
+);
 const nextHref = hasJobDescription ? `/job-description/${job}/` : '/resume-bullet-points/';
 const nextLabel = hasJobDescription ? `${p.name} job description duties` : 'Bullet point generator';
 ---
@@ -109,7 +112,16 @@ const nextLabel = hasJobDescription ? `${p.name} job description duties` : 'Bull
   </section>
 
   <!-- 3. Examples with filter and editor -->
-  <ExampleLibrary name={p.name} slug={job as string} examples={p.examples} nextHref={nextHref} nextLabel={nextLabel} />
+  <ExampleLibrary
+    name={p.name}
+    slug={job as string}
+    heading={`${p.name} summary for resume: ${libItems.length} examples`}
+    items={libItems}
+    groups={[{ key: 'entry', label: 'Entry-level' }, { key: 'mid', label: 'Mid-career' }, { key: 'senior', label: 'Senior' }]}
+    start="mid"
+    nextHref={nextHref}
+    nextLabel={nextLabel}
+  />
 
   <!-- 4. Generator, preset for this profession -->
   <section class="tool-section" id="generator">
