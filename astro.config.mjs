@@ -14,6 +14,9 @@ export default defineConfig({
     inlineStylesheets: 'auto',
   },
   integrations: [
-    sitemap(),
+    // /chrome-extension/ is noindex until the Web Store listing URL is set, so it stays out of the sitemap too.
+    sitemap({
+      filter: (page) => Boolean(process.env.PUBLIC_CHROME_STORE_URL) || !page.includes('/chrome-extension/'),
+    }),
   ],
 });

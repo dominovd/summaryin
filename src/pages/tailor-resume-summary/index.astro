@@ -31,6 +31,7 @@ const faq = [
 <Base title="Tailor Your Resume Summary to a Job Posting" description={description}>
   <AppJsonLd name="Resume Summary Tailoring Tool" description={description} path="/tailor-resume-summary/" />
   <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Tailor to a job', href: '/tailor-resume-summary/' }]} />
+  <script is:inline slot="head">if (new URLSearchParams(location.search).get('embed') === '1') document.documentElement.dataset.embed = '1';</script>
   {siteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>}
 
   <section class="section tl-hero">
@@ -46,8 +47,10 @@ const faq = [
     <div class="container narrow">
       <p class="tl-off" data-off hidden>The tailoring tool is not switched on yet. The <a href="/#generator">free generator</a> works right now.</p>
 
-      <div class="tl-step">
+      <div class="tl-step tl-s-about">
         <h2><span>1</span> About you</h2>
+        <div class="tl-sum" data-asum hidden><span data-asum-text></span><button type="button" data-asum-edit>Edit</button></div>
+        <div class="tl-body" data-abody>
         <div class="tl-row">
           <label>Job title you are applying for
             <input type="text" name="title" maxlength="60" placeholder="e.g. Retail Sales Associate" autocomplete="off" required />
@@ -64,12 +67,17 @@ const faq = [
         <label>Facts you can back up <small>(optional, but this is what makes it yours)</small>
           <textarea name="facts" rows="3" maxlength="600" placeholder="e.g. 2 years at a sporting goods store, trained 4 new hires, top seller in March"></textarea>
         </label>
+        <p class="tl-saved muted" data-saved hidden>Your details are saved in this browser for the next posting. <button type="button" data-clear>Clear my details</button></p>
+        </div>
       </div>
 
-      <div class="tl-step">
+      <div class="tl-step tl-s-post">
         <h2><span>2</span> The job posting</h2>
-        <label class="visually-hidden" for="tl-posting">Job posting</label>
-        <textarea id="tl-posting" name="posting" rows="8" maxlength="6000" placeholder="Paste the full job posting here"></textarea>
+        <div class="tl-sum" data-psum hidden><span data-psum-text></span><button type="button" data-psum-edit>Edit</button></div>
+        <div class="tl-body" data-pbody>
+          <label class="visually-hidden" for="tl-posting">Job posting</label>
+          <textarea id="tl-posting" name="posting" rows="8" maxlength="6000" placeholder="Paste the full job posting here"></textarea>
+        </div>
         <div class="tl-acts">
           <button type="button" class="btn btn-ghost" data-extract>Find keywords</button>
           <span class="muted tl-msg" data-msg1 aria-live="polite"></span>
@@ -80,7 +88,7 @@ const faq = [
         </fieldset>
       </div>
 
-      <div class="tl-step">
+      <div class="tl-step tl-s-out">
         <h2><span>3</span> Your tailored summary</h2>
         <div class="tl-ts" data-ts></div>
         <div class="tl-acts">
@@ -102,11 +110,16 @@ const faq = [
         </div>
       </div>
 
+      <p class="tl-privacy-short muted">Sent to an AI provider to write the text, not stored. Up to 5 a day. <a href="/privacy/">Privacy</a></p>
+      <div class="tl-bar" data-bar hidden>
+        <button type="button" class="btn btn-primary" data-bar-main>Find keywords</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-bar-alt hidden>Write again</button>
+      </div>
       <p class="tl-privacy muted" data-privacy>To write the text, this tool sends the posting and what you type to an AI provider. SummaryIn does not store it. Up to <b data-limit>5</b> tailored summaries per day. The <a href="/#generator">free generator</a> runs fully in your browser.</p>
     </div>
   </section>
 
-  <section class="section section-subtle" aria-labelledby="how-heading">
+  <section class="section section-subtle tl-how" aria-labelledby="how-heading">
     <div class="container narrow">
       <h2 id="how-heading">Why tailoring works, and where it goes wrong</h2>
       <p>Recruiters and applicant tracking systems often search for the words a posting uses, so a summary that names the same tools and duties is easier to match. The risk is copying keywords you cannot back up in an interview.</p>
@@ -162,14 +175,62 @@ const faq = [
   .tl-gap-list :global(span) { border: 1px dashed #c9a227; border-radius: 999px; padding: 3px 10px; font-size: 0.86rem; background: #fff; }
   .tl-gap-note { margin: 0; font-size: 0.84rem; }
   .tl-privacy { font-size: 0.86rem; margin-top: 6px; }
+  .tl-saved { font-size: 0.84rem; margin: 0; }
+  .tl-body { display: grid; gap: 12px; }
+  .tl-sum { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--bg-subtle); border-radius: var(--r-sm); padding: 8px 12px; font-size: 0.9rem; color: var(--ink-soft); }
+  .tl-sum span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tl-sum button, .tl-saved button { font: inherit; background: none; border: 0; padding: 0; color: var(--primary); text-decoration: underline; cursor: pointer; flex: none; }
+  .tl-privacy-short, .tl-bar { display: none; }
   .tl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
   @media (max-width: 700px) { .tl-grid { grid-template-columns: 1fr; } }
   .tl-grid h3 { font-size: 1rem; margin: 0 0 4px; }
   .tl-grid p { margin: 0; font-size: 0.93rem; color: var(--ink-soft); }
 </style>
 
+<style is:global>
+  /* ?embed=1: the page inside the Chrome extension side panel (360 to 480 px). Compact, posting first, one action bar. */
+  html[data-embed] .site-header,
+  html[data-embed] .site-footer,
+  html[data-embed] .tl-hero,
+  html[data-embed] .tl-how,
+  html[data-embed] #faq,
+  html[data-embed] .tl-privacy,
+  html[data-embed] .tl-step h2 span,
+  html[data-embed] [data-extract],
+  html[data-embed] [data-write],
+  html[data-embed] .tl-out .tl-acts { display: none !important; }
+  html[data-embed] body { font-size: 14.5px; }
+  html[data-embed] main { min-height: 100vh; display: flex; flex-direction: column; }
+  html[data-embed] .tl { padding: 0; flex: 1; display: flex; }
+  html[data-embed] .tl > .container { padding: 0 14px; display: flex; flex-direction: column; flex: 1; }
+  html[data-embed] .tl-off { order: 0; margin: 12px 0 0; font-size: 0.88rem; padding: 8px 10px; }
+  html[data-embed] .tl-s-post { order: 1; }
+  html[data-embed] .tl-s-about { order: 2; }
+  html[data-embed] .tl-s-out { order: 3; }
+  html[data-embed] .tl-step { border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 14px 0; margin: 0; gap: 10px; background: none; }
+  html[data-embed] .tl-step h2 { font-size: 0.98rem; }
+  html[data-embed] .tl label { font-size: 0.85rem; gap: 4px; }
+  html[data-embed] .tl input[type="text"], html[data-embed] .tl textarea { padding: 8px 10px; font-size: 0.92rem; }
+  html[data-embed] .tl textarea[name="posting"] { max-height: 180px; }
+  html[data-embed] .tl-lvl { font-size: 0.85rem; }
+  html[data-embed] .tl-lvl button { padding: 4px 10px; font-size: 0.82rem; }
+  html[data-embed] .tl-row { grid-template-columns: 1fr; gap: 10px; }
+  html[data-embed] .tl-kw { padding: 8px 10px; }
+  html[data-embed] .tl-kw legend { font-size: 0.85rem; }
+  html[data-embed] .tl-kw [data-kw-list] { gap: 6px; }
+  html[data-embed] .tl-kw label { padding: 3px 10px; font-size: 0.85rem; }
+  html[data-embed] .tl-text { padding: 10px 12px; font-size: 0.93rem; line-height: 1.6; }
+  html[data-embed] .tl-note, html[data-embed] .tl-gap { font-size: 0.82rem; }
+  html[data-embed] .tl-gap { padding: 10px 12px; }
+  html[data-embed] .tl-acts:has(> .tl-msg:empty) { display: none; }
+  html[data-embed] .tl-privacy-short { display: block; order: 4; font-size: 0.78rem; margin: 10px 0 0; }
+  html[data-embed] .tl-bar { display: flex; order: 5; gap: 8px; align-items: center; position: sticky; bottom: 0; margin: auto -14px 0; padding: 10px 14px; background: #fff; border-top: 1px solid var(--border); }
+  html[data-embed] .tl-bar [data-bar-main] { flex: 1; padding: 10px 14px; }
+</style>
+
 <script>
   import { track } from '@vercel/analytics';
+  import { isEmbed, withSurface, listenForPostings, linksToNewTab, loadProfile, saveProfile, clearProfile } from '../../lib/embed';
 
   declare const turnstile: { render: (el: HTMLElement, o: object) => string; getResponse: (id: string) => string; reset: (id: string) => void } | undefined;
 
@@ -191,6 +252,52 @@ const faq = [
       level = qLevel;
       root.querySelectorAll('.tl-lvl button').forEach((x) => x.setAttribute('aria-pressed', String((x as HTMLElement).dataset.lvl === qLevel)));
     }
+
+    // Profile remembered between postings (site and extension panel).
+    const saved = loadProfile();
+    const savedNote = $('[data-saved]');
+    if (!qs.get('title') && saved.title) title.value = saved.title.slice(0, 60);
+    if (!qLevel && saved.level && ['entry', 'mid', 'senior'].includes(saved.level)) {
+      level = saved.level;
+      root.querySelectorAll('.tl-lvl button').forEach((x) => x.setAttribute('aria-pressed', String((x as HTMLElement).dataset.lvl === level)));
+    }
+    if (saved.skills) skills.value = saved.skills.slice(0, 400);
+    if (saved.facts) facts.value = saved.facts.slice(0, 600);
+    savedNote.hidden = !(saved.title || saved.skills || saved.facts);
+    let saveTimer = 0;
+    const remember = () => {
+      clearTimeout(saveTimer);
+      saveTimer = window.setTimeout(() => {
+        saveProfile({ title: title.value, level, skills: skills.value, facts: facts.value });
+        savedNote.hidden = !(title.value.trim() || skills.value.trim() || facts.value.trim());
+      }, 400);
+    };
+    [title, skills, facts].forEach((el) => el.addEventListener('input', remember));
+    $('[data-clear]').addEventListener('click', () => {
+      clearTimeout(saveTimer);
+      clearProfile();
+      title.value = ''; skills.value = ''; facts.value = '';
+      level = 'mid';
+      root.querySelectorAll('.tl-lvl button').forEach((x) => x.setAttribute('aria-pressed', String((x as HTMLElement).dataset.lvl === 'mid')));
+      suggest();
+      savedNote.hidden = true;
+      aboutOpen = true;
+      compact();
+    });
+
+    let fromSite = '';
+    let postingOpen = false;
+    let aboutOpen = !saved.title;
+    const embed = isEmbed();
+    if (embed) linksToNewTab();
+    listenForPostings((text, jobSite) => {
+      posting.value = text;
+      fromSite = jobSite || '';
+      postingOpen = false;
+      posting.dispatchEvent(new Event('input', { bubbles: true }));
+      compact();
+    });
+
     let widget = '';
 
     function matchRole(input: string, list: typeof roles) {
@@ -235,6 +342,7 @@ const faq = [
       const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (!b) return;
       level = b.dataset.lvl!;
       root.querySelectorAll('.tl-lvl button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      remember();
     });
 
     const sugg = $('[data-sugg]');
@@ -251,6 +359,7 @@ const faq = [
       const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (!b) return;
       skills.value = [skills.value.trim().replace(/,$/, ''), b.dataset.s].filter(Boolean).join(', ');
       suggest();
+      remember();
     });
 
     async function call(body: object) {
@@ -263,7 +372,10 @@ const faq = [
     const say = (el: HTMLElement, t: string, err = false) => { el.textContent = t; el.classList.toggle('err', err); };
 
     const kw = $('[data-kw]'); const kwList = $('[data-kw-list]');
-    posting.addEventListener('input', () => { if (kwList.innerHTML) { kw.hidden = true; kwList.innerHTML = ''; say(msg1, ''); } });
+    posting.addEventListener('input', () => {
+      delete root.dataset.stage;
+      if (kwList.innerHTML) { kw.hidden = true; kwList.innerHTML = ''; say(msg1, ''); }
+    });
     $('[data-extract]').addEventListener('click', async (e) => {
       const b = e.currentTarget as HTMLButtonElement;
       b.disabled = true; say(msg1, 'Reading the posting...');
@@ -273,7 +385,8 @@ const faq = [
         kw.hidden = !keywords.length;
         kwList.innerHTML = keywords.map((k: { term: string; type: string }) => `<label><input type="checkbox" value="${esc(k.term)}" /> ${esc(k.term)} <small>${esc(k.type)}</small></label>`).join('');
         say(msg1, keywords.length ? `${keywords.length} keywords found.` : 'No clear keywords found. You can still write a summary.');
-        track('tailor', { step: 'extract', found: keywords.length });
+        root.dataset.stage = 'keywords';
+        track('tailor', withSurface({ step: 'extract', found: keywords.length }));
       } catch (err) { say(msg1, (err as Error).message, true); }
       b.disabled = false;
     });
@@ -291,7 +404,8 @@ const faq = [
           : 'Replace each [X] with a real detail before you send it. You can edit the text right here.';
         say(msg2, `${r.left} of ${$('[data-limit]').textContent} left today`);
         showGaps(r.summary);
-        track('tailor', { step: 'write', source: r.source, keywords: confirmed.length });
+        root.dataset.stage = 'written';
+        track('tailor', withSurface({ step: 'write', source: r.source, keywords: confirmed.length }));
       } catch (err) { say(msg2, (err as Error).message, true); }
       b.disabled = false;
     });
@@ -319,11 +433,74 @@ const faq = [
       root!.querySelector<HTMLElement>('.tl-gap-note')!.hidden = !missing.length;
     }
 
+    // ---------- embed (extension side panel): collapsed sections and one action bar ----------
+    const num = (x: number) => x.toLocaleString('en-US');
+    function compact() {
+      if (!embed) return;
+      const hasPosting = posting.value.trim().length > 0;
+      const pCollapsed = hasPosting && !postingOpen;
+      $('[data-pbody]').hidden = pCollapsed;
+      $('[data-psum]').hidden = !pCollapsed;
+      $('[data-psum-text]').textContent = `${fromSite ? `From ${fromSite.replace(/^www\./, '')} · ` : ''}${num(posting.value.length)} characters`;
+      const aCollapsed = !aboutOpen && title.value.trim().length > 0;
+      $('[data-abody]').hidden = aCollapsed;
+      $('[data-asum]').hidden = !aCollapsed;
+      const k = skills.value.split(',').filter((x) => x.trim()).length;
+      $('[data-asum-text]').textContent = [title.value.trim(), level[0].toUpperCase() + level.slice(1), k ? `${k} skill${k > 1 ? 's' : ''}` : ''].filter(Boolean).join(' · ');
+      syncBar();
+    }
+    const barMain = $<HTMLButtonElement>('[data-bar-main]');
+    const barAlt = $<HTMLButtonElement>('[data-bar-alt]');
+    const btnExtract = $<HTMLButtonElement>('[data-extract]');
+    const btnWrite = $<HTMLButtonElement>('[data-write]');
+    const btnCopy = $<HTMLButtonElement>('[data-copy]');
+    // Writes only on change, so the MutationObserver below does not loop.
+    const put = <K extends 'textContent' | 'disabled' | 'hidden'>(el: HTMLElement, k: K, v: HTMLButtonElement[K]) => {
+      if ((el as HTMLButtonElement)[k] !== v) (el as HTMLButtonElement)[k] = v;
+    };
+    function syncBar() {
+      const stage = root!.dataset.stage;
+      put(barAlt, 'hidden', stage !== 'written');
+      put(barAlt, 'disabled', btnWrite.disabled);
+      let label = 'Find keywords';
+      let disabled = btnExtract.disabled || !posting.value.trim();
+      if (stage === 'written') { label = btnCopy.textContent || 'Copy summary'; disabled = false; }
+      else if (stage === 'keywords') { label = btnWrite.disabled ? 'Writing...' : 'Write my summary'; disabled = btnWrite.disabled; }
+      else if (btnExtract.disabled && posting.value.trim()) label = 'Reading the posting...';
+      put(barMain, 'textContent', label);
+      put(barMain, 'disabled', disabled);
+      barMain.classList.toggle('is-copied', label === 'Copied!'); // global .btn.is-copied style
+    }
+    function needTitle() {
+      if (title.value.trim()) return false;
+      aboutOpen = true;
+      compact();
+      title.focus();
+      say(msg2, 'Add the job title you are applying for first.', true);
+      return true;
+    }
+    if (embed) {
+      $('[data-bar]').hidden = false;
+      barMain.addEventListener('click', () => {
+        const stage = root!.dataset.stage;
+        if (stage === 'written') btnCopy.click();
+        else if (stage === 'keywords') { if (!needTitle()) btnWrite.click(); }
+        else btnExtract.click();
+      });
+      barAlt.addEventListener('click', () => { if (!needTitle()) btnWrite.click(); });
+      $('[data-psum-edit]').addEventListener('click', () => { postingOpen = true; compact(); posting.focus(); });
+      $('[data-asum-edit]').addEventListener('click', () => { aboutOpen = true; compact(); title.focus(); });
+      posting.addEventListener('input', compact);
+      [title, skills].forEach((el) => el.addEventListener('input', syncBar));
+      new MutationObserver(syncBar).observe(root, { subtree: true, attributes: true, attributeFilter: ['disabled', 'hidden', 'data-stage'], childList: true, characterData: true });
+      compact();
+    }
+
     $('[data-copy]').addEventListener('click', async (e) => {
       const b = e.currentTarget as HTMLButtonElement;
       try { await navigator.clipboard.writeText($('[data-text]').innerText.trim()); } catch { /* clipboard unavailable */ }
       b.textContent = 'Copied!'; setTimeout(() => (b.textContent = 'Copy summary'), 1400);
-      track('copy', { tool: 'tailor' });
+      track('copy', withSurface({ tool: 'tailor' }));
     });
   }
 </script>

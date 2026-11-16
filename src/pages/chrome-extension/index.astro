@@ -1,0 +1,129 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import BreadcrumbJsonLd from '../../components/BreadcrumbJsonLd.astro';
+import WebPageJsonLd from '../../components/WebPageJsonLd.astro';
+
+// Set after the Chrome Web Store listing is published. Until then the page stays out of search results.
+const STORE_URL = import.meta.env.PUBLIC_CHROME_STORE_URL ?? '';
+const description = 'Select a job posting on any site and get a resume summary tailored to it in the Chrome side panel. No account, no resume upload, no access to your browsing.';
+const faq = [
+  {
+    q: 'Is the SummaryIn extension free?',
+    a: 'Yes. You can create up to five tailored summaries per day without an account. The regular summary generator on the site has no limit.',
+  },
+  {
+    q: 'Which job sites does it work on?',
+    a: 'Any site where you can select text: job boards, company careers pages, applicant tracking systems, or a posting someone emailed you. The extension does not depend on how a site is built, so it keeps working when job sites change their pages.',
+  },
+  {
+    q: 'Can the extension see my browsing?',
+    a: 'No. It has no permission to read websites on its own. It reads the text you selected only at the moment you choose "Tailor my resume summary" or click the SummaryIn icon.',
+  },
+  {
+    q: 'Where are my job title, skills and facts stored?',
+    a: 'In your browser\'s local storage, so you do not have to type them again for the next posting. "Clear my details" removes them. The posting and your details are sent to an AI provider only to write the summary and are not stored by SummaryIn.',
+  },
+  {
+    q: 'Will it add skills I do not have?',
+    a: 'No. The summary uses only the keywords you tick and the facts you enter. Any number, employer or certification you did not give is rejected, and missing numbers are left as [X].',
+  },
+];
+---
+
+<Base title="Resume Summary Chrome Extension" description={description} yearInTitle={false} noindex={!STORE_URL}>
+  <BreadcrumbJsonLd items={[{ name: 'Home', href: '/' }, { name: 'Chrome extension', href: '/chrome-extension/' }]} />
+  <WebPageJsonLd name="SummaryIn Chrome extension" description={description} path="/chrome-extension/" />
+
+  <section class="section ce-hero">
+    <div class="container narrow">
+      <div class="ce-installed" data-installed hidden>
+        <b>SummaryIn is installed.</b> Pin it so it is one click away: click the puzzle icon in the Chrome toolbar, then the pin next to SummaryIn. Then try it on the sample posting below.
+      </div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> <span>Chrome extension</span></nav>
+      <h1>A resume summary for the job you are reading</h1>
+      <p class="lead">Select a job posting on any site, right click, and get a summary tailored to it in the Chrome side panel.</p>
+      <div class="ce-cta">
+        {STORE_URL
+          ? <a class="btn btn-primary" href={STORE_URL} rel="noopener">Add to Chrome, it's free</a>
+          : <a class="btn btn-primary" href="/tailor-resume-summary/">Tailor a summary on the site</a>}
+      </div>
+      <div class="badges">
+        {['No account or sign-up', 'No resume upload', 'No access to your browsing'].map((t) => (
+          <span class="badge"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10.5l3.2 3.2L15 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{t}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle" aria-labelledby="how-h">
+    <div class="container narrow">
+      <h2 id="how-h">How it works</h2>
+      <ol class="ce-steps">
+        <li>
+          <h3>Select the posting and right click</h3>
+          <p>Highlight the job posting text on any page, then choose <b>Tailor my resume summary</b>. You can also click the SummaryIn icon while the text is selected.</p>
+          <img src="/images/chrome-extension/select.webp" width="1280" height="800" alt="Job posting text selected in Chrome with the Tailor my resume summary menu item" />
+        </li>
+        <li>
+          <h3>Tick the keywords you really have</h3>
+          <p>The side panel opens with the posting filled in. SummaryIn pulls its skills, tools and duties. Enter your job title, level, skills and a few facts once; they are remembered for the next posting.</p>
+          <img src="/images/chrome-extension/keywords.webp" width="1280" height="800" loading="lazy" alt="SummaryIn side panel with keywords from the posting ticked" />
+        </li>
+        <li>
+          <h3>Copy a summary written for that job</h3>
+          <p>Get two or three sentences built from your own facts, see which posting keywords are still missing, edit if needed, and copy.</p>
+          <img src="/images/chrome-extension/copy.webp" width="1280" height="800" loading="lazy" alt="Tailored resume summary in the side panel with the list of missing keywords" />
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="try-h">
+    <div class="container narrow">
+      <h2 id="try-h">Try it on a sample posting</h2>
+      <p class="muted">With the extension installed, select the text below, right click and choose <b>Tailor my resume summary</b>.</p>
+      <div class="card ce-sample">
+        <p><b>Customer Support Specialist</b></p>
+        <p>We are looking for a Customer Support Specialist to help our customers by email, chat and phone. You will resolve tickets in Zendesk, write help center articles, and work with the product team to report bugs.</p>
+        <p>Requirements: 1+ year in customer support, clear written English, experience with a help desk tool such as Zendesk or Freshdesk, and a calm approach to frustrated customers. Bonus: SaaS experience, basic SQL.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-subtle" aria-labelledby="priv-h">
+    <div class="container narrow">
+      <h2 id="priv-h">What the extension can and cannot see</h2>
+      <ul class="ce-list">
+        <li>It reads only the text you select, and only when you choose the menu item or click the icon.</li>
+        <li>It has no permission to read or change websites on its own, so Chrome shows no such warning when you install it.</li>
+        <li>The tool in the side panel is the same one as on <a href="/tailor-resume-summary/">summaryin.com</a>, with the same daily limit and the same checks against made-up details.</li>
+        <li>The selected posting and the details you enter are sent to an AI provider to write the summary. SummaryIn does not store them. See the <a href="/privacy/">privacy policy</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <Faq items={faq} heading="Chrome extension FAQ" />
+</Base>
+
+<script is:inline>
+  if (new URLSearchParams(location.search).get('installed') === '1') document.querySelector('[data-installed]').hidden = false;
+</script>
+
+<style>
+  .narrow { max-width: 760px; }
+  .crumbs { font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--ink-muted); }
+  .ce-installed { background: var(--success-soft); border: 1px solid var(--success); color: var(--ink); border-radius: var(--r-md); padding: 12px 16px; margin-bottom: 24px; }
+  .ce-cta { margin: 22px 0 18px; }
+  .ce-steps { list-style: none; padding: 0; margin: 20px 0 0; counter-reset: s; display: grid; gap: 36px; }
+  .ce-steps li { counter-increment: s; }
+  .ce-steps h3 { display: flex; align-items: center; gap: 10px; }
+  .ce-steps h3::before { content: counter(s); width: 28px; height: 28px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); font-size: 0.9rem; display: inline-grid; place-items: center; flex: none; }
+  .ce-steps p { color: var(--ink-soft); }
+  .ce-steps img { width: 100%; height: auto; border-radius: var(--r-md); border: 1px solid var(--border); box-shadow: var(--shadow-card); background: #fff; }
+  .ce-sample { margin-top: 14px; }
+  .ce-sample p:last-child { margin-bottom: 0; }
+  .ce-list { padding-left: 1.2em; color: var(--ink-soft); }
+  .ce-list li { margin-bottom: 8px; }
+</style>
